@@ -35,13 +35,31 @@ a:hover { text-decoration: underline; }
 
 /* ── Header ── */
 header {
-  border-bottom: 1px solid var(--border);
-  background: rgba(15,17,23,0.95);
-  backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 100;
+  background: #0c0f1a;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
+
+/* Chessboard strip */
+.header-board {
+  display: flex;
+  height: 6px;
+  width: 100%;
+}
+.header-board .sq {
+  flex: 1;
+  background: var(--border);
+}
+.header-board .sq:nth-child(odd) {
+  background: #3a4060;
+}
+.header-board .sq:nth-child(even) {
+  background: #0c0f1a;
+}
+
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -50,17 +68,46 @@ header {
   display: flex;
   align-items: center;
 }
+
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text);
-  font-weight: 700;
-  font-size: 1.05rem;
+  gap: 0.75rem;
   text-decoration: none;
 }
 .logo:hover { text-decoration: none; }
-.logo-icon { font-size: 1.3rem; }
+
+.logo-icon {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(91,141,238,0.6));
+}
+
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.logo-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, #e8eaf0 0%, #5b8dee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+}
 
 /* ── Main ── */
 main {
@@ -68,18 +115,8 @@ main {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 1.5rem 1.5rem 4rem;
+  padding: 1.25rem 1.5rem 4rem;
 }
-
-/* ── Hero ── */
-.hero { padding: 1.5rem 0 1.25rem; }
-.hero h1 {
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.3rem;
-}
-.hero p { color: var(--text-muted); font-size: 0.9rem; }
 
 /* ── Filters ── */
 .filters {
@@ -305,7 +342,6 @@ footer a:hover { color: var(--text); }
 }
 
 @media (max-width: 640px) {
-  .hero h1 { font-size: 1.4rem; }
   .filters { flex-direction: column; }
   .filter-group { min-width: unset; }
 }

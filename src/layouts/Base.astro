@@ -17,10 +17,16 @@ const base = import.meta.env.BASE_URL;
 </head>
 <body>
   <header>
+    <div class="header-board" aria-hidden="true">
+      {Array.from({length: 32}).map((_, i) => <span class="sq" />)}
+    </div>
     <div class="header-inner">
       <a href={base} class="logo">
         <span class="logo-icon">♟</span>
-        <span class="logo-text">Chess Tournament Calendar</span>
+        <div class="logo-text-group">
+          <span class="logo-title">Chess Tournament Calendar</span>
+          <span class="logo-sub">Long tournaments worldwide</span>
+        </div>
       </a>
     </div>
   </header>

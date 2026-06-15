@@ -71,7 +71,7 @@ const flagUrl = t.countryCode
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
       {t.city}, {t.country}
     </span>
-    <span class="trow-rounds">{t.rounds ? `${t.rounds}r` : `${days}d`}</span>
+    <span class="trow-rounds">{t.rounds ?? `${days}d`}</span>
     <span class="trow-players">{t.playersRegistered !== null ? `👥 ${t.playersRegistered}` : '—'}</span>
     <span class="trow-prize">{prize ?? '—'}</span>
     <span class="trow-entry">
