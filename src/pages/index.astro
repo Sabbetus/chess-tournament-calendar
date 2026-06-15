@@ -7,7 +7,6 @@ import tournamentsData from '../../data/tournaments.json';
 const featured = featuredData;
 const tournaments = tournamentsData;
 
-// Collect unique countries for filter
 const countries = [...new Set(tournaments.map((t: any) => t.country))].sort();
 
 const lastUpdated = new Date().toLocaleString('en-GB', {
@@ -63,46 +62,49 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
     <button class="filter-reset" id="filter-reset">Reset</button>
   </div>
 
-  <!-- Featured -->
-  <div class="section-label featured">★ Featured Tournaments</div>
-  <div class="tournament-grid">
+  <!-- Column headers -->
+  <div class="tlist-header">
+    <span class="th-name">Tournament</span>
+    <span class="th-dates">Dates</span>
+    <span class="th-location">Location</span>
+    <span class="th-rounds">Rounds</span>
+    <span class="th-players">Players</span>
+    <span class="th-prize">Prize</span>
+    <span class="th-entry">Entry</span>
+  </div>
+
+  <!-- Combined list: featured first, then regular -->
+  <ul class="tournament-list" id="tournament-list">
     {featured.map((t: any) => <TournamentCard tournament={t} featured={true} />)}
-  </div>
+    {tournaments.length > 0
+      ? tournaments.map((t: any) => <TournamentCard tournament={t} />)
+      : (
+        <li class="empty-state">
+          <span class="icon">♟</span>
+          <h3>No upcoming tournaments found</h3>
+          <p>Check back soon — the list is updated every 12 hours.</p>
+        </li>
+      )
+    }
+  </ul>
 
-  <!-- Main listing -->
-  <div class="section-label">Upcoming Tournaments</div>
-  <div class="count-bar" id="count-bar">
-    Showing <span id="visible-count">{tournaments.length}</span> of <span>{tournaments.length}</span> tournaments
+  <div class="count-bar">
+    Showing <span id="visible-count">{tournaments.length}</span> of {tournaments.length} tournaments
+    &nbsp;·&nbsp; Last updated: {lastUpdated}
   </div>
-
-  {tournaments.length === 0 ? (
-    <div class="empty-state">
-      <span class="icon">♟</span>
-      <h3>No tournaments yet</h3>
-      <p>The scraper hasn't run yet, or no upcoming long tournaments were found. Check back soon.</p>
-    </div>
-  ) : (
-    <div class="tournament-grid" id="tournament-grid">
-      {tournaments.map((t: any) => <TournamentCard tournament={t} />)}
-    </div>
-  )}
 
   <div class="empty-state" id="no-results" style="display:none;">
     <span class="icon">🔍</span>
     <h3>No matches</h3>
     <p>Try adjusting your filters.</p>
   </div>
-
-  <p style="font-size:0.75rem;color:var(--text-dim);margin-top:2rem;">
-    Last updated: {lastUpdated}
-  </p>
 </Base>
 
 <script>
-  const grid = document.getElementById('tournament-grid');
+  const list = document.getElementById('tournament-list');
   const noResults = document.getElementById('no-results');
   const countEl = document.getElementById('visible-count');
-  const cards = grid ? Array.from(grid.querySelectorAll<HTMLElement>('.card')) : [];
+  const rows = list ? Array.from(list.querySelectorAll<HTMLElement>('.trow:not(.trow-featured)')) : [];
 
   const fCountry = document.getElementById('f-country') as HTMLSelectElement;
   const fMonth   = document.getElementById('f-month') as HTMLSelectElement;
@@ -117,19 +119,18 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
     const search  = fSearch.value.toLowerCase().trim();
 
     let visible = 0;
-    cards.forEach(card => {
-      const matchCountry = !country || card.dataset.country === country;
-      const matchMonth   = !month || new Date(card.dataset.start + 'T00:00:00').getMonth() + 1 === parseInt(month);
-      const matchOpen    = !open  || (open === 'open' ? card.dataset.open === 'true' : card.dataset.open === 'false');
-      const matchSearch  = !search || card.textContent!.toLowerCase().includes(search);
+    rows.forEach(row => {
+      const matchCountry = !country || row.dataset.country === country;
+      const matchMonth   = !month || new Date(row.dataset.start + 'T00:00:00').getMonth() + 1 === parseInt(month);
+      const matchOpen    = !open  || (open === 'open' ? row.dataset.open === 'true' : row.dataset.open === 'false');
+      const matchSearch  = !search || row.textContent!.toLowerCase().includes(search);
       const show = matchCountry && matchMonth && matchOpen && matchSearch;
-      card.style.display = show ? '' : 'none';
+      row.style.display = show ? '' : 'none';
       if (show) visible++;
     });
 
     if (countEl) countEl.textContent = String(visible);
-    if (noResults) noResults.style.display = visible === 0 && cards.length > 0 ? 'block' : 'none';
-    if (grid) grid.style.display = visible === 0 ? 'none' : '';
+    if (noResults) noResults.style.display = visible === 0 && rows.length > 0 ? 'block' : 'none';
   }
 
   [fCountry, fMonth, fOpen].forEach(el => el?.addEventListener('change', applyFilters));

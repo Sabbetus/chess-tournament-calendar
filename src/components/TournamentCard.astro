@@ -28,11 +28,6 @@ export interface Props {
 
 const { tournament: t, featured = false } = Astro.props;
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr + 'T00:00:00');
-  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-}
-
 function formatDateRange(start: string, end: string) {
   const s = new Date(start + 'T00:00:00');
   const e = new Date(end + 'T00:00:00');
@@ -62,65 +57,31 @@ const flagUrl = t.countryCode
   : null;
 ---
 
-<article class={`card${featured ? ' featured' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate}>
-  <div class="card-header">
-    <h3 class="card-name">{t.name}</h3>
-    <div style="display:flex;gap:0.35rem;flex-wrap:wrap;justify-content:flex-end;">
-      {featured && <span class="badge badge-featured">★ Featured</span>}
+<li class={`trow${featured ? ' trow-featured' : ''}${t.description ? ' has-desc' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate}>
+  <div class="trow-main">
+    <span class="trow-name">
+      {featured && <span class="trow-star" title="Featured">★</span>}
+      {link
+        ? <a href={link} target="_blank" rel="noopener">{t.name}</a>
+        : t.name
+      }
+    </span>
+    <span class="trow-dates">{dateRange}</span>
+    <span class="trow-location">
+      {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
+      {t.city}, {t.country}
+    </span>
+    <span class="trow-rounds">{t.rounds ? `${t.rounds}r` : `${days}d`}</span>
+    <span class="trow-players">{t.playersRegistered !== null ? `👥 ${t.playersRegistered}` : '—'}</span>
+    <span class="trow-prize">{prize ?? '—'}</span>
+    <span class="trow-entry">
       {t.open
         ? <span class="badge badge-open">Open</span>
         : <span class="badge badge-rated">{t.ratingRequirement ? `≥${t.ratingRequirement}` : 'Rated'}</span>
       }
-    </div>
-  </div>
-
-  <div class="card-meta">
-    <div class="meta-item" style="grid-column: 1 / -1;">
-      <span class="meta-label">Dates</span>
-      <span class="meta-value accent">{dateRange}</span>
-    </div>
-
-    <div class="meta-item">
-      <span class="meta-label">Location</span>
-      <span class="meta-value">
-        {flagUrl && <img src={flagUrl} alt={t.country} width="16" height="12" style="display:inline;vertical-align:middle;margin-right:4px;border-radius:2px;" />}
-        {t.city}, {t.country}
-      </span>
-    </div>
-
-    <div class="meta-item">
-      <span class="meta-label">Duration</span>
-      <span class="meta-value">{days} days{t.rounds ? ` · ${t.rounds} rounds` : ''}</span>
-    </div>
-
-    <div class="meta-item">
-      <span class="meta-label">Players</span>
-      <span class={`meta-value${t.playersRegistered === null ? ' muted' : ''}`}>
-        {t.playersRegistered !== null ? `${t.playersRegistered.toLocaleString()} registered` : '—'}
-      </span>
-    </div>
-
-    <div class="meta-item">
-      <span class="meta-label">Prize Pool</span>
-      <span class={`meta-value${!prize ? ' muted' : ''}`}>
-        {prize ?? '—'}
-      </span>
-    </div>
-  </div>
-
-  {t.description && (
-    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:-0.25rem;">{t.description}</p>
-  )}
-
-  <div class="card-footer">
-    {link
-      ? <a href={link} class="card-link" target="_blank" rel="noopener">
-          {t.registrationOpen ? 'Register →' : 'More info →'}
-        </a>
-      : <span />
-    }
-    <span class={`reg-status${t.registrationOpen ? ' open' : ''}`}>
-      {t.registrationOpen ? '● Registration open' : 'Registration not yet open'}
     </span>
   </div>
-</article>
+  {t.description && (
+    <div class="trow-desc">{t.description}</div>
+  )}
+</li>
