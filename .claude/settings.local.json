@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(ls /Users/technomage/ChessTournamentCalendar 2>/dev/null || echo \"empty dir\" *)",
+      "Read(//opt/homebrew/**)",
+      "Read(//usr/**)"
+    ]
+  }
+}
