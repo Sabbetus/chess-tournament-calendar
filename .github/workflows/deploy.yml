@@ -3,6 +3,9 @@ name: Build and deploy site
 on:
   push:
     branches: [main]
+  workflow_run:
+    workflows: ["Scrape tournaments"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -20,9 +23,12 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
+        with:
+          ref: main
 
       - name: Set up Node
         uses: actions/setup-node@v4.4.0
