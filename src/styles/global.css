@@ -348,20 +348,40 @@ footer a:hover { color: var(--text); }
 @media (max-width: 900px) {
   .tlist-header { display: none; }
   .trow {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 0.2rem 0.75rem;
-    padding: 0.65rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.75rem;
   }
-  .trow-name    { grid-column: 1 / -1; }
-  .trow-dates   { grid-column: 1; color: var(--text-muted); }
-  .trow-location { grid-column: 2; }
-  .trow-duration { display: none; }
-  .trow-players  { display: none; }
-  .trow-desc    { grid-column: 1 / -1; }
+  .trow-main { display: contents; }
+  .trow-dates,
+  .trow-location,
+  .trow-duration,
+  .trow-players { display: none; }
+
+  .trow-name { font-size: 0.9rem; }
+  .trow-desc { margin-top: 0.1rem; }
+
+  .trow-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.2rem 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+  .trow-meta .trow-dates { display: inline; color: #5bbfcf; }
+  .trow-meta .trow-location { display: inline-flex; }
 }
 
 @media (max-width: 640px) {
+  .header-inner { height: auto; padding: 0.6rem 1rem; }
+  .logo { gap: 0.5rem; }
+  .logo-sep,
+  .logo-sub { display: none; }
+  .logo-title { font-size: 1.1rem; }
+  .logo-icon-box { width: 30px; height: 30px; font-size: 16px; }
+
   .filters { flex-direction: column; }
   .filter-group { min-width: unset; }
 }
