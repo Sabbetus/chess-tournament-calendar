@@ -15,9 +15,37 @@ const lastUpdated = new Date(metaData.lastUpdated).toLocaleString('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric',
   hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short'
 });
+
+function toEventSchema(t: any) {
+  return {
+    "@type": "Event",
+    "name": t.name,
+    "startDate": t.startDate,
+    "endDate": t.endDate,
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": t.city || t.country,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": t.city || undefined,
+        "addressCountry": t.countryCode || undefined,
+      },
+    },
+    "url": t.websiteUrl || t.registrationUrl || undefined,
+  };
+}
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@graph": [...featured, ...tournaments].map(toEventSchema),
+};
 ---
 
 <Base title="Chess Tournament Calendar — Long Classical Tournaments Worldwide">
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
   <p class="intro">Long classical chess tournaments (7+ days) from around the world, updated every 12 hours.</p>
 
   <div class="filters" id="filters">

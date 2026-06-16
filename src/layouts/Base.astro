@@ -2,25 +2,43 @@
 import '../styles/global.css';
 export interface Props {
   title?: string;
+  description?: string;
 }
-const { title = 'Chess Tournament Calendar' } = Astro.props;
+const {
+  title = 'Chess Tournament Calendar',
+  description = 'Find long classical chess tournaments (7+ days) worldwide. Updated every 12 hours.',
+} = Astro.props;
 const base = import.meta.env.BASE_URL;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Find long classical chess tournaments worldwide. Updated twice daily." />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
   <title>{title}</title>
-  <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+  <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:site_name" content="Chess Tournament Calendar" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
 </head>
 <body>
   <header>
     <div class="header-inner">
       <a href={base} class="logo">
         <div class="logo-icon-box">♟</div>
-        <span class="logo-title">Chess Tournament Calendar</span>
+        <h1 class="logo-title">Chess Tournament Calendar</h1>
         <span class="logo-sep">·</span>
         <span class="logo-sub">Long classical tournaments worldwide</span>
       </a>
