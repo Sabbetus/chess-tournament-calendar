@@ -119,6 +119,13 @@ main {
   padding: 1.25rem 1.5rem 4rem;
 }
 
+/* ── Intro ── */
+.intro {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
 /* ── Filters ── */
 .filters {
   display: flex;
