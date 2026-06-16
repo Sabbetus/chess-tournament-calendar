@@ -50,7 +50,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
 <Base title="Chess Tournament Calendar — Long Classical Tournaments Worldwide">
   <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
 
-  <p class="intro">Long classical chess tournaments (2-10 days) from around the world, updated every 12 hours.</p>
+  <p class="intro">Classical chess tournaments from around the world, updated every 12 hours.</p>
 
   <div class="filters" id="filters">
     <div class="filter-group">
@@ -76,6 +76,14 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
         <option value="10">October</option>
         <option value="11">November</option>
         <option value="12">December</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="f-duration">Duration</label>
+      <select id="f-duration">
+        <option value="">Any length</option>
+        <option value="long">7+ days</option>
+        <option value="short">Less than 7 days</option>
       </select>
     </div>
     <div class="filter-group">
@@ -134,6 +142,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
   const loadMoreBtn = document.getElementById('load-more');
   const fCountry = document.getElementById('f-country');
   const fMonth = document.getElementById('f-month');
+  const fDuration = document.getElementById('f-duration');
   const fSearch = document.getElementById('f-search');
   const resetBtn = document.getElementById('filter-reset');
 
@@ -213,13 +222,16 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
   function getFilteredSorted() {
     const country = fCountry.value;
     const month = fMonth.value;
+    const duration = fDuration.value;
     const search = fSearch.value.toLowerCase().trim();
 
     const result = allData.filter(t => {
       const matchCountry = !country || t.country === country;
       const matchMonth = !month || (new Date(t.startDate + 'T00:00:00').getMonth() + 1) === parseInt(month);
+      const days = durationDays(t.startDate, t.endDate);
+      const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
       const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
-      return matchCountry && matchMonth && matchSearch;
+      return matchCountry && matchMonth && matchDuration && matchSearch;
     });
 
     result.sort((a, b) => {
@@ -257,7 +269,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
   function arrowFor(key, dir) {
     if (key === 'players') return dir === 'desc' ? ' ↓' : ' ↑';
     if (key === 'date') return dir === 'asc' ? ' ↓' : ' ↑';
-    if (key === 'duration') return dir === 'asc' ? ' ↓' : ' ↑';
+    if (key === 'duration') return dir === 'desc' ? ' ↓' : ' ↑';
     return '';
   }
 
@@ -282,7 +294,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
         sortDir = sortDir === 'asc' ? 'desc' : 'asc';
       } else {
         sortKey = key;
-        sortDir = key === 'players' ? 'desc' : 'asc';
+        sortDir = (key === 'players' || key === 'duration') ? 'desc' : 'asc';
       }
       updateSortIcons();
       whenReady(renderFromScratch);
@@ -292,11 +304,12 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
 
   loadMoreBtn?.addEventListener('click', () => whenReady(renderMore));
 
-  [fCountry, fMonth].forEach(el => el?.addEventListener('change', () => whenReady(renderFromScratch)));
+  [fCountry, fMonth, fDuration].forEach(el => el?.addEventListener('change', () => whenReady(renderFromScratch)));
   fSearch?.addEventListener('input', () => whenReady(renderFromScratch));
   resetBtn?.addEventListener('click', () => {
     fCountry.value = '';
     fMonth.value = '';
+    fDuration.value = '';
     fSearch.value = '';
     whenReady(renderFromScratch);
   });

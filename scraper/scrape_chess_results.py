@@ -65,6 +65,9 @@ FIDE_TO_ISO = {
     "IRI": "IR", "IRQ": "IQ", "JOR": "JO", "LBN": "LB", "SYR": "SY",
     "AND": "AD", "CAT": "ES", "MDV": "MV", "ALG": "DZ",
     "URU": "UY", "BOT": "BW", "GCI": "GG", "ECU": "EC",
+    "CIV": "CI", "CPV": "CV", "CRC": "CR", "CUB": "CU", "DOM": "DO",
+    "FAI": "FO", "GUA": "GT", "HKG": "HK", "KEN": "KE", "KOS": "XK",
+    "NZL": "NZ", "OMA": "OM", "PAN": "PA", "PUR": "PR", "ZAM": "ZM",
 }
 
 FIDE_TO_NAME = {
@@ -96,6 +99,11 @@ FIDE_TO_NAME = {
     "SYR": "Syria", "MEX": "Mexico", "COL": "Colombia", "PER": "Peru",
     "CHI": "Chile", "VEN": "Venezuela", "URU": "Uruguay", "ECU": "Ecuador",
     "BOT": "Botswana", "GCI": "Guernsey", "ACC": "ASEAN",
+    "CIV": "Côte d'Ivoire", "CPV": "Cape Verde", "CRC": "Costa Rica",
+    "CUB": "Cuba", "DOM": "Dominican Republic", "FAI": "Faroe Islands",
+    "GUA": "Guatemala", "HKG": "Hong Kong", "KEN": "Kenya", "KOS": "Kosovo",
+    "NZL": "New Zealand", "OMA": "Oman", "PAN": "Panama",
+    "PUR": "Puerto Rico", "ZAM": "Zambia",
 }
 
 
@@ -292,9 +300,34 @@ def scrape():
     return tournaments
 
 
+MIN_ABSOLUTE_TOURNAMENTS = 200
+
+
+def previous_tournament_count():
+    if not OUTPUT_PATH.exists():
+        return None
+    try:
+        with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+            return len(json.load(f))
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
 def main():
     tournaments = scrape()
     print(f"[INFO] {len(tournaments)} tournaments pass the {MIN_DURATION_DAYS}-{MAX_DURATION_DAYS} day filter.")
+
+    previous_count = previous_tournament_count()
+    floor = max(MIN_ABSOLUTE_TOURNAMENTS, (previous_count or 0) // 2)
+    if len(tournaments) < floor:
+        print(
+            f"[ERROR] Only {len(tournaments)} tournaments found, which is below the "
+            f"safety floor of {floor} (previous run had {previous_count}). "
+            f"This looks like a partial scrape failure (e.g. a search window "
+            f"returned 0 results unexpectedly). Refusing to overwrite "
+            f"{OUTPUT_PATH} and {META_PATH}."
+        )
+        sys.exit(1)
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
