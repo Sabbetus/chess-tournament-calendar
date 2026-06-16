@@ -37,6 +37,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
 OUTPUT_PATH = Path(__file__).parent.parent / "data" / "tournaments.json"
+META_PATH = Path(__file__).parent.parent / "data" / "meta.json"
 SEARCH_URL = "https://chess-results.com/TurnierSuche.aspx?lan=1"
 BASE_URL = "https://chess-results.com/"
 MIN_DURATION_DAYS = 7
@@ -299,6 +300,10 @@ def main():
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(tournaments, f, ensure_ascii=False, indent=2)
     print(f"[INFO] Written to {OUTPUT_PATH}")
+
+    with open(META_PATH, "w", encoding="utf-8") as f:
+        json.dump({"lastUpdated": datetime.utcnow().isoformat() + "Z"}, f, indent=2)
+    print(f"[INFO] Written to {META_PATH}")
 
 
 if __name__ == "__main__":
