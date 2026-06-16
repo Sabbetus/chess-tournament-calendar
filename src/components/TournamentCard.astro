@@ -74,7 +74,7 @@ const flagUrl = t.countryCode
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location">
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
-      <span class="trow-location-text">{t.city}, {t.country}</span>
+      <span class="trow-location-city">{t.city}, </span><span class="trow-location-country">{t.country}</span>
     </span>
     <span class="trow-info">
       <span>{days} days</span>
