@@ -36,12 +36,12 @@ from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright
 
-OUTPUT_PATH = Path(__file__).parent.parent / "data" / "tournaments.json"
-META_PATH = Path(__file__).parent.parent / "data" / "meta.json"
+OUTPUT_PATH = Path(__file__).parent.parent / "public" / "data" / "tournaments.json"
+META_PATH = Path(__file__).parent.parent / "public" / "data" / "meta.json"
 SEARCH_URL = "https://chess-results.com/TurnierSuche.aspx?lan=1"
 BASE_URL = "https://chess-results.com/"
-MIN_DURATION_DAYS = 7
-MAX_DURATION_DAYS = 14
+MIN_DURATION_DAYS = 2
+MAX_DURATION_DAYS = 10
 
 # 3-letter FIDE codes to ISO 2-letter
 FIDE_TO_ISO = {
@@ -294,7 +294,7 @@ def scrape():
 
 def main():
     tournaments = scrape()
-    print(f"[INFO] {len(tournaments)} tournaments pass the {MIN_DURATION_DAYS}+ day filter.")
+    print(f"[INFO] {len(tournaments)} tournaments pass the {MIN_DURATION_DAYS}-{MAX_DURATION_DAYS} day filter.")
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:

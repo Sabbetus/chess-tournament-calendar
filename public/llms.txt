@@ -1,8 +1,8 @@
 # Chess Tournament Calendar
 
-> A calendar of long classical chess tournaments (7+ days) from around the world. Tournament data is sourced from chess-results.com and updated automatically every 12 hours.
+> A calendar of classical (standard time control) chess tournaments lasting 2-10 days, from around the world. Tournament data is sourced from chess-results.com and updated automatically every 12 hours.
 
-This site lists upcoming, open-entry classical chess tournaments that run for at least 7 days, including dates, location, duration, and number of players registered. It excludes tournaments that have already started, tournaments under 7 days, and rapid/blitz events.
+This site lists upcoming, open-entry classical chess tournaments running 2-10 days, including dates, location, duration, and number of players registered. It excludes tournaments that have already started, tournaments outside the 2-10 day range, non-Latin-alphabet tournament names, and rapid/blitz events.
 
 Each tournament entry includes:
 - Name and registration/info link
