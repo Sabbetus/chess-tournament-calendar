@@ -354,6 +354,8 @@ footer a:hover { color: var(--text); }
     flex-direction: column;
     gap: 0.3rem;
     padding: 0.75rem;
+    min-width: 0;
+    overflow: hidden;
   }
   .trow-main { display: contents; }
   .trow-dates,
@@ -370,15 +372,24 @@ footer a:hover { color: var(--text); }
     gap: 0.15rem;
     color: var(--text-muted);
     font-size: 0.8rem;
+    min-width: 0;
+    overflow: hidden;
   }
-  .trow-meta .trow-dates { display: block; color: #5bbfcf; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .trow-meta .trow-dates { display: block; color: #5bbfcf; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .trow-meta .trow-location {
     display: flex;
     align-items: center;
+    gap: 0.3rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 100%;
+    min-width: 0;
+  }
+  .trow-meta .trow-location img { flex-shrink: 0; }
+  .trow-meta .trow-location .trow-location-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
   }
   .trow-meta .trow-info { display: flex; gap: 0.75rem; }
 }
