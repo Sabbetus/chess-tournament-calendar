@@ -191,7 +191,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
     const nameInner = link
       ? `<a href="${escapeHTML(link)}" target="_blank" rel="noopener">${name}</a>`
       : name;
-    const flagImg = flag ? `<img src="${flag}" alt="${country}" width="14" height="11" loading="lazy">` : '';
+    const flagImg = flag ? `<img src="${flag}" alt="${country}" title="${country}" width="14" height="11" loading="lazy">` : '';
     const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;
     const playersText = hasPlayers ? t.playersRegistered : '—';
     const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}</span>` : '';
@@ -200,7 +200,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
       <div class="trow-main">
         <span class="trow-name"><span class="trow-name-text" title="${name}">${nameInner}</span></span>
         <span class="trow-dates">${dateRange}</span>
-        <span class="trow-location">${flagImg}${city}, ${country}</span>
+        <span class="trow-location" title="${city}, ${country}">${flagImg}${city}, ${country}</span>
         <span class="trow-duration">${days} days</span>
         <span class="trow-players">${playersText}</span>
       </div>
