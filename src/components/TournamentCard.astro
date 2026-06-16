@@ -72,14 +72,14 @@ const flagUrl = t.countryCode
   </div>
   <div class="trow-meta">
     <span class="trow-dates">{dateRange}</span>
-    <span>·</span>
     <span class="trow-location">
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
       {t.city}, {t.country}
     </span>
-    <span>·</span>
-    <span>{days} days</span>
-    {t.playersRegistered !== null && <><span>·</span><span>👥 {t.playersRegistered}</span></>}
+    <span class="trow-info">
+      <span>{days} days</span>
+      {t.playersRegistered !== null && <span>👥 {t.playersRegistered}</span>}
+    </span>
   </div>
   {t.description && (
     <div class="trow-desc">{t.description}</div>
