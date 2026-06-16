@@ -298,6 +298,23 @@ main {
 }
 
 
+/* ── Instant hover tooltip ── */
+#hover-tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  background: #1e2336;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  white-space: nowrap;
+}
+#hover-tooltip.visible { opacity: 1; }
+
 /* ── Load more ── */
 .load-more {
   display: block;

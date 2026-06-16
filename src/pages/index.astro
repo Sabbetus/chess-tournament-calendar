@@ -131,6 +131,8 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
     <h3>No matches</h3>
     <p>Try adjusting your filters.</p>
   </div>
+
+  <div id="hover-tooltip"></div>
 </Base>
 
 <script define:vars={{ dataUrl, pageSize: PAGE_SIZE }}>
@@ -191,7 +193,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
     const nameInner = link
       ? `<a href="${escapeHTML(link)}" target="_blank" rel="noopener">${name}</a>`
       : name;
-    const flagImg = flag ? `<img src="${flag}" alt="${country}" title="${country}" width="14" height="11" loading="lazy">` : '';
+    const flagImg = flag ? `<img src="${flag}" alt="${country}" width="14" height="11" loading="lazy">` : '';
     const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;
     const playersText = hasPlayers ? t.playersRegistered : '—';
     const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}</span>` : '';
@@ -200,7 +202,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
       <div class="trow-main">
         <span class="trow-name"><span class="trow-name-text" title="${name}">${nameInner}</span></span>
         <span class="trow-dates">${dateRange}</span>
-        <span class="trow-location" title="${city}, ${country}">${flagImg}${city}, ${country}</span>
+        <span class="trow-location" data-tooltip="${city}, ${country}">${flagImg}${city}, ${country}</span>
         <span class="trow-duration">${days} days</span>
         <span class="trow-players">${playersText}</span>
       </div>
@@ -326,4 +328,39 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
       }
     })
     .catch(err => console.error('Failed to load tournament data', err));
+
+  // ── Instant hover tooltip (native title has a ~1s browser delay) ──
+  const tooltip = document.getElementById('hover-tooltip');
+  let tooltipTarget = null;
+
+  function positionTooltip(e) {
+    const offset = 14;
+    let x = e.clientX + offset;
+    let y = e.clientY + offset;
+    const rect = tooltip.getBoundingClientRect();
+    if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - offset;
+    if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - offset;
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+  }
+
+  document.addEventListener('mouseover', e => {
+    const target = e.target.closest('[data-tooltip]');
+    if (!target || target === tooltipTarget) return;
+    tooltipTarget = target;
+    tooltip.textContent = target.dataset.tooltip;
+    tooltip.classList.add('visible');
+    positionTooltip(e);
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (tooltipTarget) positionTooltip(e);
+  });
+
+  document.addEventListener('mouseout', e => {
+    if (tooltipTarget && !e.relatedTarget?.closest('[data-tooltip]')) {
+      tooltipTarget = null;
+      tooltip.classList.remove('visible');
+    }
+  });
 </script>

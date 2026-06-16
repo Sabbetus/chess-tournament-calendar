@@ -63,8 +63,8 @@ const flagUrl = t.countryCode
       </span>
     </span>
     <span class="trow-dates">{dateRange}</span>
-    <span class="trow-location" title={`${t.city}, ${t.country}`}>
-      {flagUrl && <img src={flagUrl} alt={t.country} title={t.country} width="14" height="11" loading="lazy" />}
+    <span class="trow-location" data-tooltip={`${t.city}, ${t.country}`}>
+      {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
       {t.city}, {t.country}
     </span>
     <span class="trow-duration">{days} days</span>
