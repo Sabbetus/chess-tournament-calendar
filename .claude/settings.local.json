@@ -4,7 +4,14 @@
       "Bash(npm --version)",
       "Bash(ls /Users/technomage/ChessTournamentCalendar 2>/dev/null || echo \"empty dir\" *)",
       "Read(//opt/homebrew/**)",
-      "Read(//usr/**)"
+      "Read(//usr/**)",
+      "WebFetch(domain:nordicchess.fi)",
+      "Bash(git add *)",
+      "Bash(git reset *)",
+      "Bash(git commit *)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
