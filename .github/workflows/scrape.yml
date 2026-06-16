@@ -2,8 +2,8 @@ name: Scrape tournaments
 
 on:
   schedule:
-    # Every 12 hours: midnight and noon UTC
-    - cron: '0 0,12 * * *'
+    # Every 12 hours: 70 minutes past midnight and noon UTC (avoids top-of-hour congestion)
+    - cron: '10 1,13 * * *'
   workflow_dispatch:  # allow manual trigger
 
 permissions:
