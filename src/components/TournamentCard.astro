@@ -42,44 +42,33 @@ function durationDays(start: string, end: string) {
   return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
 }
 
-function formatPrize(amount: number | null, currency: string | undefined) {
-  if (!amount) return null;
-  const sym = currency === 'EUR' ? '€' : currency === 'USD' ? '$' : (currency ?? '');
-  return `${sym}${amount.toLocaleString()}`;
-}
 
 const dateRange = formatDateRange(t.startDate, t.endDate);
 const days = durationDays(t.startDate, t.endDate);
-const prize = formatPrize(t.prizePool, t.currency);
 const link = t.registrationUrl || t.websiteUrl;
 const flagUrl = t.countryCode
   ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png`
   : null;
 ---
 
-<li class={`trow${featured ? ' trow-featured' : ''}${t.description ? ' has-desc' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate}>
+<li class={`trow${featured ? ' trow-featured' : ''}${t.description ? ' has-desc' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate} data-duration={days} data-players={t.playersRegistered ?? -1}>
   <div class="trow-main">
     <span class="trow-name">
       {featured && <span class="trow-star" title="Featured">★</span>}
-      {link
-        ? <a href={link} target="_blank" rel="noopener">{t.name}</a>
-        : t.name
-      }
+      <span class="trow-name-text" title={t.name}>
+        {link
+          ? <a href={link} target="_blank" rel="noopener">{t.name}</a>
+          : t.name
+        }
+      </span>
     </span>
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location">
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
       {t.city}, {t.country}
     </span>
-    <span class="trow-rounds">{t.rounds ?? `${days}d`}</span>
-    <span class="trow-players">{t.playersRegistered !== null ? `👥 ${t.playersRegistered}` : '—'}</span>
-    <span class="trow-prize">{prize ?? '—'}</span>
-    <span class="trow-entry">
-      {t.open
-        ? <span class="badge badge-open">Open</span>
-        : <span class="badge badge-rated">{t.ratingRequirement ? `≥${t.ratingRequirement}` : 'Rated'}</span>
-      }
-    </span>
+    <span class="trow-duration">{days} days</span>
+    <span class="trow-players">{t.playersRegistered !== null ? t.playersRegistered : '—'}</span>
   </div>
   {t.description && (
     <div class="trow-desc">{t.description}</div>

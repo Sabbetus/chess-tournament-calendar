@@ -11,22 +11,20 @@ const base = import.meta.env.BASE_URL;
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Find long chess tournaments worldwide. Updated twice daily." />
+  <meta name="description" content="Find long classical chess tournaments worldwide. Updated twice daily." />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
-    <div class="header-board" aria-hidden="true">
-      {Array.from({length: 32}).map((_, i) => <span class="sq" />)}
-    </div>
     <div class="header-inner">
       <a href={base} class="logo">
-        <span class="logo-icon">♟</span>
-        <div class="logo-text-group">
-          <span class="logo-title">Chess Tournament Calendar</span>
-          <span class="logo-sub">Long tournaments worldwide</span>
-        </div>
+        <div class="logo-icon-box">♟</div>
+        <span class="logo-title">Chess Tournament Calendar</span>
+        <span class="logo-sep">·</span>
+        <span class="logo-sub">Long classical tournaments worldwide</span>
       </a>
     </div>
   </header>

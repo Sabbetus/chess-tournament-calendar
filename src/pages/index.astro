@@ -5,7 +5,8 @@ import featuredData from '../../data/featured.json';
 import tournamentsData from '../../data/tournaments.json';
 
 const featured = featuredData;
-const tournaments = tournamentsData;
+const tournaments = tournamentsData as any[];
+const INITIAL_VISIBLE = 100;
 
 const countries = [...new Set(tournaments.map((t: any) => t.country))].sort();
 
@@ -15,7 +16,7 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
 });
 ---
 
-<Base title="Chess Tournament Calendar — Long Tournaments Worldwide">
+<Base title="Chess Tournament Calendar — Long Classical Tournaments Worldwide">
   <div class="filters" id="filters">
     <div class="filter-group">
       <label for="f-country">Country</label>
@@ -43,14 +44,6 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
       </select>
     </div>
     <div class="filter-group">
-      <label for="f-open">Entry</label>
-      <select id="f-open">
-        <option value="">Any</option>
-        <option value="open">Open to all</option>
-        <option value="rated">Rating required</option>
-      </select>
-    </div>
-    <div class="filter-group">
       <label for="f-search">Search</label>
       <input id="f-search" type="text" placeholder="Tournament name…" />
     </div>
@@ -60,19 +53,19 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
   <!-- Column headers -->
   <div class="tlist-header">
     <span class="th-name">Tournament</span>
-    <span class="th-dates">Dates</span>
+    <span class="th-dates th-sortable" data-sort="date">Dates <span class="sort-icon"></span></span>
     <span class="th-location">Location</span>
-    <span class="th-rounds">Rounds</span>
-    <span class="th-players">Players</span>
-    <span class="th-prize">Prize</span>
-    <span class="th-entry">Entry</span>
+    <span class="th-duration th-sortable" data-sort="duration">Duration <span class="sort-icon"></span></span>
+    <span class="th-players th-sortable" data-sort="players">Players <span class="sort-icon"></span></span>
   </div>
 
   <!-- Combined list: featured first, then regular -->
   <ul class="tournament-list" id="tournament-list">
     {featured.map((t: any) => <TournamentCard tournament={t} featured={true} />)}
     {tournaments.length > 0
-      ? tournaments.map((t: any) => <TournamentCard tournament={t} />)
+      ? tournaments.map((t: any, i: number) => (
+          <TournamentCard tournament={t} />
+        ))
       : (
         <li class="empty-state">
           <span class="icon">♟</span>
@@ -83,8 +76,14 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
     }
   </ul>
 
+  {tournaments.length > INITIAL_VISIBLE && (
+    <button class="load-more" id="load-more">
+      Show all {tournaments.length} tournaments
+    </button>
+  )}
+
   <div class="count-bar">
-    Showing <span id="visible-count">{tournaments.length}</span> of {tournaments.length} tournaments
+    Showing <span id="visible-count">{Math.min(INITIAL_VISIBLE, tournaments.length)}</span> of <span id="total-count">{tournaments.length}</span> tournaments
     &nbsp;·&nbsp; Last updated: {lastUpdated}
   </div>
 
@@ -96,44 +95,139 @@ const lastUpdated = new Date().toLocaleString('en-GB', {
 </Base>
 
 <script>
+  const INITIAL = 100;
   const list = document.getElementById('tournament-list');
   const noResults = document.getElementById('no-results');
   const countEl = document.getElementById('visible-count');
-  const rows = list ? Array.from(list.querySelectorAll<HTMLElement>('.trow:not(.trow-featured)')) : [];
+  const loadMoreBtn = document.getElementById('load-more') as HTMLButtonElement | null;
+  const allRows = list ? Array.from(list.querySelectorAll<HTMLElement>('.trow:not(.trow-featured)')) : [];
+
+  // ── Sorting ──
+  type SortKey = 'date' | 'duration' | 'players';
+  type SortDir = 'asc' | 'desc';
+  let sortKey: SortKey = 'date';
+  let sortDir: SortDir = 'asc';
+  const defaultOrder = [...allRows]; // preserve original DOM order
+
+  function getValue(row: HTMLElement, key: SortKey): number {
+    if (key === 'date') return new Date(row.dataset.start + 'T00:00:00').getTime();
+    if (key === 'duration') return parseInt(row.dataset.duration ?? '0');
+    if (key === 'players') return parseInt(row.dataset.players ?? '-1');
+    return 0;
+  }
+
+  function sortRows() {
+    const rows = sortKey === 'date' && sortDir === 'asc'
+      ? [...defaultOrder]
+      : [...allRows].sort((a, b) => {
+          const av = getValue(a, sortKey);
+          const bv = getValue(b, sortKey);
+          // Push unknown players (-1) to the bottom regardless of sort direction
+          if (sortKey === 'players') {
+            if (av === -1 && bv === -1) return 0;
+            if (av === -1) return 1;
+            if (bv === -1) return -1;
+          }
+          return sortDir === 'asc' ? av - bv : bv - av;
+        });
+
+    rows.forEach(row => list?.appendChild(row));
+    allRows.length = 0;
+    allRows.push(...rows);
+  }
+
+  function arrowFor(key: SortKey, dir: SortDir): string {
+    // Players: ↓ = desc (most first) ✓, ↑ = asc
+    // Dates:   ↓ = asc (soonest first), ↑ = desc
+    // Duration: ↑ = desc (longest first), ↓ = asc
+    if (key === 'players') return dir === 'desc' ? ' ↓' : ' ↑';
+    if (key === 'date')    return dir === 'asc'  ? ' ↓' : ' ↑';
+    if (key === 'duration') return dir === 'asc'  ? ' ↓' : ' ↑';
+    return '';
+  }
+
+  function updateSortIcons() {
+    document.querySelectorAll<HTMLElement>('.th-sortable').forEach(th => {
+      const icon = th.querySelector('.sort-icon');
+      if (!icon) return;
+      if (th.dataset.sort === sortKey) {
+        icon.textContent = arrowFor(sortKey, sortDir);
+        th.classList.add('th-sorted');
+      } else {
+        icon.textContent = '';
+        th.classList.remove('th-sorted');
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('.th-sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.sort as SortKey;
+      if (sortKey === key) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortKey = key;
+        // Date and duration default asc; players defaults desc (most first)
+        sortDir = key === 'players' ? 'desc' : 'asc';
+      }
+      sortRows();
+      updateSortIcons();
+      applyFilters();
+    });
+  });
+
+  updateSortIcons();
+
+  let showAll = false;
+
+  // Hide rows beyond INITIAL on load
+  allRows.forEach((row, i) => {
+    if (i >= INITIAL) row.classList.add('trow-hidden');
+  });
+
+  loadMoreBtn?.addEventListener('click', () => {
+    showAll = true;
+    allRows.forEach(row => row.classList.remove('trow-hidden'));
+    loadMoreBtn.style.display = 'none';
+    applyFilters();
+  });
 
   const fCountry = document.getElementById('f-country') as HTMLSelectElement;
   const fMonth   = document.getElementById('f-month') as HTMLSelectElement;
-  const fOpen    = document.getElementById('f-open') as HTMLSelectElement;
   const fSearch  = document.getElementById('f-search') as HTMLInputElement;
   const resetBtn = document.getElementById('filter-reset');
 
   function applyFilters() {
     const country = fCountry.value;
     const month   = fMonth.value;
-    const open    = fOpen.value;
     const search  = fSearch.value.toLowerCase().trim();
+    const isFiltering = !!(country || month || search);
 
     let visible = 0;
-    rows.forEach(row => {
+    allRows.forEach((row, i) => {
+      const hidden = !showAll && !isFiltering && i >= INITIAL;
+      if (hidden) { row.classList.add('trow-hidden'); return; }
+      row.classList.remove('trow-hidden');
+
       const matchCountry = !country || row.dataset.country === country;
       const matchMonth   = !month || new Date(row.dataset.start + 'T00:00:00').getMonth() + 1 === parseInt(month);
-      const matchOpen    = !open  || (open === 'open' ? row.dataset.open === 'true' : row.dataset.open === 'false');
       const matchSearch  = !search || row.textContent!.toLowerCase().includes(search);
-      const show = matchCountry && matchMonth && matchOpen && matchSearch;
+      const show = matchCountry && matchMonth && matchSearch;
       row.style.display = show ? '' : 'none';
       if (show) visible++;
     });
 
-    if (countEl) countEl.textContent = String(visible);
-    if (noResults) noResults.style.display = visible === 0 && rows.length > 0 ? 'block' : 'none';
+    // When filtering, show load-more only if not yet expanded
+    if (loadMoreBtn) loadMoreBtn.style.display = (!showAll && !isFiltering) ? '' : 'none';
+    if (countEl) countEl.textContent = String(isFiltering ? visible : Math.min(showAll ? allRows.length : INITIAL, allRows.length));
+    if (noResults) noResults.style.display = visible === 0 && isFiltering ? 'block' : 'none';
   }
 
-  [fCountry, fMonth, fOpen].forEach(el => el?.addEventListener('change', applyFilters));
+  [fCountry, fMonth].forEach(el => el?.addEventListener('change', applyFilters));
   fSearch?.addEventListener('input', applyFilters);
   resetBtn?.addEventListener('click', () => {
     fCountry.value = '';
     fMonth.value   = '';
-    fOpen.value    = '';
     fSearch.value  = '';
     applyFilters();
   });
