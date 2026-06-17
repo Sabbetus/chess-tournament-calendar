@@ -37,6 +37,13 @@ const ogImageURL = new URL('og-image.png', Astro.site);
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Chess Tournament Calendar",
+    "url": "https://chesstournamentcalendar.com"
+  })} />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PME2NXTXQR"></script>
   <script>
