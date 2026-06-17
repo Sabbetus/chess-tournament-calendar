@@ -7,7 +7,7 @@ import metaData from '../../public/data/meta.json';
 
 const featured = featuredData;
 const tournaments = tournamentsData as any[]; // pre-sorted by startDate asc
-const PAGE_SIZE = 100;
+const PAGE_SIZE = 50;
 const JSONLD_CAP = 200;
 
 const countries = [...new Set(tournaments.map((t: any) => t.country).filter(Boolean))].sort();
