@@ -112,7 +112,20 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
   <ul class="tournament-list" id="tournament-list">
     {featured.map((t: any) => <TournamentCard tournament={t} featured={true} />)}
     {initialTournaments.length > 0
-      ? initialTournaments.map((t: any) => <TournamentCard tournament={t} />)
+      ? (() => {
+          let lastMonth = '';
+          return initialTournaments.flatMap((t: any) => {
+            const d = new Date(t.startDate + 'T00:00:00');
+            const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+            const monthLabel = d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+            const sep = monthKey !== lastMonth
+              ? <li class="month-separator"><span class="month-separator-label">{monthLabel}</span></li>
+              : null;
+            lastMonth = monthKey;
+            return sep ? [sep, <TournamentCard tournament={t} />] : [<TournamentCard tournament={t} />];
+
+          });
+        })()
       : (
         <li class="empty-state">
           <span class="icon">♟</span>
@@ -160,6 +173,7 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
   let renderedCount = PAGE_SIZE; // matches the server-rendered initial page
   let sortKey = 'date';
   let sortDir = 'asc';
+  let lastRenderedMonth = '';
 
   function whenReady(fn) {
     if (dataReady) fn();
@@ -256,16 +270,33 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
     return result;
   }
 
+  function monthSeparatorHTML(t) {
+    const d = new Date(t.startDate + 'T00:00:00');
+    const label = d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    return `<li class="month-separator"><span class="month-separator-label">${label}</span></li>`;
+  }
+
   function renderFromScratch() {
-    list.querySelectorAll('.trow:not(.trow-featured)').forEach(el => el.remove());
+    list.querySelectorAll('.trow:not(.trow-featured), .month-separator').forEach(el => el.remove());
     renderedCount = 0;
+    lastRenderedMonth = '';
     renderMore();
   }
 
   function renderMore() {
     const filtered = getFilteredSorted();
     const next = filtered.slice(renderedCount, renderedCount + PAGE_SIZE);
-    list.insertAdjacentHTML('beforeend', next.map(rowHTML).join(''));
+    const html = next.map(t => {
+      const d = new Date(t.startDate + 'T00:00:00');
+      const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+      let sep = '';
+      if (monthKey !== lastRenderedMonth) {
+        sep = monthSeparatorHTML(t);
+        lastRenderedMonth = monthKey;
+      }
+      return sep + rowHTML(t);
+    }).join('');
+    list.insertAdjacentHTML('beforeend', html);
     renderedCount += next.length;
 
     countEl.textContent = String(Math.min(renderedCount, filtered.length));
@@ -327,6 +358,10 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
     .then(data => {
       allData = data;
       dataReady = true;
+      if (lastRenderedMonth === '' && allData[renderedCount - 1]) {
+        const d = new Date(allData[renderedCount - 1].startDate + 'T00:00:00');
+        lastRenderedMonth = `${d.getFullYear()}-${d.getMonth()}`;
+      }
       if (pendingFn) {
         const fn = pendingFn;
         pendingFn = null;

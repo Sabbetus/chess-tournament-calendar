@@ -298,6 +298,24 @@ main {
 }
 
 
+/* ── Month separator ── */
+.month-separator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  list-style: none;
+}
+.month-separator-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  color: #5bbfcf;
+  white-space: nowrap;
+}
+
 /* ── Instant hover tooltip ── */
 #hover-tooltip {
   position: fixed;
