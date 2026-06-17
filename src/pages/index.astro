@@ -185,13 +185,13 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
   function rowHTML(t) {
     const days = durationDays(t.startDate, t.endDate);
     const dateRange = formatDateRange(t.startDate, t.endDate);
-    const link = t.registrationUrl || t.websiteUrl;
+    const detailUrl = t.slug ? `/tournament/${t.slug}` : null;
     const flag = flagUrl(t);
     const name = escapeHTML(t.name);
     const city = escapeHTML(t.city);
     const country = escapeHTML(t.country);
-    const nameInner = link
-      ? `<a href="${escapeHTML(link)}" target="_blank" rel="noopener">${name}</a>`
+    const nameInner = detailUrl
+      ? `<a href="${detailUrl}">${name}</a>`
       : name;
     const flagImg = flag ? `<img src="${flag}" alt="${country}" width="14" height="11" loading="lazy">` : '';
     const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;

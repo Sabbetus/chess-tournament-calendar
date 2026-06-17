@@ -1,0 +1,336 @@
+---
+import Base from '../../layouts/Base.astro';
+import archiveData from '../../../public/data/archive.json';
+import featuredData from '../../../data/featured.json';
+
+export async function getStaticPaths() {
+  const archive = archiveData as any[];
+  const featured = (featuredData as any[]).map((t: any) => ({ ...t, status: 'upcoming' }));
+  const archiveIds = new Set(archive.map((t: any) => t.id));
+  const all = [...archive, ...featured.filter((t: any) => !archiveIds.has(t.id))];
+  return all.map((t: any) => ({
+    params: { slug: t.slug },
+    props: { tournament: t, all },
+  }));
+}
+
+const { tournament: t, all } = Astro.props;
+
+function durationDays(start: string, end: string) {
+  const s = new Date(start + 'T00:00:00');
+  const e = new Date(end + 'T00:00:00');
+  return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+}
+
+function formatDateRange(start: string, end: string) {
+  const s = new Date(start + 'T00:00:00');
+  const e = new Date(end + 'T00:00:00');
+  const sStr = s.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  const eStr = e.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  return `${sStr} – ${eStr}`;
+}
+
+const CONTINENT: Record<string, string> = {
+  FI:'EU',SE:'EU',NO:'EU',DK:'EU',IS:'EU',GB:'EU',IE:'EU',FR:'EU',ES:'EU',PT:'EU',
+  DE:'EU',AT:'EU',CH:'EU',NL:'EU',BE:'EU',LU:'EU',IT:'EU',GR:'EU',CY:'EU',MT:'EU',
+  PL:'EU',CZ:'EU',SK:'EU',HU:'EU',RO:'EU',BG:'EU',RS:'EU',HR:'EU',SI:'EU',BA:'EU',
+  ME:'EU',MK:'EU',AL:'EU',XK:'EU',LT:'EU',LV:'EU',EE:'EU',BY:'EU',UA:'EU',MD:'EU',
+  RU:'EU',GE:'AS',AM:'AS',AZ:'AS',TR:'AS',
+  IN:'AS',CN:'AS',JP:'AS',KR:'AS',TH:'AS',VN:'AS',PH:'AS',ID:'AS',MY:'AS',SG:'AS',
+  PK:'AS',BD:'AS',LK:'AS',NP:'AS',MN:'AS',UZ:'AS',KZ:'AS',KG:'AS',TM:'AS',
+  AE:'AS',QA:'AS',KW:'AS',SA:'AS',IR:'AS',IQ:'AS',JO:'AS',LB:'AS',SY:'AS',IL:'AS',
+  HK:'AS',
+  US:'NA',CA:'NA',MX:'NA',GT:'NA',CR:'NA',CU:'NA',DO:'NA',PA:'NA',PR:'NA',
+  BR:'SA',AR:'SA',CL:'SA',CO:'SA',PE:'SA',VE:'SA',UY:'SA',EC:'SA',
+  AU:'OC',NZ:'OC',
+  ZA:'AF',EG:'AF',MA:'AF',TN:'AF',DZ:'AF',KE:'AF',BW:'AF',ZM:'AF',CI:'AF',CV:'AF',
+};
+
+function getContinent(countryCode: string | null): string {
+  return (countryCode && CONTINENT[countryCode]) || 'XX';
+}
+
+function meaningfulWords(name: string): string[] {
+  return name.toLowerCase().split(/\s+/).filter(w => w.length > 1 && w !== '--');
+}
+
+function isSameFamily(a: string, b: string): boolean {
+  const wa = meaningfulWords(a);
+  const wb = meaningfulWords(b);
+  const prefixLen = Math.min(3, wa.length, wb.length);
+  if (wa.slice(0, prefixLen).join(' ') === wb.slice(0, prefixLen).join(' ')) return true;
+  const setA = new Set(wa);
+  const setB = new Set(wb);
+  const intersection = [...setA].filter(w => setB.has(w)).length;
+  const union = new Set([...setA, ...setB]).size;
+  return intersection / union > 0.6;
+}
+
+function nameJaccard(a: string, b: string): number {
+  const wa = new Set(a.toLowerCase().split(/\s+/));
+  const wb = new Set(b.toLowerCase().split(/\s+/));
+  const intersection = [...wa].filter(w => wb.has(w)).length;
+  const union = new Set([...wa, ...wb]).size;
+  return intersection / union;
+}
+
+function scoreSimilar(candidate: any, target: any): number {
+  if (candidate.id === target.id) return -1;
+  if (candidate.status === 'concluded') return -1;
+  if (isSameFamily(candidate.name, target.name)) return -1;
+
+  const tDays = durationDays(target.startDate, target.endDate);
+  const cDays = durationDays(candidate.startDate, candidate.endDate);
+  if (Math.abs(tDays - cDays) > 3) return -1;
+
+  let score = 0;
+
+  const tStart = new Date(target.startDate + 'T00:00:00').getTime();
+  const cStart = new Date(candidate.startDate + 'T00:00:00').getTime();
+  const daysDiff = Math.abs((cStart - tStart) / (1000 * 60 * 60 * 24));
+  score += Math.max(0, 14 - daysDiff) / 14 * 45;
+
+  if (candidate.country === target.country) score += 25;
+  const sameContinent = getContinent(candidate.countryCode) === getContinent(target.countryCode);
+  if (!sameContinent) score -= 30;
+
+  score += Math.max(0, 3 - Math.abs(tDays - cDays)) * 3;
+
+  if (target.rounds && candidate.rounds) {
+    score += Math.max(0, 3 - Math.abs(target.rounds - candidate.rounds));
+  }
+
+  return score;
+}
+
+const upcoming = (all as any[]).filter((x: any) => x.status === 'upcoming' && x.id !== t.id);
+
+const similar: any[] = [];
+const scored = upcoming
+  .map((x: any) => ({ t: x, score: scoreSimilar(x, t) }))
+  .filter(({ score }) => score > 0)
+  .sort((a: any, b: any) => b.score - a.score);
+
+for (const { t: candidate } of scored) {
+  if (similar.length >= 5) break;
+  const tooSimilarToSelected = similar.some(
+    (s: any) => isSameFamily(candidate.name, s.name)
+  );
+  if (!tooSimilarToSelected) similar.push(candidate);
+}
+
+// Fallback: closest upcoming by date if nothing scored
+const fallback = similar.length === 0
+  ? upcoming.sort((a: any, b: any) => a.startDate.localeCompare(b.startDate)).slice(0, 5)
+  : [];
+
+const similarList = similar.length > 0 ? similar : fallback;
+
+const days = durationDays(t.startDate, t.endDate);
+const dateRange = formatDateRange(t.startDate, t.endDate);
+const flagUrl = t.countryCode ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png` : null;
+const mapQuery = encodeURIComponent(`${t.city}, ${t.country}`);
+const isConcluded = t.status === 'concluded';
+
+const gcalUrl = (() => {
+  const fmt = (d: string) => d.replace(/-/g, '');
+  const endDate = new Date(t.endDate + 'T00:00:00');
+  endDate.setDate(endDate.getDate() + 1);
+  const endStr = endDate.toISOString().slice(0, 10).replace(/-/g, '');
+  const location = [t.city, t.country].filter(Boolean).join(', ');
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: t.name,
+    dates: `${fmt(t.startDate)}/${endStr}`,
+    location,
+  });
+  return `https://calendar.google.com/calendar/render?${params}`;
+})();
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": t.name,
+  "startDate": t.startDate,
+  "endDate": t.endDate,
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": isConcluded
+    ? "https://schema.org/EventPostponed"
+    : "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": t.city || t.country,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": t.city || undefined,
+      "addressCountry": t.countryCode || undefined,
+    },
+  },
+  "url": t.registrationUrl || t.websiteUrl || undefined,
+};
+
+const base = import.meta.env.BASE_URL;
+const pageTitle = `${t.name} — Chess Tournament Calendar`;
+const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. Classical chess tournament.`;
+---
+
+<Base title={pageTitle} description={pageDesc}>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+
+  <a href={base} class="back-link">← Back to calendar</a>
+
+  {isConcluded && (
+    <div class="concluded-notice">This tournament has already taken place.</div>
+  )}
+
+  <h2 class="page-title tournament-title">{t.name}</h2>
+  <div class="tournament-location">
+    {flagUrl && <img src={flagUrl} alt={t.country} width="18" height="13" />}
+    <span>{t.city ? `${t.city}, ` : ''}{t.country}</span>
+  </div>
+
+  <div class="fact-grid">
+    <div class="fact-card">
+      <div class="fact-label">Dates</div>
+      <div class="fact-value fact-dates">{dateRange}</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-label">Duration</div>
+      <div class="fact-value">{days} days</div>
+    </div>
+    {t.rounds && (
+      <div class="fact-card">
+        <div class="fact-label">Rounds</div>
+        <div class="fact-value">{t.rounds}</div>
+      </div>
+    )}
+    {t.timeControlRaw && (
+      <div class="fact-card">
+        <div class="fact-label">Time control</div>
+        <div class="fact-value">{t.timeControlRaw}</div>
+      </div>
+    )}
+    {t.playersRegistered !== null && t.playersRegistered !== undefined && (
+      <div class="fact-card">
+        <div class="fact-label">Registered</div>
+        <div class="fact-value">{t.playersRegistered} players</div>
+      </div>
+    )}
+  </div>
+
+  <div class="tournament-actions">
+    {(t.registrationUrl || t.websiteUrl) && (
+      <a href={t.registrationUrl || t.websiteUrl} target="_blank" rel="noopener" class="btn-primary">
+        {t.source === 'manual' ? 'Visit tournament website ↗' : 'More details at chess-results.com ↗'}
+      </a>
+    )}
+    <a href={gcalUrl} target="_blank" rel="noopener" class="btn-secondary">
+      Add to Google Calendar
+    </a>
+    <button class="btn-secondary" id="ics-btn">
+      Add to other calendars
+    </button>
+  </div>
+
+  <div class="section-label">Location</div>
+  <div class="map-wrapper">
+    <iframe
+      title={`Map of ${t.city || t.country}`}
+      src={`https://maps.google.com/maps?q=${mapQuery}&output=embed&z=12`}
+      width="100%"
+      height="260"
+      style="border:0;"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+  <div id="hover-tooltip"></div>
+
+  {similarList.length > 0 && (
+    <>
+      <div class="section-label">Similar tournaments</div>
+      <ul class="similar-list">
+        {similarList.map((s: any) => {
+          const sDays = durationDays(s.startDate, s.endDate);
+          const sFlag = s.countryCode ? `https://flagcdn.com/20x15/${s.countryCode.toLowerCase()}.png` : null;
+          const sStart = new Date(s.startDate + 'T00:00:00');
+          const sEnd = new Date(s.endDate + 'T00:00:00');
+          const sDateStr = `${sStart.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })} – ${sEnd.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}`;
+          return (
+            <li class="similar-row">
+              <a href={`${base}tournament/${s.slug}`} class="similar-link">
+                <span class="similar-location" data-tooltip={`${s.city}, ${s.country}`}>
+                  {sFlag && <img src={sFlag} alt={s.country} width="16" height="12" loading="lazy" />}
+                </span>
+                <span class="similar-name">{s.name}</span>
+                <span class="similar-dates">{sDateStr}</span>
+                <span class="similar-duration">{sDays} days</span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  )}
+</Base>
+
+<script>
+  const tooltip = document.getElementById('hover-tooltip');
+  let tooltipTarget = null;
+  function positionTooltip(e) {
+    const offset = 14;
+    let x = e.clientX + offset;
+    let y = e.clientY + offset;
+    const rect = tooltip.getBoundingClientRect();
+    if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - offset;
+    if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - offset;
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+  }
+  document.addEventListener('mouseover', e => {
+    const target = e.target.closest('[data-tooltip]');
+    if (!target || target === tooltipTarget) return;
+    tooltipTarget = target;
+    tooltip.textContent = target.dataset.tooltip;
+    tooltip.classList.add('visible');
+    positionTooltip(e);
+  });
+  document.addEventListener('mousemove', e => { if (tooltipTarget) positionTooltip(e); });
+  document.addEventListener('mouseout', e => {
+    if (tooltipTarget && !e.relatedTarget?.closest('[data-tooltip]')) {
+      tooltipTarget = null;
+      tooltip.classList.remove('visible');
+    }
+  });
+</script>
+
+<script define:vars={{ tName: t.name, tStart: t.startDate, tEnd: t.endDate, tCity: t.city, tCountry: t.country }}>
+  document.getElementById('ics-btn')?.addEventListener('click', () => {
+    const fmt = (d) => d.replace(/-/g, '');
+    const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const location = [tCity, tCountry].filter(Boolean).join(', ');
+    const ics = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Chess Tournament Calendar//EN',
+      'BEGIN:VEVENT',
+      `UID:${tStart}-${tEnd}-${Math.random().toString(36).slice(2)}@chesstournamentcalendar.com`,
+      `DTSTAMP:${now}`,
+      `DTSTART;VALUE=DATE:${fmt(tStart)}`,
+      `DTEND;VALUE=DATE:${fmt(tEnd)}`,
+      `SUMMARY:${tName}`,
+      `LOCATION:${location}`,
+      'END:VEVENT',
+      'END:VCALENDAR',
+    ].join('\r\n');
+
+    const blob = new Blob([ics], { type: 'text/calendar' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${tName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.ics`;
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+</script>
