@@ -10,7 +10,22 @@ const tournaments = tournamentsData as any[]; // pre-sorted by startDate asc
 const PAGE_SIZE = 50;
 const JSONLD_CAP = 200;
 
-const countries = [...new Set(tournaments.map((t: any) => t.country).filter(Boolean))].sort();
+const allForCounts = [...tournaments, ...featured];
+const countryCounts: Record<string, number> = {};
+for (const t of allForCounts) {
+  if (t.country) countryCounts[t.country] = (countryCounts[t.country] || 0) + 1;
+}
+const countries = Object.keys(countryCounts).sort();
+
+const monthCounts: Record<number, number> = {};
+for (const t of allForCounts) {
+  const m = new Date(t.startDate + 'T00:00:00').getMonth() + 1;
+  monthCounts[m] = (monthCounts[m] || 0) + 1;
+}
+const MONTH_NAMES: Record<number, string> = {
+  1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',
+  7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'
+};
 
 const lastUpdated = new Date(metaData.lastUpdated).toLocaleString('en-GB', {
   day: 'numeric', month: 'short', year: 'numeric',
@@ -57,25 +72,16 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
       <label for="f-country">Country</label>
       <select id="f-country">
         <option value="">All countries</option>
-        {countries.map((c: any) => <option value={c}>{c}</option>)}
+        {countries.map((c: any) => <option value={c}>{c} ({countryCounts[c]})</option>)}
       </select>
     </div>
     <div class="filter-group">
       <label for="f-month">Month</label>
       <select id="f-month">
         <option value="">Any month</option>
-        <option value="1">January</option>
-        <option value="2">February</option>
-        <option value="3">March</option>
-        <option value="4">April</option>
-        <option value="5">May</option>
-        <option value="6">June</option>
-        <option value="7">July</option>
-        <option value="8">August</option>
-        <option value="9">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
+        {Object.entries(MONTH_NAMES).map(([num, name]) => monthCounts[Number(num)] ? (
+          <option value={num}>{name} ({monthCounts[Number(num)]})</option>
+        ) : null)}
       </select>
     </div>
     <div class="filter-group">

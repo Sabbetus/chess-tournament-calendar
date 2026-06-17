@@ -216,8 +216,21 @@ def parse_rows(page):
         country_name = FIDE_TO_NAME.get(fide_code, fide_code) if fide_code else ""
         iso_code = FIDE_TO_ISO.get(fide_code)
 
-        # City at index 12
+        # City at index 12 — may contain ", Country Name" suffix for team events
         city = texts[12] if len(texts) > 12 else ""
+        all_country_names = set(FIDE_TO_NAME.values())
+        for known_country in sorted(all_country_names, key=len, reverse=True):
+            suffix = f", {known_country}"
+            if city.endswith(suffix):
+                city = city[: -len(suffix)].strip()
+                # Override country only if current mapping looks wrong
+                fide_for_city = next(
+                    (k for k, v in FIDE_TO_NAME.items() if v == known_country), None
+                )
+                if fide_for_city and known_country != country_name:
+                    country_name = known_country
+                    iso_code = FIDE_TO_ISO.get(fide_for_city, iso_code)
+                break
 
         # Rounds at index 7 (may be empty or like "7")
         rounds = parse_int(texts[7]) if len(texts) > 7 else None
