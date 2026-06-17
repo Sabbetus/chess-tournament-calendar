@@ -37,6 +37,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
 OUTPUT_PATH = Path(__file__).parent.parent / "public" / "data" / "tournaments.json"
+ARCHIVE_PATH = Path(__file__).parent.parent / "public" / "data" / "archive.json"
 META_PATH = Path(__file__).parent.parent / "public" / "data" / "meta.json"
 SEARCH_URL = "https://chess-results.com/TurnierSuche.aspx?lan=1"
 BASE_URL = "https://chess-results.com/"
@@ -145,6 +146,15 @@ def normalize_time_control(raw):
             return label
     return None
 
+def slugify(name, tnr_id):
+    slug = name.lower()
+    slug = re.sub(r"[^\w\s-]", "", slug)
+    slug = re.sub(r"[\s_]+", "-", slug).strip("-")
+    slug = re.sub(r"-+", "-", slug)
+    tnr_num = tnr_id.replace("chess-results-", "").replace("cr-", "")
+    return f"{slug}-{tnr_num}"
+
+
 def parse_int(s):
     if not s:
         return None
@@ -190,6 +200,7 @@ def parse_rows(page):
 
         tnr_match = re.search(r"tnr(\d+)", detail_url or "")
         tid = f"chess-results-{tnr_match.group(1)}" if tnr_match else f"cr-{abs(hash(name + str(start_date))) % 10**8}"
+        slug = slugify(name, tid)
 
         if not is_latin_name(name):
             continue
@@ -216,8 +227,10 @@ def parse_rows(page):
         # Players at index 17
         players = parse_int(texts[17]) if len(texts) > 17 else None
 
+        raw_tc = texts[13] if len(texts) > 13 else None
         tournaments.append({
             "id": tid,
+            "slug": slug,
             "name": name,
             "startDate": start_date.isoformat(),
             "endDate": end_date.isoformat(),
@@ -225,7 +238,8 @@ def parse_rows(page):
             "country": country_name,
             "countryCode": iso_code,
             "rounds": rounds,
-            "timeControl": normalize_time_control(texts[13] if len(texts) > 13 else None),
+            "timeControl": normalize_time_control(raw_tc),
+            "timeControlRaw": raw_tc if raw_tc else None,
             "playersRegistered": players,
             "prizePool": None,
             "currency": None,
@@ -313,6 +327,69 @@ def previous_tournament_count():
         return None
 
 
+def load_archive():
+    if ARCHIVE_PATH.exists():
+        try:
+            with open(ARCHIVE_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, OSError):
+            pass
+    # Seed from tournaments.json on first run
+    if OUTPUT_PATH.exists():
+        try:
+            with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+                existing = json.load(f)
+            print(f"[INFO] Seeding archive from {OUTPUT_PATH} ({len(existing)} entries).")
+            return existing
+        except (json.JSONDecodeError, OSError):
+            pass
+    return []
+
+
+def merge_into_archive(scraped, archive):
+    today = date.today().isoformat()
+    by_id = {t["id"]: t for t in archive}
+
+    for t in scraped:
+        existing = by_id.get(t["id"])
+        if existing:
+            existing.update({
+                "name": t["name"],
+                "slug": t["slug"],
+                "startDate": t["startDate"],
+                "endDate": t["endDate"],
+                "city": t["city"],
+                "country": t["country"],
+                "countryCode": t["countryCode"],
+                "rounds": t["rounds"],
+                "timeControl": t["timeControl"],
+                "timeControlRaw": t["timeControlRaw"],
+                "playersRegistered": t["playersRegistered"],
+                "registrationUrl": t["registrationUrl"],
+                "websiteUrl": t["websiteUrl"],
+                "lastSeen": today,
+            })
+        else:
+            t["firstSeen"] = today
+            t["lastSeen"] = today
+            by_id[t["id"]] = t
+
+    for t in by_id.values():
+        t["status"] = "concluded" if t["startDate"] <= today else "upcoming"
+        # Ensure slug exists on entries seeded from old data
+        if "slug" not in t:
+            t["slug"] = slugify(t["name"], t["id"])
+        # Ensure new fields exist on old entries
+        if "timeControlRaw" not in t:
+            t["timeControlRaw"] = None
+        if "firstSeen" not in t:
+            t["firstSeen"] = today
+        if "lastSeen" not in t:
+            t["lastSeen"] = today
+
+    return sorted(by_id.values(), key=lambda t: t["startDate"])
+
+
 def main():
     tournaments = scrape()
     print(f"[INFO] {len(tournaments)} tournaments pass the {MIN_DURATION_DAYS}-{MAX_DURATION_DAYS} day filter.")
@@ -330,9 +407,18 @@ def main():
         sys.exit(1)
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    # Write upcoming-only list (front page payload)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(tournaments, f, ensure_ascii=False, indent=2)
     print(f"[INFO] Written to {OUTPUT_PATH}")
+
+    # Merge into archive
+    archive = load_archive()
+    merged = merge_into_archive(tournaments, archive)
+    with open(ARCHIVE_PATH, "w", encoding="utf-8") as f:
+        json.dump(merged, f, ensure_ascii=False, indent=2)
+    print(f"[INFO] Archive updated: {len(merged)} total entries ({sum(1 for t in merged if t['status'] == 'upcoming')} upcoming, {sum(1 for t in merged if t['status'] == 'concluded')} concluded). Written to {ARCHIVE_PATH}")
 
     with open(META_PATH, "w", encoding="utf-8") as f:
         json.dump({"lastUpdated": datetime.utcnow().isoformat() + "Z"}, f, indent=2)
