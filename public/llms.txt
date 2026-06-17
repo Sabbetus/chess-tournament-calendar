@@ -4,6 +4,17 @@
 
 This site lists upcoming, open-entry classical chess tournaments, including dates, location, duration, and number of players registered. It excludes tournaments that have already started, non-Latin-alphabet tournament names, and rapid/blitz events.
 
+## Pages
+
+- [Tournament Calendar](https://chesstournamentcalendar.com/): Full list of upcoming classical chess tournaments worldwide, filterable by country, month, and duration.
+- [Contact & Feedback](https://chesstournamentcalendar.com/contact): Send feedback, report issues, or enquire about tournament partnerships.
+
+## Data
+
+- [Tournament data (JSON)](https://chesstournamentcalendar.com/data/tournaments.json): Machine-readable list of all tournaments. Updated every 12 hours.
+
+## Details
+
 Each tournament entry includes:
 - Name and registration/info link
 - Start and end dates
