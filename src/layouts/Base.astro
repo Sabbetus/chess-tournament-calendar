@@ -6,7 +6,7 @@ export interface Props {
 }
 const {
   title = 'Chess Tournament Calendar',
-  description = 'Find classical chess tournaments worldwide. Updated every 12 hours.',
+  description = 'Find classical and rapid chess tournaments worldwide. Updated every 12 hours.',
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -60,7 +60,7 @@ const ogImageURL = new URL('og-image.png', Astro.site);
         <div class="logo-icon-box">♟</div>
         <h1 class="logo-title">Chess Tournament Calendar</h1>
         <span class="logo-sep">·</span>
-        <span class="logo-sub">Classical tournaments worldwide</span>
+        <span class="logo-sub">Chess tournaments worldwide</span>
       </a>
     </div>
   </header>

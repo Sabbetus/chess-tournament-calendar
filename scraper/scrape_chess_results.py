@@ -41,7 +41,7 @@ ARCHIVE_PATH = Path(__file__).parent.parent / "public" / "data" / "archive.json"
 META_PATH = Path(__file__).parent.parent / "public" / "data" / "meta.json"
 SEARCH_URL = "https://chess-results.com/TurnierSuche.aspx?lan=1"
 BASE_URL = "https://chess-results.com/"
-MIN_DURATION_DAYS = 2
+MIN_DURATION_DAYS = 1
 MAX_DURATION_DAYS = 10
 
 # 3-letter FIDE codes to ISO 2-letter
@@ -94,7 +94,7 @@ FIDE_TO_NAME = {
     "PHI": "Philippines", "INA": "Indonesia", "SGP": "Singapore",
     "PAK": "Pakistan", "BAN": "Bangladesh", "SRI": "Sri Lanka",
     "NPL": "Nepal", "MGL": "Mongolia", "UZB": "Uzbekistan",
-    "KGZ": "Kyrgyzstan", "TKM": "Turkmenistan", "UAE": "UAE",
+    "KGZ": "Kyrgyzstan", "TKM": "Turkmenistan", "UAE": "United Arab Emirates",
     "QAT": "Qatar", "KUW": "Kuwait", "KSA": "Saudi Arabia",
     "IRI": "Iran", "IRQ": "Iraq", "JOR": "Jordan", "LBN": "Lebanon",
     "SYR": "Syria", "MEX": "Mexico", "COL": "Colombia", "PER": "Peru",
@@ -105,6 +105,9 @@ FIDE_TO_NAME = {
     "GUA": "Guatemala", "HKG": "Hong Kong", "KEN": "Kenya", "KOS": "Kosovo",
     "NZL": "New Zealand", "OMA": "Oman", "PAN": "Panama",
     "PUR": "Puerto Rico", "ZAM": "Zambia",
+    "BRN": "Bahrain", "JAM": "Jamaica", "LCA": "Saint Lucia",
+    "MNC": "Monaco", "NCA": "Nicaragua", "NEP": "Nepal",
+    "NGR": "Nigeria", "PLE": "Palestine", "UGA": "Uganda",
 }
 
 
@@ -269,22 +272,27 @@ def parse_rows(page):
     return tournaments
 
 
-def month_windows(start: date, days_ahead: int = 365):
-    """Yield (from_date, to_date) pairs covering one quarter each."""
-    current = start
-    end_limit = start + timedelta(days=days_ahead)
-    while current < end_limit:
-        window_end = min(current + timedelta(days=91), end_limit)
-        yield current, window_end
-        current = window_end + timedelta(days=1)
+def search_windows(today: date):
+    """Return four search windows as (date_from, date_to, time_control) tuples."""
+    one_month_out = today + timedelta(days=31)
+    one_year_out = today + timedelta(days=365)
+    far_from = one_month_out + timedelta(days=1)
+    return [
+        (today,      one_month_out, "1"),  # Standard, next month
+        (today,      one_month_out, "2"),  # Rapid, next month
+        (far_from,   one_year_out,  "1"),  # Standard, months 2-12
+        (far_from,   one_year_out,  "2"),  # Rapid, months 2-12
+    ]
 
 
-def search_window(page, date_from: str, date_to: str):
+def search_window(page, date_from: str, date_to: str, time_control: str = "1"):
     page.fill('input[name="ctl00$P1$txt_von_tag"]', date_from)
     page.fill('input[name="ctl00$P1$txt_bis_tag"]', date_to)
-    page.select_option('select[name="ctl00$P1$combo_bedenkzeit"]', "1")  # Standard only
+    page.select_option('select[name="ctl00$P1$combo_bedenkzeit"]', time_control)
+    page.select_option('select[name="ctl00$P1$combo_art"]', "0")  # Swiss-System only
     page.select_option('select[name="ctl00$P1$combo_anzahl_zeilen"]', "5")  # 2000 rows
-    print(f"[INFO] Searching {date_from} → {date_to}…")
+    tc_label = {"0": "All", "1": "Standard", "2": "Rapid"}.get(time_control, time_control)
+    print(f"[INFO] Searching {date_from} → {date_to} ({tc_label}, Swiss-System)…")
     page.click('input[name="ctl00$P1$cb_suchen"]', force=True)
     page.wait_for_load_state("domcontentloaded", timeout=60000)
     page.wait_for_timeout(1500)
@@ -315,8 +323,8 @@ def scrape():
         page.goto(SEARCH_URL, wait_until="domcontentloaded", timeout=60000)
 
         all_tournaments = {}  # id → tournament, deduped across windows
-        for win_from, win_to in month_windows(today):
-            search_window(page, win_from.strftime("%Y-%m-%d"), win_to.strftime("%Y-%m-%d"))
+        for win_from, win_to, time_control in search_windows(today):
+            search_window(page, win_from.strftime("%Y-%m-%d"), win_to.strftime("%Y-%m-%d"), time_control)
             batch = parse_rows(page)
             for t in batch:
                 all_tournaments[t["id"]] = t

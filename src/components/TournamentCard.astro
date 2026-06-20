@@ -51,19 +51,22 @@ const link = detailUrl || t.registrationUrl || t.websiteUrl;
 const flagUrl = t.countryCode
   ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png`
   : null;
+const tcLabel = t.timeControl === 'Rapid' ? 'Rapid' : 'Classical';
+const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
 ---
 
 <li class={`trow${featured ? ' trow-featured' : ''}${t.description ? ' has-desc' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate} data-duration={days} data-players={t.playersRegistered ?? -1}>
   <div class="trow-main">
     <span class="trow-name">
       {featured && <span class="trow-star" title="Featured">★</span>}
-      <span class="trow-name-text" title={t.name}>
+      <span class="trow-name-text">
         {link
           ? <a href={link} target="_blank" rel="noopener">{t.name}</a>
           : t.name
         }
       </span>
     </span>
+    <span class="trow-tc"><span class={`tc-badge ${tcClass}`}>{tcLabel}</span></span>
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location" data-tooltip={`${t.city}, ${t.country}`}>
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
@@ -80,6 +83,7 @@ const flagUrl = t.countryCode
     </span>
     <span class="trow-info">
       <span>{days} days</span>
+      <span class={`tc-badge ${tcClass}`}>{tcLabel}</span>
       {t.playersRegistered !== null && <span>👥 {t.playersRegistered}</span>}
     </span>
   </div>

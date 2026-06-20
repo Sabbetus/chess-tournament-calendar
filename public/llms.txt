@@ -1,12 +1,12 @@
 # Chess Tournament Calendar
 
-> A calendar of classical (standard time control) chess tournaments from around the world. Tournament data is sourced from chess-results.com and updated automatically every 12 hours.
+> A calendar of classical and rapid chess tournaments from around the world. Tournament data is sourced from chess-results.com and updated automatically every 12 hours.
 
-This site lists upcoming, open-entry classical chess tournaments, including dates, location, duration, and number of players registered. It excludes tournaments that have already started, non-Latin-alphabet tournament names, and rapid/blitz events.
+This site lists upcoming, open-entry chess tournaments (both classical and rapid time controls), including dates, location, duration, number of players registered, and time control information.
 
 ## Pages
 
-- [Tournament Calendar](https://chesstournamentcalendar.com/): Full list of upcoming classical chess tournaments worldwide, filterable by country, month, and duration.
+- [Tournament Calendar](https://chesstournamentcalendar.com/): Full list of upcoming chess tournaments worldwide, filterable by country, month, duration, and time control (Classical / Rapid).
 - [Contact & Feedback](https://chesstournamentcalendar.com/contact): Send feedback, report issues, or enquire about tournament partnerships.
 
 ## Data
@@ -20,6 +20,7 @@ Each tournament entry includes:
 - Start and end dates
 - City and country
 - Duration in days
+- Time control (Classical or Rapid)
 - Number of players currently registered (when available)
 
 The page embeds structured data (schema.org Event, JSON-LD) for each tournament listed.
