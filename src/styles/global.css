@@ -388,11 +388,12 @@ main {
 
 /* Filter button groups */
 .filter-btn-group {
-  display: flex;
+  display: inline-flex;
   gap: 0;
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid var(--border);
+  align-self: flex-start;
 }
 .filter-btn {
   background: transparent;
@@ -734,4 +735,25 @@ footer p a:hover { color: var(--text); }
 
   .filters { flex-direction: column; }
   .filter-group { min-width: unset; }
+
+  .similar-link {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.4rem 0.6rem;
+  }
+  .similar-name {
+    flex: 1;
+    min-width: 0;
+  }
+  .similar-link .tc-badge,
+  .similar-dates,
+  .similar-duration {
+    flex-shrink: 0;
+  }
+  /* Force badge+dates+duration onto their own line below flag+name */
+  .similar-location { order: 1; flex-shrink: 0; }
+  .similar-name     { order: 2; flex: 0 0 calc(100% - 2rem); }
+  .similar-link .tc-badge { order: 3; margin-right: 0.4rem; margin-left: 2rem; min-width: unset; }
+  .similar-dates    { order: 4; min-width: unset; }
+  .similar-duration { order: 5; min-width: unset; text-align: left; }
 }
