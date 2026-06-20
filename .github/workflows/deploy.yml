@@ -56,3 +56,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Ping Google sitemap
+        run: curl -sf "https://www.google.com/ping?sitemap=https://chesstournamentcalendar.com/sitemap-index.xml" || true
