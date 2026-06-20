@@ -753,7 +753,7 @@ footer p a:hover { color: var(--text); }
   /* Force badge+dates+duration onto their own line below flag+name */
   .similar-location { order: 1; flex-shrink: 0; }
   .similar-name     { order: 2; flex: 0 0 calc(100% - 2rem); }
-  .similar-link .tc-badge { order: 3; margin-right: 0.4rem; margin-left: 2rem; min-width: unset; }
+  .similar-link .tc-badge { order: 3; margin-right: 0.4rem; margin-left: 2rem; min-width: 5.2rem; }
   .similar-dates    { order: 4; min-width: unset; }
   .similar-duration { order: 5; min-width: unset; text-align: left; }
 }
