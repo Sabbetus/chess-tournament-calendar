@@ -649,7 +649,7 @@ main {
 .similar-dates { font-size: 0.8rem; color: #5bbfcf; white-space: nowrap; min-width: 7rem; }
 .similar-duration { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; min-width: 50px; text-align: right; }
 .similar-location { display: flex; align-items: center; cursor: default; }
-.similar-meta { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+.similar-meta { display: flex; align-items: center; gap: 0.35rem; flex-shrink: 0; }
 .similar-badge-col { display: inline-flex; align-items: center; min-width: 5.4rem; flex-shrink: 0; }
 .similar-link .tc-badge { vertical-align: unset; margin-left: 0; }
 
