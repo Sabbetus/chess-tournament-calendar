@@ -1,13 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getTranslations } from '../i18n/index.ts';
+const t = getTranslations('en');
 ---
 
 <Base title="Contact & Feedback — Chess Tournament Calendar" description="Get in touch about the Chess Tournament Calendar — feedback, corrections, or tournament submissions." lang="en" currentPath="contact">
-  <h2 class="page-title">Contact &amp; feedback</h2>
-  <p class="intro">
-    Spotted an issue, have feedback on the site, or want your tournament considered for the featured section?
-    Send a message below.
-  </p>
+  <h2 class="page-title">{t.contact_title}</h2>
+  <p class="intro">{t.contact_intro}</p>
 
   <form id="contact-form" class="contact-form">
     <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
