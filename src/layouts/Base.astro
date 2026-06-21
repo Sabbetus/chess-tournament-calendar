@@ -1,19 +1,29 @@
 ---
 import '../styles/global.css';
+import { SUPPORTED_LANGS, langUrl } from '../i18n/index.ts';
+
 export interface Props {
   title?: string;
   description?: string;
+  lang?: string;
+  currentPath?: string;
 }
 const {
   title = 'Chess Tournament Calendar',
   description = 'Find classical and rapid chess tournaments worldwide. Updated every 12 hours.',
+  lang = 'en',
+  currentPath = '',
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL('og-image.png', Astro.site);
+
+const langLabels: Record<string, string> = {
+  en: 'EN', es: 'ES', pt: 'PT', de: 'DE', cs: 'CS', fi: 'FI',
+};
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +31,12 @@ const ogImageURL = new URL('og-image.png', Astro.site);
   <link rel="canonical" href={canonicalURL} />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+
+  <!-- hreflang alternates -->
+  {SUPPORTED_LANGS.map(l => (
+    <link rel="alternate" hreflang={l} href={`https://chesstournamentcalendar.com${langUrl(l, currentPath)}`} />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={`https://chesstournamentcalendar.com${currentPath ? `/${currentPath}` : '/'}`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -44,6 +60,33 @@ const ogImageURL = new URL('og-image.png', Astro.site);
     "url": "https://chesstournamentcalendar.com"
   })} />
 
+  <!-- Auto-redirect to preferred language (English pages only) -->
+  {lang === 'en' && (
+    <script define:vars={{ currentPath }}>
+      (function() {
+        var saved = localStorage.getItem('ctc-lang');
+        if (saved && saved !== 'en') {
+          var path = currentPath ? '/' + saved + '/' + currentPath : '/' + saved + '/';
+          window.location.replace(path);
+          return;
+        }
+        if (saved) return;
+        var map = { es:'es', pt:'pt', de:'de', cs:'cs', sk:'cs', fi:'fi' };
+        var langs = (navigator.languages || [navigator.language]);
+        for (var i = 0; i < langs.length; i++) {
+          var code = langs[i].split('-')[0].toLowerCase();
+          if (map[code]) {
+            localStorage.setItem('ctc-lang', map[code]);
+            var dest = currentPath ? '/' + map[code] + '/' + currentPath : '/' + map[code] + '/';
+            window.location.replace(dest);
+            return;
+          }
+        }
+        localStorage.setItem('ctc-lang', 'en');
+      })();
+    </script>
+  )}
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PME2NXTXQR"></script>
   <script>
@@ -56,12 +99,22 @@ const ogImageURL = new URL('og-image.png', Astro.site);
 <body>
   <header>
     <div class="header-inner">
-      <a href={base} class="logo">
+      <a href={lang === 'en' ? base : `${base}${lang}/`} class="logo">
         <div class="logo-icon-box">♟</div>
         <h1 class="logo-title">Chess Tournament Calendar</h1>
         <span class="logo-sep">·</span>
         <span class="logo-sub">Chess tournaments worldwide</span>
       </a>
+      <nav class="lang-switcher" aria-label="Language">
+        {SUPPORTED_LANGS.map(l => (
+          <a
+            href={langUrl(l, currentPath)}
+            class={`lang-link${l === lang ? ' lang-active' : ''}`}
+            onclick={`localStorage.setItem('ctc-lang','${l}')`}
+            aria-current={l === lang ? 'true' : undefined}
+          >{langLabels[l]}</a>
+        ))}
+      </nav>
     </div>
   </header>
   <main>
@@ -69,7 +122,7 @@ const ogImageURL = new URL('og-image.png', Astro.site);
   </main>
   <footer>
     <div class="footer-inner">
-      <a href={`${base}contact`} class="footer-contact">Contact &amp; feedback</a>
+      <a href={lang === 'en' ? `${base}contact` : `${base}${lang}/contact`} class="footer-contact">Contact &amp; feedback</a>
       <p>Tournament data sourced from <a href="https://chess-results.com" target="_blank" rel="noopener">chess-results.com</a>. Updated every 12 hours.</p>
     </div>
   </footer>

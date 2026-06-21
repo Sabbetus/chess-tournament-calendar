@@ -1,12 +1,16 @@
 ---
-import Base from '../layouts/Base.astro';
-import TournamentCard from '../components/TournamentCard.astro';
-import featuredData from '../../data/featured.json';
-import tournamentsData from '../../public/data/tournaments.json';
-import metaData from '../../public/data/meta.json';
-import { getTranslations } from '../i18n/index.ts';
+import Base from '../../layouts/Base.astro';
+import TournamentCard from '../../components/TournamentCard.astro';
+import featuredData from '../../../data/featured.json';
+import tournamentsData from '../../../public/data/tournaments.json';
+import metaData from '../../../public/data/meta.json';
+import { getTranslations, SUPPORTED_LANGS } from '../../i18n/index.ts';
 
-const lang = 'en';
+export function getStaticPaths() {
+  return SUPPORTED_LANGS.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
 const t = getTranslations(lang);
 
 const featured = featuredData;
@@ -93,7 +97,7 @@ const eventSchema = {
 
 const initialTournaments = tournaments.slice(0, PAGE_SIZE);
 const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
-const basePath = lang === 'en' ? '' : lang;
+const basePath = lang;
 ---
 
 <Base title={`${t.site_title} — Chess Tournaments Worldwide`} description={t.site_description} lang={lang} currentPath="">
@@ -161,7 +165,6 @@ const basePath = lang === 'en' ? '' : lang;
     <span class="th-players th-sortable" data-sort="players">{t.col_players} <span class="sort-icon"></span></span>
   </div>
 
-  <!-- Combined list: featured first, then regular (initial page server-rendered, rest loaded client-side) -->
   <ul class="tournament-list" id="tournament-list">
     {featured.map((item: any) => <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} />)}
     {initialTournaments.length > 0
@@ -331,8 +334,7 @@ const basePath = lang === 'en' ? '' : lang;
   function rowHTML(t) {
     const days = durationDays(t.startDate, t.endDate);
     const dateRange = formatDateRange(t.startDate, t.endDate);
-    const prefix = basePath ? `/${basePath}` : '';
-    const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}` : null;
+    const detailUrl = t.slug ? `/${basePath}/tournament/${t.slug}` : null;
     const flag = flagUrl(t);
     const name = escapeHTML(t.name);
     const city = escapeHTML(t.city);

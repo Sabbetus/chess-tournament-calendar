@@ -1,50 +1,53 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from '../../layouts/Base.astro';
+import { getTranslations, SUPPORTED_LANGS } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGS.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
 ---
 
-<Base title="Contact & Feedback — Chess Tournament Calendar" description="Get in touch about the Chess Tournament Calendar — feedback, corrections, or tournament submissions." lang="en" currentPath="contact">
-  <h2 class="page-title">Contact &amp; feedback</h2>
-  <p class="intro">
-    Spotted an issue, have feedback on the site, or want your tournament considered for the featured section?
-    Send a message below.
-  </p>
+<Base title={`${t.contact_title} — ${t.site_title}`} description={t.site_description} lang={lang} currentPath="contact">
+  <h2 class="page-title">{t.contact_title}</h2>
+  <p class="intro">{t.contact_intro}</p>
 
   <form id="contact-form" class="contact-form">
     <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off" />
 
     <div class="form-group">
-      <label for="c-name">Name</label>
-      <input id="c-name" name="name" type="text" placeholder="Optional" />
+      <label for="c-name">{t.contact_name}</label>
+      <input id="c-name" name="name" type="text" placeholder={t.contact_name_placeholder} />
     </div>
 
     <div class="form-group">
-      <label for="c-email">Your email</label>
-      <input id="c-email" name="email" type="email" placeholder="So we can reply" required />
+      <label for="c-email">{t.contact_email}</label>
+      <input id="c-email" name="email" type="email" placeholder={t.contact_email_placeholder} required />
     </div>
 
     <div class="form-group">
-      <label for="c-topic">Topic</label>
+      <label for="c-topic">{t.contact_topic}</label>
       <select id="c-topic" name="topic">
-        <option value="Feedback">General feedback</option>
-        <option value="Tournament submission">Tournament partnerships</option>
-<option value="Other">Other</option>
+        <option value="Feedback">{t.contact_topic_feedback}</option>
+        <option value="Tournament submission">{t.contact_topic_submission}</option>
+        <option value="Other">{t.contact_topic_other}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="c-message">Message</label>
+      <label for="c-message">{t.contact_message}</label>
       <textarea id="c-message" name="message" rows="6" required></textarea>
     </div>
 
-    <button type="submit" class="form-submit" id="form-submit">Send message</button>
-
+    <button type="submit" class="form-submit" id="form-submit">{t.contact_send}</button>
     <p class="form-status" id="form-status"></p>
   </form>
 </Base>
 
-<script>
+<script define:vars={{ tSending: t.contact_sending, tSuccess: t.contact_success, tError: t.contact_error, tSend: t.contact_send }}>
   const WEB3FORMS_ACCESS_KEY = '5eed08f9-6956-4c9d-846d-f15cd2f17cee';
-
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('form-submit');
   const status = document.getElementById('form-status');
@@ -52,7 +55,7 @@ import Base from '../layouts/Base.astro';
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = tSending;
     status.textContent = '';
     status.className = 'form-status';
 
@@ -67,20 +70,19 @@ import Base from '../layouts/Base.astro';
         body: formData,
       });
       const result = await res.json();
-
       if (result.success) {
         form.reset();
-        status.textContent = 'Thanks — your message has been sent.';
+        status.textContent = tSuccess;
         status.classList.add('form-status-success');
       } else {
         throw new Error(result.message || 'Submission failed');
       }
     } catch (err) {
-      status.textContent = 'Something went wrong. Please try again later.';
+      status.textContent = tError;
       status.classList.add('form-status-error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send message';
+      submitBtn.textContent = tSend;
     }
   });
 </script>

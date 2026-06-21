@@ -1,22 +1,24 @@
 ---
-import Base from '../../layouts/Base.astro';
-import archiveData from '../../../public/data/archive.json';
-import featuredData from '../../../data/featured.json';
-import { getTranslations } from '../../i18n/index.ts';
+import Base from '../../../layouts/Base.astro';
+import archiveData from '../../../../public/data/archive.json';
+import featuredData from '../../../../data/featured.json';
+import { getTranslations, SUPPORTED_LANGS } from '../../../i18n/index.ts';
 
 export async function getStaticPaths() {
   const archive = archiveData as any[];
   const featured = (featuredData as any[]).map((t: any) => ({ ...t, status: 'upcoming' }));
   const archiveIds = new Set(archive.map((t: any) => t.id));
   const all = [...archive, ...featured.filter((t: any) => !archiveIds.has(t.id))];
-  return all.map((t: any) => ({
-    params: { slug: t.slug },
-    props: { tournament: t, all },
-  }));
+  const langs = SUPPORTED_LANGS.filter(l => l !== 'en');
+  return langs.flatMap(lang =>
+    all.map((t: any) => ({
+      params: { lang, slug: t.slug },
+      props: { tournament: t, all, lang },
+    }))
+  );
 }
 
-const { tournament: t, all } = Astro.props;
-const lang = 'en';
+const { tournament: t, all, lang } = Astro.props;
 const tr = getTranslations(lang);
 
 function durationDays(start: string, end: string) {
@@ -69,14 +71,6 @@ function isSameFamily(a: string, b: string): boolean {
   return intersection / union > 0.6;
 }
 
-function nameJaccard(a: string, b: string): number {
-  const wa = new Set(a.toLowerCase().split(/\s+/));
-  const wb = new Set(b.toLowerCase().split(/\s+/));
-  const intersection = [...wa].filter(w => wb.has(w)).length;
-  const union = new Set([...wa, ...wb]).size;
-  return intersection / union;
-}
-
 function scoreSimilar(candidate: any, target: any): number {
   if (candidate.id === target.id) return -1;
   if (candidate.status === 'concluded') return -1;
@@ -87,27 +81,21 @@ function scoreSimilar(candidate: any, target: any): number {
   if (Math.abs(tDays - cDays) > 3) return -1;
 
   let score = 0;
-
   const tStart = new Date(target.startDate + 'T00:00:00').getTime();
   const cStart = new Date(candidate.startDate + 'T00:00:00').getTime();
   const daysDiff = Math.abs((cStart - tStart) / (1000 * 60 * 60 * 24));
   score += Math.max(0, 14 - daysDiff) / 14 * 45;
-
   if (candidate.country === target.country) score += 25;
   const sameContinent = getContinent(candidate.countryCode) === getContinent(target.countryCode);
   if (!sameContinent) score -= 30;
-
   score += Math.max(0, 3 - Math.abs(tDays - cDays)) * 3;
-
   if (target.rounds && candidate.rounds) {
     score += Math.max(0, 3 - Math.abs(target.rounds - candidate.rounds));
   }
-
   return score;
 }
 
 const upcoming = (all as any[]).filter((x: any) => x.status === 'upcoming' && x.id !== t.id);
-
 const similar: any[] = [];
 const scored = upcoming
   .map((x: any) => ({ t: x, score: scoreSimilar(x, t) }))
@@ -116,16 +104,13 @@ const scored = upcoming
 
 for (const { t: candidate } of scored) {
   if (similar.length >= 5) break;
-  const tooSimilarToSelected = similar.some(
-    (s: any) => isSameFamily(candidate.name, s.name)
-  );
+  const tooSimilarToSelected = similar.some((s: any) => isSameFamily(candidate.name, s.name));
   if (!tooSimilarToSelected) similar.push(candidate);
 }
 
 const fallback = similar.length === 0
   ? upcoming.sort((a: any, b: any) => a.startDate.localeCompare(b.startDate)).slice(0, 5)
   : [];
-
 const similarList = similar.length > 0 ? similar : fallback;
 
 const days = durationDays(t.startDate, t.endDate);
@@ -171,8 +156,7 @@ const eventSchema = {
   "url": t.registrationUrl || t.websiteUrl || undefined,
 };
 
-const base = import.meta.env.BASE_URL;
-const pageTitle = `${t.name} — Chess Tournament Calendar`;
+const pageTitle = `${t.name} — ${tr.site_title}`;
 const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
 const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. ${tcLabel} chess tournament.`;
@@ -182,7 +166,7 @@ const currentPath = `tournament/${t.slug}`;
 <Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath}>
   <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
 
-  <a href={base} class="back-link">{tr.back_to_calendar}</a>
+  <a href={`/${lang}/`} class="back-link">{tr.back_to_calendar}</a>
 
   {isConcluded && (
     <div class="concluded-notice">{tr.concluded_notice}</div>
@@ -267,7 +251,7 @@ const currentPath = `tournament/${t.slug}`;
           const sTcLabel = s.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
           return (
             <li class="similar-row">
-              <a href={`${base}tournament/${s.slug}`} class="similar-link">
+              <a href={`/${lang}/tournament/${s.slug}`} class="similar-link">
                 <span class="similar-location" data-tooltip={`${s.city}, ${s.country}`}>
                   {sFlag && <img src={sFlag} alt={s.country} width="16" height="12" loading="lazy" />}
                 </span>

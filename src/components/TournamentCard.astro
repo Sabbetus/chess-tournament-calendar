@@ -24,9 +24,11 @@ export interface Tournament {
 export interface Props {
   tournament: Tournament;
   featured?: boolean;
+  classicalLabel?: string;
+  rapidLabel?: string;
 }
 
-const { tournament: t, featured = false } = Astro.props;
+const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 function formatDateRange(start: string, end: string) {
@@ -51,7 +53,7 @@ const link = detailUrl || t.registrationUrl || t.websiteUrl;
 const flagUrl = t.countryCode
   ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png`
   : null;
-const tcLabel = t.timeControl === 'Rapid' ? 'Rapid' : 'Classical';
+const tcLabel = t.timeControl === 'Rapid' ? rapidLabel : classicalLabel;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
 ---
 
@@ -61,7 +63,7 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
       {featured && <span class="trow-star" title="Featured">★</span>}
       <span class="trow-name-text">
         {link
-          ? <a href={link} target="_blank" rel="noopener">{t.name}</a>
+          ? <a href={link} {...(!detailUrl ? { target: "_blank", rel: "noopener" } : {})}>{t.name}</a>
           : t.name
         }
       </span>

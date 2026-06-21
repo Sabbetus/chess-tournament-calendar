@@ -58,7 +58,27 @@ header {
   height: 56px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+}
+.lang-link {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.lang-link:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+.lang-active { color: var(--text) !important; background: rgba(255,255,255,0.1); }
 
 .logo {
   display: flex;
@@ -762,12 +782,14 @@ footer p a:hover { color: var(--text); }
 }
 
 @media (max-width: 640px) {
-  .header-inner { height: auto; padding: 0.6rem 1rem; }
+  .header-inner { height: auto; padding: 0.6rem 1rem; flex-wrap: wrap; gap: 0.4rem; }
   .logo { gap: 0.5rem; }
   .logo-sep,
   .logo-sub { display: none; }
   .logo-title { font-size: 1.1rem; }
   .logo-icon-box { width: 30px; height: 30px; font-size: 16px; }
+  .lang-switcher { gap: 0; }
+  .lang-link { font-size: 0.65rem; padding: 0.15rem 0.28rem; }
 
   .filters { flex-direction: column; }
   .filter-group { min-width: unset; }
