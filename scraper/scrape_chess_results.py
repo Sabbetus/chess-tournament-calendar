@@ -30,11 +30,37 @@ Result row structure (classes CRg1/CRg2):
 import json
 import re
 import sys
+import urllib.request
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright
+
+INDEXNOW_HOST = "chesstournamentcalendar.com"
+INDEXNOW_KEY = "d3a6913ec3c84c58bf5edd4a2542ce02"
+
+
+def submit_indexnow(slugs):
+    urls = [f"https://{INDEXNOW_HOST}/tournament/{slug}/" for slug in slugs]
+    payload = {
+        "host": INDEXNOW_HOST,
+        "key": INDEXNOW_KEY,
+        "keyLocation": f"https://{INDEXNOW_HOST}/{INDEXNOW_KEY}.txt",
+        "urlList": urls,
+    }
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.indexnow.org/indexnow",
+        data=data,
+        headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            print(f"[INFO] IndexNow response: {resp.status} {resp.reason}")
+    except Exception as e:
+        print(f"[WARN] IndexNow submission failed (non-fatal): {e}")
 
 OUTPUT_PATH = Path(__file__).parent.parent / "public" / "data" / "tournaments.json"
 ARCHIVE_PATH = Path(__file__).parent.parent / "public" / "data" / "archive.json"
@@ -372,6 +398,7 @@ def load_archive():
 def merge_into_archive(scraped, archive):
     today = date.today().isoformat()
     by_id = {t["id"]: t for t in archive}
+    new_slugs = []
 
     for t in scraped:
         existing = by_id.get(t["id"])
@@ -396,6 +423,8 @@ def merge_into_archive(scraped, archive):
             t["firstSeen"] = today
             t["lastSeen"] = today
             by_id[t["id"]] = t
+            if t.get("slug"):
+                new_slugs.append(t["slug"])
 
     for t in by_id.values():
         t["status"] = "concluded" if t["startDate"] <= today else "upcoming"
@@ -410,7 +439,7 @@ def merge_into_archive(scraped, archive):
         if "lastSeen" not in t:
             t["lastSeen"] = today
 
-    return sorted(by_id.values(), key=lambda t: t["startDate"])
+    return sorted(by_id.values(), key=lambda t: t["startDate"]), new_slugs
 
 
 def main():
@@ -438,10 +467,17 @@ def main():
 
     # Merge into archive
     archive = load_archive()
-    merged = merge_into_archive(tournaments, archive)
+    merged, new_slugs = merge_into_archive(tournaments, archive)
     with open(ARCHIVE_PATH, "w", encoding="utf-8") as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
     print(f"[INFO] Archive updated: {len(merged)} total entries ({sum(1 for t in merged if t['status'] == 'upcoming')} upcoming, {sum(1 for t in merged if t['status'] == 'concluded')} concluded). Written to {ARCHIVE_PATH}")
+
+    # Submit new tournament URLs to IndexNow
+    if new_slugs:
+        print(f"[INFO] Submitting {len(new_slugs)} new tournament URLs to IndexNow...")
+        submit_indexnow(new_slugs)
+    else:
+        print("[INFO] No new tournaments to submit to IndexNow.")
 
     with open(META_PATH, "w", encoding="utf-8") as f:
         json.dump({"lastUpdated": datetime.utcnow().isoformat() + "Z"}, f, indent=2)
