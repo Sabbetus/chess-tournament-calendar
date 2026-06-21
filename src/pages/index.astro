@@ -477,7 +477,18 @@ const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
 
   loadMoreBtn?.addEventListener('click', () => whenReady(renderMore));
 
-  [fCountry, fMonth].forEach(el => el?.addEventListener('change', () => whenReady(renderFromScratch)));
+  fCountry?.addEventListener('change', () => {
+    if (fCountry.value) {
+      continentTabsEl.style.display = 'none';
+      activeContinent = '';
+      continentTabsEl?.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
+      continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
+    } else {
+      continentTabsEl.style.display = '';
+    }
+    whenReady(renderFromScratch);
+  });
+  fMonth?.addEventListener('change', () => whenReady(renderFromScratch));
   fSearch?.addEventListener('input', () => whenReady(renderFromScratch));
   resetBtn?.addEventListener('click', () => {
     fCountry.value = '';
