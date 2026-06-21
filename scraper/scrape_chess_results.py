@@ -109,6 +109,7 @@ FIDE_TO_NAME = {
     "MNC": "Monaco", "NCA": "Nicaragua", "NEP": "Nepal",
     "NGR": "Nigeria", "PLE": "Palestine", "UGA": "Uganda",
     "HON": "Honduras", "TTO": "Trinidad and Tobago", "ZIM": "Zimbabwe",
+    "ZZZ": "Unknown",
 }
 
 
