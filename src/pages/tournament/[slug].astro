@@ -269,7 +269,7 @@ const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.cou
                 </span>
                 <span class="similar-name">{s.name}</span>
                 <span class="similar-meta">
-                  <span class={`tc-badge ${s.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical'}`}>{s.timeControl === 'Rapid' ? 'Rapid' : 'Classical'}</span>
+                  <span class="similar-badge-col"><span class={`tc-badge ${s.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical'}`}>{s.timeControl === 'Rapid' ? 'Rapid' : 'Classical'}</span></span>
                   <span class="similar-dates">{sDateStr}</span>
                   <span class="similar-duration">{sDays} days</span>
                 </span>
