@@ -4,7 +4,7 @@ import TournamentCard from '../../components/TournamentCard.astro';
 import featuredData from '../../../data/featured.json';
 import tournamentsData from '../../../public/data/tournaments.json';
 import metaData from '../../../public/data/meta.json';
-import { getTranslations, SUPPORTED_LANGS } from '../../i18n/index.ts';
+import { getTranslations, SUPPORTED_LANGS, countryName } from '../../i18n/index.ts';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGS.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
@@ -51,10 +51,16 @@ const continentsSorted = Object.entries(continentCounts)
   .map(([code, count]) => ({ code, name: CONTINENT_NAMES[code] || code, count }));
 
 const countryCounts: Record<string, number> = {};
+const countryCodes: Record<string, string> = {};
 for (const item of allForCounts) {
-  if (item.country) countryCounts[item.country] = (countryCounts[item.country] || 0) + 1;
+  if (item.country) {
+    countryCounts[item.country] = (countryCounts[item.country] || 0) + 1;
+    if (item.countryCode) countryCodes[item.country] = item.countryCode;
+  }
 }
-const countries = Object.keys(countryCounts).sort();
+const countries = Object.keys(countryCounts)
+  .map(name => ({ value: name, label: countryName(name, countryCodes[name], lang) }))
+  .sort((a, b) => a.label.localeCompare(b.label, t.date_locale));
 
 const monthCounts: Record<number, number> = {};
 for (const item of allForCounts) {
@@ -110,7 +116,7 @@ const basePath = lang;
       <label for="f-country">{t.filter_country}</label>
       <select id="f-country">
         <option value="">{t.filter_all_countries}</option>
-        {countries.map((c: any) => <option value={c}>{c} ({countryCounts[c]})</option>)}
+        {countries.map((c) => <option value={c.value}>{c.label} ({countryCounts[c.value]})</option>)}
       </select>
     </div>
     <div class="filter-group">

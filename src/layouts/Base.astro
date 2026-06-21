@@ -88,13 +88,30 @@ const langLabels: Record<string, string> = {
     </script>
   )}
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PME2NXTXQR"></script>
+  <!-- Google Analytics — immediate on desktop, deferred on mobile to avoid blocking render -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PME2NXTXQR');
+    (function() {
+      var loaded = false;
+      function loadGA() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PME2NXTXQR';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){ window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-PME2NXTXQR');
+      }
+      if (window.innerWidth >= 768) {
+        loadGA();
+      } else {
+        setTimeout(loadGA, 3000);
+        ['click','scroll','keydown','touchstart'].forEach(function(e) {
+          document.addEventListener(e, loadGA, {once: true, passive: true});
+        });
+      }
+    })();
   </script>
 </head>
 <body>
