@@ -185,7 +185,7 @@ main {
   overflow-x: auto;
   scrollbar-width: none;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 0;
+  margin-bottom: 0.6rem;
 }
 .continent-tabs::-webkit-scrollbar { display: none; }
 

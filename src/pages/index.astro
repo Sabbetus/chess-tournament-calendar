@@ -25,7 +25,7 @@ const CONTINENT_MAP: Record<string, string> = {
   ZA:'AF',EG:'AF',MA:'AF',TN:'AF',DZ:'AF',KE:'AF',BW:'AF',ZM:'AF',CI:'AF',CV:'AF',
 };
 const CONTINENT_NAMES: Record<string, string> = {
-  EU:'Europe', AS:'Asia', NA:'N. America', SA:'S. America', AF:'Africa', OC:'Oceania',
+  EU:'Europe', AS:'Asia', NA:'North America', SA:'South America', AF:'Africa', OC:'Oceania',
 };
 function getContinent(cc: string): string {
   return (cc && CONTINENT_MAP[cc]) || 'XX';
