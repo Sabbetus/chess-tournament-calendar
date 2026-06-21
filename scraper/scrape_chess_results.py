@@ -108,6 +108,7 @@ FIDE_TO_NAME = {
     "BRN": "Bahrain", "JAM": "Jamaica", "LCA": "Saint Lucia",
     "MNC": "Monaco", "NCA": "Nicaragua", "NEP": "Nepal",
     "NGR": "Nigeria", "PLE": "Palestine", "UGA": "Uganda",
+    "HON": "Honduras", "TTO": "Trinidad and Tobago", "ZIM": "Zimbabwe",
 }
 
 
