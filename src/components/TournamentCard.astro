@@ -26,9 +26,10 @@ export interface Props {
   featured?: boolean;
   classicalLabel?: string;
   rapidLabel?: string;
+  countryLabel?: string;
 }
 
-const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid' } = Astro.props;
+const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 function formatDateRange(start: string, end: string) {
@@ -70,9 +71,9 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     </span>
     <span class="trow-tc"><span class={`tc-badge ${tcClass}`}>{tcLabel}</span></span>
     <span class="trow-dates">{dateRange}</span>
-    <span class="trow-location" data-tooltip={`${t.city}, ${t.country}`}>
+    <span class="trow-location" data-tooltip={`${t.city}, ${countryLabel}`}>
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
-      {t.city}, {t.country}
+      {t.city}, {countryLabel}
     </span>
     <span class="trow-duration">{days} days</span>
     <span class="trow-players">{t.playersRegistered !== null ? t.playersRegistered : '—'}</span>
@@ -81,7 +82,7 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location">
       {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
-      <span class="trow-location-city">{t.city}, </span><span class="trow-location-country">{t.country}</span>
+      <span class="trow-location-city">{t.city}, </span><span class="trow-location-country">{countryLabel}</span>
     </span>
     <span class="trow-info">
       <span>{days} days</span>

@@ -62,6 +62,9 @@ const countries = Object.keys(countryCounts)
   .map(name => ({ value: name, label: countryName(name, countryCodes[name], lang) }))
   .sort((a, b) => a.label.localeCompare(b.label, t.date_locale));
 
+const countryLocalizedMap: Record<string, string> = {};
+for (const { value, label } of countries) countryLocalizedMap[value] = label;
+
 const monthCounts: Record<number, number> = {};
 for (const item of allForCounts) {
   const m = new Date(item.startDate + 'T00:00:00').getMonth() + 1;
@@ -172,7 +175,7 @@ const basePath = lang;
   </div>
 
   <ul class="tournament-list" id="tournament-list">
-    {featured.map((item: any) => <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} />)}
+    {featured.map((item: any) => <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryName(item.country, item.countryCode, lang)} />)}
     {initialTournaments.length > 0
       ? (() => {
           let lastMonth = '';
@@ -215,7 +218,7 @@ const basePath = lang;
   <div id="hover-tooltip"></div>
 </Base>
 
-<script define:vars={{ dataUrl, pageSize: PAGE_SIZE, basePath, tDays: t.days, tClassical: t.filter_classical, tRapid: t.filter_rapid, tMonths: t.months, dateLocale: t.date_locale }}>
+<script define:vars={{ dataUrl, pageSize: PAGE_SIZE, basePath, tDays: t.days, tClassical: t.filter_classical, tRapid: t.filter_rapid, tMonths: t.months, dateLocale: t.date_locale, tCountries: countryLocalizedMap }}>
   const PAGE_SIZE = pageSize;
   const list = document.getElementById('tournament-list');
   const noResults = document.getElementById('no-results');
@@ -344,7 +347,7 @@ const basePath = lang;
     const flag = flagUrl(t);
     const name = escapeHTML(t.name);
     const city = escapeHTML(t.city);
-    const country = escapeHTML(t.country);
+    const country = escapeHTML(tCountries[t.country] || t.country);
     const nameInner = detailUrl
       ? `<a href="${detailUrl}">${name}</a>`
       : name;
@@ -519,6 +522,8 @@ const basePath = lang;
     continentTabsEl.style.display = '';
     whenReady(renderFromScratch);
   });
+
+  whenReady(renderFromScratch);
 
   fetch(dataUrl)
     .then(r => r.json())
