@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import archiveData from '../../../../public/data/archive.json';
 import featuredData from '../../../../data/featured.json';
-import { getTranslations, SUPPORTED_LANGS } from '../../../i18n/index.ts';
+import { getTranslations, SUPPORTED_LANGS, countryName } from '../../../i18n/index.ts';
 
 export async function getStaticPaths() {
   const archive = archiveData as any[];
@@ -115,7 +115,7 @@ const similarList = similar.length > 0 ? similar : fallback;
 
 const days = durationDays(t.startDate, t.endDate);
 const dateRange = formatDateRange(t.startDate, t.endDate);
-const flagUrl = t.countryCode ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png` : null;
+const flagUrl = t.countryCode ? `/flags/${t.countryCode.toLowerCase()}.png` : null;
 const mapQuery = encodeURIComponent(`${t.city}, ${t.country}`);
 const isConcluded = t.status === 'concluded';
 
@@ -159,12 +159,13 @@ const eventSchema = {
 const pageTitle = `${t.name} — ${tr.site_title}`;
 const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
-const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. ${tcLabel} chess tournament.`;
+const localizedCountry = countryName(t.country, t.countryCode, lang);
+const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${localizedCountry}. ${tcLabel} ${tr.meta_chess_tournament}.`;
 const currentPath = `tournament/${t.slug}`;
 ---
 
-<Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath}>
-  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+<Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath} noindex={isConcluded}>
+  {!isConcluded && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
 
   <a href={`/${lang}/`} class="back-link">{tr.back_to_calendar}</a>
 
@@ -172,10 +173,10 @@ const currentPath = `tournament/${t.slug}`;
     <div class="concluded-notice">{tr.concluded_notice}</div>
   )}
 
-  <h2 class="page-title tournament-title">{t.name} <span class={`tc-badge ${tcClass}`}>{tcLabel}</span></h2>
+  <h1 class="page-title tournament-title">{t.name} <span class={`tc-badge ${tcClass}`}>{tcLabel}</span></h1>
   <div class="tournament-location">
-    {flagUrl && <img src={flagUrl} alt={t.country} width="18" height="13" />}
-    <span>{t.city ? `${t.city}, ` : ''}{t.country}</span>
+    {flagUrl && <img src={flagUrl} alt="" width="18" height="13" />}
+    <span>{t.city ? `${t.city}, ` : ''}{localizedCountry}</span>
   </div>
 
   <div class="fact-grid">
@@ -244,7 +245,7 @@ const currentPath = `tournament/${t.slug}`;
       <ul class="similar-list">
         {similarList.map((s: any) => {
           const sDays = durationDays(s.startDate, s.endDate);
-          const sFlag = s.countryCode ? `https://flagcdn.com/20x15/${s.countryCode.toLowerCase()}.png` : null;
+          const sFlag = s.countryCode ? `/flags/${s.countryCode.toLowerCase()}.png` : null;
           const sStart = new Date(s.startDate + 'T00:00:00');
           const sEnd = new Date(s.endDate + 'T00:00:00');
           const sDateStr = `${sStart.toLocaleDateString(tr.date_locale, { day: 'numeric', month: 'short' })} – ${sEnd.toLocaleDateString(tr.date_locale, { day: 'numeric', month: 'short' })}`;
@@ -253,7 +254,7 @@ const currentPath = `tournament/${t.slug}`;
             <li class="similar-row">
               <a href={`/${lang}/tournament/${s.slug}`} class="similar-link">
                 <span class="similar-location" data-tooltip={`${s.city}, ${s.country}`}>
-                  {sFlag && <img src={sFlag} alt={s.country} width="16" height="12" loading="lazy" />}
+                  {sFlag && <img src={sFlag} alt="" width="16" height="12" loading="lazy" />}
                 </span>
                 <span class="similar-name">{s.name}</span>
                 <span class="similar-meta">

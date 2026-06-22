@@ -52,7 +52,7 @@ const days = durationDays(t.startDate, t.endDate);
 const detailUrl = t.slug ? `${base}tournament/${t.slug}` : null;
 const link = detailUrl || t.registrationUrl || t.websiteUrl;
 const flagUrl = t.countryCode
-  ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png`
+  ? `${base}flags/${t.countryCode.toLowerCase()}.png`
   : null;
 const tcLabel = t.timeControl === 'Rapid' ? rapidLabel : classicalLabel;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
@@ -72,7 +72,7 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     <span class="trow-tc"><span class={`tc-badge ${tcClass}`}>{tcLabel}</span></span>
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location" data-tooltip={`${t.city}, ${countryLabel}`}>
-      {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
+      {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
       {t.city}, {countryLabel}
     </span>
     <span class="trow-duration">{days} days</span>
@@ -81,7 +81,7 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
   <div class="trow-meta">
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location">
-      {flagUrl && <img src={flagUrl} alt={t.country} width="14" height="11" loading="lazy" />}
+      {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
       <span class="trow-location-city">{t.city}, </span><span class="trow-location-country">{countryLabel}</span>
     </span>
     <span class="trow-info">

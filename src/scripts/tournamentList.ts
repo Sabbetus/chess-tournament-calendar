@@ -1,0 +1,385 @@
+import { CONTINENT_MAP } from '../lib/continents';
+
+function getContinent(cc: string) {
+  return (cc && CONTINENT_MAP[cc]) || 'XX';
+}
+
+interface ListConfig {
+  dataUrl: string;
+  pageSize: number;
+  basePath: string;
+  tDays: string;
+  tClassical: string;
+  tRapid: string;
+  tMonths: string[];
+  dateLocale: string;
+  tCountries: Record<string, string>;
+  // Localized pages re-render the SSR rows on load so country names etc. match
+  // the page language; the English page keeps its server-rendered rows as-is.
+  renderOnLoad: boolean;
+}
+
+export function initTournamentList(cfg: ListConfig) {
+  const PAGE_SIZE = cfg.pageSize;
+  const { basePath, tDays, tClassical, tRapid, tMonths, dateLocale, tCountries } = cfg;
+
+  const list = document.getElementById('tournament-list')!;
+  const noResults = document.getElementById('no-results')!;
+  const countEl = document.getElementById('visible-count')!;
+  const totalEl = document.getElementById('total-count')!;
+  const loadMoreBtn = document.getElementById('load-more') as HTMLButtonElement;
+
+  let activeContinent = '';
+  const continentTabsEl = document.getElementById('continent-tabs');
+  continentTabsEl?.querySelectorAll('.ctab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      continentTabsEl.querySelectorAll('.ctab').forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeContinent = (tab as HTMLElement).dataset.continent || '';
+      whenReady(renderFromScratch);
+    });
+  });
+
+  function updateContinentCounts() {
+    const country = (fCountry as HTMLSelectElement).value;
+    const month = (fMonth as HTMLSelectElement).value;
+    const duration = activeValue(fDurationEl);
+    const tc = activeValue(fTcEl);
+    const search = (fSearch as HTMLInputElement).value.toLowerCase().trim();
+    const preFiltered = allData.filter((t: any) => {
+      const matchCountry = !country || t.country === country;
+      const matchMonth = !month || new Date(t.startDate + 'T00:00:00').getMonth() + 1 === parseInt(month);
+      const days = durationDays(t.startDate, t.endDate);
+      const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
+      const matchTc = !tc || t.timeControl === tc;
+      const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
+      return matchCountry && matchMonth && matchDuration && matchTc && matchSearch;
+    });
+    const counts: Record<string, number> = {};
+    for (const t of preFiltered) {
+      const c = getContinent(t.countryCode);
+      if (c !== 'XX') counts[c] = (counts[c] || 0) + 1;
+    }
+    document.getElementById('ctab-count-all')!.textContent = String(preFiltered.length);
+    continentTabsEl?.querySelectorAll('.ctab[data-continent]').forEach((tab) => {
+      const c = (tab as HTMLElement).dataset.continent;
+      if (!c) return;
+      const el = tab.querySelector('.ctab-count');
+      if (el) el.textContent = String(counts[c] ?? 0);
+      (tab as HTMLElement).style.display = (counts[c] ?? 0) === 0 ? 'none' : '';
+    });
+  }
+
+  const fCountry = document.getElementById('f-country')!;
+  const fMonth = document.getElementById('f-month')!;
+  const fDurationEl = document.getElementById('f-duration');
+  const fTcEl = document.getElementById('f-tc');
+  const fSearch = document.getElementById('f-search')!;
+  const resetBtn = document.getElementById('filter-reset');
+
+  function activeValue(groupEl: HTMLElement | null) {
+    return (groupEl?.querySelector('.filter-btn.active') as HTMLElement)?.dataset.value ?? '';
+  }
+
+  function setupBtnGroup(groupEl: HTMLElement | null) {
+    groupEl?.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        groupEl.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        whenReady(renderFromScratch);
+      });
+    });
+  }
+  setupBtnGroup(fDurationEl);
+  setupBtnGroup(fTcEl);
+
+  let allData: any[] = [];
+  let dataReady = false;
+  let pendingFn: (() => void) | null = null;
+  let renderedCount = PAGE_SIZE;
+  let sortKey = 'date';
+  let sortDir = 'asc';
+  let lastRenderedMonth = '';
+
+  function whenReady(fn: () => void) {
+    if (dataReady) fn();
+    else pendingFn = fn;
+  }
+
+  function escapeHTML(str: any) {
+    return String(str ?? '').replace(/[&<>"']/g, (c) => (({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' } as any)[c]));
+  }
+
+  function formatDateRange(start: string, end: string) {
+    const s = new Date(start + 'T00:00:00');
+    const e = new Date(end + 'T00:00:00');
+    const sStr = s.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short' });
+    const eStr = e.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short', year: 'numeric' });
+    return `${sStr} – ${eStr}`;
+  }
+
+  function durationDays(start: string, end: string) {
+    const s = new Date(start + 'T00:00:00');
+    const e = new Date(end + 'T00:00:00');
+    return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+  }
+
+  function flagUrl(t: any) {
+    return t.countryCode ? `/flags/${t.countryCode.toLowerCase()}.png` : null;
+  }
+
+  function rowHTML(t: any) {
+    const days = durationDays(t.startDate, t.endDate);
+    const dateRange = formatDateRange(t.startDate, t.endDate);
+    const prefix = basePath ? `/${basePath}` : '';
+    const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}` : null;
+    const flag = flagUrl(t);
+    const name = escapeHTML(t.name);
+    const city = escapeHTML(t.city);
+    const country = escapeHTML(tCountries[t.country] || t.country);
+    const nameInner = detailUrl ? `<a href="${detailUrl}">${name}</a>` : name;
+    const flagImg = flag ? `<img src="${flag}" alt="" width="14" height="11" loading="lazy">` : '';
+    const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;
+    const playersText = hasPlayers ? t.playersRegistered : '—';
+    const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}</span>` : '';
+    const tcLabel = t.timeControl === 'Rapid' ? tRapid : tClassical;
+    const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
+    const badge = `<span class="tc-badge ${tcClass}">${tcLabel}</span>`;
+
+    return `<li class="trow">
+      <div class="trow-main">
+        <span class="trow-name"><span class="trow-name-text">${nameInner}</span></span>
+        <span class="trow-tc">${badge}</span>
+        <span class="trow-dates">${dateRange}</span>
+        <span class="trow-location" data-tooltip="${city}, ${country}">${flagImg}${city}, ${country}</span>
+        <span class="trow-duration">${days} ${tDays}</span>
+        <span class="trow-players">${playersText}</span>
+      </div>
+      <div class="trow-meta">
+        <span class="trow-dates">${dateRange}</span>
+        <span class="trow-location">${flagImg}<span class="trow-location-city">${city}, </span><span class="trow-location-country">${country}</span></span>
+        <span class="trow-info"><span>${days} ${tDays}</span>${badge}${playersMeta}</span>
+      </div>
+    </li>`;
+  }
+
+  function getValue(t: any, key: string) {
+    if (key === 'date') return new Date(t.startDate + 'T00:00:00').getTime();
+    if (key === 'duration') return durationDays(t.startDate, t.endDate);
+    if (key === 'players') return t.playersRegistered ?? -1;
+    if (key === 'tc') return t.timeControl === 'Rapid' ? 1 : 0;
+    return 0;
+  }
+
+  function getFilteredSorted() {
+    const country = (fCountry as HTMLSelectElement).value;
+    const month = (fMonth as HTMLSelectElement).value;
+    const duration = activeValue(fDurationEl);
+    const tc = activeValue(fTcEl);
+    const search = (fSearch as HTMLInputElement).value.toLowerCase().trim();
+
+    const result = allData.filter((t: any) => {
+      const matchCountry = !country || t.country === country;
+      const matchMonth = !month || new Date(t.startDate + 'T00:00:00').getMonth() + 1 === parseInt(month);
+      const days = durationDays(t.startDate, t.endDate);
+      const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
+      const matchTc = !tc || t.timeControl === tc;
+      const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
+      const matchContinent = !activeContinent || getContinent(t.countryCode) === activeContinent;
+      return matchCountry && matchMonth && matchDuration && matchTc && matchSearch && matchContinent;
+    });
+
+    result.sort((a: any, b: any) => {
+      const av = getValue(a, sortKey);
+      const bv = getValue(b, sortKey);
+      if (sortKey === 'players') {
+        if (av === -1 && bv === -1) return 0;
+        if (av === -1) return 1;
+        if (bv === -1) return -1;
+      }
+      return sortDir === 'asc' ? av - bv : bv - av;
+    });
+
+    return result;
+  }
+
+  function monthSeparatorHTML(t: any) {
+    const d = new Date(t.startDate + 'T00:00:00');
+    const monthIndex = d.getMonth() + 1;
+    const year = d.getFullYear();
+    const monthName = tMonths[monthIndex] || d.toLocaleDateString(dateLocale, { month: 'long' });
+    const label = `${monthName} ${year}`;
+    return `<li class="month-separator"><span class="month-separator-label">${label}</span></li>`;
+  }
+
+  function renderFromScratch() {
+    list.querySelectorAll('.trow:not(.trow-featured), .month-separator').forEach((el) => el.remove());
+    renderedCount = 0;
+    lastRenderedMonth = '';
+    renderMore();
+  }
+
+  function renderMore() {
+    const filtered = getFilteredSorted();
+    const next = filtered.slice(renderedCount, renderedCount + PAGE_SIZE);
+    const html = next
+      .map((t: any) => {
+        const d = new Date(t.startDate + 'T00:00:00');
+        const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+        let sep = '';
+        if (monthKey !== lastRenderedMonth) {
+          sep = monthSeparatorHTML(t);
+          lastRenderedMonth = monthKey;
+        }
+        return sep + rowHTML(t);
+      })
+      .join('');
+    list.insertAdjacentHTML('beforeend', html);
+    renderedCount += next.length;
+
+    countEl.textContent = String(Math.min(renderedCount, filtered.length));
+    totalEl.textContent = String(filtered.length);
+    loadMoreBtn.style.display = renderedCount < filtered.length ? '' : 'none';
+    noResults.style.display = filtered.length === 0 ? 'block' : 'none';
+    updateContinentCounts();
+  }
+
+  function arrowFor(key: string, dir: string) {
+    if (key === 'players') return dir === 'desc' ? ' ↓' : ' ↑';
+    if (key === 'date') return dir === 'asc' ? ' ↓' : ' ↑';
+    if (key === 'duration') return dir === 'desc' ? ' ↓' : ' ↑';
+    if (key === 'tc') return dir === 'asc' ? ' ↓' : ' ↑';
+    return '';
+  }
+
+  function updateSortIcons() {
+    document.querySelectorAll('.th-sortable').forEach((th) => {
+      const icon = th.querySelector('.sort-icon');
+      if (!icon) return;
+      if ((th as HTMLElement).dataset.sort === sortKey) {
+        icon.textContent = arrowFor(sortKey, sortDir);
+        th.classList.add('th-sorted');
+        th.setAttribute('aria-sort', sortDir === 'asc' ? 'ascending' : 'descending');
+      } else {
+        icon.textContent = '';
+        th.classList.remove('th-sorted');
+        th.removeAttribute('aria-sort');
+      }
+    });
+  }
+
+  document.querySelectorAll('.th-sortable').forEach((th) => {
+    th.addEventListener('click', () => {
+      const key = (th as HTMLElement).dataset.sort!;
+      if (sortKey === key) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortKey = key;
+        sortDir = key === 'players' || key === 'duration' ? 'desc' : 'asc';
+        if (key === 'tc') sortDir = 'asc';
+      }
+      updateSortIcons();
+      whenReady(renderFromScratch);
+    });
+    th.addEventListener('keydown', (e) => {
+      const ke = e as KeyboardEvent;
+      if (ke.key === 'Enter' || ke.key === ' ') {
+        ke.preventDefault();
+        (th as HTMLElement).click();
+      }
+    });
+  });
+  updateSortIcons();
+
+  const mSort = document.getElementById('m-sort') as HTMLSelectElement | null;
+  mSort?.addEventListener('change', () => {
+    const [k, d] = mSort.value.split('-');
+    sortKey = k;
+    sortDir = d;
+    updateSortIcons();
+    whenReady(renderFromScratch);
+  });
+
+  loadMoreBtn?.addEventListener('click', () => whenReady(renderMore));
+
+  fCountry?.addEventListener('change', () => {
+    if ((fCountry as HTMLSelectElement).value) {
+      continentTabsEl!.style.display = 'none';
+      activeContinent = '';
+      continentTabsEl?.querySelectorAll('.ctab').forEach((t) => t.classList.remove('active'));
+      continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
+    } else {
+      continentTabsEl!.style.display = '';
+    }
+    whenReady(renderFromScratch);
+  });
+  fMonth?.addEventListener('change', () => whenReady(renderFromScratch));
+  fSearch?.addEventListener('input', () => whenReady(renderFromScratch));
+  resetBtn?.addEventListener('click', () => {
+    (fCountry as HTMLSelectElement).value = '';
+    (fMonth as HTMLSelectElement).value = '';
+    (fSearch as HTMLInputElement).value = '';
+    [fDurationEl, fTcEl].forEach((groupEl) => {
+      groupEl?.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+      groupEl?.querySelector('.filter-btn[data-value=""]')?.classList.add('active');
+    });
+    activeContinent = '';
+    continentTabsEl?.querySelectorAll('.ctab').forEach((t) => t.classList.remove('active'));
+    continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
+    continentTabsEl!.style.display = '';
+    whenReady(renderFromScratch);
+  });
+
+  if (cfg.renderOnLoad) whenReady(renderFromScratch);
+
+  fetch(cfg.dataUrl)
+    .then((r) => r.json())
+    .then((data) => {
+      allData = data;
+      dataReady = true;
+      if (lastRenderedMonth === '' && allData[renderedCount - 1]) {
+        const d = new Date(allData[renderedCount - 1].startDate + 'T00:00:00');
+        lastRenderedMonth = `${d.getFullYear()}-${d.getMonth()}`;
+      }
+      if (pendingFn) {
+        const fn = pendingFn;
+        pendingFn = null;
+        fn();
+      }
+    })
+    .catch((err) => console.error('Failed to load tournament data', err));
+
+  // ── Hover tooltip (location column) ──
+  const tooltip = document.getElementById('hover-tooltip')!;
+  let tooltipTarget: Element | null = null;
+
+  function positionTooltip(e: MouseEvent) {
+    const offset = 14;
+    let x = e.clientX + offset;
+    let y = e.clientY + offset;
+    const rect = tooltip.getBoundingClientRect();
+    if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - offset;
+    if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - offset;
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+  }
+
+  document.addEventListener('mouseover', (e) => {
+    const target = (e.target as Element).closest('[data-tooltip]');
+    if (!target || target === tooltipTarget) return;
+    tooltipTarget = target;
+    tooltip.textContent = (target as HTMLElement).dataset.tooltip!;
+    tooltip.classList.add('visible');
+    positionTooltip(e as MouseEvent);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (tooltipTarget) positionTooltip(e as MouseEvent);
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (tooltipTarget && !(e as MouseEvent).relatedTarget?.closest?.('[data-tooltip]')) {
+      tooltipTarget = null;
+      tooltip.classList.remove('visible');
+    }
+  });
+}

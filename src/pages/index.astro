@@ -5,6 +5,7 @@ import featuredData from '../../data/featured.json';
 import tournamentsData from '../../public/data/tournaments.json';
 import metaData from '../../public/data/meta.json';
 import { getTranslations } from '../i18n/index.ts';
+import { getContinent } from '../lib/continents.ts';
 
 const lang = 'en';
 const t = getTranslations(lang);
@@ -14,27 +15,10 @@ const tournaments = tournamentsData as any[];
 const PAGE_SIZE = 50;
 const JSONLD_CAP = 200;
 
-const CONTINENT_MAP: Record<string, string> = {
-  FI:'EU',SE:'EU',NO:'EU',DK:'EU',IS:'EU',GB:'EU',IE:'EU',FR:'EU',ES:'EU',PT:'EU',
-  DE:'EU',AT:'EU',CH:'EU',NL:'EU',BE:'EU',LU:'EU',IT:'EU',GR:'EU',CY:'EU',MT:'EU',
-  PL:'EU',CZ:'EU',SK:'EU',HU:'EU',RO:'EU',BG:'EU',RS:'EU',HR:'EU',SI:'EU',BA:'EU',
-  ME:'EU',MK:'EU',AL:'EU',XK:'EU',LT:'EU',LV:'EU',EE:'EU',BY:'EU',UA:'EU',MD:'EU',
-  RU:'EU',GE:'AS',AM:'AS',AZ:'AS',TR:'AS',
-  IN:'AS',CN:'AS',JP:'AS',KR:'AS',TH:'AS',VN:'AS',PH:'AS',ID:'AS',MY:'AS',SG:'AS',
-  PK:'AS',BD:'AS',LK:'AS',NP:'AS',MN:'AS',UZ:'AS',KZ:'AS',KG:'AS',TM:'AS',
-  AE:'AS',QA:'AS',KW:'AS',SA:'AS',IR:'AS',IQ:'AS',JO:'AS',LB:'AS',SY:'AS',IL:'AS',HK:'AS',
-  US:'NA',CA:'NA',MX:'NA',GT:'NA',CR:'NA',CU:'NA',DO:'NA',PA:'NA',PR:'NA',
-  BR:'SA',AR:'SA',CL:'SA',CO:'SA',PE:'SA',VE:'SA',UY:'SA',EC:'SA',
-  AU:'OC',NZ:'OC',
-  ZA:'AF',EG:'AF',MA:'AF',TN:'AF',DZ:'AF',KE:'AF',BW:'AF',ZM:'AF',CI:'AF',CV:'AF',
-};
 const CONTINENT_NAMES: Record<string, string> = {
   EU: t.continent_EU, AS: t.continent_AS, NA: t.continent_NA,
   SA: t.continent_SA, AF: t.continent_AF, OC: t.continent_OC,
 };
-function getContinent(cc: string): string {
-  return (cc && CONTINENT_MAP[cc]) || 'XX';
-}
 
 const allForCounts = [...tournaments, ...featured];
 const continentCounts: Record<string, number> = {};
@@ -92,8 +76,21 @@ const eventSchema = {
 };
 
 const initialTournaments = tournaments.slice(0, PAGE_SIZE);
-const dataUrl = `${import.meta.env.BASE_URL}data/tournaments.json`;
+const dataUrl = `${import.meta.env.BASE_URL}data/tournaments-min.json`;
 const basePath = lang === 'en' ? '' : lang;
+
+const listConfig = {
+  dataUrl,
+  pageSize: PAGE_SIZE,
+  basePath,
+  tDays: t.days,
+  tClassical: t.filter_classical,
+  tRapid: t.filter_rapid,
+  tMonths: t.months,
+  dateLocale: t.date_locale,
+  tCountries: {},
+  renderOnLoad: false,
+};
 ---
 
 <Base title={`${t.site_title} — Chess Tournaments Worldwide`} description={t.site_description} lang={lang} currentPath="">
@@ -138,6 +135,16 @@ const basePath = lang === 'en' ? '' : lang;
       <label for="f-search">{t.filter_search}</label>
       <input id="f-search" type="text" placeholder={t.filter_search_placeholder} />
     </div>
+    <div class="filter-group sort-mobile">
+      <label for="m-sort">{t.sort_label}</label>
+      <select id="m-sort">
+        <option value="date-asc">{t.sort_label}</option>
+        <option value="duration-desc">{t.sort_duration_desc}</option>
+        <option value="duration-asc">{t.sort_duration_asc}</option>
+        <option value="players-desc">{t.sort_players_desc}</option>
+        <option value="players-asc">{t.sort_players_asc}</option>
+      </select>
+    </div>
     <button class="filter-reset" id="filter-reset">{t.filter_reset}</button>
   </div>
 
@@ -154,11 +161,11 @@ const basePath = lang === 'en' ? '' : lang;
   <!-- Column headers -->
   <div class="tlist-header">
     <span class="th-name">{t.col_tournament}</span>
-    <span class="th-tc th-sortable" data-sort="tc">{t.col_type} <span class="sort-icon"></span></span>
-    <span class="th-dates th-sortable" data-sort="date">{t.col_dates} <span class="sort-icon"></span></span>
+    <span class="th-tc th-sortable" data-sort="tc" role="button" tabindex="0">{t.col_type} <span class="sort-icon"></span></span>
+    <span class="th-dates th-sortable" data-sort="date" role="button" tabindex="0">{t.col_dates} <span class="sort-icon"></span></span>
     <span class="th-location">{t.col_location}</span>
-    <span class="th-duration th-sortable" data-sort="duration">{t.col_duration} <span class="sort-icon"></span></span>
-    <span class="th-players th-sortable" data-sort="players">{t.col_players} <span class="sort-icon"></span></span>
+    <span class="th-duration th-sortable" data-sort="duration" role="button" tabindex="0">{t.col_duration} <span class="sort-icon"></span></span>
+    <span class="th-players th-sortable" data-sort="players" role="button" tabindex="0">{t.col_players} <span class="sort-icon"></span></span>
   </div>
 
   <!-- Combined list: featured first, then regular (initial page server-rendered, rest loaded client-side) -->
@@ -206,357 +213,11 @@ const basePath = lang === 'en' ? '' : lang;
   <div id="hover-tooltip"></div>
 </Base>
 
-<script define:vars={{ dataUrl, pageSize: PAGE_SIZE, basePath, tDays: t.days, tClassical: t.filter_classical, tRapid: t.filter_rapid, tMonths: t.months, dateLocale: t.date_locale }}>
-  const PAGE_SIZE = pageSize;
-  const list = document.getElementById('tournament-list');
-  const noResults = document.getElementById('no-results');
-  const countEl = document.getElementById('visible-count');
-  const totalEl = document.getElementById('total-count');
-  const loadMoreBtn = document.getElementById('load-more');
-  const CONTINENT_MAP = {
-    FI:'EU',SE:'EU',NO:'EU',DK:'EU',IS:'EU',GB:'EU',IE:'EU',FR:'EU',ES:'EU',PT:'EU',
-    DE:'EU',AT:'EU',CH:'EU',NL:'EU',BE:'EU',LU:'EU',IT:'EU',GR:'EU',CY:'EU',MT:'EU',
-    PL:'EU',CZ:'EU',SK:'EU',HU:'EU',RO:'EU',BG:'EU',RS:'EU',HR:'EU',SI:'EU',BA:'EU',
-    ME:'EU',MK:'EU',AL:'EU',XK:'EU',LT:'EU',LV:'EU',EE:'EU',BY:'EU',UA:'EU',MD:'EU',
-    RU:'EU',GE:'AS',AM:'AS',AZ:'AS',TR:'AS',
-    IN:'AS',CN:'AS',JP:'AS',KR:'AS',TH:'AS',VN:'AS',PH:'AS',ID:'AS',MY:'AS',SG:'AS',
-    PK:'AS',BD:'AS',LK:'AS',NP:'AS',MN:'AS',UZ:'AS',KZ:'AS',KG:'AS',TM:'AS',
-    AE:'AS',QA:'AS',KW:'AS',SA:'AS',IR:'AS',IQ:'AS',JO:'AS',LB:'AS',SY:'AS',IL:'AS',HK:'AS',
-    US:'NA',CA:'NA',MX:'NA',GT:'NA',CR:'NA',CU:'NA',DO:'NA',PA:'NA',PR:'NA',
-    BR:'SA',AR:'SA',CL:'SA',CO:'SA',PE:'SA',VE:'SA',UY:'SA',EC:'SA',
-    AU:'OC',NZ:'OC',
-    ZA:'AF',EG:'AF',MA:'AF',TN:'AF',DZ:'AF',KE:'AF',BW:'AF',ZM:'AF',CI:'AF',CV:'AF',
-  };
-  function getContinent(cc) { return (cc && CONTINENT_MAP[cc]) || 'XX'; }
 
-  let activeContinent = '';
-  const continentTabsEl = document.getElementById('continent-tabs');
-  continentTabsEl?.querySelectorAll('.ctab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      continentTabsEl.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      activeContinent = tab.dataset.continent;
-      whenReady(renderFromScratch);
-    });
-  });
+<script type="application/json" id="list-config" set:html={JSON.stringify(listConfig)}></script>
 
-  function updateContinentCounts() {
-    const country = fCountry.value;
-    const month = fMonth.value;
-    const duration = activeValue(fDurationEl);
-    const tc = activeValue(fTcEl);
-    const search = fSearch.value.toLowerCase().trim();
-    const preFiltered = allData.filter(t => {
-      const matchCountry = !country || t.country === country;
-      const matchMonth = !month || (new Date(t.startDate + 'T00:00:00').getMonth() + 1) === parseInt(month);
-      const days = durationDays(t.startDate, t.endDate);
-      const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
-      const matchTc = !tc || t.timeControl === tc;
-      const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
-      return matchCountry && matchMonth && matchDuration && matchTc && matchSearch;
-    });
-    const counts = {};
-    for (const t of preFiltered) {
-      const c = getContinent(t.countryCode);
-      if (c !== 'XX') counts[c] = (counts[c] || 0) + 1;
-    }
-    document.getElementById('ctab-count-all').textContent = preFiltered.length;
-    continentTabsEl?.querySelectorAll('.ctab[data-continent]').forEach(tab => {
-      const c = tab.dataset.continent;
-      if (!c) return;
-      const el = tab.querySelector('.ctab-count');
-      if (el) el.textContent = counts[c] ?? 0;
-      tab.style.display = (counts[c] ?? 0) === 0 ? 'none' : '';
-    });
-  }
-
-  const fCountry = document.getElementById('f-country');
-  const fMonth = document.getElementById('f-month');
-  const fDurationEl = document.getElementById('f-duration');
-  const fTcEl = document.getElementById('f-tc');
-  const fSearch = document.getElementById('f-search');
-  const resetBtn = document.getElementById('filter-reset');
-
-  function activeValue(groupEl) {
-    return groupEl?.querySelector('.filter-btn.active')?.dataset.value ?? '';
-  }
-
-  function setupBtnGroup(groupEl) {
-    groupEl?.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        groupEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        whenReady(renderFromScratch);
-      });
-    });
-  }
-  setupBtnGroup(fDurationEl);
-  setupBtnGroup(fTcEl);
-
-  let allData = [];
-  let dataReady = false;
-  let pendingFn = null;
-  let renderedCount = PAGE_SIZE;
-  let sortKey = 'date';
-  let sortDir = 'asc';
-  let lastRenderedMonth = '';
-
-  function whenReady(fn) {
-    if (dataReady) fn();
-    else pendingFn = fn;
-  }
-
-  function escapeHTML(str) {
-    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  }
-
-  function formatDateRange(start, end) {
-    const s = new Date(start + 'T00:00:00');
-    const e = new Date(end + 'T00:00:00');
-    const sStr = s.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short' });
-    const eStr = e.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short', year: 'numeric' });
-    return `${sStr} – ${eStr}`;
-  }
-
-  function durationDays(start, end) {
-    const s = new Date(start + 'T00:00:00');
-    const e = new Date(end + 'T00:00:00');
-    return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-  }
-
-  function flagUrl(t) {
-    return t.countryCode ? `https://flagcdn.com/20x15/${t.countryCode.toLowerCase()}.png` : null;
-  }
-
-  function rowHTML(t) {
-    const days = durationDays(t.startDate, t.endDate);
-    const dateRange = formatDateRange(t.startDate, t.endDate);
-    const prefix = basePath ? `/${basePath}` : '';
-    const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}` : null;
-    const flag = flagUrl(t);
-    const name = escapeHTML(t.name);
-    const city = escapeHTML(t.city);
-    const country = escapeHTML(t.country);
-    const nameInner = detailUrl
-      ? `<a href="${detailUrl}">${name}</a>`
-      : name;
-    const flagImg = flag ? `<img src="${flag}" alt="${country}" width="14" height="11" loading="lazy">` : '';
-    const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;
-    const playersText = hasPlayers ? t.playersRegistered : '—';
-    const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}</span>` : '';
-    const tcLabel = t.timeControl === 'Rapid' ? tRapid : tClassical;
-    const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
-    const badge = `<span class="tc-badge ${tcClass}">${tcLabel}</span>`;
-
-    return `<li class="trow">
-      <div class="trow-main">
-        <span class="trow-name"><span class="trow-name-text">${nameInner}</span></span>
-        <span class="trow-tc">${badge}</span>
-        <span class="trow-dates">${dateRange}</span>
-        <span class="trow-location" data-tooltip="${city}, ${country}">${flagImg}${city}, ${country}</span>
-        <span class="trow-duration">${days} ${tDays}</span>
-        <span class="trow-players">${playersText}</span>
-      </div>
-      <div class="trow-meta">
-        <span class="trow-dates">${dateRange}</span>
-        <span class="trow-location">${flagImg}<span class="trow-location-city">${city}, </span><span class="trow-location-country">${country}</span></span>
-        <span class="trow-info"><span>${days} ${tDays}</span>${badge}${playersMeta}</span>
-      </div>
-    </li>`;
-  }
-
-  function getValue(t, key) {
-    if (key === 'date') return new Date(t.startDate + 'T00:00:00').getTime();
-    if (key === 'duration') return durationDays(t.startDate, t.endDate);
-    if (key === 'players') return t.playersRegistered ?? -1;
-    if (key === 'tc') return t.timeControl === 'Rapid' ? 1 : 0;
-    return 0;
-  }
-
-  function getFilteredSorted() {
-    const country = fCountry.value;
-    const month = fMonth.value;
-    const duration = activeValue(fDurationEl);
-    const tc = activeValue(fTcEl);
-    const search = fSearch.value.toLowerCase().trim();
-
-    const result = allData.filter(t => {
-      const matchCountry = !country || t.country === country;
-      const matchMonth = !month || (new Date(t.startDate + 'T00:00:00').getMonth() + 1) === parseInt(month);
-      const days = durationDays(t.startDate, t.endDate);
-      const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
-      const matchTc = !tc || t.timeControl === tc;
-      const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
-      const matchContinent = !activeContinent || getContinent(t.countryCode) === activeContinent;
-      return matchCountry && matchMonth && matchDuration && matchTc && matchSearch && matchContinent;
-    });
-
-    result.sort((a, b) => {
-      const av = getValue(a, sortKey);
-      const bv = getValue(b, sortKey);
-      if (sortKey === 'players') {
-        if (av === -1 && bv === -1) return 0;
-        if (av === -1) return 1;
-        if (bv === -1) return -1;
-      }
-      return sortDir === 'asc' ? av - bv : bv - av;
-    });
-
-    return result;
-  }
-
-  function monthSeparatorHTML(t) {
-    const d = new Date(t.startDate + 'T00:00:00');
-    const monthIndex = d.getMonth() + 1;
-    const year = d.getFullYear();
-    const monthName = tMonths[monthIndex] || d.toLocaleDateString(dateLocale, { month: 'long' });
-    const label = `${monthName} ${year}`;
-    return `<li class="month-separator"><span class="month-separator-label">${label}</span></li>`;
-  }
-
-  function renderFromScratch() {
-    list.querySelectorAll('.trow:not(.trow-featured), .month-separator').forEach(el => el.remove());
-    renderedCount = 0;
-    lastRenderedMonth = '';
-    renderMore();
-  }
-
-  function renderMore() {
-    const filtered = getFilteredSorted();
-    const next = filtered.slice(renderedCount, renderedCount + PAGE_SIZE);
-    const html = next.map(t => {
-      const d = new Date(t.startDate + 'T00:00:00');
-      const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
-      let sep = '';
-      if (monthKey !== lastRenderedMonth) {
-        sep = monthSeparatorHTML(t);
-        lastRenderedMonth = monthKey;
-      }
-      return sep + rowHTML(t);
-    }).join('');
-    list.insertAdjacentHTML('beforeend', html);
-    renderedCount += next.length;
-
-    countEl.textContent = String(Math.min(renderedCount, filtered.length));
-    totalEl.textContent = String(filtered.length);
-    loadMoreBtn.style.display = renderedCount < filtered.length ? '' : 'none';
-    noResults.style.display = filtered.length === 0 ? 'block' : 'none';
-    updateContinentCounts();
-  }
-
-  function arrowFor(key, dir) {
-    if (key === 'players') return dir === 'desc' ? ' ↓' : ' ↑';
-    if (key === 'date') return dir === 'asc' ? ' ↓' : ' ↑';
-    if (key === 'duration') return dir === 'desc' ? ' ↓' : ' ↑';
-    if (key === 'tc') return dir === 'asc' ? ' ↓' : ' ↑';
-    return '';
-  }
-
-  function updateSortIcons() {
-    document.querySelectorAll('.th-sortable').forEach(th => {
-      const icon = th.querySelector('.sort-icon');
-      if (!icon) return;
-      if (th.dataset.sort === sortKey) {
-        icon.textContent = arrowFor(sortKey, sortDir);
-        th.classList.add('th-sorted');
-      } else {
-        icon.textContent = '';
-        th.classList.remove('th-sorted');
-      }
-    });
-  }
-
-  document.querySelectorAll('.th-sortable').forEach(th => {
-    th.addEventListener('click', () => {
-      const key = th.dataset.sort;
-      if (sortKey === key) {
-        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
-      } else {
-        sortKey = key;
-        sortDir = (key === 'players' || key === 'duration') ? 'desc' : 'asc';
-        if (key === 'tc') sortDir = 'asc';
-      }
-      updateSortIcons();
-      whenReady(renderFromScratch);
-    });
-  });
-  updateSortIcons();
-
-  loadMoreBtn?.addEventListener('click', () => whenReady(renderMore));
-
-  fCountry?.addEventListener('change', () => {
-    if (fCountry.value) {
-      continentTabsEl.style.display = 'none';
-      activeContinent = '';
-      continentTabsEl?.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
-      continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
-    } else {
-      continentTabsEl.style.display = '';
-    }
-    whenReady(renderFromScratch);
-  });
-  fMonth?.addEventListener('change', () => whenReady(renderFromScratch));
-  fSearch?.addEventListener('input', () => whenReady(renderFromScratch));
-  resetBtn?.addEventListener('click', () => {
-    fCountry.value = '';
-    fMonth.value = '';
-    fSearch.value = '';
-    [fDurationEl, fTcEl].forEach(groupEl => {
-      groupEl?.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      groupEl?.querySelector('.filter-btn[data-value=""]')?.classList.add('active');
-    });
-    activeContinent = '';
-    continentTabsEl?.querySelectorAll('.ctab').forEach(t => t.classList.remove('active'));
-    continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
-    continentTabsEl.style.display = '';
-    whenReady(renderFromScratch);
-  });
-
-  fetch(dataUrl)
-    .then(r => r.json())
-    .then(data => {
-      allData = data;
-      dataReady = true;
-      if (lastRenderedMonth === '' && allData[renderedCount - 1]) {
-        const d = new Date(allData[renderedCount - 1].startDate + 'T00:00:00');
-        lastRenderedMonth = `${d.getFullYear()}-${d.getMonth()}`;
-      }
-      if (pendingFn) {
-        const fn = pendingFn;
-        pendingFn = null;
-        fn();
-      }
-    })
-    .catch(err => console.error('Failed to load tournament data', err));
-
-  const tooltip = document.getElementById('hover-tooltip');
-  let tooltipTarget = null;
-
-  function positionTooltip(e) {
-    const offset = 14;
-    let x = e.clientX + offset;
-    let y = e.clientY + offset;
-    const rect = tooltip.getBoundingClientRect();
-    if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - offset;
-    if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - offset;
-    tooltip.style.left = `${x}px`;
-    tooltip.style.top = `${y}px`;
-  }
-
-  document.addEventListener('mouseover', e => {
-    const target = e.target.closest('[data-tooltip]');
-    if (!target || target === tooltipTarget) return;
-    tooltipTarget = target;
-    tooltip.textContent = target.dataset.tooltip;
-    tooltip.classList.add('visible');
-    positionTooltip(e);
-  });
-
-  document.addEventListener('mousemove', e => { if (tooltipTarget) positionTooltip(e); });
-  document.addEventListener('mouseout', e => {
-    if (tooltipTarget && !e.relatedTarget?.closest('[data-tooltip]')) {
-      tooltipTarget = null;
-      tooltip.classList.remove('visible');
-    }
-  });
+<script>
+  import { initTournamentList } from '../scripts/tournamentList.ts';
+  const cfg = JSON.parse(document.getElementById('list-config').textContent);
+  initTournamentList(cfg);
 </script>

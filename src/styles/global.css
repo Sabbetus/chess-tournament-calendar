@@ -42,6 +42,18 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* ── Keyboard focus ── */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 /* ── Header ── */
 header {
   position: sticky;
@@ -163,6 +175,8 @@ main {
   gap: 0.2rem;
   min-width: 130px;
 }
+/* Mobile-only sort control (desktop uses sortable column headers) */
+.sort-mobile { display: none; }
 .filter-group label {
   font-size: 0.68rem;
   font-weight: 600;
@@ -331,6 +345,9 @@ main {
   display: flex;
   align-items: center;
 }
+/* Badge is alone in its column here — drop the inline margin so it lines up
+   with the "Type" column header. */
+.trow-tc .tc-badge { margin-left: 0; }
 
 .trow-dates {
   color: #5bbfcf;
@@ -738,6 +755,7 @@ footer p a:hover { color: var(--text); }
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .tlist-header { display: none; }
+  .sort-mobile { display: flex; }
   .trow {
     display: flex;
     flex-direction: column;
