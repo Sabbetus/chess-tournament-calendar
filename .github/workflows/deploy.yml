@@ -92,9 +92,11 @@ jobs:
                 | ($cur[0] // [] | map(.slug))
                 | map(select(. as $s | ($old | index($s)) == null))
                 | .[]')
+            # Trailing slash matches the canonical/sitemap form — submitting the
+            # unslashed URL would hand IndexNow a 301 redirect instead.
             for s in $NEW; do
-              URLS="$URLS $BASE/tournament/$s"
-              for l in $LANGS; do URLS="$URLS $BASE/$l/tournament/$s"; done
+              URLS="$URLS $BASE/tournament/$s/"
+              for l in $LANGS; do URLS="$URLS $BASE/$l/tournament/$s/"; done
             done
           fi
 
