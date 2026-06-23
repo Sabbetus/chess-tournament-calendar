@@ -9,9 +9,19 @@ const concludedSlugs = new Set(
   archive.filter((t) => t.status === 'concluded').map((t) => t.slug)
 );
 
-// Use the data refresh time as the sitemap lastmod for every page.
+// Sitemap lastmod: tournament pages use the tournament's own "first seen" date
+// (a stable, truthful published-on date that never churns), so an unchanged
+// tournament keeps an old lastmod and Google deprioritises re-crawling it.
+// Non-tournament pages (homepages, contact, etc.) fall back to the data refresh
+// time, which is the best signal we have for those.
 const meta = JSON.parse(readFileSync(new URL('./public/data/meta.json', import.meta.url)));
 const lastmod = new Date(meta.lastUpdated).toISOString();
+
+const firstSeenBySlug = new Map(
+  archive
+    .filter((t) => t.slug && t.firstSeen)
+    .map((t) => [t.slug, new Date(t.firstSeen + 'T00:00:00Z').toISOString()])
+);
 
 export default defineConfig({
   site: 'https://chesstournamentcalendar.com',
@@ -25,7 +35,9 @@ export default defineConfig({
         return !concludedSlugs.has(decodeURIComponent(m[1]));
       },
       serialize: (item) => {
-        item.lastmod = lastmod;
+        const m = item.url.match(/\/tournament\/([^/]+)\/?$/);
+        const firstSeen = m && firstSeenBySlug.get(decodeURIComponent(m[1]));
+        item.lastmod = firstSeen || lastmod;
         return item;
       },
     }),
