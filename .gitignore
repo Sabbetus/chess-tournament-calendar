@@ -5,3 +5,7 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
+
+# Local Claude Code config (personal, machine-specific)
+.claude/settings.local.json
+.claude/launch.json
