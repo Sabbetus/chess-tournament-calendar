@@ -222,14 +222,20 @@ export function initTournamentList(cfg: ListConfig) {
   function renderMore() {
     const filtered = getFilteredSorted();
     const next = filtered.slice(renderedCount, renderedCount + PAGE_SIZE);
+    // Month separators only make sense while the list is in chronological order.
+    // When sorting by player count the rows aren't grouped by month, so the
+    // separators become noise — suppress them in that view.
+    const showSeparators = sortKey !== 'players';
     const html = next
       .map((t: any) => {
-        const d = new Date(t.startDate + 'T00:00:00');
-        const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
         let sep = '';
-        if (monthKey !== lastRenderedMonth) {
-          sep = monthSeparatorHTML(t);
-          lastRenderedMonth = monthKey;
+        if (showSeparators) {
+          const d = new Date(t.startDate + 'T00:00:00');
+          const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+          if (monthKey !== lastRenderedMonth) {
+            sep = monthSeparatorHTML(t);
+            lastRenderedMonth = monthKey;
+          }
         }
         return sep + rowHTML(t);
       })

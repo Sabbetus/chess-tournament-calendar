@@ -57,5 +57,63 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Ping Google sitemap
-        run: curl -sf "https://www.google.com/ping?sitemap=https://chesstournamentcalendar.com/sitemap-index.xml" || true
+      # Checkout (with the prior commit) so the next step can diff the data and
+      # find which tournaments are new this run. fetch-depth: 2 gives us HEAD~1.
+      - name: Checkout for change detection
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: main
+          fetch-depth: 2
+
+      # Notify IndexNow (Bing, Yandex, Seznam, Naver — not Google) of changed
+      # URLs. Runs AFTER deploy so the pages are already live. We submit the
+      # homepages (they change every scrape) plus every newly-added tournament
+      # page in all 6 languages — that's IndexNow's intended use. New URLs per
+      # run are few (well under the 10k-per-request limit), and we make one
+      # request per deploy, so rate limits aren't a concern. The HTTP status is
+      # printed so each deploy self-verifies (200/202 = accepted). The key is
+      # public by design (served at the keyLocation below).
+      - name: Notify IndexNow
+        run: |
+          BASE="https://chesstournamentcalendar.com"
+          LANGS="es pt de cs fi"
+
+          # Homepages always change on a scrape.
+          URLS="$BASE/"
+          for l in $LANGS; do URLS="$URLS $BASE/$l/"; done
+
+          # New tournament slugs = present in current data but not the prior commit.
+          if git rev-parse HEAD~1 >/dev/null 2>&1; then
+            git show HEAD~1:public/data/tournaments.json > /tmp/prev.json 2>/dev/null || echo '[]' > /tmp/prev.json
+            NEW=$(jq -r -n \
+              --slurpfile cur public/data/tournaments.json \
+              --slurpfile prev /tmp/prev.json '
+                ($prev[0] // [] | map(.slug)) as $old
+                | ($cur[0] // [] | map(.slug))
+                | map(select(. as $s | ($old | index($s)) == null))
+                | .[]')
+            for s in $NEW; do
+              URLS="$URLS $BASE/tournament/$s"
+              for l in $LANGS; do URLS="$URLS $BASE/$l/tournament/$s"; done
+            done
+          fi
+
+          COUNT=$(printf '%s\n' $URLS | grep -c .)
+          echo "Submitting $COUNT URLs to IndexNow"
+          PAYLOAD=$(printf '%s\n' $URLS | jq -R . | jq -s '{
+            host: "chesstournamentcalendar.com",
+            key: "d3a6913ec3c84c58bf5edd4a2542ce02",
+            keyLocation: "https://chesstournamentcalendar.com/d3a6913ec3c84c58bf5edd4a2542ce02.txt",
+            urlList: .
+          }')
+
+          HTTP=$(curl -s -o /tmp/indexnow.out -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+          echo "IndexNow HTTP $HTTP"
+          cat /tmp/indexnow.out 2>/dev/null || true
+          case "$HTTP" in
+            200|202) echo "✓ IndexNow accepted the submission" ;;
+            *) echo "⚠ IndexNow returned $HTTP (expected 200/202) — verify the key file and payload" ;;
+          esac

@@ -2,8 +2,10 @@ name: Scrape tournaments
 
 on:
   schedule:
-    # Every 12 hours: 70 minutes past midnight and noon UTC (avoids top-of-hour congestion)
-    - cron: '10 1,13 * * *'
+    # Every 6 hours at :10 past (avoids top-of-hour congestion). We still only
+    # advertise "every 12 hours" on the site — running 4×/day lets GitHub's
+    # scheduling lag eat into the slack while comfortably beating the promise.
+    - cron: '10 */6 * * *'
   workflow_dispatch:  # allow manual trigger
 
 permissions:
