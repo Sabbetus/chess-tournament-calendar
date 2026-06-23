@@ -76,7 +76,10 @@ const eventSchema = {
 };
 
 const initialTournaments = tournaments.slice(0, PAGE_SIZE);
-const dataUrl = `${import.meta.env.BASE_URL}data/tournaments-min.json`;
+// Cache-bust the feed with the build's data version so the client-rendered
+// list can't show a stale CDN/browser copy that's out of sync with the SSR
+// timestamp. The token only changes on a new deploy, so caching still works.
+const dataUrl = `${import.meta.env.BASE_URL}data/tournaments-min.json?v=${new Date(metaData.lastUpdated).getTime()}`;
 const basePath = lang === 'en' ? '' : lang;
 
 const listConfig = {
