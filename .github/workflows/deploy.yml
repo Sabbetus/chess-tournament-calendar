@@ -74,6 +74,9 @@ jobs:
       # printed so each deploy self-verifies (200/202 = accepted). The key is
       # public by design (served at the keyLocation below).
       - name: Notify IndexNow
+        # Best-effort only: the deploy has already succeeded by this point, so a
+        # failed/slow IndexNow ping must never mark the run as failed.
+        continue-on-error: true
         run: |
           BASE="https://chesstournamentcalendar.com"
           LANGS="es pt de cs fi"
@@ -109,10 +112,14 @@ jobs:
             urlList: .
           }')
 
+          # --retry/--max-time ride out transient transport errors; the trailing
+          # `|| HTTP=000` keeps a curl failure from tripping `set -e` and failing
+          # the step (a large batch once died on a transient connection error).
           HTTP=$(curl -s -o /tmp/indexnow.out -w "%{http_code}" \
+            --retry 3 --retry-delay 2 --retry-all-errors --max-time 60 \
             -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
-            -d "$PAYLOAD")
+            -d "$PAYLOAD") || HTTP="000"
           echo "IndexNow HTTP $HTTP"
           cat /tmp/indexnow.out 2>/dev/null || true
           case "$HTTP" in
