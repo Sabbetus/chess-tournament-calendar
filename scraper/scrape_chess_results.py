@@ -291,6 +291,13 @@ def search_windows(today: date):
     ]
 
 
+def remove_cookie_banner(page):
+    """Strip the Cookiebot consent overlay. It otherwise sits on top of the
+    search form and can swallow the first submit, making a whole search window
+    come back empty (see the retry in scrape())."""
+    page.evaluate("document.querySelectorAll('[id*=\"Cookiebot\"],[id*=\"cookiebot\"]').forEach(e => e.remove());")
+
+
 def search_window(page, date_from: str, date_to: str, time_control: str = "1"):
     page.fill('input[name="ctl00$P1$txt_von_tag"]', date_from)
     page.fill('input[name="ctl00$P1$txt_bis_tag"]', date_to)
@@ -302,7 +309,7 @@ def search_window(page, date_from: str, date_to: str, time_control: str = "1"):
     page.click('input[name="ctl00$P1$cb_suchen"]', force=True)
     page.wait_for_load_state("domcontentloaded", timeout=60000)
     page.wait_for_timeout(1500)
-    page.evaluate("document.querySelectorAll('[id*=\"Cookiebot\"],[id*=\"cookiebot\"]').forEach(e => e.remove());")
+    remove_cookie_banner(page)
 
 
 def scrape():
@@ -327,11 +334,28 @@ def scrape():
         page = context.new_page()
         print(f"[INFO] Loading {SEARCH_URL}")
         page.goto(SEARCH_URL, wait_until="domcontentloaded", timeout=60000)
+        # Clear the consent overlay up front so the very first search isn't
+        # swallowed by it (this previously dropped the entire near-term Standard
+        # window in CI, silently losing all upcoming classical tournaments).
+        page.wait_for_timeout(1000)
+        remove_cookie_banner(page)
 
         all_tournaments = {}  # id → tournament, deduped across windows
         for win_from, win_to, time_control in search_windows(today):
-            search_window(page, win_from.strftime("%Y-%m-%d"), win_to.strftime("%Y-%m-%d"), time_control)
-            batch = parse_rows(page)
+            # None of our searches should ever return 0 rows; if one does it's a
+            # transient failure (overlay, slow load), so retry before trusting it.
+            batch = []
+            for attempt in range(1, 4):
+                search_window(page, win_from.strftime("%Y-%m-%d"), win_to.strftime("%Y-%m-%d"), time_control)
+                batch = parse_rows(page)
+                if batch:
+                    break
+                print(f"[WARN] Window returned 0 rows (attempt {attempt}/3); retrying…")
+                page.wait_for_timeout(2000)
+            if not batch:
+                print("[ERROR] Window still empty after 3 attempts — aborting to avoid writing a partial dataset.")
+                browser.close()
+                sys.exit(1)
             for t in batch:
                 all_tournaments[t["id"]] = t
 
