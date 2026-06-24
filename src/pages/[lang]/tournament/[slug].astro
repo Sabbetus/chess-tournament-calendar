@@ -134,12 +134,22 @@ const gcalUrl = (() => {
   return `https://calendar.google.com/calendar/render?${params}`;
 })();
 
+const pageTitle = `${t.name} — ${tr.site_title}`;
+const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
+const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
+const localizedCountry = countryName(t.country, t.countryCode, lang);
+const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${localizedCountry}. ${tcLabel} ${tr.meta_chess_tournament}.`;
+const currentPath = `tournament/${t.slug}`;
+const regUrl = t.registrationUrl || t.websiteUrl || undefined;
+
 const eventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
   "name": t.name,
   "startDate": t.startDate,
   "endDate": t.endDate,
+  "description": t.description || pageDesc,
+  "image": new URL('og-image.png', Astro.site).href,
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": isConcluded
     ? "https://schema.org/EventPostponed"
@@ -153,15 +163,11 @@ const eventSchema = {
       "addressCountry": t.countryCode || undefined,
     },
   },
-  "url": t.registrationUrl || t.websiteUrl || undefined,
+  "url": regUrl,
+  "offers": regUrl
+    ? { "@type": "Offer", "url": regUrl, "availability": "https://schema.org/InStock" }
+    : undefined,
 };
-
-const pageTitle = `${t.name} — ${tr.site_title}`;
-const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
-const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
-const localizedCountry = countryName(t.country, t.countryCode, lang);
-const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${localizedCountry}. ${tcLabel} ${tr.meta_chess_tournament}.`;
-const currentPath = `tournament/${t.slug}`;
 ---
 
 <Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath} noindex={isConcluded}>

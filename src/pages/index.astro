@@ -49,12 +49,19 @@ const lastUpdated = new Date(metaData.lastUpdated).toLocaleString(t.date_locale,
   hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short'
 });
 
+const ogImage = new URL('og-image.png', Astro.site).href;
+
 function toEventSchema(item: any) {
+  const tcLabel = item.timeControl === 'Rapid' ? 'Rapid' : 'Classical';
+  const regUrl = item.registrationUrl || item.websiteUrl || undefined;
   return {
     "@type": "Event",
     "name": item.name,
     "startDate": item.startDate,
     "endDate": item.endDate,
+    "description": item.description
+      || `${item.name}: ${tcLabel} chess tournament${item.city ? ' in ' + item.city : ''}${item.country ? ', ' + item.country : ''}.`,
+    "image": ogImage,
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
@@ -67,6 +74,9 @@ function toEventSchema(item: any) {
       },
     },
     "url": item.websiteUrl || item.registrationUrl || undefined,
+    "offers": regUrl
+      ? { "@type": "Offer", "url": regUrl, "availability": "https://schema.org/InStock" }
+      : undefined,
   };
 }
 
