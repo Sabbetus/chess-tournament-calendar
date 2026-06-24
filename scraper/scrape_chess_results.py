@@ -136,25 +136,6 @@ def is_latin_name(name):
 
 
 
-TIME_CONTROL_MAP = [
-    (re.compile(r'\b(blitz|blitz)\b', re.I), 'Blitz'),
-    (re.compile(r'\b(rapid|schnell|rapide)\b', re.I), 'Rapid'),
-    # Classical: 90min or more, or explicit keyword
-    (re.compile(r'(classical|klassisch|classique|\b(90|100|110|120)\s*(\'|min|m\b))', re.I), 'Classical'),
-    # Rapid by time: 15-60 min
-    (re.compile(r'\b(15|20|25|30|45|60)\s*(\'|min|m\b)', re.I), 'Rapid'),
-    # Blitz by time: under 15
-    (re.compile(r'\b([3-9]|10|12)\s*(\'|min|m\b)', re.I), 'Blitz'),
-]
-
-def normalize_time_control(raw):
-    if not raw:
-        return None
-    for pattern, label in TIME_CONTROL_MAP:
-        if pattern.search(raw):
-            return label
-    return None
-
 def slugify(name, tnr_id):
     slug = name.lower()
     slug = re.sub(r"[^\w\s-]", "", slug)
@@ -171,7 +152,13 @@ def parse_int(s):
     return int(cleaned) if cleaned else None
 
 
-def parse_rows(page):
+def parse_rows(page, time_control="1"):
+    # chess-results' own search bucket is the source of truth for the time
+    # control: window "2" is Rapid, everything else (we only query "1") is
+    # Standard/Classical. This is far more reliable than regex-parsing the
+    # freeform time-control string (e.g. "10 min + 5 sec", which chess-results
+    # classes as Rapid but a naive parser reads as Blitz).
+    tc_label = "Rapid" if time_control == "2" else "Classical"
     today = date.today()
     tournaments = []
     seen_ids = set()
@@ -260,7 +247,7 @@ def parse_rows(page):
             "country": country_name,
             "countryCode": iso_code,
             "rounds": rounds,
-            "timeControl": normalize_time_control(raw_tc),
+            "timeControl": tc_label,
             "timeControlRaw": raw_tc if raw_tc else None,
             "playersRegistered": players,
             "prizePool": None,
@@ -347,7 +334,7 @@ def scrape():
             batch = []
             for attempt in range(1, 4):
                 search_window(page, win_from.strftime("%Y-%m-%d"), win_to.strftime("%Y-%m-%d"), time_control)
-                batch = parse_rows(page)
+                batch = parse_rows(page, time_control)
                 if batch:
                     break
                 print(f"[WARN] Window returned 0 rows (attempt {attempt}/3); retrying…")
