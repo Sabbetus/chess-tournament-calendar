@@ -75,6 +75,9 @@ FIDE_TO_ISO = {
     "CIV": "CI", "CPV": "CV", "CRC": "CR", "CUB": "CU", "DOM": "DO",
     "FAI": "FO", "GUA": "GT", "HKG": "HK", "KEN": "KE", "KOS": "XK",
     "NZL": "NZ", "OMA": "OM", "PAN": "PA", "PUR": "PR", "ZAM": "ZM",
+    "BRN": "BH", "HON": "HN", "JAM": "JM", "LCA": "LC", "MNC": "MC",
+    "NCA": "NI", "NEP": "NP", "NGR": "NG", "PLE": "PS", "TTO": "TT",
+    "UGA": "UG", "ZIM": "ZW",
 }
 
 FIDE_TO_NAME = {
