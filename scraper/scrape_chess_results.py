@@ -30,6 +30,7 @@ Result row structure (classes CRg1/CRg2):
 import json
 import re
 import sys
+import unicodedata
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urljoin
@@ -132,7 +133,27 @@ def duration_days(start, end):
 
 
 def is_latin_name(name):
-    return all(ord(c) <= 0x024F for c in name)
+    """Keep a tournament if its name is predominantly Latin-script *letters*.
+
+    We only inspect letters — digits, punctuation, whitespace, and symbols/emoji
+    (e.g. ♚ ♛ ⚡ wrapped around an otherwise plain-Latin title) are ignored, so a
+    few decorative characters can't disqualify an entry. Names that are mostly
+    non-Latin script (Cyrillic, Greek, CJK, Arabic, …) are still excluded.
+    """
+    latin = non_latin = 0
+    for c in name:
+        if not c.isalpha():
+            continue
+        try:
+            if "LATIN" in unicodedata.name(c):
+                latin += 1
+            else:
+                non_latin += 1
+        except ValueError:
+            non_latin += 1
+    if latin + non_latin == 0:
+        return True  # no letters at all (numbers/symbols only) — don't exclude
+    return latin >= non_latin
 
 
 
