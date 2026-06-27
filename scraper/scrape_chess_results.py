@@ -78,6 +78,7 @@ FIDE_TO_ISO = {
     "BRN": "BH", "HON": "HN", "JAM": "JM", "LCA": "LC", "MNC": "MC",
     "NCA": "NI", "NEP": "NP", "NGR": "NG", "PLE": "PS", "TTO": "TT",
     "UGA": "UG", "ZIM": "ZW",
+    "BOL": "BO", "SWZ": "SZ", "PAR": "PY", "MAD": "MG", "ESA": "SV", "MAW": "MW",
 }
 
 FIDE_TO_NAME = {
@@ -119,6 +120,8 @@ FIDE_TO_NAME = {
     "MNC": "Monaco", "NCA": "Nicaragua", "NEP": "Nepal",
     "NGR": "Nigeria", "PLE": "Palestine", "UGA": "Uganda",
     "HON": "Honduras", "TTO": "Trinidad and Tobago", "ZIM": "Zimbabwe",
+    "BOL": "Bolivia", "SWZ": "Eswatini", "PAR": "Paraguay",
+    "MAD": "Madagascar", "ESA": "El Salvador", "MAW": "Malawi",
     "ZZZ": "Unknown",
 }
 
@@ -434,6 +437,12 @@ def merge_into_archive(scraped, archive):
                 "lastSeen": today,
             })
         else:
+            # Skip tournaments that are starting within 3 days of first discovery:
+            # they have no SEO value (won't be indexed before they end) and offer
+            # no practical value to users who can't register or travel in time.
+            days_until_start = (date.fromisoformat(t["startDate"]) - date.today()).days
+            if days_until_start < 3:
+                continue
             t["firstSeen"] = today
             t["lastSeen"] = today
             by_id[t["id"]] = t

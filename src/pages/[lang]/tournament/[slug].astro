@@ -134,7 +134,11 @@ const gcalUrl = (() => {
   return `https://calendar.google.com/calendar/render?${params}`;
 })();
 
-const pageTitle = `${t.name} — ${tr.site_title}`;
+const titleSuffix = ` — ${tr.site_title}`;
+const titleName = t.name.length > 69 - titleSuffix.length
+  ? t.name.slice(0, 69 - titleSuffix.length - 1).trimEnd() + '…'
+  : t.name;
+const pageTitle = `${titleName}${titleSuffix}`;
 const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
 const localizedCountry = countryName(t.country, t.countryCode, lang);

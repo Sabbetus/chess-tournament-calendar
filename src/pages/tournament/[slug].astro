@@ -150,7 +150,11 @@ const gcalUrl = (() => {
 })();
 
 const base = import.meta.env.BASE_URL;
-const pageTitle = `${t.name} — Chess Tournament Calendar`;
+const titleSuffix = ' — Chess Tournament Calendar';
+const titleName = t.name.length > 69 - titleSuffix.length
+  ? t.name.slice(0, 69 - titleSuffix.length - 1).trimEnd() + '…'
+  : t.name;
+const pageTitle = `${titleName}${titleSuffix}`;
 const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
 const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. ${tcLabel} ${tr.meta_chess_tournament}.`;
