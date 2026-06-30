@@ -79,6 +79,7 @@ FIDE_TO_ISO = {
     "NCA": "NI", "NEP": "NP", "NGR": "NG", "PLE": "PS", "TTO": "TT",
     "UGA": "UG", "ZIM": "ZW",
     "BOL": "BO", "SWZ": "SZ", "PAR": "PY", "MAD": "MG", "ESA": "SV", "MAW": "MW",
+    "MOZ": "MZ",
 }
 
 FIDE_TO_NAME = {
@@ -122,6 +123,7 @@ FIDE_TO_NAME = {
     "HON": "Honduras", "TTO": "Trinidad and Tobago", "ZIM": "Zimbabwe",
     "BOL": "Bolivia", "SWZ": "Eswatini", "PAR": "Paraguay",
     "MAD": "Madagascar", "ESA": "El Salvador", "MAW": "Malawi",
+    "MOZ": "Mozambique",
     "ZZZ": "Unknown",
 }
 
@@ -328,7 +330,23 @@ def search_window(page, date_from: str, date_to: str, time_control: str = "1"):
     remove_cookie_banner(page)
 
 
-def scrape():
+def expected_window_count(archive, win_from: date, win_to: date, time_control: str):
+    """Rough baseline for how many tournaments a window should return, based on
+    what the archive already knows is upcoming in that date range. Used to spot
+    a window that returns a suspiciously low (but nonzero) row count — e.g. a
+    table that was still mid-render when we read it."""
+    tc_label = "Rapid" if time_control == "2" else "Classical"
+    count = 0
+    for t in archive:
+        if t.get("timeControl") != tc_label:
+            continue
+        start = parse_date(t.get("startDate", ""))
+        if start and win_from <= start <= win_to:
+            count += 1
+    return count
+
+
+def scrape(archive):
     today = date.today()
 
     with sync_playwright() as p:
@@ -360,16 +378,31 @@ def scrape():
         for win_from, win_to, time_control in search_windows(today):
             # None of our searches should ever return 0 rows; if one does it's a
             # transient failure (overlay, slow load), so retry before trusting it.
+            # We also guard against a *nonzero but implausibly low* row count,
+            # which happens when the result table is still mid-render at the
+            # moment we read it — a slow CI runner can produce a partial page
+            # that looks like a valid (if small) result instead of an empty one.
+            # Run-to-run counts normally vary by 0-3%; an 80%-of-expected floor
+            # gives comfortable margin above that noise while still catching a
+            # real incident (one actual partial-render failure returned only
+            # 52.6% of the expected count, which a looser 50% floor would have
+            # let through).
+            expected = expected_window_count(archive, win_from, win_to, time_control)
+            min_acceptable = int(expected * 0.8) if expected >= 20 else 0
+
             batch = []
             for attempt in range(1, 4):
                 search_window(page, win_from.strftime("%Y-%m-%d"), win_to.strftime("%Y-%m-%d"), time_control)
                 batch = parse_rows(page, time_control)
-                if batch:
+                if len(batch) >= min_acceptable and batch:
                     break
-                print(f"[WARN] Window returned 0 rows (attempt {attempt}/3); retrying…")
+                if not batch:
+                    print(f"[WARN] Window returned 0 rows (attempt {attempt}/3); retrying…")
+                else:
+                    print(f"[WARN] Window returned only {len(batch)} rows, expected ~{expected} (attempt {attempt}/3); retrying…")
                 page.wait_for_timeout(2000)
-            if not batch:
-                print("[ERROR] Window still empty after 3 attempts — aborting to avoid writing a partial dataset.")
+            if not batch or len(batch) < min_acceptable:
+                print(f"[ERROR] Window still implausibly low ({len(batch)} rows, expected ~{expected}) after 3 attempts — aborting to avoid writing a partial dataset.")
                 browser.close()
                 sys.exit(1)
             for t in batch:
@@ -413,9 +446,13 @@ def load_archive():
     return []
 
 
+MAX_CONSECUTIVE_MISSES = 3  # ~18h at the current 6h cadence
+
+
 def merge_into_archive(scraped, archive):
     today = date.today().isoformat()
     by_id = {t["id"]: t for t in archive}
+    scraped_ids = {t["id"] for t in scraped}
 
     for t in scraped:
         existing = by_id.get(t["id"])
@@ -435,6 +472,7 @@ def merge_into_archive(scraped, archive):
                 "registrationUrl": t["registrationUrl"],
                 "websiteUrl": t["websiteUrl"],
                 "lastSeen": today,
+                "consecutiveMisses": 0,
             })
         else:
             # Skip tournaments that are starting within 3 days of first discovery:
@@ -445,7 +483,16 @@ def merge_into_archive(scraped, archive):
                 continue
             t["firstSeen"] = today
             t["lastSeen"] = today
+            t["consecutiveMisses"] = 0
             by_id[t["id"]] = t
+
+    for tid, t in by_id.items():
+        if tid not in scraped_ids and t["startDate"] > today:
+            # Still upcoming by date but absent from this run — either a
+            # transient scrape gap or a genuine cancellation/removal. We don't
+            # know which yet, so count it and only treat it as gone once it's
+            # missed several runs in a row (see build_output).
+            t["consecutiveMisses"] = t.get("consecutiveMisses", 0) + 1
 
     for t in by_id.values():
         t["status"] = "concluded" if t["startDate"] <= today else "upcoming"
@@ -459,12 +506,42 @@ def merge_into_archive(scraped, archive):
             t["firstSeen"] = today
         if "lastSeen" not in t:
             t["lastSeen"] = today
+        if "consecutiveMisses" not in t:
+            t["consecutiveMisses"] = 0
 
     return sorted(by_id.values(), key=lambda t: t["startDate"])
 
 
+OUTPUT_FIELDS = [
+    "id", "slug", "name", "startDate", "endDate", "city", "country",
+    "countryCode", "rounds", "timeControl", "timeControlRaw",
+    "playersRegistered", "prizePool", "currency", "ratingRequirement",
+    "open", "registrationOpen", "registrationUrl", "websiteUrl",
+    "description", "source",
+]
+
+
+def build_output(archive):
+    """The live front-end feed: every archived tournament that's still
+    upcoming and hasn't been silently missing for multiple consecutive runs.
+    Deriving this from the archive (rather than from a single scrape's raw
+    results) means one transient bad scrape can no longer wipe tournaments off
+    the live site — it just adds a miss, which clears the moment the
+    tournament is seen again."""
+    upcoming = [
+        t for t in archive
+        if t["status"] == "upcoming" and t.get("consecutiveMisses", 0) < MAX_CONSECUTIVE_MISSES
+    ]
+    return sorted(
+        ({k: t.get(k) for k in OUTPUT_FIELDS} for t in upcoming),
+        key=lambda t: t["startDate"],
+    )
+
+
 def main():
-    tournaments = scrape()
+    archive = load_archive()
+
+    tournaments = scrape(archive)
     print(f"[INFO] {len(tournaments)} tournaments pass the {MIN_DURATION_DAYS}-{MAX_DURATION_DAYS} day filter.")
 
     previous_count = previous_tournament_count()
@@ -481,17 +558,20 @@ def main():
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-    # Write upcoming-only list (front page payload)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(tournaments, f, ensure_ascii=False, indent=2)
-    print(f"[INFO] Written to {OUTPUT_PATH}")
-
-    # Merge into archive
-    archive = load_archive()
+    # Merge this run's results into the archive (the durable, per-tournament
+    # state — firstSeen/lastSeen/status/consecutiveMisses).
     merged = merge_into_archive(tournaments, archive)
     with open(ARCHIVE_PATH, "w", encoding="utf-8") as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
     print(f"[INFO] Archive updated: {len(merged)} total entries ({sum(1 for t in merged if t['status'] == 'upcoming')} upcoming, {sum(1 for t in merged if t['status'] == 'concluded')} concluded). Written to {ARCHIVE_PATH}")
+
+    # The live front-end feed is derived from the archive, not from this run's
+    # raw results — so a single bad scrape (e.g. a partial table read) can no
+    # longer drop real upcoming tournaments off the site. See build_output().
+    output = build_output(merged)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+    print(f"[INFO] Written to {OUTPUT_PATH} ({len(output)} tournaments)")
 
     with open(META_PATH, "w", encoding="utf-8") as f:
         json.dump({"lastUpdated": datetime.utcnow().isoformat() + "Z"}, f, indent=2)
