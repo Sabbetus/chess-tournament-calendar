@@ -334,14 +334,22 @@ def expected_window_count(archive, win_from: date, win_to: date, time_control: s
     """Rough baseline for how many tournaments a window should return, based on
     what the archive already knows is upcoming in that date range. Used to spot
     a window that returns a suspiciously low (but nonzero) row count — e.g. a
-    table that was still mid-render when we read it."""
+    table that was still mid-render when we read it.
+
+    Must mirror parse_rows()'s own start_date > today requirement: archive
+    entries that were upcoming yesterday but start today (or earlier) are
+    correctly dropped by parse_rows, so counting them here would make every
+    day's real, filtered result look like an anomaly against an inflated
+    baseline.
+    """
+    today = date.today()
     tc_label = "Rapid" if time_control == "2" else "Classical"
     count = 0
     for t in archive:
         if t.get("timeControl") != tc_label:
             continue
         start = parse_date(t.get("startDate", ""))
-        if start and win_from <= start <= win_to:
+        if start and start > today and win_from <= start <= win_to:
             count += 1
     return count
 
