@@ -454,7 +454,12 @@ def load_archive():
     return []
 
 
-MAX_CONSECUTIVE_MISSES = 3  # ~18h at the current 6h cadence
+MAX_CONSECUTIVE_MISSES = 8  # ~2 days at the current 6h cadence — chess-results'
+# own search is unreliable enough that a real, upcoming tournament can be
+# absent from results for several consecutive runs even though it's neither
+# cancelled nor mis-scraped (verified: some tournaments simply aren't
+# returned by their search for a given date range/type/time-control
+# combination despite matching all criteria on their own detail page).
 
 
 def merge_into_archive(scraped, archive):

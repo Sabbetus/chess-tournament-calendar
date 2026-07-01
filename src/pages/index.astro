@@ -183,7 +183,7 @@ const listConfig = {
 
   <!-- Combined list: featured first, then regular (initial page server-rendered, rest loaded client-side) -->
   <ul class="tournament-list" id="tournament-list">
-    {featured.map((item: any) => <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} />)}
+    {featured.map((item: any) => <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} dateLocale={t.date_locale} daysLabel={t.days} />)}
     {initialTournaments.length > 0
       ? (() => {
           let lastMonth = '';
@@ -195,7 +195,7 @@ const listConfig = {
               ? <li class="month-separator"><span class="month-separator-label">{monthLabel}</span></li>
               : null;
             lastMonth = monthKey;
-            return sep ? [sep, <TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} />] : [<TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} />];
+            return sep ? [sep, <TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} dateLocale={t.date_locale} daysLabel={t.days} />] : [<TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} dateLocale={t.date_locale} daysLabel={t.days} />];
           });
         })()
       : (
