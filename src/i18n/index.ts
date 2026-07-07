@@ -24,8 +24,8 @@ export function langPrefix(lang: string): string {
 }
 
 export function langUrl(lang: string, currentPath: string): string {
-  if (lang === 'en') return currentPath ? `/${currentPath}` : '/';
-  return currentPath ? `/${lang}/${currentPath}` : `/${lang}/`;
+  if (lang === 'en') return currentPath ? `/${currentPath}/` : '/';
+  return currentPath ? `/${lang}/${currentPath}/` : `/${lang}/`;
 }
 
 // Overrides for entries that Intl.DisplayNames can't localize correctly:

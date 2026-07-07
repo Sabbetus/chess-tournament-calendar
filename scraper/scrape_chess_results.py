@@ -79,7 +79,7 @@ FIDE_TO_ISO = {
     "NCA": "NI", "NEP": "NP", "NGR": "NG", "PLE": "PS", "TTO": "TT",
     "UGA": "UG", "ZIM": "ZW",
     "BOL": "BO", "SWZ": "SZ", "PAR": "PY", "MAD": "MG", "ESA": "SV", "MAW": "MW",
-    "MOZ": "MZ",
+    "MOZ": "MZ", "NAM": "NA",
 }
 
 FIDE_TO_NAME = {
@@ -96,7 +96,7 @@ FIDE_TO_NAME = {
     "TUR": "Türkiye", "ISR": "Israel", "ARM": "Armenia", "GEO": "Georgia",
     "AZE": "Azerbaijan", "KAZ": "Kazakhstan", "SVK": "Slovakia",
     "SLO": "Slovenia", "LAT": "Latvia", "LTU": "Lithuania", "EST": "Estonia",
-    "BLR": "Belarus", "ALB": "Albania", "MKD": "North Macedonia",
+    "BLR": "Belarus", "MDA": "Moldova", "ALB": "Albania", "MKD": "North Macedonia",
     "BIH": "Bosnia & Herzegovina", "MNE": "Montenegro", "LUX": "Luxembourg",
     "MLT": "Malta", "CYP": "Cyprus", "AND": "Andorra", "CAT": "Catalonia",
     "MAR": "Morocco", "MDV": "Maldives", "RSA": "South Africa",
@@ -123,7 +123,7 @@ FIDE_TO_NAME = {
     "HON": "Honduras", "TTO": "Trinidad and Tobago", "ZIM": "Zimbabwe",
     "BOL": "Bolivia", "SWZ": "Eswatini", "PAR": "Paraguay",
     "MAD": "Madagascar", "ESA": "El Salvador", "MAW": "Malawi",
-    "MOZ": "Mozambique",
+    "MOZ": "Mozambique", "NAM": "Namibia",
     "ZZZ": "Unknown",
 }
 
@@ -238,7 +238,11 @@ def parse_rows(page, time_control="1"):
 
         # Country: 3-letter FIDE code at index 2
         fide_code = texts[2] if len(texts) > 2 else ""
-        if fide_code == "XXX":
+        if fide_code in ("XXX", "FID"):
+            # XXX = no federation selected; FID = chess-results' generic
+            # placeholder for "FIDE" itself, used when an organizer hasn't set
+            # a real national federation. Neither reliably identifies an
+            # actual country, so treat both as blank rather than guessing.
             fide_code = ""
         country_name = FIDE_TO_NAME.get(fide_code, fide_code) if fide_code else ""
         iso_code = FIDE_TO_ISO.get(fide_code)
@@ -543,7 +547,13 @@ def build_output(archive):
     tournament is seen again."""
     upcoming = [
         t for t in archive
-        if t["status"] == "upcoming" and t.get("consecutiveMisses", 0) < MAX_CONSECUTIVE_MISSES
+        if t["status"] == "upcoming"
+        and t.get("consecutiveMisses", 0) < MAX_CONSECUTIVE_MISSES
+        # Tournaments with no real country (blank federation, or chess-results'
+        # "Unknown" placeholder) can't be browsed/filtered by country and add
+        # no value sitting in the list — hide them without deleting the
+        # archive entry, in case the federation gets corrected later.
+        and t.get("country") and t.get("country") != "Unknown"
     ]
     return sorted(
         ({k: t.get(k) for k in OUTPUT_FIELDS} for t in upcoming),

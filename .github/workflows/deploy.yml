@@ -53,9 +53,46 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      # actions/deploy-pages has no built-in retry, and GitHub's Pages backend
+      # occasionally rejects a deployment (fails in ~10-20s) if a prior
+      # deployment on their end hasn't fully settled yet, or (rarely) stalls
+      # and hits the action's own 10-minute timeout. Both are transient and
+      # clear on their own, so we retry up to 3 times with backoff before
+      # letting the job actually fail.
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy1
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before retry 1
+        if: steps.deploy1.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy2
+        if: steps.deploy1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Wait before retry 2
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy3
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+
+      - name: Resolve deployment result
+        id: deployment
+        run: |
+          if [ "${{ steps.deploy1.outcome }}" == "success" ]; then
+            echo "page_url=${{ steps.deploy1.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ steps.deploy2.outcome }}" == "success" ]; then
+            echo "page_url=${{ steps.deploy2.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "page_url=${{ steps.deploy3.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+          fi
 
       # Checkout (with the prior commit) so the next step can diff the data and
       # find which tournaments are new this run. fetch-depth: 2 gives us HEAD~1.

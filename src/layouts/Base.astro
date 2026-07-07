@@ -40,7 +40,7 @@ const langLabels: Record<string, string> = {
   {SUPPORTED_LANGS.map(l => (
     <link rel="alternate" hreflang={l} href={`https://chesstournamentcalendar.com${langUrl(l, currentPath)}`} />
   ))}
-  <link rel="alternate" hreflang="x-default" href={`https://chesstournamentcalendar.com${currentPath ? `/${currentPath}` : '/'}`} />
+  <link rel="alternate" hreflang="x-default" href={`https://chesstournamentcalendar.com${currentPath ? `/${currentPath}/` : '/'}`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
