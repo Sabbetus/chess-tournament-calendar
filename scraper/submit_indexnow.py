@@ -16,30 +16,33 @@ INDEXNOW_URL = "https://api.indexnow.org/indexnow"
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+LANGS = ["es", "pt", "de", "cs", "fi"]
+
+
 def load_slugs():
     urls = []
 
-    # All archive tournament pages
-    archive_path = os.path.join(BASE_DIR, "public", "data", "archive.json")
-    with open(archive_path) as f:
-        archive = json.load(f)
-    for t in archive:
-        if t.get("slug"):
-            urls.append(f"https://{HOST}/tournament/{t['slug']}/")
+    # Only currently-live (upcoming) tournament pages -- concluded tournaments
+    # are intentionally noindex, so they shouldn't be submitted for indexing.
+    tournaments_path = os.path.join(BASE_DIR, "public", "data", "tournaments.json")
+    with open(tournaments_path) as f:
+        tournaments = json.load(f)
 
     # Featured tournaments (Nordic Chess Festival etc.)
     featured_path = os.path.join(BASE_DIR, "data", "featured.json")
     with open(featured_path) as f:
         featured = json.load(f)
-    for t in featured:
-        if t.get("slug"):
-            urls.append(f"https://{HOST}/tournament/{t['slug']}/")
 
-    # Home page and static pages
-    urls += [
-        f"https://{HOST}/",
-        f"https://{HOST}/contact/",
-    ]
+    slugs = [t["slug"] for t in tournaments + featured if t.get("slug")]
+    for slug in slugs:
+        urls.append(f"https://{HOST}/tournament/{slug}/")
+        for lang in LANGS:
+            urls.append(f"https://{HOST}/{lang}/tournament/{slug}/")
+
+    # Home page, static pages, and their language variants
+    urls += [f"https://{HOST}/", f"https://{HOST}/contact/"]
+    for lang in LANGS:
+        urls += [f"https://{HOST}/{lang}/", f"https://{HOST}/{lang}/contact/"]
 
     return urls
 
