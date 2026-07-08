@@ -394,13 +394,18 @@ def scrape(archive):
             # which happens when the result table is still mid-render at the
             # moment we read it — a slow CI runner can produce a partial page
             # that looks like a valid (if small) result instead of an empty one.
-            # Run-to-run counts normally vary by 0-3%; an 80%-of-expected floor
-            # gives comfortable margin above that noise while still catching a
-            # real incident (one actual partial-render failure returned only
-            # 52.6% of the expected count, which a looser 50% floor would have
-            # let through).
+            # Aggregate run-to-run totals vary by only 0-3%, but that hides
+            # substantial per-tournament churn: chess-results' own search
+            # genuinely omits ~25% of individually-expected tournaments on any
+            # given day (confirmed by ID, not just count -- largely Round
+            # Robin leakage and other search inconsistency on their end, see
+            # MAX_CONSECUTIVE_MISSES), and those swap in and out run to run
+            # rather than being a stable subset. An 80% floor was inside that
+            # normal noise band and false-triggered on an ordinary run. 60%
+            # stays clear of the ~75% normal case while still catching the
+            # one real incident so far (a partial-render failure at 52.6%).
             expected = expected_window_count(archive, win_from, win_to, time_control)
-            min_acceptable = int(expected * 0.8) if expected >= 20 else 0
+            min_acceptable = int(expected * 0.6) if expected >= 20 else 0
 
             batch = []
             for attempt in range(1, 4):
