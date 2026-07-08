@@ -43,6 +43,7 @@ const COUNTRY_NAME_OVERRIDES: Record<string, Record<string, string>> = {
   de: {
     England: 'England', Scotland: 'Schottland', Wales: 'Wales', Catalonia: 'Katalonien',
     Unknown: 'Unbekannt', 'Trinidad and Tobago': 'Trinidad und Tobago', 'Hong Kong': 'Hongkong',
+    Palestine: 'Palästina',
   },
   cs: {
     England: 'Anglie', Scotland: 'Skotsko', Wales: 'Wales', Catalonia: 'Katalánsko',
