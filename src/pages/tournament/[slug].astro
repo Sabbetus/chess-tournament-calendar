@@ -99,10 +99,6 @@ function scoreSimilar(candidate: any, target: any): number {
 
   score += Math.max(0, 3 - Math.abs(tDays - cDays)) * 3;
 
-  if (target.rounds && candidate.rounds) {
-    score += Math.max(0, 3 - Math.abs(target.rounds - candidate.rounds));
-  }
-
   return score;
 }
 
@@ -157,7 +153,7 @@ const titleName = t.name.length > 69 - titleSuffix.length
 const pageTitle = `${titleName}${titleSuffix}`;
 const tcLabel = t.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
-const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. ${tcLabel} ${tr.meta_chess_tournament}.`;
+const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. ${tcLabel} ${tr.meta_chess_tournament} ${tr.meta_tail}.`;
 const currentPath = `tournament/${t.slug}`;
 const regUrl = t.registrationUrl || t.websiteUrl || undefined;
 
@@ -183,8 +179,8 @@ const eventSchema = {
     },
   },
   "url": regUrl,
-  "offers": regUrl
-    ? { "@type": "Offer", "url": regUrl, "availability": "https://schema.org/InStock" }
+  "organizer": t.organizer
+    ? { "@type": "Organization", "name": t.organizer }
     : undefined,
 };
 ---
@@ -213,7 +209,7 @@ const eventSchema = {
       <div class="fact-label">{tr.fact_duration}</div>
       <div class="fact-value">{days} {tr.days}</div>
     </div>
-    {t.rounds && (
+    {t.rounds && t.source === 'manual' && (
       <div class="fact-card">
         <div class="fact-label">{tr.fact_rounds}</div>
         <div class="fact-value">{t.rounds}</div>

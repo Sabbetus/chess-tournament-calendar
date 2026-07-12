@@ -1,6 +1,6 @@
 {
   "site_title": "Shakkiturnauskalenteri",
-  "site_description": "Löydä klassisia ja nopean shakin turnauksia ympäri maailmaa. Päivitetään 12 tunnin välein.",
+  "site_description": "Selaa tulevia klassisen ja nopean shakin turnauksia ympäri maailmaa, mukaan lukien päivämäärät, sijainnit ja ilmoittautumistiedot. Päivitetään 12 tunnin välein.",
   "logo_sub": "Shakkiturnaukset ympäri maailmaa",
   "intro": "Tulevat klassisen ja nopean shakin turnaukset ympäri maailmaa, päivitetään 12 tunnin välein.",
   "filter_country": "Maa",
@@ -17,7 +17,8 @@
   "filter_search": "Haku",
   "filter_search_placeholder": "Turnauksen nimi…",
   "filter_reset": "Nollaa",
-  "meta_chess_tournament": "šakkiturnaus",
+  "meta_chess_tournament": "shakkiturnaus",
+  "meta_tail": "— katso päivämäärät, sijainti ja ilmoittautumistilanne",
   "sort_label": "Järjestä",
   "sort_duration_desc": "Kesto (pisin)",
   "sort_duration_asc": "Kesto (lyhyin)",

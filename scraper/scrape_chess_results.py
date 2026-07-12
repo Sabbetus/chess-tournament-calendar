@@ -79,7 +79,7 @@ FIDE_TO_ISO = {
     "NCA": "NI", "NEP": "NP", "NGR": "NG", "PLE": "PS", "TTO": "TT",
     "UGA": "UG", "ZIM": "ZW",
     "BOL": "BO", "SWZ": "SZ", "PAR": "PY", "MAD": "MG", "ESA": "SV", "MAW": "MW",
-    "MOZ": "MZ", "NAM": "NA",
+    "MOZ": "MZ", "NAM": "NA", "ETH": "ET", "MRI": "MU", "ARU": "AW",
 }
 
 FIDE_TO_NAME = {
@@ -111,7 +111,7 @@ FIDE_TO_NAME = {
     "IRI": "Iran", "IRQ": "Iraq", "JOR": "Jordan", "LBN": "Lebanon",
     "SYR": "Syria", "MEX": "Mexico", "COL": "Colombia", "PER": "Peru",
     "CHI": "Chile", "VEN": "Venezuela", "URU": "Uruguay", "ECU": "Ecuador",
-    "BOT": "Botswana", "GCI": "Guernsey", "ACC": "ASEAN",
+    "BOT": "Botswana", "GCI": "Guernsey", "ACC": "ASEAN", "ACF": "Asian Chess Fed.",
     "CIV": "Côte d'Ivoire", "CPV": "Cape Verde", "CRC": "Costa Rica",
     "CUB": "Cuba", "DOM": "Dominican Republic", "FAI": "Faroe Islands",
     "GUA": "Guatemala", "HKG": "Hong Kong", "KEN": "Kenya", "KOS": "Kosovo",
@@ -123,7 +123,8 @@ FIDE_TO_NAME = {
     "HON": "Honduras", "TTO": "Trinidad and Tobago", "ZIM": "Zimbabwe",
     "BOL": "Bolivia", "SWZ": "Eswatini", "PAR": "Paraguay",
     "MAD": "Madagascar", "ESA": "El Salvador", "MAW": "Malawi",
-    "MOZ": "Mozambique", "NAM": "Namibia",
+    "MOZ": "Mozambique", "NAM": "Namibia", "ETH": "Ethiopia",
+    "MRI": "Mauritius", "ARU": "Aruba",
     "ZZZ": "Unknown",
 }
 
@@ -271,6 +272,9 @@ def parse_rows(page, time_control="1"):
         # Players at index 17
         players = parse_int(texts[17]) if len(texts) > 17 else None
 
+        # Organiser at index 8 (may be empty)
+        organizer = texts[8].strip() if len(texts) > 8 and texts[8].strip() else None
+
         raw_tc = texts[13] if len(texts) > 13 else None
         tournaments.append({
             "id": tid,
@@ -293,6 +297,7 @@ def parse_rows(page, time_control="1"):
             "registrationUrl": detail_url,
             "websiteUrl": detail_url,
             "description": None,
+            "organizer": organizer,
             "source": "chess-results",
         })
 
@@ -493,6 +498,7 @@ def merge_into_archive(scraped, archive):
                 "playersRegistered": t["playersRegistered"],
                 "registrationUrl": t["registrationUrl"],
                 "websiteUrl": t["websiteUrl"],
+                "organizer": t["organizer"],
                 "lastSeen": today,
                 "consecutiveMisses": 0,
             })
@@ -524,6 +530,8 @@ def merge_into_archive(scraped, archive):
         # Ensure new fields exist on old entries
         if "timeControlRaw" not in t:
             t["timeControlRaw"] = None
+        if "organizer" not in t:
+            t["organizer"] = None
         if "firstSeen" not in t:
             t["firstSeen"] = today
         if "lastSeen" not in t:
@@ -539,7 +547,7 @@ OUTPUT_FIELDS = [
     "countryCode", "rounds", "timeControl", "timeControlRaw",
     "playersRegistered", "prizePool", "currency", "ratingRequirement",
     "open", "registrationOpen", "registrationUrl", "websiteUrl",
-    "description", "source",
+    "description", "organizer", "source",
 ]
 
 

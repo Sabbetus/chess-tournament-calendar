@@ -67,7 +67,6 @@ const ogImage = new URL('og-image.png', Astro.site).href;
 function toEventSchema(item: any) {
   const tcLabel = item.timeControl === 'Rapid' ? t.filter_rapid : t.filter_classical;
   const localizedCountry = countryName(item.country, item.countryCode, lang);
-  const regUrl = item.registrationUrl || item.websiteUrl || undefined;
   return {
     "@type": "Event",
     "name": item.name,
@@ -88,8 +87,8 @@ function toEventSchema(item: any) {
       },
     },
     "url": item.websiteUrl || item.registrationUrl || undefined,
-    "offers": regUrl
-      ? { "@type": "Offer", "url": regUrl, "availability": "https://schema.org/InStock" }
+    "organizer": item.organizer
+      ? { "@type": "Organization", "name": item.organizer }
       : undefined,
   };
 }
