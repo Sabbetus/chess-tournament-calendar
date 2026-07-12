@@ -219,7 +219,8 @@ const listConfig = {
   <div class="empty-state" id="no-results" style="display:none;">
     <span class="icon">🔍</span>
     <h3>{t.no_matches}</h3>
-    <p>{t.adjust_filters}</p>
+    <p id="no-results-summary">{t.adjust_filters}</p>
+    <button id="no-results-reset" class="btn-secondary">{t.filter_reset}</button>
   </div>
 
   <div id="hover-tooltip"></div>

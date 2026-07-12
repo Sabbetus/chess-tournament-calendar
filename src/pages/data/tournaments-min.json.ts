@@ -8,7 +8,10 @@ export const GET: APIRoute = () => {
   const slim = (tournaments as any[]).map((t) => ({
     slug: t.slug,
     name: t.name,
-    city: t.city,
+    // Some organizers put a full street address in the city field; only the
+    // first comma-separated segment is meaningful as a "city" label, and
+    // trimming it shaves a meaningful chunk off this feed's payload.
+    city: t.city ? t.city.split(',')[0].trim() : t.city,
     country: t.country,
     countryCode: t.countryCode,
     startDate: t.startDate,

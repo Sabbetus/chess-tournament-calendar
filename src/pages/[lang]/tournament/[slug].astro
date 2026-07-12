@@ -152,9 +152,7 @@ const eventSchema = {
   "description": t.description || pageDesc,
   "image": new URL('og-image.png', Astro.site).href,
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "eventStatus": isConcluded
-    ? "https://schema.org/EventPostponed"
-    : "https://schema.org/EventScheduled",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": t.city || t.country,
@@ -259,7 +257,7 @@ const eventSchema = {
           const sTcLabel = s.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
           return (
             <li class="similar-row">
-              <a href={`/${lang}/tournament/${s.slug}`} class="similar-link">
+              <a href={`/${lang}/tournament/${s.slug}/`} class="similar-link">
                 <span class="similar-location" data-tooltip={`${s.city}, ${s.country}`}>
                   {sFlag && <img src={sFlag} alt="" width="16" height="12" loading="lazy" />}
                 </span>

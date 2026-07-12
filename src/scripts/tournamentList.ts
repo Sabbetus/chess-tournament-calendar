@@ -25,6 +25,8 @@ export function initTournamentList(cfg: ListConfig) {
 
   const list = document.getElementById('tournament-list')!;
   const noResults = document.getElementById('no-results')!;
+  const noResultsSummary = document.getElementById('no-results-summary');
+  const defaultNoResultsText = noResultsSummary?.textContent || '';
   const countEl = document.getElementById('visible-count')!;
   const totalEl = document.getElementById('total-count')!;
   const loadMoreBtn = document.getElementById('load-more') as HTMLButtonElement;
@@ -81,6 +83,31 @@ export function initTournamentList(cfg: ListConfig) {
     return (groupEl?.querySelector('.filter-btn.active') as HTMLElement)?.dataset.value ?? '';
   }
 
+  // Option/tab labels have a "(count)" suffix baked in for the dropdown/tabs
+  // themselves -- strip it when reusing the same label in a summary sentence.
+  function stripCount(s: string) {
+    return s.replace(/\s*\(\d+\)\s*$/, '').trim();
+  }
+
+  function activeFiltersSummary(): string {
+    const parts: string[] = [];
+    const countryOpt = (fCountry as HTMLSelectElement).selectedOptions?.[0];
+    if (countryOpt?.value) parts.push(stripCount(countryOpt.textContent || ''));
+    const monthOpt = (fMonth as HTMLSelectElement).selectedOptions?.[0];
+    if (monthOpt?.value) parts.push(stripCount(monthOpt.textContent || ''));
+    const durationBtn = fDurationEl?.querySelector('.filter-btn.active[data-value]:not([data-value=""])');
+    if (durationBtn) parts.push(durationBtn.textContent?.trim() || '');
+    const tcBtn = fTcEl?.querySelector('.filter-btn.active[data-value]:not([data-value=""])');
+    if (tcBtn) parts.push(tcBtn.textContent?.trim() || '');
+    if (activeContinent) {
+      const contBtn = continentTabsEl?.querySelector('.ctab.active[data-continent]:not([data-continent=""])');
+      if (contBtn) parts.push(stripCount(contBtn.textContent || ''));
+    }
+    const search = (fSearch as HTMLInputElement).value.trim();
+    if (search) parts.push(`"${search}"`);
+    return parts.join(' · ');
+  }
+
   function setupBtnGroup(groupEl: HTMLElement | null) {
     groupEl?.querySelectorAll('.filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -132,7 +159,7 @@ export function initTournamentList(cfg: ListConfig) {
     const days = durationDays(t.startDate, t.endDate);
     const dateRange = formatDateRange(t.startDate, t.endDate);
     const prefix = basePath ? `/${basePath}` : '';
-    const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}` : null;
+    const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}/` : null;
     const flag = flagUrl(t);
     const name = escapeHTML(t.name);
     const city = escapeHTML(t.city);
@@ -247,6 +274,10 @@ export function initTournamentList(cfg: ListConfig) {
     totalEl.textContent = String(filtered.length);
     loadMoreBtn.style.display = renderedCount < filtered.length ? '' : 'none';
     noResults.style.display = filtered.length === 0 ? 'block' : 'none';
+    if (filtered.length === 0 && noResultsSummary) {
+      const summary = activeFiltersSummary();
+      noResultsSummary.textContent = summary ? summary : defaultNoResultsText;
+    }
     updateContinentCounts();
   }
 
@@ -320,8 +351,12 @@ export function initTournamentList(cfg: ListConfig) {
     whenReady(renderFromScratch);
   });
   fMonth?.addEventListener('change', () => whenReady(renderFromScratch));
-  fSearch?.addEventListener('input', () => whenReady(renderFromScratch));
-  resetBtn?.addEventListener('click', () => {
+  let searchDebounce: ReturnType<typeof setTimeout> | undefined;
+  fSearch?.addEventListener('input', () => {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => whenReady(renderFromScratch), 150);
+  });
+  function resetAllFilters() {
     (fCountry as HTMLSelectElement).value = '';
     (fMonth as HTMLSelectElement).value = '';
     (fSearch as HTMLInputElement).value = '';
@@ -334,26 +369,44 @@ export function initTournamentList(cfg: ListConfig) {
     continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
     continentTabsEl!.style.display = '';
     whenReady(renderFromScratch);
-  });
+  }
+  resetBtn?.addEventListener('click', resetAllFilters);
+  document.getElementById('no-results-reset')?.addEventListener('click', resetAllFilters);
 
   if (cfg.renderOnLoad) whenReady(renderFromScratch);
 
-  fetch(cfg.dataUrl)
-    .then((r) => r.json())
-    .then((data) => {
-      allData = data;
-      dataReady = true;
-      if (lastRenderedMonth === '' && allData[renderedCount - 1]) {
-        const d = new Date(allData[renderedCount - 1].startDate + 'T00:00:00');
-        lastRenderedMonth = `${d.getFullYear()}-${d.getMonth()}`;
-      }
-      if (pendingFn) {
-        const fn = pendingFn;
-        pendingFn = null;
-        fn();
-      }
-    })
-    .catch((err) => console.error('Failed to load tournament data', err));
+  function loadData() {
+    fetch(cfg.dataUrl)
+      .then((r) => r.json())
+      .then((data) => {
+        allData = data;
+        dataReady = true;
+        if (lastRenderedMonth === '' && allData[renderedCount - 1]) {
+          const d = new Date(allData[renderedCount - 1].startDate + 'T00:00:00');
+          lastRenderedMonth = `${d.getFullYear()}-${d.getMonth()}`;
+        }
+        if (pendingFn) {
+          const fn = pendingFn;
+          pendingFn = null;
+          fn();
+        }
+      })
+      .catch((err) => console.error('Failed to load tournament data', err));
+  }
+
+  if (cfg.renderOnLoad) {
+    // Localized pages need this data immediately to re-render the SSR rows
+    // (which were rendered in the wrong language) as soon as possible.
+    loadData();
+  } else {
+    // The English page's SSR rows are already final, so this feed is only
+    // needed for search/filter/sort/load-more -- none of which happen
+    // before the user interacts. Deferring to an idle moment keeps it off
+    // the critical path for first paint without meaningfully delaying
+    // readiness for whenever the user actually does interact.
+    const schedule = window.requestIdleCallback || ((fn: () => void) => setTimeout(fn, 200));
+    schedule(loadData);
+  }
 
   // ── Hover tooltip (location column) ──
   const tooltip = document.getElementById('hover-tooltip')!;

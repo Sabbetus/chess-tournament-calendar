@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+
+// GitHub Pages serves this single 404.html for every unmatched URL on the
+// site (all languages), so the copy is English with links to each language
+// homepage. The 404 HTTP status comes from GitHub Pages itself.
+---
+<Base title="Page not found — Chess Tournament Calendar" description="This page doesn't exist or the tournament is no longer listed." noindex={true}>
+  <div class="empty-state notfound">
+    <span class="icon">♞</span>
+    <h3>Page not found</h3>
+    <p>
+      This page doesn't exist — the tournament may have concluded and been
+      removed from the calendar.
+    </p>
+    <p>
+      <a href="/" class="btn-primary">Back to the tournament calendar</a>
+    </p>
+    <p class="notfound-langs">
+      <a href="/es/">Español</a> · <a href="/pt/">Português</a> ·
+      <a href="/de/">Deutsch</a> · <a href="/cs/">Čeština</a> ·
+      <a href="/fi/">Suomi</a>
+    </p>
+  </div>
+</Base>
+
+<style>
+  .notfound {
+    padding: 4rem 1rem;
+  }
+  .notfound .btn-primary {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  .notfound-langs {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+  }
+</style>

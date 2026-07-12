@@ -51,7 +51,12 @@ function durationDays(start: string, end: string) {
 
 const dateRange = formatDateRange(t.startDate, t.endDate);
 const days = durationDays(t.startDate, t.endDate);
-const detailUrl = t.slug ? `${base}tournament/${t.slug}` : null;
+// Some organizers put a full street address in the city field; only the
+// first comma-separated segment is meaningful as a "city" label. Matches
+// the same trim applied to the client-fetched slim feed, so rows look
+// identical whether they were server-rendered or loaded client-side.
+const city = t.city ? t.city.split(',')[0].trim() : t.city;
+const detailUrl = t.slug ? `${base}tournament/${t.slug}/` : null;
 const link = detailUrl || t.registrationUrl || t.websiteUrl;
 const flagUrl = t.countryCode
   ? `${base}flags/${t.countryCode.toLowerCase()}.png`
@@ -73,9 +78,9 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     </span>
     <span class="trow-tc"><span class={`tc-badge ${tcClass}`}>{tcLabel}</span></span>
     <span class="trow-dates">{dateRange}</span>
-    <span class="trow-location" data-tooltip={`${t.city}, ${countryLabel}`}>
+    <span class="trow-location" data-tooltip={`${city}, ${countryLabel}`}>
       {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
-      {t.city}, {countryLabel}
+      {city}, {countryLabel}
     </span>
     <span class="trow-duration">{days} {daysLabel}</span>
     <span class="trow-players">{t.playersRegistered !== null ? t.playersRegistered : '—'}</span>
@@ -84,7 +89,7 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location">
       {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
-      <span class="trow-location-city">{t.city}, </span><span class="trow-location-country">{countryLabel}</span>
+      <span class="trow-location-city">{city}, </span><span class="trow-location-country">{countryLabel}</span>
     </span>
     <span class="trow-info">
       <span>{days} {daysLabel}</span>
