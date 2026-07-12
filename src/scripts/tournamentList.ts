@@ -296,11 +296,9 @@ export function initTournamentList(cfg: ListConfig) {
       if ((th as HTMLElement).dataset.sort === sortKey) {
         icon.textContent = arrowFor(sortKey, sortDir);
         th.classList.add('th-sorted');
-        th.setAttribute('aria-sort', sortDir === 'asc' ? 'ascending' : 'descending');
       } else {
         icon.textContent = '';
         th.classList.remove('th-sorted');
-        th.removeAttribute('aria-sort');
       }
     });
   }
