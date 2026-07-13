@@ -12,6 +12,7 @@ interface ListConfig {
   tDays: string;
   tClassical: string;
   tRapid: string;
+  tTrendTooltip: string;
   tMonths: string[];
   dateLocale: string;
   tCountries: Record<string, string>;
@@ -31,7 +32,7 @@ interface ListConfig {
 
 export function initTournamentList(cfg: ListConfig) {
   const PAGE_SIZE = cfg.pageSize;
-  const { basePath, tDays, tClassical, tRapid, tMonths, dateLocale, tCountries, countrySlugs, lockedCountry, lockedContinent, lockedLabel } = cfg;
+  const { basePath, tDays, tClassical, tRapid, tTrendTooltip, tMonths, dateLocale, tCountries, countrySlugs, lockedCountry, lockedContinent, lockedLabel } = cfg;
   const prefix = basePath ? `/${basePath}` : '';
 
   const list = document.getElementById('tournament-list')!;
@@ -139,8 +140,15 @@ export function initTournamentList(cfg: ListConfig) {
     const nameInner = detailUrl ? `<a href="${detailUrl}">${name}</a>` : name;
     const flagImg = flag ? `<img src="${flag}" alt="" width="14" height="11" loading="lazy">` : '';
     const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;
+    const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.playersTrend : null;
+    const trendClass = trend !== null ? (trend > 0 ? 'trend-up' : 'trend-down') : '';
+    const trendArrow = trend !== null ? (trend > 0 ? '▲' : '▼') : '';
+    const trendSign = trend !== null && trend > 0 ? '+' : '';
+    const trendHTML = trend !== null
+      ? ` <span class="trend ${trendClass}" title="${escapeHTML(tTrendTooltip)}">(${trendSign}${trend} <span class="trend-arrow">${trendArrow}</span>)</span>`
+      : '';
     const playersText = hasPlayers ? t.playersRegistered : '—';
-    const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}</span>` : '';
+    const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}${trendHTML}</span>` : '';
     const tcLabel = t.timeControl === 'Rapid' ? tRapid : tClassical;
     const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     const badge = `<span class="tc-badge ${tcClass}">${tcLabel}</span>`;
@@ -152,7 +160,7 @@ export function initTournamentList(cfg: ListConfig) {
         <span class="trow-dates">${dateRange}</span>
         <span class="trow-location" data-tooltip="${city}, ${country}">${flagImg}${city}, ${country}</span>
         <span class="trow-duration">${days} ${tDays}</span>
-        <span class="trow-players">${playersText}</span>
+        <span class="trow-players">${playersText}${trendHTML}</span>
       </div>
       <div class="trow-meta">
         <span class="trow-dates">${dateRange}</span>

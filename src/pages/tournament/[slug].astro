@@ -129,6 +129,24 @@ const similarList = similar.length > 0 ? similar : fallback;
 const days = durationDays(t.startDate, t.endDate);
 const dateRange = formatDateRange(t.startDate, t.endDate);
 const flagUrl = t.countryCode ? `/flags/${t.countryCode.toLowerCase()}.png` : null;
+
+// Mirrors _players_trend() in scraper/scrape_chess_results.py: change in
+// playersRegistered vs. ~48 hours ago, or null if no snapshot is old enough
+// yet to compare against.
+function playersTrend(tournament: any): number | null {
+  const current = tournament.playersRegistered;
+  const history = tournament.playerHistory as { ts: string; players: number }[] | undefined;
+  if (current === null || current === undefined || !history || history.length === 0) return null;
+  const target = Date.now() - 48 * 60 * 60 * 1000;
+  let baseline: number | null = null;
+  for (const h of history) {
+    if (new Date(h.ts).getTime() <= target) baseline = h.players;
+    else break;
+  }
+  if (baseline === null) return null;
+  return current - baseline;
+}
+const trend = playersTrend(t);
 const mapQuery = encodeURIComponent(`${t.city}, ${t.country}`);
 const isConcluded = t.status === 'concluded';
 
@@ -231,8 +249,18 @@ const eventSchema = {
 
   <h1 class="page-title tournament-title">{t.name} <span class={`tc-badge ${tcClass}`}>{tcLabel}</span></h1>
   <div class="tournament-location">
-    {flagUrl && <img src={flagUrl} alt="" width="18" height="13" />}
-    <span>{t.city ? `${t.city}, ` : ''}{t.country}</span>
+    {t.city && <span>{t.city}, </span>}
+    {t.countryCode ? (
+      <a href={`${base}country/${slugifyLocation(t.country)}/`} class="location-country-link">
+        {flagUrl && <img src={flagUrl} alt="" width="18" height="13" />}
+        <span>{t.country}</span>
+      </a>
+    ) : (
+      <>
+        {flagUrl && <img src={flagUrl} alt="" width="18" height="13" />}
+        <span>{t.country}</span>
+      </>
+    )}
   </div>
 
   <div class="fact-grid">
@@ -259,7 +287,14 @@ const eventSchema = {
     {t.playersRegistered !== null && t.playersRegistered !== undefined && (
       <div class="fact-card">
         <div class="fact-label">{tr.fact_registered}</div>
-        <div class="fact-value">{t.playersRegistered} {tr.players_unit}</div>
+        <div class="fact-value">
+          {t.playersRegistered} {tr.players_unit}
+          {trend !== null && trend !== 0 && (
+            <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} title={tr.players_trend_tooltip}>
+              ({trend > 0 ? '+' : ''}{trend} <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
+            </span>
+          )}
+        </div>
       </div>
     )}
   </div>

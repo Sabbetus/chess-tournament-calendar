@@ -476,8 +476,28 @@ MAX_CONSECUTIVE_MISSES = 8  # ~2 days at the current 6h cadence — chess-result
 # combination despite matching all criteria on their own detail page).
 
 
+# Player-count history is kept only to compute a short trend arrow (see
+# _players_trend), not as a full audit log, so it's trimmed well past the
+# trend window to tolerate scrape gaps without needing to be exact.
+PLAYER_HISTORY_WINDOW_DAYS = 5
+PLAYER_TREND_HOURS = 48
+
+
+def _record_player_snapshot(entry, now, players):
+    if players is None:
+        return
+    history = entry.setdefault("playerHistory", [])
+    history.append({"ts": now.isoformat() + "Z", "players": players})
+    cutoff = now - timedelta(days=PLAYER_HISTORY_WINDOW_DAYS)
+    entry["playerHistory"] = [
+        h for h in history
+        if datetime.fromisoformat(h["ts"].rstrip("Z")) >= cutoff
+    ]
+
+
 def merge_into_archive(scraped, archive):
     today = date.today().isoformat()
+    now = datetime.utcnow()
     by_id = {t["id"]: t for t in archive}
     scraped_ids = {t["id"] for t in scraped}
 
@@ -502,6 +522,7 @@ def merge_into_archive(scraped, archive):
                 "lastSeen": today,
                 "consecutiveMisses": 0,
             })
+            _record_player_snapshot(existing, now, t["playersRegistered"])
         else:
             # Skip tournaments that are starting within 3 days of first discovery:
             # they have no SEO value (won't be indexed before they end) and offer
@@ -512,6 +533,8 @@ def merge_into_archive(scraped, archive):
             t["firstSeen"] = today
             t["lastSeen"] = today
             t["consecutiveMisses"] = 0
+            t["playerHistory"] = []
+            _record_player_snapshot(t, now, t["playersRegistered"])
             by_id[t["id"]] = t
 
     for tid, t in by_id.items():
@@ -538,8 +561,32 @@ def merge_into_archive(scraped, archive):
             t["lastSeen"] = today
         if "consecutiveMisses" not in t:
             t["consecutiveMisses"] = 0
+        if "playerHistory" not in t:
+            t["playerHistory"] = []
 
     return sorted(by_id.values(), key=lambda t: t["startDate"])
+
+
+def _players_trend(entry):
+    """Change in playersRegistered vs. ~PLAYER_TREND_HOURS ago, or None if
+    there's no snapshot old enough yet to compare against (e.g. a tournament
+    that was only discovered within the trend window)."""
+    current = entry.get("playersRegistered")
+    history = entry.get("playerHistory") or []
+    if current is None or not history:
+        return None
+    target = datetime.utcnow() - timedelta(hours=PLAYER_TREND_HOURS)
+    # History is appended chronologically each run, so the last entry at or
+    # before the target is the closest available snapshot to "N hours ago".
+    baseline = None
+    for h in history:
+        if datetime.fromisoformat(h["ts"].rstrip("Z")) <= target:
+            baseline = h["players"]
+        else:
+            break
+    if baseline is None:
+        return None
+    return current - baseline
 
 
 OUTPUT_FIELDS = [
@@ -568,10 +615,12 @@ def build_output(archive):
         # archive entry, in case the federation gets corrected later.
         and t.get("country") and t.get("country") != "Unknown"
     ]
-    return sorted(
-        ({k: t.get(k) for k in OUTPUT_FIELDS} for t in upcoming),
-        key=lambda t: t["startDate"],
-    )
+    rows = []
+    for t in upcoming:
+        row = {k: t.get(k) for k in OUTPUT_FIELDS}
+        row["playersTrend"] = _players_trend(t)
+        rows.append(row)
+    return sorted(rows, key=lambda t: t["startDate"])
 
 
 def main():

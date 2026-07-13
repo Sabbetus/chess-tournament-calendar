@@ -53,7 +53,21 @@
   "no_matches": "Keine Treffer",
   "adjust_filters": "Versuchen Sie, die Filter anzupassen.",
   "days": "Tage",
-  "months": ["", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+  "months": [
+    "",
+    "Januar",
+    "Februar",
+    "März",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember"
+  ],
   "date_locale": "de-DE",
   "back_to_calendar": "← Zurück zum Kalender",
   "concluded_notice": "Dieses Turnier hat bereits stattgefunden.",
@@ -86,5 +100,6 @@
   "contact_send": "Nachricht senden",
   "contact_sending": "Wird gesendet…",
   "contact_success": "Danke — Ihre Nachricht wurde gesendet.",
-  "contact_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut."
+  "contact_error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es später erneut.",
+  "players_trend_tooltip": "Änderung in den letzten 2 Tagen"
 }

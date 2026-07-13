@@ -53,7 +53,21 @@
   "no_matches": "Žádné výsledky",
   "adjust_filters": "Zkuste upravit filtry.",
   "days": "dní",
-  "months": ["", "Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+  "months": [
+    "",
+    "Leden",
+    "Únor",
+    "Březen",
+    "Duben",
+    "Květen",
+    "Červen",
+    "Červenec",
+    "Srpen",
+    "Září",
+    "Říjen",
+    "Listopad",
+    "Prosinec"
+  ],
   "date_locale": "cs-CZ",
   "back_to_calendar": "← Zpět na kalendář",
   "concluded_notice": "Tento turnaj již proběhl.",
@@ -86,5 +100,6 @@
   "contact_send": "Odeslat zprávu",
   "contact_sending": "Odesílání…",
   "contact_success": "Děkujeme — vaše zpráva byla odeslána.",
-  "contact_error": "Něco se pokazilo. Zkuste to prosím znovu později."
+  "contact_error": "Něco se pokazilo. Zkuste to prosím znovu později.",
+  "players_trend_tooltip": "Změna za poslední 2 dny"
 }

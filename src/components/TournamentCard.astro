@@ -10,6 +10,7 @@ export interface Tournament {
   rounds: number | null;
   timeControl?: string;
   playersRegistered: number | null;
+  playersTrend?: number | null;
   prizePool: number | null;
   currency?: string;
   ratingRequirement: number | null;
@@ -29,9 +30,10 @@ export interface Props {
   countryLabel?: string;
   dateLocale?: string;
   daysLabel?: string;
+  trendTooltip?: string;
 }
 
-const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country, dateLocale = 'en-GB', daysLabel = 'days' } = Astro.props;
+const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country, dateLocale = 'en-GB', daysLabel = 'days', trendTooltip = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 function formatDateRange(start: string, end: string) {
@@ -63,6 +65,7 @@ const flagUrl = t.countryCode
   : null;
 const tcLabel = t.timeControl === 'Rapid' ? rapidLabel : classicalLabel;
 const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
+const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.playersTrend : null;
 ---
 
 <li class={`trow${featured ? ' trow-featured' : ''}${t.description ? ' has-desc' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate} data-duration={days} data-players={t.playersRegistered ?? -1}>
@@ -83,7 +86,14 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
       {city}, {countryLabel}
     </span>
     <span class="trow-duration">{days} {daysLabel}</span>
-    <span class="trow-players">{t.playersRegistered !== null ? t.playersRegistered : '—'}</span>
+    <span class="trow-players">
+      {t.playersRegistered !== null ? t.playersRegistered : '—'}
+      {trend !== null && (
+        <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} title={trendTooltip}>
+          ({trend > 0 ? '+' : ''}{trend} <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
+        </span>
+      )}
+    </span>
   </div>
   <div class="trow-meta">
     <span class="trow-dates">{dateRange}</span>
@@ -94,7 +104,16 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     <span class="trow-info">
       <span>{days} {daysLabel}</span>
       <span class={`tc-badge ${tcClass}`}>{tcLabel}</span>
-      {t.playersRegistered !== null && <span>👥 {t.playersRegistered}</span>}
+      {t.playersRegistered !== null && (
+        <span>
+          👥 {t.playersRegistered}
+          {trend !== null && (
+            <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} title={trendTooltip}>
+              ({trend > 0 ? '+' : ''}{trend} <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
+            </span>
+          )}
+        </span>
+      )}
     </span>
   </div>
   {t.description && (

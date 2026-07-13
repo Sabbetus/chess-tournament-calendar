@@ -53,7 +53,21 @@
   "no_matches": "Ei tuloksia",
   "adjust_filters": "Kokeile muuttaa suodattimia.",
   "days": "päivää",
-  "months": ["", "Tammikuu", "Helmikuu", "Maaliskuu", "Huhtikuu", "Toukokuu", "Kesäkuu", "Heinäkuu", "Elokuu", "Syyskuu", "Lokakuu", "Marraskuu", "Joulukuu"],
+  "months": [
+    "",
+    "Tammikuu",
+    "Helmikuu",
+    "Maaliskuu",
+    "Huhtikuu",
+    "Toukokuu",
+    "Kesäkuu",
+    "Heinäkuu",
+    "Elokuu",
+    "Syyskuu",
+    "Lokakuu",
+    "Marraskuu",
+    "Joulukuu"
+  ],
   "date_locale": "fi-FI",
   "back_to_calendar": "← Takaisin kalenteriin",
   "concluded_notice": "Tämä turnaus on jo päättynyt.",
@@ -86,5 +100,6 @@
   "contact_send": "Lähetä viesti",
   "contact_sending": "Lähetetään…",
   "contact_success": "Kiitos — viestisi on lähetetty.",
-  "contact_error": "Jokin meni pieleen. Yritä myöhemmin uudelleen."
+  "contact_error": "Jokin meni pieleen. Yritä myöhemmin uudelleen.",
+  "players_trend_tooltip": "Muutos viimeisen 2 päivän aikana"
 }

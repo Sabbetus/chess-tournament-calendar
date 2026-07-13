@@ -47,6 +47,7 @@ const listConfig = {
   tDays: t.days,
   tClassical: t.filter_classical,
   tRapid: t.filter_rapid,
+  tTrendTooltip: t.players_trend_tooltip,
   tMonths: t.months,
   dateLocale: t.date_locale,
   tCountries: countryLocalizedMap,
@@ -134,7 +135,7 @@ const listConfig = {
 
 <ul class="tournament-list" id="tournament-list">
   {featured.map((item: any) => (
-    <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} />
+    <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} trendTooltip={t.players_trend_tooltip} />
   ))}
   {initialTournaments.length > 0
     ? (() => {
@@ -147,7 +148,7 @@ const listConfig = {
             ? <li class="month-separator"><span class="month-separator-label">{monthLabel}</span></li>
             : null;
           lastMonth = monthKey;
-          const card = <TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} />;
+          const card = <TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} trendTooltip={t.players_trend_tooltip} />;
           return sep ? [sep, card] : [card];
         });
       })()

@@ -18,6 +18,7 @@ export const GET: APIRoute = () => {
     endDate: t.endDate,
     timeControl: t.timeControl,
     playersRegistered: t.playersRegistered,
+    playersTrend: t.playersTrend,
   }));
   return new Response(JSON.stringify(slim), {
     headers: { 'Content-Type': 'application/json' },
