@@ -23,7 +23,13 @@ const t = getTranslations(lang);
 const PAGE_SIZE = 50;
 const JSONLD_CAP = 100;
 
-const items = [...group.items].sort((a, b) => a.startDate.localeCompare(b.startDate));
+// The manually-curated featured tournament is rendered separately (pinned,
+// same as the homepage) so it isn't silently dropped when the client-side
+// list hydrates from tournaments-min.json, which only contains scraped data.
+const featuredForPage = (featuredData as any[]).filter((f) => getContinent(f.countryCode) === group.code);
+const items = group.items
+  .filter((item: any) => item.source !== 'manual')
+  .sort((a, b) => a.startDate.localeCompare(b.startDate));
 const CONTINENT_NAMES: Record<string, string> = {
   EU: t.continent_EU, AS: t.continent_AS, NA: t.continent_NA,
   SA: t.continent_SA, AF: t.continent_AF, OC: t.continent_OC,
@@ -57,7 +63,7 @@ const countryLocalizedMap: Record<string, string> = {};
 for (const { value, label } of countries) countryLocalizedMap[value] = label;
 
 const monthCounts: Record<number, number> = {};
-for (const item of items) {
+for (const item of [...items, ...featuredForPage]) {
   const m = new Date(item.startDate + 'T00:00:00').getMonth() + 1;
   monthCounts[m] = (monthCounts[m] || 0) + 1;
 }
@@ -102,7 +108,7 @@ function toEventSchema(item: any) {
 
 const eventSchema = {
   "@context": "https://schema.org",
-  "@graph": items.slice(0, JSONLD_CAP).map(toEventSchema),
+  "@graph": [...featuredForPage, ...items.slice(0, JSONLD_CAP)].map(toEventSchema),
 };
 
 const initialTournaments = items.slice(0, PAGE_SIZE);
@@ -115,7 +121,7 @@ const titleContinentName = continentName.length > maxNameLen
   ? continentName.slice(0, maxNameLen - 1).trimEnd() + '…'
   : continentName;
 const pageTitle = `${titlePrefix}${titleContinentName}${titleSuffix}`;
-const pageDesc = `${t.continent_desc_prefix} ${continentName}: ${items.length} ${t.tournaments_unit_nom}. ${t.footer_updated}`;
+const pageDesc = `${t.continent_desc_prefix} ${continentName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ${t.footer_updated}`;
 const currentPath = `continent/${group.slug}`;
 
 const breadcrumbSchema = {
@@ -151,7 +157,7 @@ const breadcrumbSchema = {
     t={t}
     lang={lang}
     basePath={lang}
-    featured={[]}
+    featured={featuredForPage}
     initialTournaments={initialTournaments}
     totalCount={items.length}
     pageSize={PAGE_SIZE}
