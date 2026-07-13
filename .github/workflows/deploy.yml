@@ -104,12 +104,14 @@ jobs:
 
       # Notify IndexNow (Bing, Yandex, Seznam, Naver — not Google) of changed
       # URLs. Runs AFTER deploy so the pages are already live. We submit the
-      # homepages (they change every scrape) plus every newly-added tournament
-      # page in all 6 languages — that's IndexNow's intended use. New URLs per
-      # run are few (well under the 10k-per-request limit), and we make one
-      # request per deploy, so rate limits aren't a concern. The HTTP status is
-      # printed so each deploy self-verifies (200/202 = accepted). The key is
-      # public by design (served at the keyLocation below).
+      # homepages and country/continent pages (their contents shift on every
+      # scrape as tournaments come and go, not just when a slug first appears)
+      # plus every newly-added tournament page in all 6 languages — that's
+      # IndexNow's intended use. URLs per run stay well under the
+      # 10k-per-request limit, and we make one request per deploy, so rate
+      # limits aren't a concern. The HTTP status is printed so each deploy
+      # self-verifies (200/202 = accepted). The key is public by design
+      # (served at the keyLocation below).
       - name: Notify IndexNow
         # Best-effort only: the deploy has already succeeded by this point, so a
         # failed/slow IndexNow ping must never mark the run as failed.
@@ -121,6 +123,17 @@ jobs:
           # Homepages always change on a scrape.
           URLS="$BASE/"
           for l in $LANGS; do URLS="$URLS $BASE/$l/"; done
+
+          # Country/continent pages -- unconditional every deploy, same
+          # reasoning as homepages (see comment above).
+          LOCATION_URLS=$(python3 -c "
+          import sys
+          sys.path.insert(0, 'scraper')
+          from submit_indexnow import location_urls
+          for u in location_urls():
+              print(u)
+          ")
+          URLS="$URLS $LOCATION_URLS"
 
           # New tournament slugs = present in current data but not the prior commit.
           if git rev-parse HEAD~1 >/dev/null 2>&1; then
