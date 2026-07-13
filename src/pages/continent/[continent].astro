@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+import TournamentListPage from '../../components/TournamentListPage.astro';
+import featuredData from '../../../data/featured.json';
+import tournamentsData from '../../../public/data/tournaments.json';
+import metaData from '../../../public/data/meta.json';
+import { getTranslations } from '../../i18n/index.ts';
+import { getContinent } from '../../lib/continents.ts';
+import { getContinentGroups } from '../../lib/locationGroups.ts';
+import { slugifyLocation } from '../../lib/locationSlug.ts';
+
+export function getStaticPaths() {
+  const allItems = [...(tournamentsData as any[]), ...(featuredData as any[])];
+  const groups = getContinentGroups(allItems, 'en');
+  return groups.map((g) => ({ params: { continent: g.slug }, props: { group: g } }));
+}
+
+const lang = 'en';
+const t = getTranslations(lang);
+const { group } = Astro.props as { group: ReturnType<typeof getContinentGroups>[number] };
+const PAGE_SIZE = 50;
+const JSONLD_CAP = 100;
+
+const items = [...group.items].sort((a, b) => a.startDate.localeCompare(b.startDate));
+const CONTINENT_NAMES: Record<string, string> = {
+  EU: t.continent_EU, AS: t.continent_AS, NA: t.continent_NA,
+  SA: t.continent_SA, AF: t.continent_AF, OC: t.continent_OC,
+};
+const continentName = CONTINENT_NAMES[group.code];
+
+const allForCounts = [...(tournamentsData as any[]), ...(featuredData as any[])];
+const continentCounts: Record<string, number> = {};
+for (const item of allForCounts) {
+  const c = getContinent(item.countryCode || '');
+  if (c !== 'XX') continentCounts[c] = (continentCounts[c] || 0) + 1;
+}
+const continentsSorted = Object.entries(continentCounts)
+  .sort((a, b) => b[1] - a[1])
+  .map(([code, count]) => ({ code, name: CONTINENT_NAMES[code] || code, count }));
+
+const countryCounts: Record<string, number> = {};
+const countrySlugs: Record<string, string> = {};
+for (const item of allForCounts) {
+  if (item.country && item.countryCode) {
+    countryCounts[item.country] = (countryCounts[item.country] || 0) + 1;
+    countrySlugs[item.country] = slugifyLocation(item.country);
+  }
+}
+const countries = Object.keys(countryCounts).sort().map((name) => ({ value: name, label: name }));
+
+// Month counts are scoped to this continent's own tournaments, not sitewide.
+const monthCounts: Record<number, number> = {};
+for (const item of items) {
+  const m = new Date(item.startDate + 'T00:00:00').getMonth() + 1;
+  monthCounts[m] = (monthCounts[m] || 0) + 1;
+}
+const MONTH_NAMES: Record<number, string> = {};
+(t.months as string[]).forEach((name, i) => { if (i > 0) MONTH_NAMES[i] = name; });
+
+const lastUpdated = new Date(metaData.lastUpdated).toLocaleString(t.date_locale, {
+  day: 'numeric', month: 'short', year: 'numeric',
+  hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short'
+});
+
+const ogImage = new URL('og-image.png', Astro.site).href;
+
+function toEventSchema(item: any) {
+  const tcLabel = item.timeControl === 'Rapid' ? 'Rapid' : 'Classical';
+  return {
+    "@type": "Event",
+    "name": item.name,
+    "startDate": item.startDate,
+    "endDate": item.endDate,
+    "description": item.description
+      || `${item.name}: ${tcLabel} chess tournament${item.city ? ' in ' + item.city : ''}${item.country ? ', ' + item.country : ''}.`,
+    "image": ogImage,
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": item.city || item.country,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": item.city || undefined,
+        "addressCountry": item.countryCode || undefined,
+      },
+    },
+    "url": item.websiteUrl || item.registrationUrl || undefined,
+    "organizer": item.organizer
+      ? { "@type": "Organization", "name": item.organizer }
+      : undefined,
+  };
+}
+
+const eventSchema = {
+  "@context": "https://schema.org",
+  "@graph": items.slice(0, JSONLD_CAP).map(toEventSchema),
+};
+
+const initialTournaments = items.slice(0, PAGE_SIZE);
+const dataUrl = `${import.meta.env.BASE_URL}data/tournaments-min.json?v=${new Date(metaData.lastUpdated).getTime()}`;
+
+const titlePrefix = `${t.continent_tournaments_in} `;
+const titleSuffix = ` — ${t.site_title}`;
+const maxNameLen = 69 - titlePrefix.length - titleSuffix.length;
+const titleContinentName = continentName.length > maxNameLen
+  ? continentName.slice(0, maxNameLen - 1).trimEnd() + '…'
+  : continentName;
+const pageTitle = `${titlePrefix}${titleContinentName}${titleSuffix}`;
+const pageDesc = `${t.continent_desc_prefix} ${continentName}: ${items.length} ${t.tournaments_unit_nom}. ${t.footer_updated}`;
+const currentPath = `continent/${group.slug}`;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": t.site_title, "item": "https://chesstournamentcalendar.com/" },
+    { "@type": "ListItem", "position": 2, "name": continentName },
+  ],
+};
+---
+
+<Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath}>
+  <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <nav class="breadcrumb">
+    <a href="/">{t.back_to_calendar}</a>
+  </nav>
+
+  <h1 class="location-heading">{t.continent_tournaments_in} {continentName}</h1>
+
+  <h2 class="section-label">{t.countries_in} {continentName}</h2>
+  <div class="country-chip-list">
+    {group.countries.slice(0, 5).map((c) => (
+      <a href={`/country/${c.slug}/`} class="country-chip">
+        {c.displayName} <span class="count">({c.count})</span>
+      </a>
+    ))}
+  </div>
+
+  <TournamentListPage
+    t={t}
+    lang={lang}
+    basePath=""
+    featured={[]}
+    initialTournaments={initialTournaments}
+    totalCount={items.length}
+    pageSize={PAGE_SIZE}
+    countries={countries}
+    countryCounts={countryCounts}
+    countrySlugs={countrySlugs}
+    countryLocalizedMap={{}}
+    continentsSorted={continentsSorted}
+    allCount={allForCounts.length}
+    monthCounts={monthCounts}
+    monthNames={MONTH_NAMES}
+    lastUpdated={lastUpdated}
+    dataUrl={dataUrl}
+    renderOnLoad={false}
+    lockedContinent={group.code}
+    lockedLabel={continentName}
+    activeContinentCode={group.code}
+  />
+</Base>

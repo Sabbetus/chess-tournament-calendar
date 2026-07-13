@@ -1,0 +1,188 @@
+---
+import TournamentCard from './TournamentCard.astro';
+
+export interface Props {
+  t: Record<string, any>;
+  lang: string;
+  basePath: string;
+  featured: any[];
+  initialTournaments: any[];
+  totalCount: number;
+  pageSize: number;
+  countries: { value: string; label: string }[];
+  countryCounts: Record<string, number>;
+  countrySlugs: Record<string, string>;
+  countryLocalizedMap: Record<string, string>;
+  continentsSorted: { code: string; name: string; count: number }[];
+  allCount: number;
+  monthCounts: Record<number, number>;
+  monthNames: Record<number, string>;
+  lastUpdated: string;
+  dataUrl: string;
+  renderOnLoad: boolean;
+  // Optional: this instance of the list is permanently scoped to one
+  // country/continent (its own hub page) -- the filter bar/continent tabs
+  // reflect that scope but stay fully interactive for the removable filters
+  // (month/duration/time-control/search).
+  lockedCountry?: string;
+  lockedContinent?: string;
+  lockedLabel?: string;
+  activeContinentCode?: string;
+  selectedCountryValue?: string;
+}
+
+const {
+  t, lang, basePath, featured, initialTournaments, totalCount, pageSize,
+  countries, countryCounts, countrySlugs, countryLocalizedMap,
+  continentsSorted, allCount, monthCounts, monthNames, lastUpdated,
+  dataUrl, renderOnLoad,
+  lockedCountry, lockedContinent, lockedLabel,
+  activeContinentCode = '', selectedCountryValue = '',
+} = Astro.props;
+
+const listConfig = {
+  dataUrl,
+  pageSize,
+  basePath,
+  tDays: t.days,
+  tClassical: t.filter_classical,
+  tRapid: t.filter_rapid,
+  tMonths: t.months,
+  dateLocale: t.date_locale,
+  tCountries: countryLocalizedMap,
+  countrySlugs,
+  renderOnLoad,
+  lockedCountry,
+  lockedContinent,
+  lockedLabel,
+};
+---
+
+<div class="filters" id="filters">
+  <div class="filter-group">
+    <label for="f-country">{t.filter_country}</label>
+    <select id="f-country">
+      <option value="" selected={!selectedCountryValue}>{t.filter_all_countries}</option>
+      {countries.map((c) => (
+        <option value={c.value} selected={c.value === selectedCountryValue}>{c.label} ({countryCounts[c.value]})</option>
+      ))}
+    </select>
+  </div>
+  <div class="filter-group">
+    <label for="f-month">{t.filter_month}</label>
+    <select id="f-month">
+      <option value="">{t.filter_any_month}</option>
+      {Object.entries(monthNames).map(([num, name]) => monthCounts[Number(num)] ? (
+        <option value={num}>{name} ({monthCounts[Number(num)]})</option>
+      ) : null)}
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>{t.filter_time_control}</label>
+    <div class="filter-btn-group" id="f-tc">
+      <button class="filter-btn active" data-value="">{t.filter_any}</button>
+      <button class="filter-btn" data-value="Classical">{t.filter_classical}</button>
+      <button class="filter-btn" data-value="Rapid">{t.filter_rapid}</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <label>{t.filter_duration}</label>
+    <div class="filter-btn-group" id="f-duration">
+      <button class="filter-btn active" data-value="">{t.filter_any}</button>
+      <button class="filter-btn" data-value="long">{t.filter_7plus}</button>
+      <button class="filter-btn" data-value="short">{t.filter_under7}</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <label for="f-search">{t.filter_search}</label>
+    <input id="f-search" type="text" placeholder={t.filter_search_placeholder} />
+  </div>
+  <div class="filter-group sort-mobile">
+    <label for="m-sort">{t.sort_label}</label>
+    <select id="m-sort">
+      <option value="date-asc">{t.sort_label}</option>
+      <option value="duration-desc">{t.sort_duration_desc}</option>
+      <option value="duration-asc">{t.sort_duration_asc}</option>
+      <option value="players-desc">{t.sort_players_desc}</option>
+      <option value="players-asc">{t.sort_players_asc}</option>
+    </select>
+  </div>
+  <button class="filter-reset" id="filter-reset">{t.filter_reset}</button>
+</div>
+
+<!-- Continent tabs: navigation, not in-place filters -- always visible, and
+     highlight whichever continent the current page (home/country/continent)
+     is scoped to. -->
+<div class="continent-tabs" id="continent-tabs">
+  <button class="ctab" class:list={[{ active: !activeContinentCode }]} data-continent="">{t.continent_all} <span class="ctab-count" id="ctab-count-all">{allCount}</span></button>
+  {continentsSorted.map((c) => (
+    <button class="ctab" class:list={[{ active: c.code === activeContinentCode }]} data-continent={c.code}>
+      {c.name} <span class="ctab-count" id={`ctab-count-${c.code}`}>{c.count}</span>
+    </button>
+  ))}
+</div>
+
+<!-- Column headers -->
+<div class="tlist-header">
+  <span class="th-name">{t.col_tournament}</span>
+  <span class="th-tc th-sortable" data-sort="tc" role="button" tabindex="0">{t.col_type} <span class="sort-icon"></span></span>
+  <span class="th-dates th-sortable" data-sort="date" role="button" tabindex="0">{t.col_dates} <span class="sort-icon"></span></span>
+  <span class="th-location">{t.col_location}</span>
+  <span class="th-duration th-sortable" data-sort="duration" role="button" tabindex="0">{t.col_duration} <span class="sort-icon"></span></span>
+  <span class="th-players th-sortable" data-sort="players" role="button" tabindex="0">{t.col_players} <span class="sort-icon"></span></span>
+</div>
+
+<ul class="tournament-list" id="tournament-list">
+  {featured.map((item: any) => (
+    <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} />
+  ))}
+  {initialTournaments.length > 0
+    ? (() => {
+        let lastMonth = '';
+        return initialTournaments.flatMap((item: any) => {
+          const d = new Date(item.startDate + 'T00:00:00');
+          const monthKey = `${d.getFullYear()}-${d.getMonth()}`;
+          const monthLabel = d.toLocaleDateString(t.date_locale, { month: 'long', year: 'numeric' });
+          const sep = monthKey !== lastMonth
+            ? <li class="month-separator"><span class="month-separator-label">{monthLabel}</span></li>
+            : null;
+          lastMonth = monthKey;
+          const card = <TournamentCard tournament={item} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} />;
+          return sep ? [sep, card] : [card];
+        });
+      })()
+    : (
+      <li class="empty-state">
+        <span class="icon">♟</span>
+        <h3>{t.empty_title}</h3>
+        <p>{t.empty_body}</p>
+      </li>
+    )
+  }
+</ul>
+
+<button class="load-more" id="load-more" style={totalCount <= pageSize ? 'display:none' : ''}>
+  {t.load_more}
+</button>
+
+<div class="count-bar">
+  {t.showing} <span id="visible-count">{Math.min(pageSize, totalCount)}</span> {t.of} <span id="total-count">{totalCount}</span> {t.tournaments_unit}
+  &nbsp;·&nbsp; {t.last_updated}: {lastUpdated}
+</div>
+
+<div class="empty-state" id="no-results" style="display:none;">
+  <span class="icon">🔍</span>
+  <h3>{t.no_matches}</h3>
+  <p id="no-results-summary">{t.adjust_filters}</p>
+  <button id="no-results-reset" class="btn-secondary">{t.filter_reset}</button>
+</div>
+
+<div id="hover-tooltip"></div>
+
+<script type="application/json" id="list-config" set:html={JSON.stringify(listConfig)}></script>
+
+<script>
+  import { initTournamentList } from '../scripts/tournamentList.ts';
+  const cfg = JSON.parse(document.getElementById('list-config')!.textContent!);
+  initTournamentList(cfg);
+</script>

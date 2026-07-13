@@ -1,4 +1,5 @@
 import { CONTINENT_MAP } from '../lib/continents';
+import { CONTINENT_SLUGS } from '../lib/locationSlug';
 
 function getContinent(cc: string) {
   return (cc && CONTINENT_MAP[cc]) || 'XX';
@@ -17,11 +18,21 @@ interface ListConfig {
   // Localized pages re-render the SSR rows on load so country names etc. match
   // the page language; the English page keeps its server-rendered rows as-is.
   renderOnLoad: boolean;
+  // English name -> slug, used to navigate the country dropdown to /country/x/.
+  countrySlugs: Record<string, string>;
+  // If set, this page is permanently scoped to one country/continent (its own
+  // hub page) -- the country dropdown and continent tabs are always
+  // navigation controls, never in-place filters, so this constraint can't be
+  // removed by the user, only added to by month/duration/tc/search.
+  lockedCountry?: string;
+  lockedContinent?: string;
+  lockedLabel?: string;
 }
 
 export function initTournamentList(cfg: ListConfig) {
   const PAGE_SIZE = cfg.pageSize;
-  const { basePath, tDays, tClassical, tRapid, tMonths, dateLocale, tCountries } = cfg;
+  const { basePath, tDays, tClassical, tRapid, tMonths, dateLocale, tCountries, countrySlugs, lockedCountry, lockedContinent, lockedLabel } = cfg;
+  const prefix = basePath ? `/${basePath}` : '';
 
   const list = document.getElementById('tournament-list')!;
   const noResults = document.getElementById('no-results')!;
@@ -31,46 +42,13 @@ export function initTournamentList(cfg: ListConfig) {
   const totalEl = document.getElementById('total-count')!;
   const loadMoreBtn = document.getElementById('load-more') as HTMLButtonElement;
 
-  let activeContinent = '';
   const continentTabsEl = document.getElementById('continent-tabs');
   continentTabsEl?.querySelectorAll('.ctab').forEach((tab) => {
     tab.addEventListener('click', () => {
-      continentTabsEl.querySelectorAll('.ctab').forEach((t) => t.classList.remove('active'));
-      tab.classList.add('active');
-      activeContinent = (tab as HTMLElement).dataset.continent || '';
-      whenReady(renderFromScratch);
+      const code = (tab as HTMLElement).dataset.continent || '';
+      window.location.href = code ? `${prefix}/continent/${CONTINENT_SLUGS[code]}/` : `${prefix}/`;
     });
   });
-
-  function updateContinentCounts() {
-    const country = (fCountry as HTMLSelectElement).value;
-    const month = (fMonth as HTMLSelectElement).value;
-    const duration = activeValue(fDurationEl);
-    const tc = activeValue(fTcEl);
-    const search = (fSearch as HTMLInputElement).value.toLowerCase().trim();
-    const preFiltered = allData.filter((t: any) => {
-      const matchCountry = !country || t.country === country;
-      const matchMonth = !month || new Date(t.startDate + 'T00:00:00').getMonth() + 1 === parseInt(month);
-      const days = durationDays(t.startDate, t.endDate);
-      const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
-      const matchTc = !tc || t.timeControl === tc;
-      const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
-      return matchCountry && matchMonth && matchDuration && matchTc && matchSearch;
-    });
-    const counts: Record<string, number> = {};
-    for (const t of preFiltered) {
-      const c = getContinent(t.countryCode);
-      if (c !== 'XX') counts[c] = (counts[c] || 0) + 1;
-    }
-    document.getElementById('ctab-count-all')!.textContent = String(preFiltered.length);
-    continentTabsEl?.querySelectorAll('.ctab[data-continent]').forEach((tab) => {
-      const c = (tab as HTMLElement).dataset.continent;
-      if (!c) return;
-      const el = tab.querySelector('.ctab-count');
-      if (el) el.textContent = String(counts[c] ?? 0);
-      (tab as HTMLElement).style.display = (counts[c] ?? 0) === 0 ? 'none' : '';
-    });
-  }
 
   const fCountry = document.getElementById('f-country')!;
   const fMonth = document.getElementById('f-month')!;
@@ -91,18 +69,13 @@ export function initTournamentList(cfg: ListConfig) {
 
   function activeFiltersSummary(): string {
     const parts: string[] = [];
-    const countryOpt = (fCountry as HTMLSelectElement).selectedOptions?.[0];
-    if (countryOpt?.value) parts.push(stripCount(countryOpt.textContent || ''));
+    if (lockedLabel) parts.push(lockedLabel);
     const monthOpt = (fMonth as HTMLSelectElement).selectedOptions?.[0];
     if (monthOpt?.value) parts.push(stripCount(monthOpt.textContent || ''));
     const durationBtn = fDurationEl?.querySelector('.filter-btn.active[data-value]:not([data-value=""])');
     if (durationBtn) parts.push(durationBtn.textContent?.trim() || '');
     const tcBtn = fTcEl?.querySelector('.filter-btn.active[data-value]:not([data-value=""])');
     if (tcBtn) parts.push(tcBtn.textContent?.trim() || '');
-    if (activeContinent) {
-      const contBtn = continentTabsEl?.querySelector('.ctab.active[data-continent]:not([data-continent=""])');
-      if (contBtn) parts.push(stripCount(contBtn.textContent || ''));
-    }
     const search = (fSearch as HTMLInputElement).value.trim();
     if (search) parts.push(`"${search}"`);
     return parts.join(' · ');
@@ -158,7 +131,6 @@ export function initTournamentList(cfg: ListConfig) {
   function rowHTML(t: any) {
     const days = durationDays(t.startDate, t.endDate);
     const dateRange = formatDateRange(t.startDate, t.endDate);
-    const prefix = basePath ? `/${basePath}` : '';
     const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}/` : null;
     const flag = flagUrl(t);
     const name = escapeHTML(t.name);
@@ -199,21 +171,20 @@ export function initTournamentList(cfg: ListConfig) {
   }
 
   function getFilteredSorted() {
-    const country = (fCountry as HTMLSelectElement).value;
     const month = (fMonth as HTMLSelectElement).value;
     const duration = activeValue(fDurationEl);
     const tc = activeValue(fTcEl);
     const search = (fSearch as HTMLInputElement).value.toLowerCase().trim();
 
     const result = allData.filter((t: any) => {
-      const matchCountry = !country || t.country === country;
+      const matchLockedCountry = !lockedCountry || t.country === lockedCountry;
+      const matchLockedContinent = !lockedContinent || getContinent(t.countryCode) === lockedContinent;
       const matchMonth = !month || new Date(t.startDate + 'T00:00:00').getMonth() + 1 === parseInt(month);
       const days = durationDays(t.startDate, t.endDate);
       const matchDuration = !duration || (duration === 'long' ? days >= 7 : days < 7);
       const matchTc = !tc || t.timeControl === tc;
       const matchSearch = !search || `${t.name} ${t.city} ${t.country}`.toLowerCase().includes(search);
-      const matchContinent = !activeContinent || getContinent(t.countryCode) === activeContinent;
-      return matchCountry && matchMonth && matchDuration && matchTc && matchSearch && matchContinent;
+      return matchLockedCountry && matchLockedContinent && matchMonth && matchDuration && matchTc && matchSearch;
     });
 
     result.sort((a: any, b: any) => {
@@ -278,7 +249,6 @@ export function initTournamentList(cfg: ListConfig) {
       const summary = activeFiltersSummary();
       noResultsSummary.textContent = summary ? summary : defaultNoResultsText;
     }
-    updateContinentCounts();
   }
 
   function arrowFor(key: string, dir: string) {
@@ -338,15 +308,8 @@ export function initTournamentList(cfg: ListConfig) {
   loadMoreBtn?.addEventListener('click', () => whenReady(renderMore));
 
   fCountry?.addEventListener('change', () => {
-    if ((fCountry as HTMLSelectElement).value) {
-      continentTabsEl!.style.display = 'none';
-      activeContinent = '';
-      continentTabsEl?.querySelectorAll('.ctab').forEach((t) => t.classList.remove('active'));
-      continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
-    } else {
-      continentTabsEl!.style.display = '';
-    }
-    whenReady(renderFromScratch);
+    const val = (fCountry as HTMLSelectElement).value;
+    window.location.href = val ? `${prefix}/country/${countrySlugs[val]}/` : `${prefix}/`;
   });
   fMonth?.addEventListener('change', () => whenReady(renderFromScratch));
   let searchDebounce: ReturnType<typeof setTimeout> | undefined;
@@ -355,17 +318,15 @@ export function initTournamentList(cfg: ListConfig) {
     searchDebounce = setTimeout(() => whenReady(renderFromScratch), 150);
   });
   function resetAllFilters() {
-    (fCountry as HTMLSelectElement).value = '';
+    // Country dropdown and continent tabs are navigation, not filters -- reset
+    // only clears the removable in-place filters, never the current page's
+    // own country/continent scope.
     (fMonth as HTMLSelectElement).value = '';
     (fSearch as HTMLInputElement).value = '';
     [fDurationEl, fTcEl].forEach((groupEl) => {
       groupEl?.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
       groupEl?.querySelector('.filter-btn[data-value=""]')?.classList.add('active');
     });
-    activeContinent = '';
-    continentTabsEl?.querySelectorAll('.ctab').forEach((t) => t.classList.remove('active'));
-    continentTabsEl?.querySelector('.ctab[data-continent=""]')?.classList.add('active');
-    continentTabsEl!.style.display = '';
     whenReady(renderFromScratch);
   }
   resetBtn?.addEventListener('click', resetAllFilters);

@@ -3,6 +3,8 @@ import Base from '../../../layouts/Base.astro';
 import archiveData from '../../../../public/data/archive.json';
 import featuredData from '../../../../data/featured.json';
 import { getTranslations, SUPPORTED_LANGS, countryName } from '../../../i18n/index.ts';
+import { slugifyLocation, CONTINENT_SLUGS } from '../../../lib/locationSlug.ts';
+import { getContinent } from '../../../lib/continents.ts';
 
 export async function getStaticPaths() {
   const archive = archiveData as any[];
@@ -143,6 +145,37 @@ const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${local
 const currentPath = `tournament/${t.slug}`;
 const regUrl = t.registrationUrl || t.websiteUrl || undefined;
 
+const CONTINENT_NAMES: Record<string, string> = {
+  EU: tr.continent_EU, AS: tr.continent_AS, NA: tr.continent_NA,
+  SA: tr.continent_SA, AF: tr.continent_AF, OC: tr.continent_OC,
+};
+const continentCode = t.countryCode ? getContinent(t.countryCode) : 'XX';
+const continentSlug = CONTINENT_SLUGS[continentCode];
+const continentName = CONTINENT_NAMES[continentCode];
+
+const breadcrumbItems: any[] = [
+  { "@type": "ListItem", "position": 1, "name": tr.site_title, "item": "https://chesstournamentcalendar.com/" },
+];
+if (continentSlug && continentName) {
+  breadcrumbItems.push({
+    "@type": "ListItem", "position": breadcrumbItems.length + 1, "name": continentName,
+    "item": `https://chesstournamentcalendar.com/${lang}/continent/${continentSlug}/`,
+  });
+}
+if (t.countryCode) {
+  breadcrumbItems.push({
+    "@type": "ListItem", "position": breadcrumbItems.length + 1, "name": localizedCountry,
+    "item": `https://chesstournamentcalendar.com/${lang}/country/${slugifyLocation(t.country)}/`,
+  });
+}
+breadcrumbItems.push({ "@type": "ListItem", "position": breadcrumbItems.length + 1, "name": t.name });
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems,
+};
+
 const eventSchema = {
   "@context": "https://schema.org",
   "@type": "Event",
@@ -171,8 +204,12 @@ const eventSchema = {
 
 <Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath} noindex={isConcluded}>
   {!isConcluded && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
+  {!isConcluded && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
-  <a href={`/${lang}/`} class="back-link">{tr.back_to_calendar}</a>
+  <nav class="breadcrumb">
+    <a href={`/${lang}/`}>{tr.back_to_calendar}</a>
+    {t.countryCode && <>{' · '}<a href={`/${lang}/country/${slugifyLocation(t.country)}/`}>{localizedCountry}</a></>}
+  </nav>
 
   {isConcluded && (
     <div class="concluded-notice">{tr.concluded_notice}</div>
