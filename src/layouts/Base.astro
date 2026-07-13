@@ -34,7 +34,10 @@ const langLabels: Record<string, string> = {
   {noindex && <meta name="robots" content="noindex,follow" />}
   <link rel="canonical" href={canonicalURL} />
   <title>{title}</title>
+  <link rel="icon" href={`${base}favicon.ico`} sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+  <link rel="icon" type="image/png" sizes="48x48" href={`${base}favicon-48x48.png`} />
+  <link rel="icon" type="image/png" sizes="96x96" href={`${base}favicon-96x96.png`} />
 
   <!-- hreflang alternates -->
   {SUPPORTED_LANGS.map(l => (
