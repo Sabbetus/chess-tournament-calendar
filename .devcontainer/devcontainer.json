@@ -2,7 +2,7 @@
   "name": "chess-tournament-calendar",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
   "postCreateCommand": "npm install",
-  "postStartCommand": "nohup npm run dev -- --host 0.0.0.0 > /tmp/astro-dev.log 2>&1 &",
+  "postStartCommand": "bash .devcontainer/start-dev.sh",
   "forwardPorts": [4321],
   "portsAttributes": {
     "4321": {
