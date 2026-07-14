@@ -26,7 +26,12 @@ const JSONLD_CAP = 100;
 // The manually-curated featured tournament is rendered separately (pinned,
 // same as the homepage) so it isn't silently dropped when the client-side
 // list hydrates from tournaments-min.json, which only contains scraped data.
-const featuredForPage = (featuredData as any[]).filter((f) => f.country === group.englishName);
+// It also appears on every European country page, since it's relevant to
+// anyone browsing European tournaments, not just its home country.
+const featuredForPage = (featuredData as any[]).filter((f) =>
+  f.country === group.englishName ||
+  (group.continentCode === 'EU' && getContinent(f.countryCode) === 'EU')
+);
 const items = group.items
   .filter((item: any) => item.source !== 'manual')
   .sort((a, b) => a.startDate.localeCompare(b.startDate));
