@@ -290,8 +290,8 @@ const eventSchema = {
         <div class="fact-value">
           {t.playersRegistered} {tr.players_unit}
           {trend !== null && trend !== 0 && (
-            <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} title={tr.players_trend_tooltip}>
-              ({trend > 0 ? '+' : ''}{trend} <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
+            <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} data-tooltip={tr.players_trend_tooltip}>
+              (<span class="trend-change">{Math.abs(trend)}</span> <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
             </span>
           )}
         </div>

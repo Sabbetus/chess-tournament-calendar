@@ -89,8 +89,8 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
     <span class="trow-players">
       {t.playersRegistered !== null ? t.playersRegistered : '—'}
       {trend !== null && (
-        <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} title={trendTooltip}>
-          ({trend > 0 ? '+' : ''}{trend} <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
+        <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} data-tooltip={trendTooltip}>
+          (<span class="trend-change">{Math.abs(trend)}</span> <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
         </span>
       )}
     </span>
@@ -108,8 +108,8 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
         <span>
           👥 {t.playersRegistered}
           {trend !== null && (
-            <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} title={trendTooltip}>
-              ({trend > 0 ? '+' : ''}{trend} <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
+            <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} data-tooltip={trendTooltip}>
+              (<span class="trend-change">{Math.abs(trend)}</span> <span class="trend-arrow">{trend > 0 ? '▲' : '▼'}</span>)
             </span>
           )}
         </span>
