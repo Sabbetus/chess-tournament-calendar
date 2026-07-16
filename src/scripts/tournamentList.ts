@@ -145,8 +145,8 @@ export function initTournamentList(cfg: ListConfig) {
     const trendHTML = trend !== null
       ? ` <span class="trend ${trendClass}" data-tooltip="${escapeHTML(tTrendTooltip)}">(${trend > 0 ? '+' : '-'}${Math.abs(trend)})</span>`
       : '';
-    const playersText = hasPlayers ? t.playersRegistered : '—';
-    const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}${trendHTML}</span>` : '';
+    const playersText = `<span class="players-count">${hasPlayers ? t.playersRegistered : '—'}</span>`;
+    const playersMeta = hasPlayers ? `<span>👥 <span class="players-count">${t.playersRegistered}</span>${trendHTML}</span>` : '';
     const tcLabel = t.timeControl === 'Rapid' ? tRapid : tClassical;
     const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
     const badge = `<span class="tc-badge ${tcClass}">${tcLabel}</span>`;

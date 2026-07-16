@@ -374,6 +374,11 @@ main {
   white-space: nowrap;
 }
 
+.players-count {
+  font-weight: 700;
+  color: var(--text);
+}
+
 .trend {
   font-size: 1em;
   white-space: nowrap;
