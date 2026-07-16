@@ -692,7 +692,7 @@ main {
   font-size: 0.62rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-bottom: 0.3rem;
 }
 
@@ -747,7 +747,7 @@ main {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-bottom: 0.6rem;
   margin-top: 1.75rem;
 }
