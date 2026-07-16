@@ -274,7 +274,7 @@ const eventSchema = {
       <div class="fact-card">
         <div class="fact-label">{tr.fact_registered}</div>
         <div class="fact-value">
-          <span class="players-count">{t.playersRegistered}</span> {tr.players_unit}
+          {t.playersRegistered} {tr.players_unit}
           {trend !== null && trend !== 0 && (
             <span class={`trend ${trend > 0 ? 'trend-up' : 'trend-down'}`} data-tooltip={tr.players_trend_tooltip}>
               ({trend > 0 ? '+' : '-'}{Math.abs(trend)})

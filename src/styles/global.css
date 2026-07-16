@@ -375,8 +375,7 @@ main {
 }
 
 .players-count {
-  font-weight: 600;
-  color: var(--text);
+  font-weight: 700;
 }
 
 .trend {
