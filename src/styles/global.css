@@ -387,10 +387,6 @@ main {
   color: var(--red);
 }
 
-.trend-arrow {
-  font-size: 0.8em;
-}
-
 
 /* ── Month separator ── */
 .month-separator {
