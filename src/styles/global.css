@@ -251,7 +251,7 @@ main {
 /* ── Column headers ── */
 .tlist-header {
   display: grid;
-  grid-template-columns: 2.8fr 5.5rem 1.3fr 2fr 0.6fr 0.7fr;
+  grid-template-columns: 2.8fr 5.5rem 8.5rem 2fr 0.6fr 0.7fr;
   gap: 0 1.5rem;
   padding: 0.35rem 0.75rem;
   font-size: 0.68rem;
@@ -285,7 +285,7 @@ main {
 /* ── Tournament row ── */
 .trow {
   display: grid;
-  grid-template-columns: 2.8fr 5.5rem 1.3fr 2fr 0.6fr 0.7fr;
+  grid-template-columns: 2.8fr 5.5rem 8.5rem 2fr 0.6fr 0.7fr;
   gap: 0 1.5rem;
   align-items: center;
   padding: 0.6rem 0.75rem;
@@ -375,7 +375,7 @@ main {
 }
 
 .players-count {
-  font-weight: 700;
+  color: var(--text);
 }
 
 .trend {
