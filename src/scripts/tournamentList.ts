@@ -144,7 +144,7 @@ export function initTournamentList(cfg: ListConfig) {
     const trendClass = trend !== null ? (trend > 0 ? 'trend-up' : 'trend-down') : '';
     const trendArrow = trend !== null ? (trend > 0 ? '▲' : '▼') : '';
     const trendHTML = trend !== null
-      ? ` <span class="trend ${trendClass}" data-tooltip="${escapeHTML(tTrendTooltip)}">(<span class="trend-change">${Math.abs(trend)}</span> <span class="trend-arrow">${trendArrow}</span>)</span>`
+      ? ` <span class="trend ${trendClass}" data-tooltip="${escapeHTML(tTrendTooltip)}">(<span class="trend-arrow">${trendArrow}</span> ${Math.abs(trend)})</span>`
       : '';
     const playersText = hasPlayers ? t.playersRegistered : '—';
     const playersMeta = hasPlayers ? `<span>👥 ${t.playersRegistered}${trendHTML}</span>` : '';

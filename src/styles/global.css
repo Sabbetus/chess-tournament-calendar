@@ -379,13 +379,11 @@ main {
   white-space: nowrap;
 }
 
-.trend-up .trend-change,
-.trend-up .trend-arrow {
+.trend-up {
   color: var(--green);
 }
 
-.trend-down .trend-change,
-.trend-down .trend-arrow {
+.trend-down {
   color: var(--red);
 }
 
