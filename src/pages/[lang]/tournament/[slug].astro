@@ -163,6 +163,16 @@ const localizedCountry = countryName(t.country, t.countryCode, lang);
 const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${localizedCountry}. ${tcLabel} ${tr.meta_chess_tournament} ${tr.meta_tail}.`;
 const currentPath = `tournament/${t.slug}`;
 const regUrl = t.registrationUrl || t.websiteUrl || undefined;
+// A known organizer site is more useful to a player than FIDE's bare
+// tournament_information.phtml page, so it takes over the primary CTA slot
+// when we have one (FIDE-sourced tournaments only — regUrl still points at
+// the source page for structured data, above).
+const primaryUrl = (t.source === 'fide-ratings' && t.organizerUrl) ? t.organizerUrl : regUrl;
+const primaryLabel = t.source === 'manual'
+  ? tr.visit_website
+  : t.source === 'fide-ratings'
+    ? (t.organizerUrl ? tr.visit_organizer : tr.more_details_fide)
+    : tr.more_details;
 
 const CONTINENT_NAMES: Record<string, string> = {
   EU: tr.continent_EU, AS: tr.continent_AS, NA: tr.continent_NA,
@@ -297,9 +307,9 @@ const eventSchema = {
   </div>
 
   <div class="tournament-actions">
-    {(t.registrationUrl || t.websiteUrl) && (
-      <a href={t.registrationUrl || t.websiteUrl} target="_blank" rel="noopener" class="btn-primary">
-        {t.source === 'manual' ? tr.visit_website : t.source === 'fide-ratings' ? tr.more_details_fide : tr.more_details}
+    {primaryUrl && (
+      <a href={primaryUrl} target="_blank" rel="noopener" class="btn-primary">
+        {primaryLabel}
       </a>
     )}
     <a href={gcalUrl} target="_blank" rel="noopener" class="btn-secondary">

@@ -1,7 +1,155 @@
 {
-  "_comment": "Maps a FIDE profile ID (the Chief Organizer's ratings.fide.com/profile/<id> id, as shown on a tournament's tournament_information.phtml page) to a club/organizer website. Hand-curated — extend as new frequent organizers show up in the scraped feed.",
+  "_comment": "Maps a FIDE profile ID (the Chief Organizer's ratings.fide.com/profile/<id> id, as shown on a tournament's tournament_information.phtml page) to a club/organizer website. Prefer a tournaments/events page over a homepage when the club has one — it's what a player actually wants. Hand-curated — extend as new frequent organizers show up in the scraped feed. A few entries below are inferred from city/venue overlap rather than an explicit organizer-club statement (noted per entry); drop them if they turn out wrong.",
   "2041650": {
     "name": "Charlotte Chess Center",
-    "url": "https://www.charlottechesscenter.org/"
+    "url": "https://www.charlottechesscenter.org/events"
+  },
+  "2059487": {
+    "name": "Charlotte Chess Center",
+    "url": "https://www.charlottechesscenter.org/events",
+    "_note": "Grant Oen is CCC's Senior Events Manager"
+  },
+  "30986613": {
+    "name": "Marshall Chess Club",
+    "url": "https://www.marshallchessclub.org/tournaments/upcoming"
+  },
+  "30930189": {
+    "name": "Mechanics' Institute Chess Club",
+    "url": "https://www.chessclub.org/",
+    "_note": "Judit Sztaray is Mechanics' Institute's GM of Events & Youth Outreach"
+  },
+  "566021197": {
+    "name": "Saint Louis Chess Club",
+    "url": "https://saintlouischessclub.org/events/tournament-calendar"
+  },
+  "2001462": {
+    "name": "Continental Chess Association",
+    "url": "https://chessevents.com/schedule",
+    "_note": "William (Bill) Goichberg founded the CCA"
+  },
+  "2027593": {
+    "name": "Chess4Life Bellevue",
+    "url": "https://chess4life.com/locations/bellevue"
+  },
+  "39957055": {
+    "name": "Kings and Queens Chess Academy",
+    "url": "https://chesskingsandqueens.com/"
+  },
+  "2053616": {
+    "name": "Maryland Chess Association",
+    "url": "https://www.mdchess.com/index.php?option=com_eventbooking&view=upcomingevents&layout=table&id=0&Itemid=1548"
+  },
+  "2075369": {
+    "name": "Chandra Alexis Chess Club",
+    "url": "https://chandraalexischessclub.org/"
+  },
+  "150101194": {
+    "name": "Judgement Day Chess Club",
+    "url": "https://sites.google.com/view/judgement-day-chess-club/upcoming-chess-tournaments"
+  },
+  "2022753": {
+    "name": "Grand Rapids Chess Center",
+    "url": "https://grandrapidschesscenter.org/",
+    "_note": "inferred from city match (Grand Rapids, MI) — Karagianis' primary role is at US Chess national office"
+  },
+  "30930650": {
+    "name": "Ohio Chess Association",
+    "url": "https://ohchess.org/tournaments",
+    "_note": "organizes the Cincinnati Open / Ohio Chess Congress in Blue Ash, OH"
+  },
+  "2033283": {
+    "name": "Central Florida Chess Club",
+    "url": "https://www.centralflchess.org/"
+  },
+  "39921174": {
+    "name": "Atlantic Chess Association",
+    "url": "https://www.atlanticchessassociation.com/"
+  },
+  "39906779": {
+    "name": "Atlantic Chess Association",
+    "url": "https://www.atlanticchessassociation.com/",
+    "_note": "inferred from Dulles, VA venue overlap with Shilpa Vaidya's events"
+  },
+  "39904822": {
+    "name": "Columbia Chess Club",
+    "url": "https://columbiachess.org/"
+  },
+  "30966540": {
+    "name": "Texas Chess Center",
+    "url": "https://www.texaschesscenter.com/"
+  },
+  "30990025": {
+    "name": "Texas Chess Center",
+    "url": "https://www.texaschesscenter.com/",
+    "_note": "inferred from city match (Houston, TX)"
+  },
+  "30911044": {
+    "name": "NYC Chess Norms",
+    "url": "https://nycchessnorms.com/"
+  },
+  "2091941": {
+    "name": "Wilson Chess",
+    "url": "https://www.wilson-chess.com/"
+  },
+  "30900840": {
+    "name": "Land of the Sky",
+    "url": "https://landofthesky.us/"
+  },
+  "2050315": {
+    "name": "Miami Chess Club",
+    "url": "https://www.themiamichessclub.com/tournaments",
+    "_note": "moderate confidence — inferred from city match (Miami, FL)"
+  },
+  "2054752": {
+    "name": "Bay Area Chess",
+    "url": "https://www.bayareachess.com/",
+    "_note": "moderate confidence — inferred from city match (Sunnyvale, CA)"
+  },
+  "30911290": {
+    "name": "DMV Chess",
+    "url": "https://www.dmvchess.com/"
+  },
+  "39933520": {
+    "name": "Austin Chess Tournaments",
+    "url": "https://www.austinchesstournaments.com/"
+  },
+  "2093278": {
+    "name": "New York Masters",
+    "url": "http://www.newyorkmasters.com/",
+    "_note": "Fedor Khrapatin's own tournament series"
+  },
+  "30976499": {
+    "name": "Nashville Chess Center",
+    "url": "https://nashvillechess.org/"
+  },
+  "39987787": {
+    "name": "Texas Chess Center",
+    "url": "https://www.texaschesscenter.com/",
+    "_note": "Zohaib Siddiqui is a Program Associate there"
+  },
+  "2090023": {
+    "name": "Michigan Chess Association",
+    "url": "https://www.michess.org/"
+  },
+  "2005670": {
+    "name": "Oregon Chess Federation",
+    "url": "https://oregonchessfed.org/"
+  },
+  "39952754": {
+    "name": "Oklahoma Chess Association",
+    "url": "https://www.oklahomachess.org/"
+  },
+  "2049767": {
+    "name": "Illinois Chess Association",
+    "url": "https://il-chess.org/",
+    "_note": "inferred from city match (Schaumburg, IL) — his other event was in Sioux Falls, SD"
+  },
+  "30953375": {
+    "name": "Coppell Chess Club",
+    "url": "https://coppellchessclub.com/"
+  },
+  "2071320": {
+    "name": "Wisconsin Chess Association",
+    "url": "https://www.wischess.org/"
   }
 }

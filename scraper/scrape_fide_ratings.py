@@ -84,6 +84,17 @@ SECTION_MERGE_THRESHOLD = 4
 
 SECTION_SUFFIX_RE = re.compile(r"\s*-\s*[A-Za-z0-9]{1,3}\s*$")
 
+# FIDE rates a club's weekly-round series (e.g. "CCC Tuesday Night Action 134",
+# one round per Tuesday for a month) as a single event whose Start/End Date
+# spans the whole series — 22-29 days for what a visitor would read as "one
+# tournament" they could travel to, when it's really one game a week. That's
+# not what this site is for, so entries longer than this get dropped. Set
+# above chess-results' MAX_DURATION_DAYS (10) rather than at it: the real
+# US Championship / US Women's Championship run ~13 continuous days in St.
+# Louis and must survive the cut, and nothing else observed in this feed
+# falls between 14 and 15 days.
+MAX_DURATION_DAYS = 14
+
 
 def strip_html(s):
     text = re.sub(r"<[^>]+>", "", s or "")
@@ -208,12 +219,20 @@ def build_tournaments(rows, detail_cache, organizers):
         organizer_profile_id = detail.get("organizerProfileId")
         organizer_info = organizers.get(organizer_profile_id) if organizer_profile_id else None
 
+        end_date = detail.get("endDate") or canonical["startDate"]
+        try:
+            span_days = (date.fromisoformat(end_date) - date.fromisoformat(canonical["startDate"])).days + 1
+        except ValueError:
+            span_days = 1
+        if span_days > MAX_DURATION_DAYS:
+            continue
+
         tournaments.append({
             "id": f"fide-{event_id}",
             "slug": slugify(name, event_id),
             "name": name,
             "startDate": canonical["startDate"],
-            "endDate": detail.get("endDate") or canonical["startDate"],
+            "endDate": end_date,
             "city": canonical["city"],
             "country": "United States",
             "countryCode": "US",
