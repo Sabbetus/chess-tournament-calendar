@@ -1,0 +1,7 @@
+{
+  "_comment": "Maps a FIDE profile ID (the Chief Organizer's ratings.fide.com/profile/<id> id, as shown on a tournament's tournament_information.phtml page) to a club/organizer website. Hand-curated — extend as new frequent organizers show up in the scraped feed.",
+  "2041650": {
+    "name": "Charlotte Chess Center",
+    "url": "https://www.charlottechesscenter.org/"
+  }
+}

@@ -1,13 +1,14 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import archiveData from '../../../../public/data/archive.json';
+import fideArchiveData from '../../../../public/data/fide_archive.json';
 import featuredData from '../../../../data/featured.json';
 import { getTranslations, SUPPORTED_LANGS, countryName } from '../../../i18n/index.ts';
 import { slugifyLocation, CONTINENT_SLUGS } from '../../../lib/locationSlug.ts';
 import { getContinent } from '../../../lib/continents.ts';
 
 export async function getStaticPaths() {
-  const archive = archiveData as any[];
+  const archive = [...(archiveData as any[]), ...(fideArchiveData as any[])];
   const featured = (featuredData as any[]).map((t: any) => ({ ...t, status: 'upcoming' }));
   const archiveIds = new Set(archive.map((t: any) => t.id));
   const all = [...archive, ...featured.filter((t: any) => !archiveIds.has(t.id))];
@@ -270,6 +271,16 @@ const eventSchema = {
         <div class="fact-value">{t.timeControlRaw}</div>
       </div>
     )}
+    {t.organizer && (
+      <div class="fact-card">
+        <div class="fact-label">{tr.fact_organizer}</div>
+        <div class="fact-value">
+          {t.organizerUrl
+            ? <a href={t.organizerUrl} target="_blank" rel="noopener">{t.organizer}</a>
+            : t.organizer}
+        </div>
+      </div>
+    )}
     {t.playersRegistered !== null && t.playersRegistered !== undefined && (
       <div class="fact-card">
         <div class="fact-label">{tr.fact_registered}</div>
@@ -288,7 +299,7 @@ const eventSchema = {
   <div class="tournament-actions">
     {(t.registrationUrl || t.websiteUrl) && (
       <a href={t.registrationUrl || t.websiteUrl} target="_blank" rel="noopener" class="btn-primary">
-        {t.source === 'manual' ? tr.visit_website : tr.more_details}
+        {t.source === 'manual' ? tr.visit_website : t.source === 'fide-ratings' ? tr.more_details_fide : tr.more_details}
       </a>
     )}
     <a href={gcalUrl} target="_blank" rel="noopener" class="btn-secondary">
