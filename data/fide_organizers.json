@@ -1,5 +1,5 @@
 {
-  "_comment": "Maps a FIDE profile ID (the Chief Organizer's ratings.fide.com/profile/<id> id, as shown on a tournament's tournament_information.phtml page) to a club/organizer website. Prefer a tournaments/events page over a homepage when the club has one — it's what a player actually wants. Hand-curated — extend as new frequent organizers show up in the scraped feed. A few entries below are inferred from city/venue overlap rather than an explicit organizer-club statement (noted per entry); drop them if they turn out wrong.",
+  "_comment": "Maps a FIDE profile ID (the Chief Organizer's ratings.fide.com/profile/<id> id, as shown on a tournament's tournament_information.phtml page) to that organizer's club/series website. Two rules, learned the hard way: (1) the URL must be a stable page that lists tournaments — not a homepage that redirects to whatever single event is current, and not a page that renders empty; (2) only add an entry when the organizer's actual events here match the club. A FIDE 'Chief Organizer' is a person, and people direct events for several different organizations, so a city or venue match is NOT evidence — verify against the real event names. When an organizer's events span multiple orgs, or the organizing body is ambiguous, leave them out entirely: the site falls back to the FIDE event page, which is always correct if sparse.",
   "2041650": {
     "name": "Charlotte Chess Center",
     "url": "https://www.charlottechesscenter.org/events"
@@ -7,7 +7,7 @@
   "2059487": {
     "name": "Charlotte Chess Center",
     "url": "https://www.charlottechesscenter.org/events",
-    "_note": "Grant Oen is CCC's Senior Events Manager"
+    "_note": "Grant Oen is CCC's Senior Events Manager; all his events here are CCC-branded"
   },
   "30986613": {
     "name": "Marshall Chess Club",
@@ -15,8 +15,8 @@
   },
   "30930189": {
     "name": "Mechanics' Institute Chess Club",
-    "url": "https://www.chessclub.org/",
-    "_note": "Judit Sztaray is Mechanics' Institute's GM of Events & Youth Outreach"
+    "url": "https://www.milibrary.org/chess/",
+    "_note": "chessclub.org is also official but renders an empty page; milibrary.org/chess is the real content"
   },
   "566021197": {
     "name": "Saint Louis Chess Club",
@@ -25,15 +25,17 @@
   "2001462": {
     "name": "Continental Chess Association",
     "url": "https://chessevents.com/schedule",
-    "_note": "William (Bill) Goichberg founded the CCA"
+    "_note": "Bill Goichberg founded the CCA; events here are Continental/Pacific Coast/Central California Opens"
   },
   "2027593": {
-    "name": "Chess4Life Bellevue",
-    "url": "https://chess4life.com/locations/bellevue"
+    "name": "Washington Chess Federation",
+    "url": "https://www.wachess.com/",
+    "_note": "Josh Sinanan is WCF President. NOT Chess4Life — that's Elliott Neff's separate academy."
   },
   "39957055": {
     "name": "Kings and Queens Chess Academy",
-    "url": "https://chesskingsandqueens.com/"
+    "url": "https://chesskingsandqueens.com/",
+    "_note": "his events are the 'CKQ Super Sunday FIDE' series"
   },
   "2053616": {
     "name": "Maryland Chess Association",
@@ -45,111 +47,106 @@
   },
   "150101194": {
     "name": "Judgement Day Chess Club",
-    "url": "https://sites.google.com/view/judgement-day-chess-club/upcoming-chess-tournaments"
-  },
-  "2022753": {
-    "name": "Grand Rapids Chess Center",
-    "url": "https://grandrapidschesscenter.org/",
-    "_note": "inferred from city match (Grand Rapids, MI) — Karagianis' primary role is at US Chess national office"
+    "url": "https://sites.google.com/view/judgement-day-chess-club/upcoming-chess-tournaments",
+    "_note": "Jake Nemeth founded Judgement Day; the 'Jakes Invitational' is his"
   },
   "30930650": {
     "name": "Ohio Chess Association",
     "url": "https://ohchess.org/tournaments",
-    "_note": "organizes the Cincinnati Open / Ohio Chess Congress in Blue Ash, OH"
-  },
-  "2033283": {
-    "name": "Central Florida Chess Club",
-    "url": "https://www.centralflchess.org/"
+    "_note": "organizes the Ohio Chess Congress / Cincinnati Masters in Blue Ash, OH"
   },
   "39921174": {
     "name": "Atlantic Chess Association",
-    "url": "https://www.atlanticchessassociation.com/"
-  },
-  "39906779": {
-    "name": "Atlantic Chess Association",
     "url": "https://www.atlanticchessassociation.com/",
-    "_note": "inferred from Dulles, VA venue overlap with Shilpa Vaidya's events"
-  },
-  "39904822": {
-    "name": "Columbia Chess Club",
-    "url": "https://columbiachess.org/"
+    "_note": "Shilpa Vaidya founded ACA; her events include the 'ACA Thanksgiving Open'"
   },
   "30966540": {
     "name": "Texas Chess Center",
     "url": "https://www.texaschesscenter.com/"
   },
-  "30990025": {
-    "name": "Texas Chess Center",
-    "url": "https://www.texaschesscenter.com/",
-    "_note": "inferred from city match (Houston, TX)"
-  },
   "30911044": {
     "name": "NYC Chess Norms",
-    "url": "https://nycchessnorms.com/"
+    "url": "https://nycchessnorms.com/",
+    "_note": "Keith Espinosa is NYC Chess Norms' chief organizer; its norm invitationals are held at the Marshall"
   },
   "2091941": {
     "name": "Wilson Chess",
-    "url": "https://www.wilson-chess.com/"
+    "url": "https://www.wilson-chess.com/",
+    "_note": "Wilson Chess organizes the Chicago Fall/Summer Opens"
   },
   "30900840": {
     "name": "Land of the Sky",
-    "url": "https://landofthesky.us/"
+    "url": "https://landofthesky.us/",
+    "_note": "Wilder Wadford runs Land of the Sky in Asheville"
   },
   "2050315": {
-    "name": "Miami Chess Club",
-    "url": "https://www.themiamichessclub.com/tournaments",
-    "_note": "moderate confidence — inferred from city match (Miami, FL)"
+    "name": "WR Chess",
+    "url": "https://wr-chess.com/#events",
+    "_note": "his events here are the WR Chess USA vs Uzbekistan Miami match, not a local Miami club"
   },
   "2054752": {
     "name": "Bay Area Chess",
     "url": "https://www.bayareachess.com/",
-    "_note": "moderate confidence — inferred from city match (Sunnyvale, CA)"
+    "_note": "his events are the 'BAC Real FIDE Championship' series"
   },
   "30911290": {
     "name": "DMV Chess",
-    "url": "https://www.dmvchess.com/"
+    "url": "https://www.dmvchess.com/majorinpersontournaments",
+    "_note": "DMV Chess lists both the Benjamin Franklin Open and the Beltway Open on this page"
   },
   "39933520": {
     "name": "Austin Chess Tournaments",
-    "url": "https://www.austinchesstournaments.com/"
+    "url": "https://www.austinchesstournaments.com/",
+    "_note": "organizes the Austin Summer Open"
   },
   "2093278": {
-    "name": "New York Masters",
-    "url": "http://www.newyorkmasters.com/",
-    "_note": "Fedor Khrapatin's own tournament series"
+    "name": "Learn Play Chess",
+    "url": "https://learnplaychess.com/",
+    "_note": "his events are literally the 'Learn Play Chess' Rapid/Blitz Championships in Brooklyn"
   },
   "30976499": {
     "name": "Nashville Chess Center",
-    "url": "https://nashvillechess.org/"
+    "url": "https://nashvillechess.org/",
+    "_note": "Aaron Caveny is NCC's Executive Director; the Nashville Summer Classic is theirs"
   },
   "39987787": {
     "name": "Texas Chess Center",
     "url": "https://www.texaschesscenter.com/",
-    "_note": "Zohaib Siddiqui is a Program Associate there"
+    "_note": "his events are the 'TCC Texas Blaze FIDE' series"
   },
   "2090023": {
     "name": "Michigan Chess Association",
-    "url": "https://www.michess.org/"
+    "url": "https://www.michess.org/",
+    "_note": "Jeff Aldrich is MCA President; the Michigan Open / Bottom Half Class are MCA events"
   },
   "2005670": {
     "name": "Oregon Chess Federation",
-    "url": "https://oregonchessfed.org/"
+    "url": "https://oregonchessfed.org/",
+    "_note": "Wilson Gibbins is OCF President and runs the Oregon Open. Site sits behind a Cloudflare challenge, so automated checks see 403; real browsers load it."
   },
   "39952754": {
     "name": "Oklahoma Chess Association",
-    "url": "https://www.oklahomachess.org/"
+    "url": "https://www.oklahomachess.org/",
+    "_note": "the Frank K. Berry championships are OCA events"
   },
   "2049767": {
-    "name": "Illinois Chess Association",
-    "url": "https://il-chess.org/",
-    "_note": "inferred from city match (Schaumburg, IL) — his other event was in Sioux Falls, SD"
+    "name": "Chess Weekend",
+    "url": "https://www.chessweekend.com/",
+    "_note": "Glenn Panner organizes via Chess Weekend, which presents both the SD Governor's Cup and the Sevan Memorial"
   },
   "30953375": {
-    "name": "Coppell Chess Club",
-    "url": "https://coppellchessclub.com/"
+    "name": "Texas Chess Association",
+    "url": "https://texaschess.org/tournaments/",
+    "_note": "his event here is the Texas State Open, a TCA event — not a Coppell Chess Club event"
   },
   "2071320": {
     "name": "Wisconsin Chess Association",
-    "url": "https://www.wischess.org/"
+    "url": "https://www.wischess.org/",
+    "_note": "the WCA sponsors the William Martz Memorial / North Central Open"
+  },
+  "2022753": {
+    "name": "US Chess",
+    "url": "https://new.uschess.org/national-events-calendar",
+    "_note": "Pete Karagianis is US Chess's Director of Events; the Denker/Barber/Haring/Irwin invitationals are US Chess national events run alongside the US Open"
   }
 }

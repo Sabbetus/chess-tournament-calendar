@@ -70,6 +70,20 @@ TIME_CONTROL_MAP = {
     "t": "Blitz",
 }
 
+# The detail page's "Time Control" text starts with FIDE's own name for the
+# rating type it's being submitted under ("Standard: 90 minutes with 30 second
+# increment from move 1"). That prefix is authoritative; the list feed's
+# System code is not — measured against this text, 73 of 280 entries (26%)
+# carried the wrong code, including blitz events marked "s" and standard
+# events marked "r". So the code is only consulted when the text is missing.
+TIME_CONTROL_TEXT_RE = re.compile(r"^\s*(standard|rapid|blitz)\s*:", re.I)
+TIME_CONTROL_BY_TEXT = {"standard": "Classical", "rapid": "Rapid", "blitz": "Blitz"}
+
+# The site lists classical and rapid only — its own filters offer no blitz
+# option, and the chess-results scraper likewise never queries blitz. FIDE's
+# feed is full of them, so they're dropped rather than shown untyped.
+EXCLUDED_TIME_CONTROLS = {"Blitz"}
+
 MIN_ABSOLUTE_TOURNAMENTS = 20  # safety floor for USA-only feed; small country, small numbers
 MAX_CONSECUTIVE_MISSES = 8  # same cadence reasoning as chess-results (~2 days at 6h runs)
 
@@ -94,6 +108,15 @@ SECTION_SUFFIX_RE = re.compile(r"\s*-\s*[A-Za-z0-9]{1,3}\s*$")
 # Louis and must survive the cut, and nothing else observed in this feed
 # falls between 14 and 15 days.
 MAX_DURATION_DAYS = 14
+
+
+def classify_time_control(tc_raw, tc_code):
+    """Prefer FIDE's own "Time Control" wording over the list feed's System
+    code — see TIME_CONTROL_TEXT_RE for why the code can't be trusted."""
+    m = TIME_CONTROL_TEXT_RE.match(tc_raw or "")
+    if m:
+        return TIME_CONTROL_BY_TEXT[m.group(1).lower()]
+    return TIME_CONTROL_MAP.get(tc_code, "Classical")
 
 
 def strip_html(s):
@@ -227,6 +250,10 @@ def build_tournaments(rows, detail_cache, organizers):
         if span_days > MAX_DURATION_DAYS:
             continue
 
+        time_control = classify_time_control(detail.get("timeControlRaw"), canonical["timeControlCode"])
+        if time_control in EXCLUDED_TIME_CONTROLS:
+            continue
+
         tournaments.append({
             "id": f"fide-{event_id}",
             "slug": slugify(name, event_id),
@@ -237,7 +264,7 @@ def build_tournaments(rows, detail_cache, organizers):
             "country": "United States",
             "countryCode": "US",
             "rounds": None,
-            "timeControl": TIME_CONTROL_MAP.get(canonical["timeControlCode"], "Classical"),
+            "timeControl": time_control,
             "timeControlRaw": detail.get("timeControlRaw"),
             "playersRegistered": None,  # not known ahead of the event on this feed
             "prizePool": None,
@@ -249,6 +276,12 @@ def build_tournaments(rows, detail_cache, organizers):
             "websiteUrl": EVENT_URL.format(event_id=event_id),
             "description": None,
             "organizer": organizer_info["name"] if organizer_info else organizer_name,
+            # The Chief Organizer exactly as FIDE reports them (a person). Kept
+            # separately because "organizer" above gets replaced by the club
+            # name whenever fide_organizers.json has a match — without this,
+            # the first mapped run would destroy the original name and a later
+            # removal from the map would leave a stale club name behind.
+            "organizerRaw": organizer_name,
             "organizerUrl": organizer_info["url"] if organizer_info else None,
             "organizerProfileId": organizer_profile_id,
             "source": "fide-ratings",
@@ -328,13 +361,17 @@ def main():
     print(f"[INFO] {len(rows)} upcoming rows out of {len(raw_rows)} total.")
 
     fide_archive = load_json(FIDE_ARCHIVE_PATH, [])
+    # Reuse the detail we already fetched for events we've seen before. Only
+    # "organizerRaw" is safe to cache as the organizer — "organizer" may have
+    # been rewritten to a club name by a previous run's mapping. Entries
+    # predating organizerRaw are left out so they get re-fetched once and heal.
     known_details = {t["id"].replace("fide-", ""): {
         "endDate": t.get("endDate"),
         "timeControlRaw": t.get("timeControlRaw"),
-        "organizer": t.get("organizer"),
+        "organizer": t.get("organizerRaw"),
         "organizerProfileId": t.get("organizerProfileId"),
         "playersRegistered": t.get("playersRegistered"),
-    } for t in fide_archive}
+    } for t in fide_archive if t.get("organizerRaw")}
 
     organizers = load_organizers()
 

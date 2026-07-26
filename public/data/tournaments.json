@@ -25,6 +25,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -37,7 +38,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Blitz",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -48,11 +49,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480868",
     "description": null,
-    "organizer": "Miami Chess Club",
-    "organizerUrl": "https://www.themiamichessclub.com/tournaments",
+    "organizer": "WR Chess",
+    "organizerUrl": "https://wr-chess.com/#events",
     "organizerProfileId": "2050315",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Rich, Tony (USA)",
     "playersTrend": null
   },
   {
@@ -1278,34 +1280,6 @@
     "description": null,
     "organizer": "MCCA",
     "source": "chess-results",
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480869",
-    "slug": "wr-chess-team-usa-vs-uzbekistan-blitz-fide-480869",
-    "name": "WR Chess - Team USA vs Uzbekistan (Blitz)",
-    "startDate": "2026-07-28",
-    "endDate": "2026-07-28",
-    "city": "Miami, FL",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Blitz",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480869",
-    "description": null,
-    "organizer": "Miami Chess Club",
-    "organizerUrl": "https://www.themiamichessclub.com/tournaments",
-    "organizerProfileId": "2050315",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
     "playersTrend": null
   },
   {
@@ -2642,6 +2616,7 @@
       "489692",
       "489693"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -3695,6 +3670,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -4223,6 +4199,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -4246,11 +4223,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=485405",
     "description": null,
-    "organizer": "Texas Chess Center",
-    "organizerUrl": "https://www.texaschesscenter.com/",
+    "organizer": "Acosta, Edgardo F (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "30990025",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Acosta, Edgardo F (USA)",
     "playersTrend": null
   },
   {
@@ -4274,11 +4252,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=485406",
     "description": null,
-    "organizer": "Texas Chess Center",
-    "organizerUrl": "https://www.texaschesscenter.com/",
+    "organizer": "Acosta, Edgardo F (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "30990025",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Acosta, Edgardo F (USA)",
     "playersTrend": null
   },
   {
@@ -4307,6 +4286,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -4335,34 +4315,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-479028",
-    "slug": "marshall-fide-blitz-81-fide-479028",
-    "name": "Marshall FIDE Blitz 81",
-    "startDate": "2026-07-31",
-    "endDate": "2026-07-31",
-    "city": "New York, NY",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=479028",
-    "description": null,
-    "organizer": "Marshall Chess Club",
-    "organizerUrl": "https://www.marshallchessclub.org/tournaments/upcoming",
-    "organizerProfileId": "30986613",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -4391,6 +4344,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -4419,6 +4373,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -4443,10 +4398,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=476394",
     "description": null,
     "organizer": "DMV Chess",
-    "organizerUrl": "https://www.dmvchess.com/",
+    "organizerUrl": "https://www.dmvchess.com/majorinpersontournaments",
     "organizerProfileId": "30911290",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hiban, Josh (USA)",
     "playersTrend": null
   },
   {
@@ -5197,34 +5153,6 @@
     "description": null,
     "organizer": "Sari Chess Association",
     "source": "chess-results",
-    "playersTrend": null
-  },
-  {
-    "id": "fide-465010",
-    "slug": "2026-charlotte-summer-open-blitz-fide-465010",
-    "name": "2026 Charlotte Summer Open - Blitz",
-    "startDate": "2026-08-01",
-    "endDate": "2026-08-01",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=465010",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
     "playersTrend": null
   },
   {
@@ -9153,6 +9081,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -12801,11 +12730,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484310",
     "description": null,
-    "organizer": "Grand Rapids Chess Center",
-    "organizerUrl": "https://grandrapidschesscenter.org/",
+    "organizer": "US Chess",
+    "organizerUrl": "https://new.uschess.org/national-events-calendar",
     "organizerProfileId": "2022753",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Karagianis, Petros (USA)",
     "playersTrend": null
   },
   {
@@ -12829,11 +12759,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484311",
     "description": null,
-    "organizer": "Grand Rapids Chess Center",
-    "organizerUrl": "https://grandrapidschesscenter.org/",
+    "organizer": "US Chess",
+    "organizerUrl": "https://new.uschess.org/national-events-calendar",
     "organizerProfileId": "2022753",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Karagianis, Petros (USA)",
     "playersTrend": null
   },
   {
@@ -12857,11 +12788,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484312",
     "description": null,
-    "organizer": "Grand Rapids Chess Center",
-    "organizerUrl": "https://grandrapidschesscenter.org/",
+    "organizer": "US Chess",
+    "organizerUrl": "https://new.uschess.org/national-events-calendar",
     "organizerProfileId": "2022753",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Karagianis, Petros (USA)",
     "playersTrend": null
   },
   {
@@ -12885,11 +12817,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484313",
     "description": null,
-    "organizer": "Grand Rapids Chess Center",
-    "organizerUrl": "https://grandrapidschesscenter.org/",
+    "organizer": "US Chess",
+    "organizerUrl": "https://new.uschess.org/national-events-calendar",
     "organizerProfileId": "2022753",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Karagianis, Petros (USA)",
     "playersTrend": null
   },
   {
@@ -13751,34 +13684,7 @@
       "489699",
       "489700"
     ],
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480625",
-    "slug": "2026-gct-saint-louis-rapid-and-blitz-blitz-fide-480625",
-    "name": "2026 GCT Saint Louis Rapid and Blitz - Blitz",
-    "startDate": "2026-08-05",
-    "endDate": "2026-08-06",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480625",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -14177,11 +14083,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=483520",
     "description": null,
-    "organizer": "Coppell Chess Club",
-    "organizerUrl": "https://coppellchessclub.com/",
+    "organizer": "Texas Chess Association",
+    "organizerUrl": "https://texaschess.org/tournaments/",
     "organizerProfileId": "30953375",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Suruliraj, Suresh (USA)",
     "playersTrend": null
   },
   {
@@ -14205,11 +14112,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=483519",
     "description": null,
-    "organizer": "Coppell Chess Club",
-    "organizerUrl": "https://coppellchessclub.com/",
+    "organizer": "Texas Chess Association",
+    "organizerUrl": "https://texaschess.org/tournaments/",
     "organizerProfileId": "30953375",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Suruliraj, Suresh (USA)",
     "playersTrend": null
   },
   {
@@ -14238,34 +14146,7 @@
     "organizerProfileId": "150101194",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480627",
-    "slug": "2026-gct-saint-louis-rapid-and-blitz-blitz-playoff-fide-480627",
-    "name": "2026 GCT Saint Louis Rapid and Blitz - Blitz Playoff",
-    "startDate": "2026-08-06",
-    "endDate": "2026-08-06",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480627",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Nemeth, Jake (USA)",
     "playersTrend": null
   },
   {
@@ -14278,7 +14159,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: All Moves in 8 Min. Incr. 3 Sec. /     /",
     "playersRegistered": null,
     "prizePool": null,
@@ -14294,6 +14175,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -14622,6 +14504,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -14650,6 +14533,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -14678,6 +14562,7 @@
     "organizerProfileId": "2054752",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Azhar, Salman (USA)",
     "playersTrend": null
   },
   {
@@ -14706,6 +14591,7 @@
     "organizerProfileId": "39933520",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Brauner, Sarah (USA)",
     "playersTrend": null
   },
   {
@@ -14734,6 +14620,7 @@
     "organizerProfileId": "39933520",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Brauner, Sarah (USA)",
     "playersTrend": null
   },
   {
@@ -14762,6 +14649,7 @@
     "organizerProfileId": "2054752",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Azhar, Salman (USA)",
     "playersTrend": null
   },
   {
@@ -14774,7 +14662,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -14790,6 +14678,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -14814,10 +14703,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=476398",
     "description": null,
     "organizer": "DMV Chess",
-    "organizerUrl": "https://www.dmvchess.com/",
+    "organizerUrl": "https://www.dmvchess.com/majorinpersontournaments",
     "organizerProfileId": "30911290",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hiban, Josh (USA)",
     "playersTrend": null
   },
   {
@@ -15896,34 +15786,6 @@
     "playersTrend": null
   },
   {
-    "id": "fide-480641",
-    "slug": "ccc-blitz-south-august-2026-fide-480641",
-    "name": "CCC Blitz South - August 2026",
-    "startDate": "2026-08-08",
-    "endDate": "2026-08-08",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480641",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-480640",
     "slug": "ccc-rapid-south-august-2026-fide-480640",
     "name": "CCC Rapid South - August 2026",
@@ -15933,7 +15795,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -15949,6 +15811,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -15977,6 +15840,7 @@
     "organizerProfileId": "39989917",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Ruiz, Edwin Christopher (USA)",
     "playersTrend": null
   },
   {
@@ -16005,6 +15869,7 @@
     "organizerProfileId": "30931258",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lavoice, Richard (USA)",
     "playersTrend": null
   },
   {
@@ -20342,7 +20207,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -20358,6 +20223,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -20370,7 +20236,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -20386,6 +20252,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -20847,6 +20714,7 @@
       "489706",
       "489707"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -21075,6 +20943,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -21087,7 +20956,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 2 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -21098,11 +20967,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=486803",
     "description": null,
-    "organizer": "New York Masters",
-    "organizerUrl": "http://www.newyorkmasters.com/",
+    "organizer": "Learn Play Chess",
+    "organizerUrl": "https://learnplaychess.com/",
     "organizerProfileId": "2093278",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Khrapatin, Fedor (USA)",
     "playersTrend": null
   },
   {
@@ -21131,6 +21001,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -21159,6 +21030,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -21412,34 +21284,6 @@
     "playersTrend": null
   },
   {
-    "id": "fide-483542",
-    "slug": "marshall-fide-blitz-82-fide-483542",
-    "name": "Marshall FIDE Blitz 82",
-    "startDate": "2026-08-14",
-    "endDate": "2026-08-14",
-    "city": "New York, NY",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=483542",
-    "description": null,
-    "organizer": "Marshall Chess Club",
-    "organizerUrl": "https://www.marshallchessclub.org/tournaments/upcoming",
-    "organizerProfileId": "30986613",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-489677",
     "slug": "2026-houston-city-championship-reserve-fide-489677",
     "name": "2026 Houston City Championship - Reserve",
@@ -21465,6 +21309,7 @@
     "organizerProfileId": "30966540",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Ng, Yuen (USA)",
     "playersTrend": null
   },
   {
@@ -21493,34 +21338,7 @@
     "organizerProfileId": "30966540",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-486804",
-    "slug": "learn-play-chess-2026-blitz-championship-fide-486804",
-    "name": "Learn Play Chess 2026 Blitz Championship",
-    "startDate": "2026-08-14",
-    "endDate": "2026-08-14",
-    "city": "Brooklyn, NY",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=486804",
-    "description": null,
-    "organizer": "New York Masters",
-    "organizerUrl": "http://www.newyorkmasters.com/",
-    "organizerProfileId": "2093278",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Ng, Yuen (USA)",
     "playersTrend": null
   },
   {
@@ -21549,6 +21367,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
@@ -21577,6 +21396,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
@@ -21605,6 +21425,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -21633,6 +21454,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -21661,6 +21483,7 @@
     "organizerProfileId": "2052679",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Korenman, Mikhail (USA)",
     "playersTrend": null
   },
   {
@@ -21689,6 +21512,7 @@
     "organizerProfileId": "2052679",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Korenman, Mikhail (USA)",
     "playersTrend": null
   },
   {
@@ -22342,34 +22166,6 @@
     "playersTrend": null
   },
   {
-    "id": "fide-489678",
-    "slug": "2026-houston-city-team-blitz-championship-fide-489678",
-    "name": "2026 Houston City Team Blitz Championship",
-    "startDate": "2026-08-15",
-    "endDate": "2026-08-15",
-    "city": "Houston, TX",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=489678",
-    "description": null,
-    "organizer": "Texas Chess Center",
-    "organizerUrl": "https://www.texaschesscenter.com/",
-    "organizerProfileId": "30966540",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-480636",
     "slug": "reverse-angle-155-u1900-fide-480636",
     "name": "Reverse Angle 155 - U1900",
@@ -22395,6 +22191,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -22423,6 +22220,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -22446,11 +22244,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484082",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -22474,11 +22273,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484083",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -22502,11 +22302,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484084",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -24994,7 +24795,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -25006,66 +24807,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484570",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484568",
-    "slug": "2026-august-mechanics-weekend-blitz-1800-and-over-fide-484568",
-    "name": "2026 August Mechanics' Weekend - Blitz 1800 and Over",
-    "startDate": "2026-08-16",
-    "endDate": "2026-08-16",
-    "city": "San Francisco, CA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484568",
-    "description": null,
-    "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
-    "organizerProfileId": "30930189",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484569",
-    "slug": "2026-august-mechanics-weekend-blitz-u1800-fide-484569",
-    "name": "2026 August Mechanics' Weekend - Blitz U1800",
-    "startDate": "2026-08-16",
-    "endDate": "2026-08-16",
-    "city": "San Francisco, CA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484569",
-    "description": null,
-    "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
-    "organizerProfileId": "30930189",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -25078,7 +24824,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -25090,38 +24836,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484571",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484085",
-    "slug": "2026-bellevue-chess-classic-blitz-fide-484085",
-    "name": "2026 Bellevue Chess Classic - Blitz",
-    "startDate": "2026-08-16",
-    "endDate": "2026-08-16",
-    "city": "Bellevue, WA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484085",
-    "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
-    "organizerProfileId": "2027593",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -26834,7 +26553,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: All Moves in 25 Min. Del. 5 Sec. /     /",
     "playersRegistered": null,
     "prizePool": null,
@@ -26850,6 +26569,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -26911,6 +26631,7 @@
       "489713",
       "489714"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -27114,62 +26835,6 @@
     "playersTrend": null
   },
   {
-    "id": "fide-480629",
-    "slug": "2026-gct-playoffs-blitz-fide-480629",
-    "name": "2026 GCT Playoffs - Blitz",
-    "startDate": "2026-08-20",
-    "endDate": "2026-08-20",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480629",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480613",
-    "slug": "2026-gct-sinquefield-cup-blitz-playoff-fide-480613",
-    "name": "2026 GCT Sinquefield Cup - Blitz Playoff",
-    "startDate": "2026-08-20",
-    "endDate": "2026-08-20",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480613",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-480612",
     "slug": "2026-gct-sinquefield-cup-rapid-playoff-fide-480612",
     "name": "2026 GCT Sinquefield Cup - Rapid Playoff",
@@ -27179,7 +26844,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -27195,34 +26860,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480610",
-    "slug": "2026-cairns-cup-blitz-playoff-fide-480610",
-    "name": "2026 Cairns Cup - Blitz Playoff",
-    "startDate": "2026-08-20",
-    "endDate": "2026-08-20",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480610",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -27235,7 +26873,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -27251,6 +26889,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -27279,6 +26918,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -27457,6 +27097,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -27485,6 +27126,7 @@
     "organizerProfileId": "30976499",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Caveny, Aaron (USA)",
     "playersTrend": null
   },
   {
@@ -27513,6 +27155,7 @@
     "organizerProfileId": "30976499",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Caveny, Aaron (USA)",
     "playersTrend": null
   },
   {
@@ -27541,6 +27184,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -27553,7 +27197,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -27569,6 +27213,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -27597,6 +27242,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -27625,6 +27271,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -27653,6 +27300,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -27681,6 +27329,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -27709,6 +27358,7 @@
     "organizerProfileId": "39987787",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Siddiqui, Zohaib (USA)",
     "playersTrend": null
   },
   {
@@ -27737,6 +27387,7 @@
     "organizerProfileId": "39987787",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Siddiqui, Zohaib (USA)",
     "playersTrend": null
   },
   {
@@ -28290,62 +27941,6 @@
     "playersTrend": null
   },
   {
-    "id": "fide-482957",
-    "slug": "2026-august-weekend-chess-classic-sun-blitz-fide-482957",
-    "name": "2026 August Weekend Chess Classic - Sun Blitz",
-    "startDate": "2026-08-22",
-    "endDate": "2026-08-22",
-    "city": "Irvine, CA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=482957",
-    "description": null,
-    "organizer": "Judgement Day Chess Club",
-    "organizerUrl": "https://sites.google.com/view/judgement-day-chess-club/upcoming-chess-tournaments",
-    "organizerProfileId": "150101194",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-482939",
-    "slug": "2026-august-weekend-chess-classic-sat-blitz-fide-482939",
-    "name": "2026 August Weekend Chess Classic - Sat Blitz",
-    "startDate": "2026-08-22",
-    "endDate": "2026-08-22",
-    "city": "Irvine, CA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=482939",
-    "description": null,
-    "organizer": "Judgement Day Chess Club",
-    "organizerUrl": "https://sites.google.com/view/judgement-day-chess-club/upcoming-chess-tournaments",
-    "organizerProfileId": "150101194",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-482938",
     "slug": "2026-august-weekend-chess-classic-under-1800-fide-482938",
     "name": "2026 August Weekend Chess Classic - Under 1800",
@@ -28371,6 +27966,7 @@
     "organizerProfileId": "150101194",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Nemeth, Jake (USA)",
     "playersTrend": null
   },
   {
@@ -28399,6 +27995,7 @@
     "organizerProfileId": "150101194",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Nemeth, Jake (USA)",
     "playersTrend": null
   },
   {
@@ -28423,10 +28020,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484578",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -28451,10 +28049,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484579",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -28479,10 +28078,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484580",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -28495,7 +28095,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Blitz",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -28511,6 +28111,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -31589,34 +31190,6 @@
     "playersTrend": null
   },
   {
-    "id": "fide-480622",
-    "slug": "2026-grand-chess-tour-finals-blitz-games-fide-480622",
-    "name": "2026 Grand Chess Tour Finals - Blitz Games",
-    "startDate": "2026-08-24",
-    "endDate": "2026-08-27",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Blitz",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480622",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-480623",
     "slug": "2026-grand-chess-tour-finals-rapid-playoffs-fide-480623",
     "name": "2026 Grand Chess Tour Finals - Rapid Playoffs",
@@ -31626,7 +31199,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Blitz",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: All Moves in 8 Min. Incr. 3 Sec. /     /",
     "playersRegistered": null,
     "prizePool": null,
@@ -31642,6 +31215,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -31654,7 +31228,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Blitz",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 25 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -31670,6 +31244,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -31770,62 +31345,6 @@
     "description": null,
     "organizer": "ŠK Mladosť Žilina",
     "source": "chess-results",
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484573",
-    "slug": "2026-sizzling-summer-blitz-1800-and-over-fide-484573",
-    "name": "2026 Sizzling Summer Blitz - 1800 and Over",
-    "startDate": "2026-08-25",
-    "endDate": "2026-08-25",
-    "city": "San Francisco, CA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484573",
-    "description": null,
-    "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
-    "organizerProfileId": "30930189",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484574",
-    "slug": "2026-sizzling-summer-blitz-u1800-fide-484574",
-    "name": "2026 Sizzling Summer Blitz - U1800",
-    "startDate": "2026-08-25",
-    "endDate": "2026-08-25",
-    "city": "San Francisco, CA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484574",
-    "description": null,
-    "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
-    "organizerProfileId": "30930189",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
     "playersTrend": null
   },
   {
@@ -32129,6 +31648,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -32165,6 +31685,7 @@
       "489720",
       "489721"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -32493,34 +32014,6 @@
     "playersTrend": 4
   },
   {
-    "id": "fide-483543",
-    "slug": "marshall-fide-blitz-83-fide-483543",
-    "name": "Marshall FIDE Blitz 83",
-    "startDate": "2026-08-28",
-    "endDate": "2026-08-28",
-    "city": "New York, NY",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=483543",
-    "description": null,
-    "organizer": "Marshall Chess Club",
-    "organizerUrl": "https://www.marshallchessclub.org/tournaments/upcoming",
-    "organizerProfileId": "30986613",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-469772",
     "slug": "2026-ohio-chess-congress-u2200-fide-469772",
     "name": "2026 Ohio Chess Congress - U2200",
@@ -32546,6 +32039,7 @@
     "organizerProfileId": "30930650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hodge, Alan (USA)",
     "playersTrend": null
   },
   {
@@ -32574,6 +32068,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -32602,6 +32097,7 @@
     "organizerProfileId": "30930650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hodge, Alan (USA)",
     "playersTrend": null
   },
   {
@@ -32630,6 +32126,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -33133,6 +32630,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -33161,34 +32659,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-472872",
-    "slug": "71st-iowa-blitz-championship-fide-472872",
-    "name": "71st Iowa Blitz Championship",
-    "startDate": "2026-08-29",
-    "endDate": "2026-08-29",
-    "city": "Iowa City, Iowa",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=472872",
-    "description": null,
-    "organizer": "Vigil, Eric (USA)",
-    "organizerUrl": null,
-    "organizerProfileId": "30911702",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -33213,10 +32684,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=489589",
     "description": null,
     "organizer": "DMV Chess",
-    "organizerUrl": "https://www.dmvchess.com/",
+    "organizerUrl": "https://www.dmvchess.com/majorinpersontournaments",
     "organizerProfileId": "30911290",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hiban, Josh (USA)",
     "playersTrend": null
   },
   {
@@ -34970,6 +34442,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -34998,6 +34471,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -35026,6 +34500,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -35038,7 +34513,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 45 mininutes for the game and 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -35054,6 +34529,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -35082,6 +34558,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -35810,6 +35287,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -36096,6 +35574,7 @@
       "489727",
       "489728"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -36258,7 +35737,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -36274,6 +35753,7 @@
     "organizerProfileId": "30911044",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Espinosa, Keith (USA)",
     "playersTrend": null
   },
   {
@@ -36286,7 +35766,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -36302,6 +35782,7 @@
     "organizerProfileId": "30911044",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Espinosa, Keith (USA)",
     "playersTrend": null
   },
   {
@@ -36314,7 +35795,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -36330,6 +35811,7 @@
     "organizerProfileId": "30911044",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Espinosa, Keith (USA)",
     "playersTrend": null
   },
   {
@@ -36358,6 +35840,7 @@
     "organizerProfileId": "30910633",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Buklis, William (USA)",
     "playersTrend": null
   },
   {
@@ -36370,7 +35853,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -36386,6 +35869,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -36398,7 +35882,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -36414,6 +35898,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -36442,6 +35927,7 @@
     "organizerProfileId": null,
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": null,
     "playersTrend": null
   },
   {
@@ -36470,6 +35956,7 @@
     "organizerProfileId": null,
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": null,
     "playersTrend": null
   },
   {
@@ -36498,6 +35985,7 @@
     "organizerProfileId": "30938694",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Ortiz, David (USA)",
     "playersTrend": null
   },
   {
@@ -36526,6 +36014,7 @@
     "organizerProfileId": null,
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": null,
     "playersTrend": null
   },
   {
@@ -36554,6 +36043,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -36582,34 +36072,7 @@
     "organizerProfileId": "2090023",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484072",
-    "slug": "marshall-fide-blitz-84-fide-484072",
-    "name": "Marshall FIDE Blitz 84",
-    "startDate": "2026-09-04",
-    "endDate": "2026-09-04",
-    "city": "New York, NY",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484072",
-    "description": null,
-    "organizer": "Marshall Chess Club",
-    "organizerUrl": "https://www.marshallchessclub.org/tournaments/upcoming",
-    "organizerProfileId": "30986613",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Aldrich, Jeff (USA)",
     "playersTrend": null
   },
   {
@@ -36638,6 +36101,7 @@
     "organizerProfileId": "30910633",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Buklis, William (USA)",
     "playersTrend": null
   },
   {
@@ -36666,6 +36130,7 @@
     "organizerProfileId": "30910633",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Buklis, William (USA)",
     "playersTrend": null
   },
   {
@@ -36694,6 +36159,7 @@
     "organizerProfileId": "2001462",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Goichberg, William (USA)",
     "playersTrend": null
   },
   {
@@ -37297,6 +36763,7 @@
     "organizerProfileId": "2057638",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Messenger, Robert (USA)",
     "playersTrend": null
   },
   {
@@ -37325,6 +36792,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -37353,6 +36821,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -37381,6 +36850,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -37404,11 +36874,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=450947",
     "description": null,
-    "organizer": "Central Florida Chess Club",
-    "organizerUrl": "https://www.centralflchess.org/",
+    "organizer": "Hatherill, Charles W (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "2033283",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hatherill, Charles W (USA)",
     "playersTrend": null
   },
   {
@@ -37437,6 +36908,7 @@
     "organizerProfileId": "2005670",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Gibbins, Wilson (USA)",
     "playersTrend": null
   },
   {
@@ -37465,6 +36937,7 @@
     "organizerProfileId": "2005670",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Gibbins, Wilson (USA)",
     "playersTrend": null
   },
   {
@@ -37488,11 +36961,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=450946",
     "description": null,
-    "organizer": "Central Florida Chess Club",
-    "organizerUrl": "https://www.centralflchess.org/",
+    "organizer": "Hatherill, Charles W (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "2033283",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hatherill, Charles W (USA)",
     "playersTrend": null
   },
   {
@@ -38396,34 +37870,6 @@
     "playersTrend": 0
   },
   {
-    "id": "fide-465016",
-    "slug": "2026-fall-fide-blitz-fide-465016",
-    "name": "2026 Fall FIDE - Blitz",
-    "startDate": "2026-09-06",
-    "endDate": "2026-09-06",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=465016",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2059487",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "chess-results-1434136",
     "slug": "1-bódva-kupa-edelény-1900-élő-alatt-közel-200-ez-1434136",
     "name": "1. Bódva Kupa Edelény 1900 Élő alatt (közel 200 ez",
@@ -39032,6 +38478,7 @@
       "489734",
       "489735"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -39085,6 +38532,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -39113,6 +38561,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -39125,7 +38574,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -39141,6 +38590,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -39394,34 +38844,6 @@
     "playersTrend": 0
   },
   {
-    "id": "fide-480643",
-    "slug": "ccc-blitz-south-september-2026-fide-480643",
-    "name": "CCC Blitz South - September 2026",
-    "startDate": "2026-09-12",
-    "endDate": "2026-09-12",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480643",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-480642",
     "slug": "ccc-rapid-south-september-2026-fide-480642",
     "name": "CCC Rapid South - September 2026",
@@ -39431,7 +38853,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -39447,6 +38869,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -40159,7 +39582,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: All Moves in 25 Min. Del. 5 Sec. /     /",
     "playersRegistered": null,
     "prizePool": null,
@@ -40175,6 +39598,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -40211,6 +39635,7 @@
       "489741",
       "489742"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -40239,6 +39664,7 @@
     "organizerProfileId": "39921174",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vaidya, Shilpa (USA)",
     "playersTrend": null
   },
   {
@@ -40267,6 +39693,7 @@
     "organizerProfileId": "39921174",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vaidya, Shilpa (USA)",
     "playersTrend": null
   },
   {
@@ -40279,7 +39706,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -40295,6 +39722,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -40323,6 +39751,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -40351,6 +39780,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -40508,13 +39938,13 @@
     "slug": "23rd-st-amant-memorial-tournament-under-1600-fide-484583",
     "name": "23rd St Amant Memorial Tournament - Under 1600",
     "startDate": "2026-09-19",
-    "endDate": "2026-09-19",
+    "endDate": "2026-09-20",
     "city": "San Francisco, CA",
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
     "timeControl": "Classical",
-    "timeControlRaw": null,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
     "currency": null,
@@ -40524,11 +39954,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484583",
     "description": null,
-    "organizer": null,
-    "organizerUrl": null,
-    "organizerProfileId": null,
+    "organizer": "Mechanics' Institute Chess Club",
+    "organizerUrl": "https://www.milibrary.org/chess/",
+    "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -40557,6 +39988,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -40585,6 +40017,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -40609,10 +40042,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484581",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -40637,10 +40071,11 @@
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484582",
     "description": null,
     "organizer": "Mechanics' Institute Chess Club",
-    "organizerUrl": "https://www.chessclub.org/",
+    "organizerUrl": "https://www.milibrary.org/chess/",
     "organizerProfileId": "30930189",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sztaray, Judit (USA)",
     "playersTrend": null
   },
   {
@@ -40994,6 +40429,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -41022,6 +40458,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -41383,6 +40820,7 @@
       "489748",
       "489749"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -41411,6 +40849,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -41489,6 +40928,7 @@
     "organizerProfileId": "39952754",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Braddy, Josie L (USA)",
     "playersTrend": null
   },
   {
@@ -41512,11 +40952,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484063",
     "description": null,
-    "organizer": "Central Florida Chess Club",
-    "organizerUrl": "https://www.centralflchess.org/",
+    "organizer": "Hatherill, Charles W (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "2033283",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hatherill, Charles W (USA)",
     "playersTrend": null
   },
   {
@@ -41540,39 +40981,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484062",
     "description": null,
-    "organizer": "Central Florida Chess Club",
-    "organizerUrl": "https://www.centralflchess.org/",
+    "organizer": "Hatherill, Charles W (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "2033283",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484073",
-    "slug": "marshall-fide-blitz-85-fide-484073",
-    "name": "Marshall FIDE Blitz 85",
-    "startDate": "2026-09-25",
-    "endDate": "2026-09-25",
-    "city": "New York, NY",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484073",
-    "description": null,
-    "organizer": "Marshall Chess Club",
-    "organizerUrl": "https://www.marshallchessclub.org/tournaments/upcoming",
-    "organizerProfileId": "30986613",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Hatherill, Charles W (USA)",
     "playersTrend": null
   },
   {
@@ -41601,6 +41015,7 @@
     "organizerProfileId": "39952754",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Braddy, Josie L (USA)",
     "playersTrend": null
   },
   {
@@ -41729,6 +41144,7 @@
     "organizerProfileId": "2077566",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Davisson, Noreen (USA)",
     "playersTrend": null
   },
   {
@@ -41757,6 +41173,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -41785,6 +41202,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42513,6 +41931,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42541,6 +41960,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42553,7 +41973,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 45 mininutes for the game and 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -42569,6 +41989,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42605,6 +42026,7 @@
       "489755",
       "489756"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42633,6 +42055,7 @@
     "organizerProfileId": "30986613",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
   },
   {
@@ -42711,6 +42134,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42739,6 +42163,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42767,6 +42192,7 @@
     "organizerProfileId": "2036380",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Weikel, Jerome (USA)",
     "playersTrend": null
   },
   {
@@ -42795,6 +42221,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -42846,34 +42273,6 @@
     "organizer": "Västerbottens Schackförbund och SK Rockaden Umeå",
     "source": "chess-results",
     "playersTrend": 0
-  },
-  {
-    "id": "fide-472877",
-    "slug": "2026-charlotte-fall-open-blitz-fide-472877",
-    "name": "2026 Charlotte Fall Open - Blitz",
-    "startDate": "2026-10-03",
-    "endDate": "2026-10-03",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=472877",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
   },
   {
     "id": "chess-results-1439335",
@@ -43276,6 +42675,7 @@
     "organizerProfileId": "13403028",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Bajarani, Ulvi (AZE)",
     "playersTrend": null
   },
   {
@@ -43462,6 +42862,7 @@
       "489762",
       "489763"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -43599,7 +43000,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -43615,6 +43016,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -43627,7 +43029,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -43643,6 +43045,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -43666,11 +43069,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=482945",
     "description": null,
-    "organizer": "Atlantic Chess Association",
-    "organizerUrl": "https://www.atlanticchessassociation.com/",
+    "organizer": "Jackson, Robert (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "39906779",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Jackson, Robert (USA)",
     "playersTrend": null
   },
   {
@@ -43694,11 +43098,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=482944",
     "description": null,
-    "organizer": "Atlantic Chess Association",
-    "organizerUrl": "https://www.atlanticchessassociation.com/",
+    "organizer": "Jackson, Robert (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "39906779",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Jackson, Robert (USA)",
     "playersTrend": null
   },
   {
@@ -43902,6 +43307,7 @@
     "organizerProfileId": "2090023",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Aldrich, Jeff (USA)",
     "playersTrend": null
   },
   {
@@ -44288,6 +43694,7 @@
       "489769",
       "489770"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -44336,11 +43743,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=462787",
     "description": null,
-    "organizer": "Illinois Chess Association",
-    "organizerUrl": "https://il-chess.org/",
+    "organizer": "Chess Weekend",
+    "organizerUrl": "https://www.chessweekend.com/",
     "organizerProfileId": "2049767",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Panner, Glenn (USA)",
     "playersTrend": null
   },
   {
@@ -44369,6 +43777,7 @@
     "organizerProfileId": "2000067",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Haskel, Jon (USA)",
     "playersTrend": null
   },
   {
@@ -44397,6 +43806,7 @@
     "organizerProfileId": "2000067",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Haskel, Jon (USA)",
     "playersTrend": null
   },
   {
@@ -44420,11 +43830,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484060",
     "description": null,
-    "organizer": "Columbia Chess Club",
-    "organizerUrl": "https://columbiachess.org/",
+    "organizer": "Jordan, Brandon Michael (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "39904822",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Jordan, Brandon Michael (USA)",
     "playersTrend": null
   },
   {
@@ -44986,6 +44397,7 @@
       "489776",
       "489777"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -45014,62 +44426,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480616",
-    "slug": "2026-us-championship-blitz-playoff-fide-480616",
-    "name": "2026 US Championship - Blitz Playoff",
-    "startDate": "2026-10-22",
-    "endDate": "2026-10-22",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480616",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480619",
-    "slug": "2026-us-womens-championship-blitz-playoff-fide-480619",
-    "name": "2026 US Women's Championship - Blitz Playoff",
-    "startDate": "2026-10-22",
-    "endDate": "2026-10-22",
-    "city": "St. Louis, MO",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480619",
-    "description": null,
-    "organizer": "Saint Louis Chess Club",
-    "organizerUrl": "https://saintlouischessclub.org/events/tournament-calendar",
-    "organizerProfileId": "566021197",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -45098,6 +44455,7 @@
     "organizerProfileId": "566021197",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Middleton, Tad (USA)",
     "playersTrend": null
   },
   {
@@ -45151,6 +44509,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -45179,6 +44538,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -45557,6 +44917,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -45585,6 +44946,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -45946,6 +45308,7 @@
       "489783",
       "489784"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -46174,6 +45537,7 @@
     "organizerProfileId": "2091941",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Wilson, Danial A (USA)",
     "playersTrend": null
   },
   {
@@ -46202,6 +45566,7 @@
     "organizerProfileId": "2091941",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Wilson, Danial A (USA)",
     "playersTrend": null
   },
   {
@@ -46230,6 +45595,7 @@
     "organizerProfileId": "2091941",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Wilson, Danial A (USA)",
     "playersTrend": null
   },
   {
@@ -46816,6 +46182,7 @@
       "489790",
       "489791"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -46839,11 +46206,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484086",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -46897,6 +46265,7 @@
     "organizerProfileId": "2056313",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hyde, Kevin (USA)",
     "playersTrend": null
   },
   {
@@ -46920,11 +46289,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=489686",
     "description": null,
-    "organizer": "Atlantic Chess Association",
-    "organizerUrl": "https://www.atlanticchessassociation.com/",
+    "organizer": "Jackson, Robert (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "39906779",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Jackson, Robert (USA)",
     "playersTrend": null
   },
   {
@@ -46998,11 +46368,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484091",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -47026,39 +46397,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484090",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-484087",
-    "slug": "2026-spice-cup-blitz-championship-fide-484087",
-    "name": "2026 SPICE Cup - Blitz Championship",
-    "startDate": "2026-11-07",
-    "endDate": "2026-11-07",
-    "city": "Bellevue, WA",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484087",
-    "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
-    "organizerProfileId": "2027593",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -47371,7 +46715,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -47382,11 +46726,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484089",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -47399,7 +46744,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -47410,11 +46755,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=484088",
     "description": null,
-    "organizer": "Chess4Life Bellevue",
-    "organizerUrl": "https://chess4life.com/locations/bellevue",
+    "organizer": "Washington Chess Federation",
+    "organizerUrl": "https://www.wachess.com/",
     "organizerProfileId": "2027593",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Sinanan, Joshua (USA)",
     "playersTrend": null
   },
   {
@@ -47526,6 +46872,7 @@
       "489797",
       "489798"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -47604,6 +46951,7 @@
     "organizerProfileId": "39921174",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vaidya, Shilpa (USA)",
     "playersTrend": null
   },
   {
@@ -47632,6 +46980,7 @@
     "organizerProfileId": "39921174",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vaidya, Shilpa (USA)",
     "playersTrend": null
   },
   {
@@ -47660,6 +47009,7 @@
     "organizerProfileId": "30935075",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Denby, Caleb (USA)",
     "playersTrend": null
   },
   {
@@ -47688,6 +47038,7 @@
     "organizerProfileId": "2000067",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Haskel, Jon (USA)",
     "playersTrend": null
   },
   {
@@ -47716,6 +47067,7 @@
     "organizerProfileId": "2000067",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Haskel, Jon (USA)",
     "playersTrend": null
   },
   {
@@ -47919,6 +47271,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -47947,6 +47300,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -48108,6 +47462,7 @@
       "489804",
       "489805"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48145,7 +47500,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -48161,6 +47516,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -48173,7 +47529,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Rapid",
+    "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -48189,6 +47545,7 @@
     "organizerProfileId": "2059487",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Oen, Grant (USA)",
     "playersTrend": null
   },
   {
@@ -48250,6 +47607,7 @@
       "489811",
       "489812"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48278,6 +47636,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48326,11 +47685,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=462786",
     "description": null,
-    "organizer": "Illinois Chess Association",
-    "organizerUrl": "https://il-chess.org/",
+    "organizer": "Chess Weekend",
+    "organizerUrl": "https://www.chessweekend.com/",
     "organizerProfileId": "2049767",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Panner, Glenn (USA)",
     "playersTrend": null
   },
   {
@@ -48359,6 +47719,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48387,6 +47748,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48415,6 +47777,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48443,6 +47806,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48571,6 +47935,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48599,6 +47964,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48611,7 +47977,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 45 mininutes for the game and 10 seconds increment from move 1",
     "playersRegistered": null,
     "prizePool": null,
@@ -48627,90 +47993,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-467165",
-    "slug": "2026-us-masters-playoff-fide-467165",
-    "name": "2026 U.S. Masters Playoff",
-    "startDate": "2026-11-29",
-    "endDate": "2026-11-29",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 5 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=467165",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-467170",
-    "slug": "2026-north-carolina-open-blitz-championship-fide-467170",
-    "name": "2026 North Carolina Open - Blitz Championship",
-    "startDate": "2026-11-29",
-    "endDate": "2026-11-29",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=467170",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-467171",
-    "slug": "2026-north-carolina-open-blitz-u2000-fide-467171",
-    "name": "2026 North Carolina Open - Blitz U2000",
-    "startDate": "2026-11-29",
-    "endDate": "2026-11-29",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=467171",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -48847,6 +48130,7 @@
       "489818",
       "489819"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -49308,6 +48592,7 @@
       "489825",
       "489826"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -49331,11 +48616,12 @@
     "registrationUrl": null,
     "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=486190",
     "description": null,
-    "organizer": "Columbia Chess Club",
-    "organizerUrl": "https://columbiachess.org/",
+    "organizer": "Jordan, Brandon Michael (USA)",
+    "organizerUrl": null,
     "organizerProfileId": "39904822",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Jordan, Brandon Michael (USA)",
     "playersTrend": null
   },
   {
@@ -49722,6 +49008,7 @@
       "489832",
       "489833"
     ],
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -49800,6 +49087,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -49828,6 +49116,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -49856,6 +49145,7 @@
     "organizerProfileId": "30930650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hodge, Alan (USA)",
     "playersTrend": null
   },
   {
@@ -49884,6 +49174,7 @@
     "organizerProfileId": "30930650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Hodge, Alan (USA)",
     "playersTrend": null
   },
   {
@@ -50037,6 +49328,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -50065,62 +49357,7 @@
     "organizerProfileId": "39957055",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-464026",
-    "slug": "2026-north-american-junior-blitz-open-u20-fide-464026",
-    "name": "2026 North American Junior Blitz - Open U20",
-    "startDate": "2026-12-21",
-    "endDate": "2026-12-21",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=464026",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-464027",
-    "slug": "2026-north-american-junior-blitz-girls-u20-fide-464027",
-    "name": "2026 North American Junior Blitz - Girls U20",
-    "startDate": "2026-12-21",
-    "endDate": "2026-12-21",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=464027",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Lorimor, Stephen D (USA)",
     "playersTrend": null
   },
   {
@@ -50274,6 +49511,7 @@
     "organizerProfileId": "2071320",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Wainscott, Chris (USA)",
     "playersTrend": null
   },
   {
@@ -50352,6 +49590,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -50380,6 +49619,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -50408,6 +49648,7 @@
     "organizerProfileId": "2041650",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Giannatos, Peter (USA)",
     "playersTrend": null
   },
   {
@@ -50586,34 +49827,6 @@
     "playersTrend": 0
   },
   {
-    "id": "fide-464111",
-    "slug": "2026-charlotte-winter-classic-blitz-fide-464111",
-    "name": "2026 Charlotte Winter Classic - Blitz",
-    "startDate": "2026-12-27",
-    "endDate": "2026-12-27",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=464111",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2041650",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
     "id": "chess-results-1409504",
     "slug": "11-internationales-bad-schwartauer-schachopen-1409504",
     "name": "11. Internationales Bad Schwartauer Schachopen",
@@ -50687,34 +49900,6 @@
     "organizer": "Amravati Chess Association",
     "source": "chess-results",
     "playersTrend": 0
-  },
-  {
-    "id": "fide-480639",
-    "slug": "2026-charlotte-winter-elite-camp-blitz-fide-480639",
-    "name": "2026 Charlotte Winter Elite Camp Blitz",
-    "startDate": "2026-12-31",
-    "endDate": "2026-12-31",
-    "city": "Charlotte, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480639",
-    "description": null,
-    "organizer": "Charlotte Chess Center",
-    "organizerUrl": "https://www.charlottechesscenter.org/events",
-    "organizerProfileId": "2059487",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
   },
   {
     "id": "chess-results-1389315",
@@ -50792,6 +49977,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
@@ -50820,6 +50006,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
@@ -51032,7 +50219,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: All Moves in 15 Min. Del. 2 Sec. /     /",
     "playersRegistered": null,
     "prizePool": null,
@@ -51048,6 +50235,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51260,7 +50448,7 @@
     "country": "United States",
     "countryCode": "US",
     "rounds": null,
-    "timeControl": "Classical",
+    "timeControl": "Rapid",
     "timeControlRaw": "Rapid: All Moves in 15 Min. Del. 2 Sec. /     /",
     "playersRegistered": null,
     "prizePool": null,
@@ -51276,6 +50464,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51304,6 +50493,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51457,6 +50647,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51485,6 +50676,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51513,6 +50705,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51541,6 +50734,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51569,6 +50763,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51597,6 +50792,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51625,6 +50821,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51653,6 +50850,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51681,6 +50879,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51709,6 +50908,7 @@
     "organizerProfileId": "30911702",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Vigil, Eric (USA)",
     "playersTrend": null
   },
   {
@@ -51787,6 +50987,7 @@
     "organizerProfileId": "30967627",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Campbell, Richard (USA)",
     "playersTrend": null
   },
   {
@@ -52040,6 +51241,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
@@ -52068,6 +51270,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
@@ -52096,6 +51299,7 @@
     "organizerProfileId": "30900840",
     "source": "fide-ratings",
     "sectionEventIds": null,
+    "organizerRaw": "Wadford, Wilder (USA)",
     "playersTrend": null
   },
   {
@@ -52124,62 +51328,7 @@
     "organizerProfileId": "2053616",
     "source": "fide-ratings",
     "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480607",
-    "slug": "land-of-the-sky-xxxix-blitz-reserve-fide-480607",
-    "name": "Land of the Sky XXXIX Blitz - Reserve",
-    "startDate": "2027-02-06",
-    "endDate": "2027-02-06",
-    "city": "Asheville, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480607",
-    "description": null,
-    "organizer": "Land of the Sky",
-    "organizerUrl": "https://landofthesky.us/",
-    "organizerProfileId": "30900840",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "playersTrend": null
-  },
-  {
-    "id": "fide-480606",
-    "slug": "land-of-the-sky-xxxix-blitz-premier-fide-480606",
-    "name": "Land of the Sky XXXIX Blitz - Premier",
-    "startDate": "2027-02-06",
-    "endDate": "2027-02-06",
-    "city": "Asheville, NC",
-    "country": "United States",
-    "countryCode": "US",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=480606",
-    "description": null,
-    "organizer": "Land of the Sky",
-    "organizerUrl": "https://landofthesky.us/",
-    "organizerProfileId": "30900840",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
+    "organizerRaw": "Regan, Michael (USA)",
     "playersTrend": null
   },
   {
