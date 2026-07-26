@@ -48,6 +48,14 @@ import requests
 
 ROOT = Path(__file__).parent.parent
 FIDE_ARCHIVE_PATH = ROOT / "public" / "data" / "fide_archive.json"
+# Per-event detail (end date, time control, organizer) keyed by FIDE event id,
+# for *every* event we've fetched — including ones the filters then reject.
+# The archive only holds events we publish, so without this the ~100 blitz and
+# multi-week events we drop would have their detail pages re-fetched on every
+# run, forever. Caching the raw detail rather than a bare "skip these ids" list
+# also means the filters are re-evaluated from cache each run, so changing
+# MAX_DURATION_DAYS or the blitz rule takes effect without any re-fetching.
+FIDE_DETAILS_PATH = ROOT / "public" / "data" / "fide_details.json"
 OUTPUT_PATH = ROOT / "public" / "data" / "tournaments.json"
 META_PATH = ROOT / "public" / "data" / "meta.json"
 ORGANIZERS_PATH = ROOT / "data" / "fide_organizers.json"
@@ -361,29 +369,33 @@ def main():
     print(f"[INFO] {len(rows)} upcoming rows out of {len(raw_rows)} total.")
 
     fide_archive = load_json(FIDE_ARCHIVE_PATH, [])
-    # Reuse the detail we already fetched for events we've seen before. Only
-    # "organizerRaw" is safe to cache as the organizer — "organizer" may have
-    # been rewritten to a club name by a previous run's mapping. Entries
-    # predating organizerRaw are left out so they get re-fetched once and heal.
-    known_details = {t["id"].replace("fide-", ""): {
-        "endDate": t.get("endDate"),
-        "timeControlRaw": t.get("timeControlRaw"),
-        "organizer": t.get("organizerRaw"),
-        "organizerProfileId": t.get("organizerProfileId"),
-        "playersRegistered": t.get("playersRegistered"),
-    } for t in fide_archive if t.get("organizerRaw")}
+    detail_cache = load_json(FIDE_DETAILS_PATH, {})
+
+    # Seed the cache from the archive on the first run after it was
+    # introduced, so an existing archive doesn't trigger a full re-fetch.
+    # Only "organizerRaw" is usable as the organizer here — "organizer" may
+    # have been rewritten to a club name by a previous run's mapping.
+    for t in fide_archive:
+        event_id = t["id"].replace("fide-", "")
+        if event_id in detail_cache or not t.get("organizerRaw"):
+            continue
+        detail_cache[event_id] = {
+            "endDate": t.get("endDate"),
+            "timeControlRaw": t.get("timeControlRaw"),
+            "organizer": t.get("organizerRaw"),
+            "organizerProfileId": t.get("organizerProfileId"),
+            "playersRegistered": t.get("playersRegistered"),
+        }
 
     organizers = load_organizers()
 
-    detail_cache = {}
-    new_event_ids = {r["eventId"] for r in rows} - set(known_details)
-    print(f"[INFO] Fetching detail pages for {len(new_event_ids)} newly-seen events...")
+    new_event_ids = {r["eventId"] for r in rows} - set(detail_cache)
+    print(f"[INFO] Fetching detail pages for {len(new_event_ids)} newly-seen events "
+          f"({len(detail_cache)} already cached).")
     for event_id in new_event_ids:
         detail = fetch_detail(event_id)
         if detail:
             detail_cache[event_id] = detail
-    for event_id, detail in known_details.items():
-        detail_cache.setdefault(event_id, detail)
 
     if len(rows) < MIN_ABSOLUTE_TOURNAMENTS and fide_archive:
         print(
@@ -394,6 +406,18 @@ def main():
         sys.exit(1)
 
     tournaments = build_tournaments(rows, detail_cache, organizers)
+
+    # Persist the cache, pruned to events still present in the list feed so it
+    # doesn't grow without bound. Anything pruned has either been published
+    # (and so lives on in the archive) or has already started, and won't be
+    # asked for again.
+    current_ids = {r["eventId"] for r in rows}
+    pruned_cache = {k: v for k, v in detail_cache.items() if k in current_ids}
+    FIDE_DETAILS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(FIDE_DETAILS_PATH, "w", encoding="utf-8") as f:
+        json.dump(pruned_cache, f, ensure_ascii=False, indent=2, sort_keys=True)
+    print(f"[INFO] Detail cache: {len(pruned_cache)} events "
+          f"({len(detail_cache) - len(pruned_cache)} pruned). Written to {FIDE_DETAILS_PATH}")
 
     merged = merge_into_archive(tournaments, fide_archive)
     FIDE_ARCHIVE_PATH.parent.mkdir(parents=True, exist_ok=True)
