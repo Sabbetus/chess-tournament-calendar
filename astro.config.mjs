@@ -23,16 +23,40 @@ const firstSeenBySlug = new Map(
     .map((t) => [t.slug, new Date(t.firstSeen + 'T00:00:00Z').toISOString()])
 );
 
+// Sections absorbed into another entry (scraper/scrape_chess_results.py's
+// mark_merged_sections) keep their URL but must not compete with the entry
+// they were merged into — 20 near-identical pages splitting the same search
+// intent helps nobody. Astro emits these as meta-refresh pages in a static
+// build, which is the closest a GitHub Pages site gets to a 301. They are also
+// kept out of the sitemap below.
+const LANGS = ['es', 'pt', 'de', 'cs', 'fi'];
+const mergedSlugs = new Set(
+  archive.filter((t) => t.mergedInto && t.slug).map((t) => t.slug)
+);
+const tournamentRedirects = Object.fromEntries(
+  archive
+    .filter((t) => t.mergedInto && t.slug)
+    .flatMap((t) => [
+      [`/tournament/${t.slug}`, `/tournament/${t.mergedInto}/`],
+      ...LANGS.map((lang) => [
+        `/${lang}/tournament/${t.slug}`,
+        `/${lang}/tournament/${t.mergedInto}/`,
+      ]),
+    ])
+);
+
 export default defineConfig({
   site: 'https://chesstournamentcalendar.com',
   base: '/',
   output: 'static',
+  redirects: tournamentRedirects,
   integrations: [
     sitemap({
       filter: (page) => {
         const m = page.match(/\/tournament\/([^/]+)\/?$/);
         if (!m) return true;
-        return !concludedSlugs.has(decodeURIComponent(m[1]));
+        const slug = decodeURIComponent(m[1]);
+        return !concludedSlugs.has(slug) && !mergedSlugs.has(slug);
       },
       serialize: (item) => {
         const m = item.url.match(/\/tournament\/([^/]+)\/?$/);

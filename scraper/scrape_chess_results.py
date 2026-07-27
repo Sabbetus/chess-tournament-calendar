@@ -605,8 +605,88 @@ OUTPUT_FIELDS = [
     "countryCode", "rounds", "timeControl", "timeControlRaw",
     "playersRegistered", "prizePool", "currency", "ratingRequirement",
     "open", "registrationOpen", "registrationUrl", "websiteUrl",
-    "description", "organizer", "source",
+    "description", "organizer", "source", "sections",
 ]
+
+
+# Organisers of large multi-section events register each section separately, so
+# one event arrives as many rows that are identical in everything we can see —
+# a Colombian youth championship currently contributes 20 consecutive "sub08"
+# rows, an ASEAN age-group event 18. Around 10% of the feed sits in such groups.
+#
+# The threshold is high on purpose. chess-results' search truncates names at 50
+# characters (46% of rows sit exactly at that cap), so whatever distinguishes
+# two sections — "Category A"/"Category B", "Under 08"/"Under 10" — is often
+# cut off before we ever see it. Identical names therefore do NOT reliably mean
+# "same event": the Kapadokya Open contributes 4 rows whose full names are only
+# 48 characters and still identical, so something real separates them that we
+# have no field for. Merging on weak evidence would silently hide a section a
+# player was looking for.
+#
+# At 8+ identical rows it stops being plausible that they are distinct events —
+# the largest genuine multi-event festivals (the Rilton Cup runs 4 main
+# tournaments plus 3 side events) stay comfortably under this, and their
+# sections carry different names anyway. Groups of 3-7 are left alone.
+SECTION_MERGE_MIN = 8
+
+
+def _merge_key(t):
+    # Time control is part of the key so a rapid side event can never be
+    # absorbed into a classical group that happens to share a truncated name.
+    return (
+        (t.get("name") or "").strip().lower(),
+        (t.get("city") or "").strip().lower(),
+        t.get("startDate"),
+        t.get("timeControl"),
+    )
+
+
+def mark_merged_sections(archive):
+    """Collapse very large groups of indistinguishable sections to one entry.
+
+    Marks absorbed entries with "mergedInto" (the surviving entry's slug) and
+    records "sections" on the survivor. Nothing is deleted: every section keeps
+    its archive entry and its own miss counter, and its page still builds — it
+    redirects to the survivor instead of appearing in listings.
+
+    Only live entries are grouped, so a section that chess-results has deleted
+    ages out through the normal miss counter rather than being kept alive by
+    its group. The survivor is chosen from entries currently being seen
+    (consecutiveMisses == 0), lowest id first, so the merged row never links to
+    a tournament page that has already been removed, and the choice stays
+    stable from run to run."""
+    today = date.today().isoformat()
+    groups = {}
+    for t in archive:
+        # Only entries that would otherwise be published are candidates.
+        if t.get("status") != "upcoming":
+            continue
+        if t.get("consecutiveMisses", 0) >= MAX_CONSECUTIVE_MISSES:
+            continue
+        if not t.get("country") or t.get("country") == "Unknown":
+            continue
+        groups.setdefault(_merge_key(t), []).append(t)
+
+    for t in archive:
+        t.pop("mergedInto", None)
+        t.pop("sections", None)
+
+    for members in groups.values():
+        if len(members) < SECTION_MERGE_MIN:
+            continue
+        live = [t for t in members if t.get("consecutiveMisses", 0) == 0] or members
+        survivor = min(live, key=lambda t: t["id"])
+        survivor["sections"] = len(members)
+        for t in members:
+            if t is not survivor:
+                t["mergedInto"] = survivor["slug"]
+
+    merged = sum(1 for t in archive if t.get("mergedInto"))
+    if merged:
+        survivors = sum(1 for t in archive if t.get("sections"))
+        print(f"[INFO] Merged {merged} section rows into {survivors} entries "
+              f"(groups of {SECTION_MERGE_MIN}+ identical name/city/date/time-control).")
+    return archive
 
 
 def build_output(archive):
@@ -625,6 +705,9 @@ def build_output(archive):
         # no value sitting in the list — hide them without deleting the
         # archive entry, in case the federation gets corrected later.
         and t.get("country") and t.get("country") != "Unknown"
+        # Sections absorbed into another entry (see mark_merged_sections) stay
+        # in the archive and keep their page, but are not listed.
+        and not t.get("mergedInto")
     ]
     rows = []
     for t in upcoming:
@@ -657,6 +740,9 @@ def main():
     # Merge this run's results into the archive (the durable, per-tournament
     # state — firstSeen/lastSeen/status/consecutiveMisses).
     merged = merge_into_archive(tournaments, archive)
+    # Recomputed every run from current status/miss state, so a section that
+    # disappears (or a group that shrinks below the threshold) un-merges again.
+    mark_merged_sections(merged)
     with open(ARCHIVE_PATH, "w", encoding="utf-8") as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
     print(f"[INFO] Archive updated: {len(merged)} total entries ({sum(1 for t in merged if t['status'] == 'upcoming')} upcoming, {sum(1 for t in merged if t['status'] == 'concluded')} concluded). Written to {ARCHIVE_PATH}")

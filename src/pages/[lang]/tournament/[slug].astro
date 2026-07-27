@@ -8,7 +8,9 @@ import { slugifyLocation, CONTINENT_SLUGS } from '../../../lib/locationSlug.ts';
 import { getContinent } from '../../../lib/continents.ts';
 
 export async function getStaticPaths() {
-  const archive = [...(archiveData as any[]), ...(fideArchiveData as any[])];
+  // See the English route: merged-away entries are redirects, not pages.
+  const archive = [...(archiveData as any[]), ...(fideArchiveData as any[])]
+    .filter((t: any) => !t.mergedInto);
   const featured = (featuredData as any[]).map((t: any) => ({ ...t, status: 'upcoming' }));
   const archiveIds = new Set(archive.map((t: any) => t.id));
   const all = [...archive, ...featured.filter((t: any) => !archiveIds.has(t.id))];

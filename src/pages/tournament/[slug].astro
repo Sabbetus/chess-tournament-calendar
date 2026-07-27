@@ -8,7 +8,10 @@ import { slugifyLocation, CONTINENT_SLUGS } from '../../lib/locationSlug.ts';
 import { getContinent } from '../../lib/continents.ts';
 
 export async function getStaticPaths() {
-  const archive = [...(archiveData as any[]), ...(fideArchiveData as any[])];
+  // Entries absorbed into another (mergedInto) are served as redirects to it,
+  // configured in astro.config.mjs — generating a page here too would collide.
+  const archive = [...(archiveData as any[]), ...(fideArchiveData as any[])]
+    .filter((t: any) => !t.mergedInto);
   const featured = (featuredData as any[]).map((t: any) => ({ ...t, status: 'upcoming' }));
   const archiveIds = new Set(archive.map((t: any) => t.id));
   const all = [...archive, ...featured.filter((t: any) => !archiveIds.has(t.id))];
