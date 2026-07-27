@@ -23,7 +23,16 @@ export async function getStaticPaths() {
   );
 }
 
-const { tournament: t, all, lang } = Astro.props;
+const { tournament: rawTournament, all, lang } = Astro.props;
+// See the English route: merged entries display the shared name plus their
+// age brackets, not the single section's own name.
+const t = rawTournament.sections
+  ? {
+      ...rawTournament,
+      name: rawTournament.mergedName ?? rawTournament.name,
+      playersRegistered: rawTournament.mergedPlayers ?? null,
+    }
+  : rawTournament;
 const tr = getTranslations(lang);
 
 function durationDays(start: string, end: string) {
@@ -135,7 +144,8 @@ function playersTrend(tournament: any): number | null {
   if (baseline === null) return null;
   return current - baseline;
 }
-const trend = playersTrend(t);
+// See the English route: merged entries carry pre-aggregated counts.
+const trend = rawTournament.sections ? (rawTournament.mergedTrend ?? null) : playersTrend(t);
 const mapQuery = encodeURIComponent(`${t.city}, ${t.country}`);
 const isConcluded = t.status === 'concluded';
 

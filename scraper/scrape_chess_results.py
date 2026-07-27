@@ -605,7 +605,7 @@ OUTPUT_FIELDS = [
     "countryCode", "rounds", "timeControl", "timeControlRaw",
     "playersRegistered", "prizePool", "currency", "ratingRequirement",
     "open", "registrationOpen", "registrationUrl", "websiteUrl",
-    "description", "organizer", "source", "sections",
+    "description", "organizer", "source", "sections", "ageGroups",
 ]
 
 
@@ -629,12 +629,57 @@ OUTPUT_FIELDS = [
 # sections carry different names anyway. Groups of 3-7 are left alone.
 SECTION_MERGE_MIN = 8
 
+# The stronger signal: names that differ *only* by an age bracket are the same
+# event split by age ("… CHAMPIONSHIPS 2026 U10" / "… U12" / "… U13"). That is
+# positive evidence of one event, unlike the rule above which infers it from
+# the absence of any difference, so these merge at any group size — even a
+# pair. Anything else that distinguishes sections stays visible and keeps them
+# apart: "Youth Arab … Open U16" and "Youth Arab … Girls U14" remain two
+# listings, as do rating classes.
+#
+# The lower bound matters more than it looks. chess-results truncates names at
+# 50 characters, which turns the rating class "Under 1600" into "Under 1" —
+# indistinguishable from an age token unless implausible ages are rejected.
+# Observed age brackets in the feed run 6-20 with nothing below 6, so a floor
+# of 6 discards exactly the truncation artefacts and no real bracket.
+AGE_MIN, AGE_MAX = 6, 23
+AGE_TOKEN_RE = re.compile(r"\b(?:u|under|sub)\s*[-.]?\s*0*(\d{1,2})\b(?!\d)", re.I)
+
+
+def _age_token(name):
+    """The age bracket in a name as an int, or None if there isn't a plausible
+    one. Only the first is considered: a few names list two brackets ("Copa U08
+    e U10"), and those group by their whole pattern anyway."""
+    for m in AGE_TOKEN_RE.finditer(name or ""):
+        n = int(m.group(1))
+        if AGE_MIN <= n <= AGE_MAX:
+            return n
+    return None
+
+
+def _strip_age(name):
+    """The name with its age bracket removed, tidied up. This is what groups
+    sections together, and (with the brackets appended) what the merged entry
+    is displayed as."""
+    out = AGE_TOKEN_RE.sub(
+        lambda m: "" if AGE_MIN <= int(m.group(1)) <= AGE_MAX else m.group(0),
+        name or "",
+    )
+    out = re.sub(r"\s+", " ", out)
+    out = re.sub(r"\s+([,:;)\]])", r"\1", out)      # space left before punctuation
+    out = re.sub(r"([(\[])\s+", r"\1", out)         # or after an opening bracket
+    out = re.sub(r"[\s\-–—_,:;/]*[(\[]\s*[)\]]", "", out)   # emptied brackets
+    # "…Championship (Under - 16" is truncated mid-parenthesis, so removing the
+    # bracket leaves a dangling opener.
+    out = re.sub(r"[\s\-–—_,:;/]*[(\[]\s*$", "", out)
+    return re.sub(r"^[\s\-–—_,:;/]+|[\s\-–—_,:;/]+$", "", out)
+
 
 def _merge_key(t):
     # Time control is part of the key so a rapid side event can never be
     # absorbed into a classical group that happens to share a truncated name.
     return (
-        (t.get("name") or "").strip().lower(),
+        _strip_age(t.get("name") or "").strip().lower(),
         (t.get("city") or "").strip().lower(),
         t.get("startDate"),
         t.get("timeControl"),
@@ -668,24 +713,60 @@ def mark_merged_sections(archive):
         groups.setdefault(_merge_key(t), []).append(t)
 
     for t in archive:
-        t.pop("mergedInto", None)
-        t.pop("sections", None)
+        for field in ("mergedInto", "sections", "ageGroups", "mergedName",
+                      "mergedPlayers", "mergedTrend"):
+            t.pop(field, None)
 
+    by_age = by_size = 0
     for members in groups.values():
-        if len(members) < SECTION_MERGE_MIN:
+        if len(members) < 2:
             continue
+        ages = sorted({a for a in (_age_token(t.get("name")) for t in members) if a is not None})
+        if len(ages) > 1:
+            by_age += 1
+        elif len(members) >= SECTION_MERGE_MIN:
+            by_size += 1
+        else:
+            continue
+
         live = [t for t in members if t.get("consecutiveMisses", 0) == 0] or members
         survivor = min(live, key=lambda t: t["id"])
         survivor["sections"] = len(members)
+
+        # The merged row stands for the whole event, so it must report the
+        # whole event's entrants — the survivor's own section is a small
+        # fraction of them (one 18-section event shows 23 players against 607
+        # actual). Player count drives sorting and filtering, so leaving it at
+        # the survivor's value would rank large events as tiny ones.
+        counts = [t.get("playersRegistered") for t in members]
+        known = [c for c in counts if c is not None]
+        survivor["mergedPlayers"] = sum(known) if known else None
+
+        # Summed from each section's own trend rather than from the difference
+        # of the summed totals: a section appearing mid-week has no baseline of
+        # its own, and diffing totals would report its entire entry list as a
+        # sudden surge in the merged event.
+        trends = [x for x in (_players_trend(t) for t in members) if x is not None]
+        survivor["mergedTrend"] = sum(trends) if trends else None
+        if len(ages) > 1:
+            # The survivor's own name names only its own bracket, so displaying
+            # it unchanged would claim the merged row is just the U15 section.
+            # Show the shared name plus every bracket it now covers — strictly
+            # more than any single row carried before. Held separately from
+            # "name" so the archive keeps the raw value: re-deriving the group
+            # from an already-rewritten name would not match its siblings on
+            # the next run.
+            survivor["ageGroups"] = [f"U{a}" for a in ages]
+            base = _strip_age(survivor["name"])
+            survivor["mergedName"] = f"{base} ({', '.join(survivor['ageGroups'])})" if base else survivor["name"]
         for t in members:
             if t is not survivor:
                 t["mergedInto"] = survivor["slug"]
 
     merged = sum(1 for t in archive if t.get("mergedInto"))
     if merged:
-        survivors = sum(1 for t in archive if t.get("sections"))
-        print(f"[INFO] Merged {merged} section rows into {survivors} entries "
-              f"(groups of {SECTION_MERGE_MIN}+ identical name/city/date/time-control).")
+        print(f"[INFO] Merged {merged} section rows into {by_age + by_size} entries "
+              f"({by_age} by age bracket, {by_size} by {SECTION_MERGE_MIN}+ identical rows).")
     return archive
 
 
@@ -712,7 +793,15 @@ def build_output(archive):
     rows = []
     for t in upcoming:
         row = {k: t.get(k) for k in OUTPUT_FIELDS}
-        row["playersTrend"] = _players_trend(t)
+        # Merged entries are listed under the shared name plus their brackets,
+        # and report the whole event's entrants rather than one section's.
+        if t.get("mergedName"):
+            row["name"] = t["mergedName"]
+        if t.get("sections"):
+            row["playersRegistered"] = t.get("mergedPlayers")
+            row["playersTrend"] = t.get("mergedTrend")
+        else:
+            row["playersTrend"] = _players_trend(t)
         rows.append(row)
     return sorted(rows, key=lambda t: t["startDate"])
 
