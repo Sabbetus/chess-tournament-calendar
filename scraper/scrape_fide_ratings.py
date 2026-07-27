@@ -146,6 +146,20 @@ def slugify(name, event_id):
     return f"{slug}-fide-{event_id}"
 
 
+def gha_annotate(level, msg):
+    """Emit a GitHub Actions annotation (shows on the run summary page, not
+    just in the raw log) in addition to a normal print. Reserved for
+    run-level conditions worth noticing from the Actions UI without opening
+    the log — a failed FIDE fetch or a hard failure — not per-attempt retry
+    noise, which fires too often (every detail-page fetch, not just the list)
+    to be a useful annotation.
+    GitHub's workflow-command syntax requires %, \\r, \\n percent-encoded so a
+    multi-line message can't break the ::level::text line."""
+    print(f"[{level.upper()}] {msg}")
+    escaped = msg.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+    print(f"::{level}::{escaped}")
+
+
 def fetch(url):
     """GET with a few retries. ratings.fide.com intermittently refuses
     connections from CI runners — it answers fine from a desktop while timing
@@ -414,7 +428,7 @@ def republish_archive_unchanged(reason):
     A run that never reached FIDE is not evidence that a tournament is gone,
     and counting it as a miss would let a long outage silently age out the
     whole feed."""
-    print(f"[WARN] {reason}")
+    gha_annotate("warning", reason)
 
     # Tolerating an outage is only reasonable while the *other* source still
     # updated — the run then still publishes something new. If chess-results
@@ -423,16 +437,17 @@ def republish_archive_unchanged(reason):
     # passes that step's real result (its outcome, i.e. before
     # continue-on-error is applied) in CHESS_RESULTS_OUTCOME.
     if os.environ.get("CHESS_RESULTS_OUTCOME") == "failure":
-        print(
-            "[ERROR] chess-results also failed this run — both sources are unavailable, "
-            "so there is nothing fresh to publish. Failing the workflow."
+        gha_annotate(
+            "error",
+            "chess-results also failed this run — both sources are unavailable, "
+            "so there is nothing fresh to publish. Failing the workflow.",
         )
         sys.exit(1)
 
     print("[WARN] Republishing the existing FIDE archive unchanged (no misses counted).")
     fide_archive = load_json(FIDE_ARCHIVE_PATH, [])
     if not fide_archive:
-        print("[WARN] No FIDE archive on disk; leaving tournaments.json to the chess-results scraper.")
+        gha_annotate("warning", "No FIDE archive on disk; leaving tournaments.json to the chess-results scraper.")
         return
     today = date.today().isoformat()
     for t in fide_archive:
