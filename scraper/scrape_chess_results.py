@@ -515,9 +515,26 @@ def merge_into_archive(scraped, archive):
     for t in scraped:
         existing = by_id.get(t["id"])
         if existing:
+            # "slug" is deliberately absent here: it is set once, when the
+            # tournament is first seen, and never updated afterwards.
+            #
+            # Organisers rename tournaments on chess-results constantly —
+            # around 4 per scrape, ~95 over six days — to fix typos, add a
+            # sponsor, or reword a title. Re-deriving the slug from the new
+            # name changed the tournament's URL, so the old one 404'd with no
+            # redirect, and the sitemap silently swapped one for the other.
+            # deploy.yml submits new slugs to IndexNow as soon as they appear,
+            # so those URLs have usually been announced to search engines
+            # before they break.
+            #
+            # The slug is an identifier, not a label: it already carries the
+            # chess-results id, and the display name (title, heading,
+            # structured data) still follows the rename. A tournament first
+            # seen as "sub08" therefore keeps that in its URL even after being
+            # renamed, which is the intended trade — a stale URL keyword costs
+            # far less than a dead URL.
             existing.update({
                 "name": t["name"],
-                "slug": t["slug"],
                 "startDate": t["startDate"],
                 "endDate": t["endDate"],
                 "city": t["city"],
