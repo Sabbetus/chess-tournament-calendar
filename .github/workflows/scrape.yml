@@ -14,6 +14,14 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    env:
+      # Python block-buffers stdout when it isn't a TTY, so without this the
+      # scrapers' [INFO]/[WARN] lines all flush at the very end of a step and
+      # appear *after* anything written to stderr (which is never buffered).
+      # That made a step look silent for minutes and then dump everything at
+      # once, which is how a run of ConnectTimeout warnings got missed
+      # entirely. Unbuffered output keeps the log in real chronological order.
+      PYTHONUNBUFFERED: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2

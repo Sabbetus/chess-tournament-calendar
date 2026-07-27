@@ -23,6 +23,10 @@ permissions:
 jobs:
   freshness:
     runs-on: ubuntu-latest
+    env:
+      # See scrape.yml — keeps this check's output in chronological order
+      # rather than flushing it all at the end of the step.
+      PYTHONUNBUFFERED: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
