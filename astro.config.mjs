@@ -33,7 +33,7 @@ const LANGS = ['es', 'pt', 'de', 'cs', 'fi'];
 const mergedSlugs = new Set(
   archive.filter((t) => t.mergedInto && t.slug).map((t) => t.slug)
 );
-const tournamentRedirects = Object.fromEntries(
+const mergeRedirects = Object.fromEntries(
   archive
     .filter((t) => t.mergedInto && t.slug)
     .flatMap((t) => [
@@ -44,6 +44,30 @@ const tournamentRedirects = Object.fromEntries(
       ]),
     ])
 );
+
+// One-time backfill for URLs broken before slugs were frozen at first-sight
+// (scrape_chess_results.py's merge_into_archive no longer updates "slug" on a
+// rename). Built from archive.json's git history — see the redirect-backfill
+// discussion — mapping each slug a tournament used to have to the slug it has
+// now. This map only grows if slugs are un-frozen again, so it's a fixed
+// snapshot rather than something the scraper maintains.
+const slugRedirects = JSON.parse(
+  readFileSync(new URL('./public/data/slug_redirects.json', import.meta.url))
+);
+const historicalRedirects = Object.fromEntries(
+  Object.entries(slugRedirects).flatMap(([oldSlug, newSlug]) => [
+    [`/tournament/${oldSlug}`, `/tournament/${newSlug}/`],
+    ...LANGS.map((lang) => [
+      `/${lang}/tournament/${oldSlug}`,
+      `/${lang}/tournament/${newSlug}/`,
+    ]),
+  ])
+);
+
+// Merge redirects take priority: if a slug is both an old (pre-freeze) name
+// and happened to also get absorbed into a merge, it must point at the merge
+// survivor, not at whatever the archive shows for its own id.
+const tournamentRedirects = { ...historicalRedirects, ...mergeRedirects };
 
 export default defineConfig({
   site: 'https://chesstournamentcalendar.com',
