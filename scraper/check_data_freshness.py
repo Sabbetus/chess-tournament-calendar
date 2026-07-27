@@ -36,11 +36,26 @@ ROOT = Path(__file__).parent.parent
 # behind today". At the 6-hourly scrape cadence, 2 days is ~8 consecutive
 # failed runs — well clear of a transient outage, and harmless in freshness
 # terms given tournaments are listed weeks ahead.
-MAX_STALE_DAYS = 2
+DEFAULT_MAX_STALE_DAYS = 2
+
+# TEMPORARY: ratings.fide.com refuses connections from GitHub-hosted runners
+# (ConnectTimeout on every scheduled attempt, while it answers instantly from
+# a residential IP), so FIDE data is refreshed by running the scraper
+# elsewhere and committing the result. A 2-day threshold would therefore fire
+# constantly and mean nothing. 7 days makes it a useful prompt instead: when
+# it trips, it is time to run a manual refresh.
+#
+# REVERT TO 2 once the FIDE scrape runs somewhere it can actually reach FIDE
+# (a self-hosted runner) — at that point a stale FIDE archive is a real fault
+# again, and a 7-day blind spot would be hiding it.
+FIDE_MAX_STALE_DAYS = 7
 
 SOURCES = [
-    ("chess-results", ROOT / "public" / "data" / "archive.json"),
-    ("FIDE ratings", ROOT / "public" / "data" / "fide_archive.json"),
+    ("chess-results", ROOT / "public" / "data" / "archive.json", DEFAULT_MAX_STALE_DAYS,
+     "check the scrape run logs for [WARN] lines"),
+    ("FIDE ratings", ROOT / "public" / "data" / "fide_archive.json", FIDE_MAX_STALE_DAYS,
+     "expected until FIDE scraping moves off GitHub-hosted runners — run the scraper "
+     "manually and commit the result"),
 ]
 
 
@@ -61,7 +76,7 @@ def main():
     today = date.today()
     stale = []
 
-    for name, path in SOURCES:
+    for name, path, max_stale_days, hint in SOURCES:
         seen = last_seen(path)
         if seen is None:
             print(f"::warning::{name}: no lastSeen found in {path.name} — cannot determine freshness.")
@@ -71,18 +86,18 @@ def main():
         except ValueError:
             print(f"::warning::{name}: unparseable lastSeen {seen!r} in {path.name}.")
             continue
-        status = "STALE" if age > MAX_STALE_DAYS else "ok"
-        print(f"[{status}] {name}: last successful scrape {seen} ({age} day(s) ago)")
-        if age > MAX_STALE_DAYS:
-            stale.append((name, seen, age))
+        status = "STALE" if age > max_stale_days else "ok"
+        print(f"[{status}] {name}: last successful scrape {seen} "
+              f"({age} day(s) ago, threshold {max_stale_days})")
+        if age > max_stale_days:
+            stale.append((name, seen, age, max_stale_days, hint))
 
     if stale:
-        for name, seen, age in stale:
+        for name, seen, age, max_stale_days, hint in stale:
             print(
                 f"::error::{name} has not scraped successfully since {seen} "
-                f"({age} days ago, threshold {MAX_STALE_DAYS}). The scrape workflow may be "
-                f"green while the source is unreachable — check the scrape run logs for "
-                f"[WARN] lines."
+                f"({age} days ago, threshold {max_stale_days}). The scrape workflow may be "
+                f"green while the source is unreachable — {hint}."
             )
         sys.exit(1)
 
