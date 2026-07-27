@@ -440,13 +440,24 @@ MIN_ABSOLUTE_TOURNAMENTS = 200
 
 
 def previous_tournament_count():
+    """How many of *this* scraper's tournaments the last run published.
+
+    tournaments.json is a combined feed — scrape_fide_ratings.py adds its own
+    entries to it after this script runs — so it must be filtered by source
+    before being used as the safety-floor baseline. Counting the whole file
+    would measure this scraper against another source's size: harmless while
+    FIDE is small, but once a second source grows past this one the floor
+    (half the combined total) exceeds anything this scraper can produce and
+    every run fails permanently. Entries with no source predate the field and
+    were all chess-results."""
     if not OUTPUT_PATH.exists():
         return None
     try:
         with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
-            return len(json.load(f))
+            existing = json.load(f)
     except (json.JSONDecodeError, OSError):
         return None
+    return sum(1 for t in existing if t.get("source", "chess-results") == "chess-results")
 
 
 def load_archive():

@@ -1,0 +1,39 @@
+name: Check data freshness
+
+# Deliberately a separate workflow rather than a step in scrape.yml.
+# deploy.yml only builds when the *scrape* workflow's conclusion is success,
+# so a failing step inside scrape.yml would commit new data and then block the
+# deploy of it. Failing here instead leaves that gate alone — this workflow
+# only reports.
+#
+# It exists because both scrapers now keep serving existing data when their
+# source is unreachable (so one source's outage can't discard the other's work
+# or stop the deploy), which means an outage no longer shows up as a red run.
+
+on:
+  schedule:
+    # Once a day. The scrape runs 4x/day, so this is purely an alarm, and a
+    # daily one is frequent enough for a 2-day staleness threshold.
+    - cron: '25 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: '3.12'
+
+      # No dependencies needed — the check only reads the committed JSON.
+      - name: Check data freshness
+        run: python scraper/check_data_freshness.py

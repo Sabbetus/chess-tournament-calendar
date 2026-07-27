@@ -39,6 +39,7 @@ dropped from the next chess-results-only regeneration.
 
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -414,6 +415,20 @@ def republish_archive_unchanged(reason):
     and counting it as a miss would let a long outage silently age out the
     whole feed."""
     print(f"[WARN] {reason}")
+
+    # Tolerating an outage is only reasonable while the *other* source still
+    # updated — the run then still publishes something new. If chess-results
+    # failed too, nothing in this run produced fresh data, and staying green
+    # would deploy an unchanged site while hiding a total outage. The workflow
+    # passes that step's real result (its outcome, i.e. before
+    # continue-on-error is applied) in CHESS_RESULTS_OUTCOME.
+    if os.environ.get("CHESS_RESULTS_OUTCOME") == "failure":
+        print(
+            "[ERROR] chess-results also failed this run — both sources are unavailable, "
+            "so there is nothing fresh to publish. Failing the workflow."
+        )
+        sys.exit(1)
+
     print("[WARN] Republishing the existing FIDE archive unchanged (no misses counted).")
     fide_archive = load_json(FIDE_ARCHIVE_PATH, [])
     if not fide_archive:

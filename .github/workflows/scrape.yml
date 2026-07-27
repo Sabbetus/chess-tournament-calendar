@@ -32,6 +32,14 @@ jobs:
         run: python -m playwright install chromium --with-deps
 
       - name: Run chess-results scraper
+        id: chess_results
+        # A chess-results outage must not abort the job: the FIDE step below
+        # is what rebuilds tournaments.json, so stopping here would discard a
+        # perfectly good FIDE scrape and — because deploy.yml only builds when
+        # this workflow concludes successfully — skip the deploy too. When
+        # this step fails it writes nothing, so the FIDE step simply carries
+        # the previous run's chess-results entries forward unchanged.
+        continue-on-error: true
         run: python scraper/scrape_chess_results.py
 
       - name: Run FIDE ratings scraper (USA)
@@ -39,6 +47,13 @@ jobs:
         # tournaments.json by combining its own archive with whatever the
         # chess-results scraper just wrote there, so it always needs to run
         # last to avoid dropping either source's entries.
+        #
+        # It also decides the job's fate. It tolerates its own source being
+        # down, but fails the run if chess-results failed as well, since then
+        # no source produced anything new. outcome (not conclusion) is the
+        # step's real result before continue-on-error is applied.
+        env:
+          CHESS_RESULTS_OUTCOME: ${{ steps.chess_results.outcome }}
         run: python scraper/scrape_fide_ratings.py
 
       - name: Commit updated data
