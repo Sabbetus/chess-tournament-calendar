@@ -176,7 +176,12 @@
   },
   "2036380": {
     "name": "Reno Chess Club",
-    "url": "https://sites.google.com/site/renochessclub/",
-    "_note": "Jerry Weikel runs the Reno Western States Open. renochess.org is cited as the event site but renders an empty page, so this is the club's actual live site."
+    "url": "https://sites.google.com/site/renochessclub/wso",
+    "_note": "Jerry Weikel runs the Reno Western States Open, his only event here. Deliberately the WSO sub-page rather than a listing page: the club root never mentions the WSO at all, and renochess.org doesn't surface it either, so neither lets a visitor actually find this tournament."
+  },
+  "2057638": {
+    "name": "MACA (Massachusetts Chess Association)",
+    "url": "http://www.masschess.org/Events/chess-event-list.aspx",
+    "_note": "MACA organizes the New England Open. The only http:// entry here — masschess.org serves no HTTPS, so an https URL fails to connect. Fine for an outbound link; don't 'fix' it to https."
   }
 }
