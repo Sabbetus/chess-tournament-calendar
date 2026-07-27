@@ -41,6 +41,7 @@ import html
 import json
 import re
 import sys
+import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
@@ -92,6 +93,10 @@ TIME_CONTROL_BY_TEXT = {"standard": "Classical", "rapid": "Rapid", "blitz": "Bli
 # feed is full of them, so they're dropped rather than shown untyped.
 EXCLUDED_TIME_CONTROLS = {"Blitz"}
 
+REQUEST_TIMEOUT = 30
+FETCH_ATTEMPTS = 3
+FETCH_BACKOFF_SECONDS = 5
+
 MIN_ABSOLUTE_TOURNAMENTS = 20  # safety floor for USA-only feed; small country, small numbers
 MAX_CONSECUTIVE_MISSES = 8  # same cadence reasoning as chess-results (~2 days at 6h runs)
 
@@ -140,9 +145,28 @@ def slugify(name, event_id):
     return f"{slug}-fide-{event_id}"
 
 
+def fetch(url):
+    """GET with a few retries. ratings.fide.com intermittently refuses
+    connections from CI runners — it answers fine from a desktop while timing
+    out from GitHub Actions — so a single attempt is not a fair test of
+    whether the site is up."""
+    last_error = None
+    for attempt in range(1, FETCH_ATTEMPTS + 1):
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+            resp.raise_for_status()
+            return resp
+        except requests.RequestException as e:
+            last_error = e
+            if attempt < FETCH_ATTEMPTS:
+                delay = FETCH_BACKOFF_SECONDS * attempt
+                print(f"[WARN] {type(e).__name__} on {url} (attempt {attempt}/{FETCH_ATTEMPTS}); retrying in {delay}s.")
+                time.sleep(delay)
+    raise last_error
+
+
 def fetch_list():
-    resp = requests.get(LIST_URL, headers=HEADERS, timeout=30)
-    resp.raise_for_status()
+    resp = fetch(LIST_URL)
     payload = json.loads(resp.text.lstrip("﻿"))
     return payload["data"]
 
@@ -153,8 +177,7 @@ def fetch_detail(event_id):
     None if the page couldn't be parsed (kept out of the archive that run,
     picked up again next run)."""
     try:
-        resp = requests.get(DETAIL_URL.format(event_id=event_id), headers=HEADERS, timeout=30)
-        resp.raise_for_status()
+        resp = fetch(DETAIL_URL.format(event_id=event_id))
     except requests.RequestException:
         return None
     page_html = resp.text
@@ -362,9 +385,54 @@ def build_combined_output(fide_archive, existing_output):
     return sorted(fide_upcoming + other_rows, key=lambda t: t["startDate"])
 
 
+def write_output(combined):
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump(combined, f, ensure_ascii=False, indent=2)
+    print(f"[INFO] Written combined feed to {OUTPUT_PATH} ({len(combined)} tournaments)")
+
+    meta = load_json(META_PATH, {})
+    meta["lastUpdated"] = datetime.utcnow().isoformat() + "Z"
+    with open(META_PATH, "w", encoding="utf-8") as f:
+        json.dump(meta, f, indent=2)
+    print(f"[INFO] Written to {META_PATH}")
+
+
+def republish_archive_unchanged(reason):
+    """FIDE is unreachable. Republish the FIDE entries we already have rather
+    than failing.
+
+    Exiting non-zero here would be actively harmful, twice over. The workflow
+    would stop before its commit step, throwing away the chess-results scrape
+    that already succeeded in the previous step — so an outage at FIDE would
+    freeze the entire site's data, not just the US portion. And because
+    scrape_chess_results.py rewrites tournaments.json with only its own
+    entries, simply skipping this script would publish a feed with every FIDE
+    tournament missing. So the archive has to be written back either way.
+
+    The archive is left untouched: no merge, so no consecutive-miss counting.
+    A run that never reached FIDE is not evidence that a tournament is gone,
+    and counting it as a miss would let a long outage silently age out the
+    whole feed."""
+    print(f"[WARN] {reason}")
+    print("[WARN] Republishing the existing FIDE archive unchanged (no misses counted).")
+    fide_archive = load_json(FIDE_ARCHIVE_PATH, [])
+    if not fide_archive:
+        print("[WARN] No FIDE archive on disk; leaving tournaments.json to the chess-results scraper.")
+        return
+    today = date.today().isoformat()
+    for t in fide_archive:
+        t["status"] = "concluded" if t["startDate"] <= today else "upcoming"
+    combined = build_combined_output(fide_archive, load_json(OUTPUT_PATH, []))
+    write_output(combined)
+
+
 def main():
     print("[INFO] Fetching FIDE USA tournament list...")
-    raw_rows = fetch_list()
+    try:
+        raw_rows = fetch_list()
+    except (requests.RequestException, ValueError, KeyError) as e:
+        republish_archive_unchanged(f"Could not fetch the FIDE list: {type(e).__name__}: {e}")
+        return
     rows = parse_rows(raw_rows)
     print(f"[INFO] {len(rows)} upcoming rows out of {len(raw_rows)} total.")
 
@@ -398,12 +466,14 @@ def main():
             detail_cache[event_id] = detail
 
     if len(rows) < MIN_ABSOLUTE_TOURNAMENTS and fide_archive:
-        print(
-            f"[ERROR] Only {len(rows)} upcoming rows found, below the safety floor of "
-            f"{MIN_ABSOLUTE_TOURNAMENTS}. This looks like a partial fetch failure. "
-            f"Refusing to update {FIDE_ARCHIVE_PATH}."
+        # Same reasoning as republish_archive_unchanged(): a suspicious feed
+        # is a reason not to trust *this* scrape, not a reason to fail the
+        # workflow and discard the chess-results run that already succeeded.
+        republish_archive_unchanged(
+            f"Only {len(rows)} upcoming rows found, below the safety floor of "
+            f"{MIN_ABSOLUTE_TOURNAMENTS} — treating this as a partial fetch failure."
         )
-        sys.exit(1)
+        return
 
     tournaments = build_tournaments(rows, detail_cache, organizers)
 
@@ -425,17 +495,7 @@ def main():
         json.dump(merged, f, ensure_ascii=False, indent=2)
     print(f"[INFO] FIDE archive updated: {len(merged)} total entries. Written to {FIDE_ARCHIVE_PATH}")
 
-    existing_output = load_json(OUTPUT_PATH, [])
-    combined = build_combined_output(merged, existing_output)
-    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
-        json.dump(combined, f, ensure_ascii=False, indent=2)
-    print(f"[INFO] Written combined feed to {OUTPUT_PATH} ({len(combined)} tournaments)")
-
-    meta = load_json(META_PATH, {})
-    meta["lastUpdated"] = datetime.utcnow().isoformat() + "Z"
-    with open(META_PATH, "w", encoding="utf-8") as f:
-        json.dump(meta, f, indent=2)
-    print(f"[INFO] Written to {META_PATH}")
+    write_output(build_combined_output(merged, load_json(OUTPUT_PATH, [])))
 
 
 if __name__ == "__main__":
