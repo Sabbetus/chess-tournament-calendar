@@ -155,8 +155,8 @@
     "countryCode": "HU",
     "rounds": null,
     "timeControl": "Classical",
-    "timeControlRaw": "2 x 90 perc valamint lépésenként 30 mp",
-    "playersRegistered": 59,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
+    "playersRegistered": 58,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -169,7 +169,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": -1
+    "playersTrend": -2
   },
   {
     "id": "chess-results-1402210",
@@ -182,7 +182,7 @@
     "countryCode": "HU",
     "rounds": null,
     "timeControl": "Classical",
-    "timeControlRaw": "2 x 90 perc valamint lépésenként 30 mp",
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
     "playersRegistered": 64,
     "prizePool": null,
     "currency": null,
@@ -196,7 +196,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1447953",
@@ -264,7 +264,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes with 30 second increment from move 1",
-    "playersRegistered": 25,
+    "playersRegistered": 26,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -277,7 +277,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1447915",
@@ -291,7 +291,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes with 30 second increment from move 1",
-    "playersRegistered": 17,
+    "playersRegistered": 18,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -304,7 +304,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1457717",
@@ -345,7 +345,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 + 30",
-    "playersRegistered": 18,
+    "playersRegistered": 19,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -358,7 +358,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 10
+    "playersTrend": 11
   },
   {
     "id": "chess-results-1462221",
@@ -372,7 +372,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
-    "playersRegistered": 111,
+    "playersRegistered": 108,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -393,7 +393,7 @@
       "U18",
       "U20"
     ],
-    "playersTrend": 1
+    "playersTrend": -2
   },
   {
     "id": "chess-results-1462214",
@@ -407,7 +407,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1",
-    "playersRegistered": 199,
+    "playersRegistered": 198,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -428,7 +428,7 @@
       "U18",
       "U20"
     ],
-    "playersTrend": 0
+    "playersTrend": -1
   },
   {
     "id": "chess-results-1462163",
@@ -657,33 +657,6 @@
     "playersTrend": 2
   },
   {
-    "id": "chess-results-1464697",
-    "slug": "chess-censports-2026-2027boys-category-1464697",
-    "name": "CHESS- CENSPORTS 2026-2027BOYS CATEGORY",
-    "startDate": "2026-07-29",
-    "endDate": "2026-07-29",
-    "city": "",
-    "country": "India",
-    "countryCode": "IN",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": null,
-    "playersRegistered": 152,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": true,
-    "registrationUrl": "https://chess-results.com/tnr1464697.aspx?lan=1",
-    "websiteUrl": "https://chess-results.com/tnr1464697.aspx?lan=1",
-    "description": null,
-    "organizer": null,
-    "source": "chess-results",
-    "sections": null,
-    "ageGroups": null,
-    "playersTrend": null
-  },
-  {
     "id": "fide-479020",
     "slug": "2026-june-august-marshall-thursday-open-round-5-6-fide-479020",
     "name": "2026 June-August Marshall Thursday Open Round 5-6",
@@ -711,6 +684,33 @@
     "sectionEventIds": null,
     "organizerRaw": "Chavez, Carlos Alberto (USA)",
     "playersTrend": null
+  },
+  {
+    "id": "chess-results-1464697",
+    "slug": "chess-censports-2026-2027boys-category-1464697",
+    "name": "CHESS- CENSPORTS 2026-2027BOYS CATEGORY",
+    "startDate": "2026-07-30",
+    "endDate": "2026-07-30",
+    "city": "",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": null,
+    "playersRegistered": 160,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1464697.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1464697.aspx?lan=1",
+    "description": null,
+    "organizer": null,
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1245899",
@@ -751,7 +751,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minut + 30 sek./ťah",
-    "playersRegistered": 106,
+    "playersRegistered": 107,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -764,7 +764,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 20
+    "playersTrend": 12
   },
   {
     "id": "chess-results-1426182",
@@ -926,7 +926,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 12
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1456823",
@@ -1021,7 +1021,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 sec increasement per move starting from move 1",
-    "playersRegistered": 6,
+    "playersRegistered": 7,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1034,7 +1034,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1460358",
@@ -1048,7 +1048,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 sec increasement per move starting from move 1",
-    "playersRegistered": 61,
+    "playersRegistered": 65,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1061,7 +1061,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1460357",
@@ -1075,7 +1075,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 sec increasement per move starting from move 1",
-    "playersRegistered": 28,
+    "playersRegistered": 27,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1088,7 +1088,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": -1
   },
   {
     "id": "chess-results-1460912",
@@ -1102,7 +1102,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10+3",
-    "playersRegistered": 29,
+    "playersRegistered": 33,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1115,7 +1115,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 10
   },
   {
     "id": "chess-results-1462212",
@@ -1156,7 +1156,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 47,
+    "playersRegistered": 55,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1169,34 +1169,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 44
-  },
-  {
-    "id": "chess-results-1464714",
-    "slug": "chess-censports-2026-2027girls-category-1464714",
-    "name": "CHESS- CENSPORTS 2026-2027GIRLS CATEGORY",
-    "startDate": "2026-07-30",
-    "endDate": "2026-07-30",
-    "city": "",
-    "country": "India",
-    "countryCode": "IN",
-    "rounds": null,
-    "timeControl": "Rapid",
-    "timeControlRaw": null,
-    "playersRegistered": 68,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": true,
-    "registrationUrl": "https://chess-results.com/tnr1464714.aspx?lan=1",
-    "websiteUrl": "https://chess-results.com/tnr1464714.aspx?lan=1",
-    "description": null,
-    "organizer": null,
-    "source": "chess-results",
-    "sections": null,
-    "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 52
   },
   {
     "id": "chess-results-1464690",
@@ -1210,7 +1183,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "08minutes with 03 seconds increment from move 1",
-    "playersRegistered": 11,
+    "playersRegistered": 14,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1223,7 +1196,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 12
   },
   {
     "id": "chess-results-1464659",
@@ -1250,7 +1223,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1465182",
@@ -1264,7 +1237,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15+5",
-    "playersRegistered": 15,
+    "playersRegistered": 27,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1295,7 +1268,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15+5",
-    "playersRegistered": 15,
+    "playersRegistered": 17,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1574,6 +1547,33 @@
     "playersTrend": null
   },
   {
+    "id": "chess-results-1464714",
+    "slug": "chess-censports-2026-2027girls-category-1464714",
+    "name": "CHESS- CENSPORTS 2026-2027GIRLS CATEGORY",
+    "startDate": "2026-07-31",
+    "endDate": "2026-07-31",
+    "city": "",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": null,
+    "playersRegistered": 73,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1464714.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1464714.aspx?lan=1",
+    "description": null,
+    "organizer": null,
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": 5
+  },
+  {
     "id": "chess-results-1373991",
     "slug": "leca-chess-open-portugal-2026-317-0682026-1373991",
     "name": "LECA CHESS OPEN - PORTUGAL 2026 (31/7 - 06/8/2026",
@@ -1747,7 +1747,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90' + 30'' pro Zug ab 1. Zug",
-    "playersRegistered": 73,
+    "playersRegistered": 76,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1760,7 +1760,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1414495",
@@ -1801,7 +1801,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "30 min. + 30 sek.",
-    "playersRegistered": 26,
+    "playersRegistered": 29,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1814,7 +1814,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1324830",
@@ -1841,7 +1841,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1366231",
@@ -1882,7 +1882,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "50+10",
-    "playersRegistered": 45,
+    "playersRegistered": 47,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1922,7 +1922,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 9
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1441626",
@@ -1936,7 +1936,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "40 minutos + 10 segundos",
-    "playersRegistered": 36,
+    "playersRegistered": 42,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -1949,7 +1949,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1440328",
@@ -2017,7 +2017,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90`+30``",
-    "playersRegistered": 44,
+    "playersRegistered": 49,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2030,7 +2030,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 10
   },
   {
     "id": "chess-results-1444444",
@@ -2152,7 +2152,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "2 x 90 min + 30 s",
-    "playersRegistered": 34,
+    "playersRegistered": 35,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2165,7 +2165,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 11
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1458621",
@@ -2179,7 +2179,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes + 2 seconds increment",
-    "playersRegistered": 24,
+    "playersRegistered": 27,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2192,7 +2192,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 13
+    "playersTrend": 11
   },
   {
     "id": "chess-results-1463328",
@@ -2246,7 +2246,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 14
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1463668",
@@ -2273,7 +2273,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 14
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1463669",
@@ -2300,7 +2300,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 21
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1464199",
@@ -2354,7 +2354,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 8
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1464597",
@@ -2368,7 +2368,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 29,
+    "playersRegistered": 55,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2381,7 +2381,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 24
+    "playersTrend": 50
   },
   {
     "id": "chess-results-1464827",
@@ -2395,7 +2395,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 min + 5 sec increment per move from first move",
-    "playersRegistered": 53,
+    "playersRegistered": 56,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2486,7 +2486,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 2,
+    "playersRegistered": 6,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2594,7 +2594,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "12 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 37,
+    "playersRegistered": 47,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2621,7 +2621,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 5,
+    "playersRegistered": 8,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2675,7 +2675,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes + 30 seconds increment per move starting from the 1st move",
-    "playersRegistered": 17,
+    "playersRegistered": 18,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2909,7 +2909,7 @@
       "U13",
       "U17"
     ],
-    "playersTrend": 16
+    "playersTrend": 15
   },
   {
     "id": "chess-results-1456564",
@@ -2977,7 +2977,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes with 30 second increment from move 1",
-    "playersRegistered": 55,
+    "playersRegistered": 56,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -2990,7 +2990,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1345496",
@@ -3125,7 +3125,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 55
+    "playersTrend": 42
   },
   {
     "id": "chess-results-1303046",
@@ -3193,7 +3193,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "8 min. + 3 seg. por jugada",
-    "playersRegistered": 90,
+    "playersRegistered": 94,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -3206,7 +3206,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 14
+    "playersTrend": 18
   },
   {
     "id": "chess-results-1440886",
@@ -3301,7 +3301,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "10 min + 3 sec",
-    "playersRegistered": 24,
+    "playersRegistered": 31,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -3314,7 +3314,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1436843",
@@ -3328,7 +3328,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10+5",
-    "playersRegistered": 29,
+    "playersRegistered": 35,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -3341,7 +3341,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 10
+    "playersTrend": 15
   },
   {
     "id": "chess-results-1383094",
@@ -3498,7 +3498,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes for first 40 moves and 30 min. for the rest of the game with 30 sec. increment from move",
-    "playersRegistered": 37,
+    "playersRegistered": 35,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -3511,7 +3511,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": -1
   },
   {
     "id": "chess-results-1395229",
@@ -3538,7 +3538,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1446488",
@@ -3565,7 +3565,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 440
+    "playersTrend": 47
   },
   {
     "id": "chess-results-1447950",
@@ -3660,7 +3660,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10+5 ou 20 ko",
-    "playersRegistered": 45,
+    "playersRegistered": 47,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -3673,7 +3673,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1448975",
@@ -3687,7 +3687,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "12+3",
-    "playersRegistered": 78,
+    "playersRegistered": 86,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -3700,7 +3700,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 12
+    "playersTrend": 20
   },
   {
     "id": "chess-results-1449171",
@@ -4074,7 +4074,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 min. + 30 sec/move",
-    "playersRegistered": 30,
+    "playersRegistered": 32,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4087,7 +4087,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1452816",
@@ -4141,7 +4141,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1452812",
@@ -4168,7 +4168,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1453098",
@@ -4263,7 +4263,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15´ + 5´´",
-    "playersRegistered": 10,
+    "playersRegistered": 12,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4276,7 +4276,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1454236",
@@ -4290,7 +4290,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 277,
+    "playersRegistered": 300,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4303,7 +4303,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 29
+    "playersTrend": 44
   },
   {
     "id": "chess-results-1454939",
@@ -4468,7 +4468,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1456137",
@@ -4576,7 +4576,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 12
+    "playersTrend": 10
   },
   {
     "id": "chess-results-1452346",
@@ -4590,7 +4590,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 m. per player",
-    "playersRegistered": 20,
+    "playersRegistered": 21,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4603,7 +4603,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1457076",
@@ -4698,7 +4698,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutos + 5 segundos de incremento desde el primer movimiento.",
-    "playersRegistered": 11,
+    "playersRegistered": 10,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4711,7 +4711,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1424370",
@@ -4752,7 +4752,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 98,
+    "playersRegistered": 105,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4765,7 +4765,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 10
+    "playersTrend": 14
   },
   {
     "id": "chess-results-1457751",
@@ -4779,7 +4779,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 27,
+    "playersRegistered": 32,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -4792,7 +4792,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1457752",
@@ -4995,7 +4995,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10+2",
-    "playersRegistered": 0,
+    "playersRegistered": 10,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5008,7 +5008,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 10
   },
   {
     "id": "chess-results-1460545",
@@ -5035,7 +5035,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 17
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1460537",
@@ -5062,7 +5062,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 13
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1460541",
@@ -5089,7 +5089,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 19
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1460543",
@@ -5227,7 +5227,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 7
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1461262",
@@ -5268,7 +5268,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "6' + 5''",
-    "playersRegistered": 8,
+    "playersRegistered": 10,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5281,7 +5281,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1461839",
@@ -5295,7 +5295,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "50/50 + 10",
-    "playersRegistered": 22,
+    "playersRegistered": 43,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5308,12 +5308,39 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 21
   },
   {
     "id": "chess-results-1461842",
     "slug": "eureka-open-section-d-u14-2013-2014-1461842",
     "name": "Eureka Open Section D (U14 - 2013 & 2014)",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-01",
+    "city": "Eureka School, Kwagga Street, Vereeniging",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "50/50 + 10",
+    "playersRegistered": 18,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1461842.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1461842.aspx?lan=1",
+    "description": null,
+    "organizer": "Chirna Kruger",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": 10
+  },
+  {
+    "id": "chess-results-1461843",
+    "slug": "eureka-open-section-e-u12-2015-2016-1461843",
+    "name": "Eureka Open Section E (U12 - 2015 & 2016)",
     "startDate": "2026-08-01",
     "endDate": "2026-08-01",
     "city": "Eureka School, Kwagga Street, Vereeniging",
@@ -5328,33 +5355,6 @@
     "ratingRequirement": null,
     "open": true,
     "registrationOpen": true,
-    "registrationUrl": "https://chess-results.com/tnr1461842.aspx?lan=1",
-    "websiteUrl": "https://chess-results.com/tnr1461842.aspx?lan=1",
-    "description": null,
-    "organizer": "Chirna Kruger",
-    "source": "chess-results",
-    "sections": null,
-    "ageGroups": null,
-    "playersTrend": 1
-  },
-  {
-    "id": "chess-results-1461843",
-    "slug": "eureka-open-section-e-u12-2015-2016-1461843",
-    "name": "Eureka Open Section E (U12 - 2015 & 2016)",
-    "startDate": "2026-08-01",
-    "endDate": "2026-08-01",
-    "city": "Eureka School, Kwagga Street, Vereeniging",
-    "country": "South Africa",
-    "countryCode": "ZA",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "50/50 + 10",
-    "playersRegistered": 4,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": true,
     "registrationUrl": "https://chess-results.com/tnr1461843.aspx?lan=1",
     "websiteUrl": "https://chess-results.com/tnr1461843.aspx?lan=1",
     "description": null,
@@ -5362,7 +5362,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1461845",
@@ -5376,7 +5376,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "50/50 + 10",
-    "playersRegistered": 4,
+    "playersRegistered": 7,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5403,7 +5403,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "50/50 + 10",
-    "playersRegistered": 1,
+    "playersRegistered": 2,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5416,7 +5416,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1461984",
@@ -5497,7 +5497,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 13
+    "playersTrend": 11
   },
   {
     "id": "chess-results-1462306",
@@ -5700,7 +5700,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 + 5",
-    "playersRegistered": 9,
+    "playersRegistered": 10,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5713,7 +5713,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1462577",
@@ -5754,7 +5754,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "2x15",
-    "playersRegistered": 42,
+    "playersRegistered": 46,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5763,11 +5763,11 @@
     "registrationUrl": "https://chess-results.com/tnr1462758.aspx?lan=1",
     "websiteUrl": "https://chess-results.com/tnr1462758.aspx?lan=1",
     "description": null,
-    "organizer": "Pilich Horní Skrýchov",
+    "organizer": "TJ Pilich Horní Skrýchov",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1463041",
@@ -5799,7 +5799,7 @@
   {
     "id": "chess-results-1463137",
     "slug": "1st-atharva-university-rapid-chess-tournament-2026-1463137",
-    "name": "1st Atharva University Rapid Chess Tournament 2026",
+    "name": "Atharva College Rapid Chess Tournament 2026",
     "startDate": "2026-08-01",
     "endDate": "2026-08-01",
     "city": "Atharva University, Mumbai",
@@ -5821,7 +5821,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1462993",
@@ -5943,7 +5943,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 54,
+    "playersRegistered": 59,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5956,7 +5956,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 8
+    "playersTrend": 12
   },
   {
     "id": "chess-results-1463419",
@@ -5970,7 +5970,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 56,
+    "playersRegistered": 60,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -5983,7 +5983,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1463416",
@@ -5997,7 +5997,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 90,
+    "playersRegistered": 95,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6010,7 +6010,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 8
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1463409",
@@ -6024,7 +6024,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 21,
+    "playersRegistered": 23,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6037,7 +6037,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1463224",
@@ -6051,7 +6051,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 + 5",
-    "playersRegistered": 17,
+    "playersRegistered": 18,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6064,7 +6064,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1463493",
@@ -6078,7 +6078,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 phút + 30 giây",
-    "playersRegistered": 24,
+    "playersRegistered": 31,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6091,7 +6091,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1463466",
@@ -6105,7 +6105,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 phút + 5 giây",
-    "playersRegistered": 28,
+    "playersRegistered": 29,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6159,7 +6159,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10+0",
-    "playersRegistered": 0,
+    "playersRegistered": 2,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6172,7 +6172,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1464015",
@@ -6334,7 +6334,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464975",
@@ -6348,7 +6348,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "50+10",
-    "playersRegistered": 87,
+    "playersRegistered": 93,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6375,7 +6375,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 minutes + 30 seconds increment",
-    "playersRegistered": 20,
+    "playersRegistered": 24,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6402,7 +6402,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 minutes + 30 seconds increment",
-    "playersRegistered": 16,
+    "playersRegistered": 18,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6509,13 +6509,13 @@
     "name": "TRESTON INTERNATIONAL COLLEGE RAPID CHESS TOURNAME",
     "startDate": "2026-08-01",
     "endDate": "2026-08-01",
-    "city": "Plenary Halls, Treston International College, BGC, Taguig",
+    "city": "4th Floor Plenary Hall, Treston International College, BGC, Taguig",
     "country": "Philippines",
     "countryCode": "PH",
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1",
-    "playersRegistered": 9,
+    "playersRegistered": 54,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6569,7 +6569,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10'+5''",
-    "playersRegistered": 3,
+    "playersRegistered": 4,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6871,7 +6871,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "45 minutos con un incremento de diez segundos por cada jugada desde la jugada 1",
-    "playersRegistered": 4,
+    "playersRegistered": 6,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -6925,7 +6925,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "30 min + 30 segundo de inscremento desde el primer movimiento.",
-    "playersRegistered": 15,
+    "playersRegistered": 19,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7141,7 +7141,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15+0",
-    "playersRegistered": 2,
+    "playersRegistered": 5,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7168,7 +7168,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15+0",
-    "playersRegistered": 2,
+    "playersRegistered": 3,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7195,7 +7195,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 minutes + 30 seconds increment per move starting from the 1st move",
-    "playersRegistered": 54,
+    "playersRegistered": 58,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7240,7 +7240,7 @@
   {
     "id": "chess-results-1465442",
     "slug": "3rd-mahayudh-chess-championship-rapid-1465442",
-    "name": "3rd Mahayudh Chess Championship-RAPID",
+    "name": "3rd Mahayudh Chess Championship (U11, U17)",
     "startDate": "2026-08-01",
     "endDate": "2026-08-01",
     "city": "",
@@ -7249,7 +7249,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15+10",
-    "playersRegistered": 34,
+    "playersRegistered": 39,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7259,6 +7259,367 @@
     "websiteUrl": "https://chess-results.com/tnr1465442.aspx?lan=1",
     "description": null,
     "organizer": "Rituraj Chess academy",
+    "source": "chess-results",
+    "sections": 2,
+    "ageGroups": [
+      "U11",
+      "U17"
+    ],
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465635",
+    "slug": "global-chess-open-начинающие-до-12-лет-1465635",
+    "name": "GLOBAL CHESS OPEN (начинающие до 12 лет)",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "Шымкент, ул. Казыбек би 61, шахматный клуб \"GLOBAL CHESS\"",
+    "country": "Kazakhstan",
+    "countryCode": "KZ",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": null,
+    "playersRegistered": 1,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465635.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465635.aspx?lan=1",
+    "description": null,
+    "organizer": "ШК \"GLOBAL CHESS\"",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465629",
+    "slug": "circuito-mensual-ii-irt-clasico-sube-tu-elo-fide-e-1465629",
+    "name": "Circuito Mensual II IRT Clasico Sube Tu ELO FIDE e",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "FUNDACIÓN TU AJEDREZ - Circulo Militar Caracas",
+    "country": "Venezuela",
+    "countryCode": "VE",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "45 min with 30 sec add from move 1",
+    "playersRegistered": 0,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465629.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465629.aspx?lan=1",
+    "description": null,
+    "organizer": "Calderon Penaloza, Ricardo Arturo 23907215; Restrepo, Santiago 3910156",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465628",
+    "slug": "circuito-mensual-ii-irt-clasico-sube-tu-elo-fide-e-1465628",
+    "name": "Circuito Mensual II IRT Clasico Sube Tu ELO FIDE e",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "FUNDACIÓN TU AJEDREZ - Circulo Militar Caracas",
+    "country": "Venezuela",
+    "countryCode": "VE",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "45 min with 30 sec add from move 1",
+    "playersRegistered": 0,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465628.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465628.aspx?lan=1",
+    "description": null,
+    "organizer": "Calderon Penaloza, Ricardo Arturo 23907215; Restrepo, Santiago 3910156",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465627",
+    "slug": "circuito-mensual-ii-irt-clasico-sube-tu-elo-fide-e-1465627",
+    "name": "Circuito Mensual II IRT Clasico Sube Tu ELO FIDE e",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "FUNDACIÓN TU AJEDREZ - Circulo Militar Caracas",
+    "country": "Venezuela",
+    "countryCode": "VE",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60 min with 30 sec add from move 1",
+    "playersRegistered": 0,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465627.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465627.aspx?lan=1",
+    "description": null,
+    "organizer": "Calderon Penaloza, Ricardo Arturo 23907215; Restrepo, Santiago 3910156",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465548",
+    "slug": "72º-jeps-2026-fase-final-a-campo-mourãomasculi-1465548",
+    "name": "72º JEPs 2026 - Fase FInal A - Campo MourãoMasculi",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-01",
+    "city": "Campo Mourão",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "15'+5\"",
+    "playersRegistered": 16,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465548.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465548.aspx?lan=1",
+    "description": null,
+    "organizer": "Governo do Estado do Parana - Sec. de Estado da Educacao - IPCE",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465547",
+    "slug": "72º-jeps-2026-fase-final-a-campo-mourãofeminin-1465547",
+    "name": "72º JEPs 2026 - Fase FInal A - Campo MourãoFeminin",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-01",
+    "city": "Campo Mourão",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "15'+5\"",
+    "playersRegistered": 18,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465547.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465547.aspx?lan=1",
+    "description": null,
+    "organizer": "Governo do Estado do Parana - Sec. de Estado da Educacao - IPCE",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465539",
+    "slug": "jmc-closed-2026-u18-1465539",
+    "name": "JMC Closed 2026 (U8, U10, U12, U14, U16, U18)",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "Crawford International Prep School Sandton",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60/60 +30s Inc",
+    "playersRegistered": 91,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465539.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465539.aspx?lan=1",
+    "description": null,
+    "organizer": "Matthew Jonker",
+    "source": "chess-results",
+    "sections": 6,
+    "ageGroups": [
+      "U8",
+      "U10",
+      "U12",
+      "U14",
+      "U16",
+      "U18"
+    ],
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465538",
+    "slug": "jmc-closed-2026-ladies-section-1465538",
+    "name": "JMC Closed 2026 - Ladies Section",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "Crawford International Prep School Sandton",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60/60 +30s Inc",
+    "playersRegistered": 2,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465538.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465538.aspx?lan=1",
+    "description": null,
+    "organizer": "Matthew Jonker",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465537",
+    "slug": "jmc-closed-2026-c-section-1465537",
+    "name": "JMC Closed 2026 - C Section",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "Crawford International Prep School Sandton",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60/60 +30s Inc",
+    "playersRegistered": 4,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465537.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465537.aspx?lan=1",
+    "description": null,
+    "organizer": "Matthew Jonker",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465536",
+    "slug": "jmc-closed-2026-b-section-1465536",
+    "name": "JMC Closed 2026 - B Section",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "Crawford International Prep School Sandton",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60/60 +30s Inc",
+    "playersRegistered": 10,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465536.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465536.aspx?lan=1",
+    "description": null,
+    "organizer": "Matthew Jonker",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465535",
+    "slug": "jmc-closed-2026-a-section-1465535",
+    "name": "JMC Closed 2026 - A Section",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "city": "Crawford International Prep School Sandton",
+    "country": "South Africa",
+    "countryCode": "ZA",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60/60 +30s Inc",
+    "playersRegistered": 9,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465535.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465535.aspx?lan=1",
+    "description": null,
+    "organizer": "Matthew Jonker",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465559",
+    "slug": "cagayan-valley-chess-association-cvca-fide-rated-1465559",
+    "name": "Cagayan Valley Chess Association (CVCA) FIDE Rated",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-01",
+    "city": "SM Center Tuguegarao Downtown, Tuguegarao City, Cagayan",
+    "country": "Philippines",
+    "countryCode": "PH",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 minutes + 2 seconds Increment",
+    "playersRegistered": 60,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465559.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465559.aspx?lan=1",
+    "description": null,
+    "organizer": null,
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465492",
+    "slug": "rápido-fide-01º-de-agosto-3ª-etapa-do-circuito-r-1465492",
+    "name": "Rápido FIDE 01º de agosto - 3ª Etapa do Circuito R",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-01",
+    "city": "",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15min + 5s/lance",
+    "playersRegistered": 5,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465492.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465492.aspx?lan=1",
+    "description": null,
+    "organizer": "ALEX - Associação Leopoldinense de Xadrez",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -7305,7 +7666,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 mins + 2 sec increment",
-    "playersRegistered": 18,
+    "playersRegistered": 19,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7318,7 +7679,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1387689",
@@ -7683,7 +8044,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "12 minutos com 5 segundos de incremento",
-    "playersRegistered": 110,
+    "playersRegistered": 112,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7696,7 +8057,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1418809",
@@ -7750,7 +8111,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1424999",
@@ -7818,7 +8179,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10'+5\" /Bronstein/",
-    "playersRegistered": 22,
+    "playersRegistered": 23,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -7831,7 +8192,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1424504",
@@ -8017,7 +8378,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 67,
+    "playersRegistered": 69,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -8030,7 +8391,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 11
+    "playersTrend": 13
   },
   {
     "id": "chess-results-1446782",
@@ -8044,7 +8405,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 58,
+    "playersRegistered": 61,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -8057,7 +8418,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1448190",
@@ -8071,7 +8432,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 MINUTES +5 SECONDS BONUS FROM MOVE NUMBER 1",
-    "playersRegistered": 105,
+    "playersRegistered": 111,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -8084,7 +8445,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 10
   },
   {
     "id": "chess-results-1448889",
@@ -8368,7 +8729,7 @@
     "name": "KHONKAEN X CHESS GUILD 5th FIDE Rated Tournament (",
     "startDate": "2026-08-02",
     "endDate": "2026-08-02",
-    "city": "",
+    "city": "Central Plaza Khonkaen",
     "country": "Thailand",
     "countryCode": "TH",
     "rounds": null,
@@ -8873,7 +9234,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 9
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1455057",
@@ -9076,7 +9437,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes with 5 second increment from move 1",
-    "playersRegistered": 77,
+    "playersRegistered": 79,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -9089,7 +9450,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1458193",
@@ -9116,7 +9477,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1458553",
@@ -9130,7 +9491,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "20 MINUTES EACH",
-    "playersRegistered": 0,
+    "playersRegistered": 28,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -9143,7 +9504,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 28
   },
   {
     "id": "chess-results-1459655",
@@ -9166,7 +9527,7 @@
     "registrationUrl": "https://chess-results.com/tnr1459655.aspx?lan=1",
     "websiteUrl": "https://chess-results.com/tnr1459655.aspx?lan=1",
     "description": null,
-    "organizer": "SRI RAGHAVENDRA CHESS ACADRMY AND PALLAVA CHESS ACADEMY",
+    "organizer": "SRI RAGHAVENDRA CHESS ACADRMY AND GOLDEN CHESS CENTRE",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -9238,7 +9599,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10minutes+5secs increment from move no.1",
-    "playersRegistered": 27,
+    "playersRegistered": 64,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -9251,7 +9612,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 13
+    "playersTrend": 50
   },
   {
     "id": "chess-results-1460257",
@@ -9440,7 +9801,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1461350",
@@ -9648,7 +10009,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10m",
-    "playersRegistered": 104,
+    "playersRegistered": 145,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -9661,7 +10022,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 48
+    "playersTrend": 89
   },
   {
     "id": "chess-results-1461825",
@@ -9837,7 +10198,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15.5",
-    "playersRegistered": 21,
+    "playersRegistered": 31,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -9850,7 +10211,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 13
+    "playersTrend": 23
   },
   {
     "id": "chess-results-1462722",
@@ -9877,7 +10238,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 17
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1462717",
@@ -9904,7 +10265,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 29
+    "playersTrend": 15
   },
   {
     "id": "chess-results-1462927",
@@ -10039,7 +10400,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1463046",
@@ -10107,7 +10468,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 MINUTES + 05 SECOND INCREMENT PER MOVE",
-    "playersRegistered": 10,
+    "playersRegistered": 11,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -10120,7 +10481,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1462997",
@@ -10381,7 +10742,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1463827",
@@ -10449,7 +10810,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1",
-    "playersRegistered": 14,
+    "playersRegistered": 19,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -10462,7 +10823,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1463985",
@@ -10476,7 +10837,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1",
-    "playersRegistered": 5,
+    "playersRegistered": 8,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -10489,7 +10850,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1463956",
@@ -10624,7 +10985,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464910",
@@ -10744,7 +11105,7 @@
     "name": "KHONKAEN X CHESS GUILD 5th FIDE Rated Tournament",
     "startDate": "2026-08-02",
     "endDate": "2026-08-02",
-    "city": "",
+    "city": "Central Plaza Khonkaen",
     "country": "Thailand",
     "countryCode": "TH",
     "rounds": null,
@@ -10858,7 +11219,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "3'+2\"",
-    "playersRegistered": 0,
+    "playersRegistered": 18,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -10976,6 +11337,60 @@
     "websiteUrl": "https://chess-results.com/tnr1465417.aspx?lan=1",
     "description": null,
     "organizer": "Dhruvik Chess Academy",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465546",
+    "slug": "72º-jeps-2026-fase-final-a-campo-mourãomasculi-1465546",
+    "name": "72º JEPs 2026 - Fase FInal A - Campo MourãoMasculi",
+    "startDate": "2026-08-02",
+    "endDate": "2026-08-02",
+    "city": "Campo Mourão",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "3'+2\"",
+    "playersRegistered": 16,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465546.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465546.aspx?lan=1",
+    "description": null,
+    "organizer": "Governo do Estado do Parana - Sec. de Estado da Educacao - IPCE",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465545",
+    "slug": "chess-960-championship-1465545",
+    "name": "Chess 960 Championship",
+    "startDate": "2026-08-02",
+    "endDate": "2026-08-02",
+    "city": "340 Henry St., unit 12 upper, Brantford, ON",
+    "country": "Canada",
+    "countryCode": "CA",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 min + 10 sec",
+    "playersRegistered": 1,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465545.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465545.aspx?lan=1",
+    "description": null,
+    "organizer": "ChessUA Club Brantford",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -11109,7 +11524,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes/40 moves + 30 sec/move",
-    "playersRegistered": 192,
+    "playersRegistered": 195,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -11122,7 +11537,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1342553",
@@ -11136,7 +11551,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes/40 moves + 15 min KO + 30 sec/move",
-    "playersRegistered": 210,
+    "playersRegistered": 221,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -11149,7 +11564,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 16
   },
   {
     "id": "chess-results-1234862",
@@ -11848,7 +12263,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 seg por jugada",
-    "playersRegistered": 7,
+    "playersRegistered": 8,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -11861,7 +12276,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1462748",
@@ -12074,7 +12489,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "8 min + 3 seg por jugada",
-    "playersRegistered": 41,
+    "playersRegistered": 42,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12087,7 +12502,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 11
+    "playersTrend": 12
   },
   {
     "id": "chess-results-1335137",
@@ -12128,7 +12543,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minuta za cijelu partiju s dodatkom od 5 sekundi po potezu počevši od prvog poteza (Fischer)",
-    "playersRegistered": 46,
+    "playersRegistered": 51,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12141,7 +12556,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1449769",
@@ -12263,7 +12678,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 Minutes+30Secs incr. from move no.1",
-    "playersRegistered": 54,
+    "playersRegistered": 72,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12276,7 +12691,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 20
   },
   {
     "id": "chess-results-1459710",
@@ -12344,7 +12759,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90'+30''",
-    "playersRegistered": 16,
+    "playersRegistered": 18,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12357,7 +12772,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1464798",
@@ -12581,7 +12996,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1420816",
@@ -12595,7 +13010,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 sec",
-    "playersRegistered": 170,
+    "playersRegistered": 175,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12608,7 +13023,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 16
+    "playersTrend": 21
   },
   {
     "id": "chess-results-1399981",
@@ -12784,7 +13199,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90'+30''",
-    "playersRegistered": 21,
+    "playersRegistered": 23,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12797,7 +13212,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1461066",
@@ -12811,7 +13226,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90'+30''",
-    "playersRegistered": 49,
+    "playersRegistered": 60,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12824,7 +13239,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 12
   },
   {
     "id": "chess-results-1461065",
@@ -12838,7 +13253,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90'+30''",
-    "playersRegistered": 30,
+    "playersRegistered": 33,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -12851,7 +13266,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1462090",
@@ -13124,7 +13539,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "2h / 40 + 30m",
-    "playersRegistered": 96,
+    "playersRegistered": 97,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -13137,7 +13552,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1438161",
@@ -13164,7 +13579,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1359931",
@@ -13583,7 +13998,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90'+30\"/1z",
-    "playersRegistered": 15,
+    "playersRegistered": 16,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -13596,7 +14011,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1455093",
@@ -13799,7 +14214,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60'+30''",
-    "playersRegistered": 103,
+    "playersRegistered": 115,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -13812,7 +14227,7 @@
     "source": "chess-results",
     "sections": 10,
     "ageGroups": null,
-    "playersTrend": 7
+    "playersTrend": 19
   },
   {
     "id": "chess-results-1461499",
@@ -13974,7 +14389,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464636",
@@ -14001,7 +14416,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1464635",
@@ -14025,6 +14440,33 @@
     "websiteUrl": "https://chess-results.com/tnr1464635.aspx?lan=1",
     "description": null,
     "organizer": "Chessbattle Şahmat Klubu",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": 0
+  },
+  {
+    "id": "chess-results-1465500",
+    "slug": "copa-13-de-agosto-pinar-del-rio-2026-standard-1465500",
+    "name": "COPA 13 DE AGOSTO PINAR DEL RIO 2026. STANDARD",
+    "startDate": "2026-08-07",
+    "endDate": "2026-08-12",
+    "city": "ACADEMIA MUNICIPAL JOSE RAUL CAPABLANCA DEL MUNICIPIO DE PINAR DEL RIO",
+    "country": "Cuba",
+    "countryCode": "CU",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60 MINUTOS FINISH CON 30 SEGUNDOS DE BONIFICACION DESDE EL PRIMER MOVIMIENTO",
+    "playersRegistered": 24,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465500.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465500.aspx?lan=1",
+    "description": null,
+    "organizer": "3532577 Díaz Martínez Janoys NA",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -14480,7 +14922,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 min + 5 s/tah",
-    "playersRegistered": 23,
+    "playersRegistered": 24,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -14493,7 +14935,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1433716",
@@ -14682,7 +15124,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 12
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1449101",
@@ -14709,7 +15151,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 7
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1451485",
@@ -14844,7 +15286,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1452810",
@@ -14871,7 +15313,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1452805",
@@ -14898,7 +15340,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1454280",
@@ -15141,7 +15583,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1456869",
@@ -15182,7 +15624,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10' + 5\" ou 15 ko",
-    "playersRegistered": 13,
+    "playersRegistered": 17,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -15195,7 +15637,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1457172",
@@ -15416,7 +15858,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1460873",
@@ -15470,7 +15912,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1460860",
@@ -15497,7 +15939,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1460859",
@@ -15754,7 +16196,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 + 3",
-    "playersRegistered": 223,
+    "playersRegistered": 226,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -15767,7 +16209,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 39
+    "playersTrend": 42
   },
   {
     "id": "chess-results-1462337",
@@ -15986,7 +16428,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 15
+    "playersTrend": 13
   },
   {
     "id": "chess-results-1464296",
@@ -16175,7 +16617,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1465176",
@@ -16243,7 +16685,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60`+30``",
-    "playersRegistered": 3,
+    "playersRegistered": 9,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -16283,6 +16725,68 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465615",
+    "slug": "u-14-boys-sgfi-junagadh-city-chess-tournament-1465615",
+    "name": "Boys S.G.F.I. Junagadh City Chess Tournament (U14, U17, U19)",
+    "startDate": "2026-08-08",
+    "endDate": "2026-08-08",
+    "city": "Junagadh",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": null,
+    "playersRegistered": 93,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465615.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465615.aspx?lan=1",
+    "description": null,
+    "organizer": null,
+    "source": "chess-results",
+    "sections": 3,
+    "ageGroups": [
+      "U14",
+      "U17",
+      "U19"
+    ],
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465604",
+    "slug": "u-14-girls-sgfi-junagadh-city-chess-tournament-1465604",
+    "name": "Girls S.G.F.I. Junagadh City Chess Tournament (U14, U17, U19)",
+    "startDate": "2026-08-08",
+    "endDate": "2026-08-08",
+    "city": "Junagadh",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": null,
+    "playersRegistered": 62,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465604.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465604.aspx?lan=1",
+    "description": null,
+    "organizer": null,
+    "source": "chess-results",
+    "sections": 3,
+    "ageGroups": [
+      "U14",
+      "U17",
+      "U19"
+    ],
     "playersTrend": null
   },
   {
@@ -16351,7 +16855,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min. + 30 sec. increment from move 1",
-    "playersRegistered": 28,
+    "playersRegistered": 30,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -16378,7 +16882,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min. + 30 sec. increment from move 1",
-    "playersRegistered": 74,
+    "playersRegistered": 76,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -16391,7 +16895,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1391258",
@@ -16607,7 +17111,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1352471",
@@ -16648,7 +17152,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes each with 5 seconds increment from move one",
-    "playersRegistered": 243,
+    "playersRegistered": 247,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -16661,7 +17165,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1444213",
@@ -16702,7 +17206,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 Min + 2 Sec",
-    "playersRegistered": 52,
+    "playersRegistered": 53,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -16715,7 +17219,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 16
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1449138",
@@ -16985,7 +17489,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1452804",
@@ -17012,7 +17516,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1453158",
@@ -17026,7 +17530,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 min+ 5 sec increment from Move 1",
-    "playersRegistered": 17,
+    "playersRegistered": 19,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -17039,7 +17543,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1453931",
@@ -17206,7 +17710,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 8
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1458258",
@@ -17287,7 +17791,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 86
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1459224",
@@ -17328,7 +17832,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 Mins + 10 Seconds from move 1",
-    "playersRegistered": 21,
+    "playersRegistered": 22,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -17341,7 +17845,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1459648",
@@ -17534,7 +18038,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1461369",
@@ -17615,7 +18119,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1461553",
@@ -17669,7 +18173,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 21
+    "playersTrend": 17
   },
   {
     "id": "chess-results-1461926",
@@ -17737,7 +18241,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "7h30-11h30 ngày 09/08/2026",
-    "playersRegistered": 16,
+    "playersRegistered": 17,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -17750,7 +18254,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1461977",
@@ -17904,7 +18408,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 Mins + 10 Sec increment from move 1",
-    "playersRegistered": 30,
+    "playersRegistered": 49,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -17917,7 +18421,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 18
+    "playersTrend": 33
   },
   {
     "id": "chess-results-1463040",
@@ -18160,7 +18664,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464843",
@@ -18336,7 +18840,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 + 3",
-    "playersRegistered": 192,
+    "playersRegistered": 215,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -18417,7 +18921,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15'+5\"",
-    "playersRegistered": 1,
+    "playersRegistered": 21,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -18444,7 +18948,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15'+5\"",
-    "playersRegistered": 0,
+    "playersRegistered": 26,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -18471,7 +18975,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 Min each + 3 sec increment from first move",
-    "playersRegistered": 21,
+    "playersRegistered": 34,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -18498,7 +19002,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 Min each + 3 sec increment from first move",
-    "playersRegistered": 56,
+    "playersRegistered": 112,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -18589,6 +19093,33 @@
     "websiteUrl": "https://chess-results.com/tnr1465310.aspx?lan=1",
     "description": null,
     "organizer": "CLB Kiện tướng tương lai",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465570",
+    "slug": "sveti-pantelejmon-2026-1465570",
+    "name": "Sveti Pantelejmon 2026",
+    "startDate": "2026-08-09",
+    "endDate": "2026-08-09",
+    "city": "Jagodina",
+    "country": "Serbia",
+    "countryCode": "RS",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "10 min. + 5 sec.",
+    "playersRegistered": 6,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465570.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465570.aspx?lan=1",
+    "description": null,
+    "organizer": "Novi Sah Klub Jagodina",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -19082,6 +19613,33 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
+    "playersTrend": 3
+  },
+  {
+    "id": "chess-results-1465587",
+    "slug": "4th-international-taj-academy-classic-chess-tourn-1465587",
+    "name": "4th International Taj Academy Classic Chess Tourn",
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-15",
+    "city": "Erbil",
+    "country": "Iraq",
+    "countryCode": "IQ",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "60 minutes with 30 second increment from move 1",
+    "playersRegistered": 18,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465587.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465587.aspx?lan=1",
+    "description": null,
+    "organizer": "Taj Academy",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
     "playersTrend": null
   },
   {
@@ -19187,7 +19745,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "30 min. + 30 sek.",
-    "playersRegistered": 26,
+    "playersRegistered": 30,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -19200,7 +19758,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1426506",
@@ -19214,7 +19772,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes + 30 seconds increment from move number 1",
-    "playersRegistered": 19,
+    "playersRegistered": 21,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -19227,7 +19785,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1405075",
@@ -19254,7 +19812,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1405091",
@@ -19281,7 +19839,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 9
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1457078",
@@ -19600,7 +20158,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes with 30 second increment from move 1",
-    "playersRegistered": 24,
+    "playersRegistered": 26,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -19613,7 +20171,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1451189",
@@ -20007,7 +20565,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1385015",
@@ -20480,7 +21038,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 Minutes + 5 Seconds Increment",
-    "playersRegistered": 22,
+    "playersRegistered": 23,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -20493,7 +21051,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 7
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1461713",
@@ -20655,7 +21213,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 82
   },
   {
     "id": "chess-results-1464746",
@@ -20682,7 +21240,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 21
   },
   {
     "id": "chess-results-1460953",
@@ -20949,7 +21507,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90min/40moves+30min+30sec/move starting from move 1",
-    "playersRegistered": 124,
+    "playersRegistered": 126,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -20962,7 +21520,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 8
   },
   {
     "id": "chess-results-1384210",
@@ -21003,7 +21561,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min voor 40 zetten + 30 min + 30 sec per zet vanaf zet 1",
-    "playersRegistered": 81,
+    "playersRegistered": 86,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -21016,7 +21574,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1435246",
@@ -21205,7 +21763,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 22
+    "playersTrend": 16
   },
   {
     "id": "chess-results-1429978",
@@ -22326,7 +22884,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10' + 3\"",
-    "playersRegistered": 33,
+    "playersRegistered": 34,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -22339,7 +22897,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1453083",
@@ -22474,7 +23032,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1453833",
@@ -22839,7 +23397,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "45+15",
-    "playersRegistered": 4,
+    "playersRegistered": 6,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -22852,7 +23410,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1460890",
@@ -22866,7 +23424,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15",
-    "playersRegistered": 35,
+    "playersRegistered": 37,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -22879,7 +23437,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1460966",
@@ -23001,7 +23559,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15+5",
-    "playersRegistered": 56,
+    "playersRegistered": 58,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -23014,7 +23572,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 10
+    "playersTrend": 7
   },
   {
     "id": "chess-results-1462161",
@@ -23109,7 +23667,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 min + 5 sec.",
-    "playersRegistered": 0,
+    "playersRegistered": 1,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -23122,7 +23680,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1462502",
@@ -23149,7 +23707,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1462776",
@@ -23449,6 +24007,63 @@
     "playersTrend": null
   },
   {
+    "id": "chess-results-1465552",
+    "slug": "under-10-4th-edition-of-checkers-chess-tournament-1465552",
+    "name": "4TH EDITION OF CHECKERS CHESS TOURNAMENT (U10, U14)",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-15",
+    "city": "MIPS COLLEGE MORTA, RAJNAGAR EXTENSION GHAZIABAD.",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 MINUTES + 10 SECOND INCREMENT PER MOVE",
+    "playersRegistered": 7,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465552.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465552.aspx?lan=1",
+    "description": null,
+    "organizer": "LEARNERS CHESS ACADEMY",
+    "source": "chess-results",
+    "sections": 2,
+    "ageGroups": [
+      "U10",
+      "U14"
+    ],
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465550",
+    "slug": "under-07-4th-edition-of-checkers-chess-tournament-1465550",
+    "name": "UNDER-07 4TH EDITION OF CHECKERS CHESS TOURNAMENT",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-15",
+    "city": "MIPS COLLEGE MORTA RAJNAGAR EXTENSION GHAZIABAD.",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 MINUTES + 10 SECOND INCREMENT PER MOVE",
+    "playersRegistered": 1,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465550.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465550.aspx?lan=1",
+    "description": null,
+    "organizer": "LEARNERS CHESS ACADEMY",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
     "id": "fide-484570",
     "slug": "2026-august-mechanics-weekend-rapid-1800-and-over-fide-484570",
     "name": "2026 August Mechanics' Weekend - Rapid 1800 and Over",
@@ -23680,7 +24295,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutos+ 3 segundos",
-    "playersRegistered": 13,
+    "playersRegistered": 14,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -23693,7 +24308,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1399394",
@@ -24031,7 +24646,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minutes for game with 5 seconds increment from move 1",
-    "playersRegistered": 99,
+    "playersRegistered": 105,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -24044,7 +24659,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 5
+    "playersTrend": 11
   },
   {
     "id": "chess-results-1456482",
@@ -24668,7 +25283,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1462428",
@@ -24682,7 +25297,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 min + 5 sec.",
-    "playersRegistered": 4,
+    "playersRegistered": 6,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -24695,7 +25310,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1463246",
@@ -24808,7 +25423,7 @@
       "U9",
       "U11"
     ],
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464733",
@@ -24835,7 +25450,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464702",
@@ -24862,7 +25477,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464941",
@@ -25021,6 +25636,63 @@
     "websiteUrl": "https://chess-results.com/tnr1465403.aspx?lan=1",
     "description": null,
     "organizer": "Jayaam rashi R",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465553",
+    "slug": "under-12-4th-edition-of-checkers-chess-tournament-1465553",
+    "name": "4TH EDITION OF CHECKERS CHESS TOURNAMENT (U12, U16)",
+    "startDate": "2026-08-16",
+    "endDate": "2026-08-16",
+    "city": "MIPS COLLEGE MORTA, RAJNAGAR EXTENSION GHAZIABAD.",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 MINUTES + 10 SECOND INCREMENT PER MOVE",
+    "playersRegistered": 6,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465553.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465553.aspx?lan=1",
+    "description": null,
+    "organizer": "LEARNERS CHESS ACADEMY",
+    "source": "chess-results",
+    "sections": 2,
+    "ageGroups": [
+      "U12",
+      "U16"
+    ],
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465551",
+    "slug": "under-08-4th-edition-of-checkers-chess-tournament-1465551",
+    "name": "UNDER-08 4TH EDITION OF CHECKERS CHESS TOURNAMENT",
+    "startDate": "2026-08-16",
+    "endDate": "2026-08-16",
+    "city": "MIPS COLLEGE MORTA, RAJAGAR EXTENSION GHAZIABAD.",
+    "country": "India",
+    "countryCode": "IN",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 MINUTES + 10 SECOND INCREMENT PER MOVE",
+    "playersRegistered": 1,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465551.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465551.aspx?lan=1",
+    "description": null,
+    "organizer": "LEARNERS CHESS ACADEMY",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -25590,7 +26262,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 Min./40 Züge + 30 Minuten + 30 Sek. ab dem 1. Zug",
-    "playersRegistered": 22,
+    "playersRegistered": 24,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -25698,7 +26370,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 seg plus from move 1",
-    "playersRegistered": 14,
+    "playersRegistered": 13,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -25711,7 +26383,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": -1
   },
   {
     "id": "chess-results-1463072",
@@ -26617,7 +27289,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "80 minutos + 10 segundos por jugador",
-    "playersRegistered": 73,
+    "playersRegistered": 74,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -26630,7 +27302,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 5
   },
   {
     "id": "chess-results-1365583",
@@ -26671,7 +27343,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90+30 ou 120 ko",
-    "playersRegistered": 83,
+    "playersRegistered": 85,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -26684,7 +27356,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1428643",
@@ -26698,7 +27370,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90m+30s",
-    "playersRegistered": 38,
+    "playersRegistered": 39,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -26792,7 +27464,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1380449",
@@ -27254,6 +27926,33 @@
     "playersTrend": null
   },
   {
+    "id": "chess-results-1465526",
+    "slug": "3º-metropolitano-de-ponta-porã-ms-edição-2026ii-1465526",
+    "name": "3º Metropolitano de Ponta Porã MS – Edição 2026II",
+    "startDate": "2026-08-21",
+    "endDate": "2026-08-22",
+    "city": "Clube de Xadrez anexo a Secretaria de esporte e lazer de Ponta Porã Ponta",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "25+5",
+    "playersRegistered": 0,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465526.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465526.aspx?lan=1",
+    "description": null,
+    "organizer": "CAXPP - CIRCULO AMIGOS DO XADREZ DE PPA E CXPP - CLUBE DE XADREZ DE PPA",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
     "id": "fide-482938",
     "slug": "2026-august-weekend-chess-classic-under-1800-fide-482938",
     "name": "2026 August Weekend Chess Classic - Under 1800",
@@ -27709,7 +28408,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 Min. / 40 Züge + 30 Min. + 30 Sekunden ab Zug 1",
-    "playersRegistered": 20,
+    "playersRegistered": 21,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -27722,7 +28421,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1306650",
@@ -27736,7 +28435,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 Min. / 40 Züge + 30 Min. + 30 Sekunden ab Zug 1",
-    "playersRegistered": 35,
+    "playersRegistered": 36,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -27749,7 +28448,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1306649",
@@ -27763,7 +28462,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 Min. / 40 Züge + 30 Min. + 30 Sekunden ab Zug 1",
-    "playersRegistered": 37,
+    "playersRegistered": 38,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -27776,7 +28475,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1336019",
@@ -27871,7 +28570,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90'+30\"",
-    "playersRegistered": 46,
+    "playersRegistered": 47,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -27884,7 +28583,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1392956",
@@ -27925,7 +28624,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "G: 15 minutes + 10 seconds increment from move 1",
-    "playersRegistered": 63,
+    "playersRegistered": 64,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -27938,7 +28637,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1394733",
@@ -28654,7 +29353,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "G: 15 minutes + 10 seconds increment from move 1",
-    "playersRegistered": 13,
+    "playersRegistered": 14,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -28667,7 +29366,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1428975",
@@ -28937,7 +29636,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 10
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1453224",
@@ -29653,7 +30352,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minit + 3 second increment",
-    "playersRegistered": 22,
+    "playersRegistered": 23,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -29680,7 +30379,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 minit + 3 second increment",
-    "playersRegistered": 0,
+    "playersRegistered": 58,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -29828,7 +30527,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": -5
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1429384",
@@ -30128,7 +30827,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1455921",
@@ -30142,7 +30841,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "12+3",
-    "playersRegistered": 21,
+    "playersRegistered": 33,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -30155,7 +30854,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 12
   },
   {
     "id": "chess-results-1456586",
@@ -30196,7 +30895,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15.5",
-    "playersRegistered": 49,
+    "playersRegistered": 50,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -30212,7 +30911,7 @@
       "U10",
       "U15"
     ],
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1456890",
@@ -30485,7 +31184,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1460829",
@@ -30553,7 +31252,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90min+30sec/mutare",
-    "playersRegistered": 20,
+    "playersRegistered": 22,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -30566,7 +31265,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1462955",
@@ -30620,7 +31319,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1465221",
@@ -30746,7 +31445,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "G: 90 minutes + 30 seconds increment from move 1",
-    "playersRegistered": 62,
+    "playersRegistered": 63,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -30759,7 +31458,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1395378",
@@ -30840,7 +31539,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464869",
@@ -30881,7 +31580,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90' + 30'' PER MOVE",
-    "playersRegistered": 93,
+    "playersRegistered": 94,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -30894,7 +31593,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1380341",
@@ -30948,7 +31647,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": -1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1388538",
@@ -30962,7 +31661,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "1h30' für 40Z + 30' Rest + 30'' ab Z1",
-    "playersRegistered": 41,
+    "playersRegistered": 42,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -30975,7 +31674,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1388533",
@@ -30989,7 +31688,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "1h30' für 40Z + 30' Rest + 30'' ab Z1",
-    "playersRegistered": 14,
+    "playersRegistered": 15,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -31002,7 +31701,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": -1
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1369104",
@@ -31178,7 +31877,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 + 5",
-    "playersRegistered": 4,
+    "playersRegistered": 7,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -31635,7 +32334,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 1
   },
   {
     "id": "fide-469772",
@@ -31792,7 +32491,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90min/40moves + 15min/end + 30sec increment per move starting from move 1",
-    "playersRegistered": 251,
+    "playersRegistered": 253,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -31805,7 +32504,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 7
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1391608",
@@ -31819,7 +32518,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 Minutos mas 30 segundos de incremento desde la jugada inicial",
-    "playersRegistered": 39,
+    "playersRegistered": 40,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -31832,7 +32531,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1435914",
@@ -32102,7 +32801,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1444664",
@@ -32770,7 +33469,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 minutes plus 30 seconds delay",
-    "playersRegistered": 6,
+    "playersRegistered": 7,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -32783,7 +33482,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1443045",
@@ -33094,7 +33793,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 minutes plus 30 seconds delay",
-    "playersRegistered": 16,
+    "playersRegistered": 17,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -33107,7 +33806,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1457654",
@@ -34141,7 +34840,7 @@
   {
     "id": "chess-results-1464038",
     "slug": "i-festival-de-xadrez-serrasul-shopping-id-cbx-1464038",
-    "name": "I FESTIVAL DE XADREZ SERRASUL SHOPPING - ID CBX...",
+    "name": "I FESTIVAL DE XADREZ SERRASUL SHOPPING - ID CBX 10",
     "startDate": "2026-08-29",
     "endDate": "2026-08-29",
     "city": "Serrasul Shopping - Pouso Alegre/MG",
@@ -34150,7 +34849,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15' + 3\"",
-    "playersRegistered": 0,
+    "playersRegistered": 2,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -34163,7 +34862,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1464194",
@@ -34241,6 +34940,33 @@
     "websiteUrl": "https://chess-results.com/tnr1378095.aspx?lan=1",
     "description": null,
     "organizer": "ETELVINO QUINTINO MIRANDA DE AZEVEDO",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465510",
+    "slug": "brantford-junior-championship-cfc-rated-unrated-s-1465510",
+    "name": "Brantford Junior Championship CFC-Rated (Unrated S",
+    "startDate": "2026-08-29",
+    "endDate": "2026-08-29",
+    "city": "340 Henry St., unit 12 upper, Brantford, ON",
+    "country": "Canada",
+    "countryCode": "CA",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "15 min + 10 sec",
+    "playersRegistered": 2,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465510.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465510.aspx?lan=1",
+    "description": null,
+    "organizer": "ChessUA Club Brantford",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -34673,7 +35399,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "10 + 5",
-    "playersRegistered": 15,
+    "playersRegistered": 16,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -34987,7 +35713,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1460278",
@@ -35001,7 +35727,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": "15 min + 5 seg de incremento",
-    "playersRegistered": 6,
+    "playersRegistered": 8,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -35014,7 +35740,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1460290",
@@ -35092,6 +35818,60 @@
     "websiteUrl": "https://chess-results.com/tnr1464748.aspx?lan=1",
     "description": null,
     "organizer": "Ayuntamiento de Béjar y Club Ajedrez Béjar",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": 0
+  },
+  {
+    "id": "chess-results-1465608",
+    "slug": "iii-memorial-geovany-santos-1465608",
+    "name": "III MEMORIAL GEOVANY SANTOS",
+    "startDate": "2026-08-30",
+    "endDate": "2026-08-30",
+    "city": "Santana de Mangueira - PB",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "10 + 5",
+    "playersRegistered": 5,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465608.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465608.aspx?lan=1",
+    "description": null,
+    "organizer": "XADREZ SM",
+    "source": "chess-results",
+    "sections": null,
+    "ageGroups": null,
+    "playersTrend": null
+  },
+  {
+    "id": "chess-results-1465494",
+    "slug": "treci-memorijalni-rapid-turnir-dejan-bzenic-trst-1465494",
+    "name": "TRECI MEMORIJALNI RAPID TURNIR DEJAN BZENIC - TRST",
+    "startDate": "2026-08-30",
+    "endDate": "2026-08-30",
+    "city": "Trstenik , Izlozbeni likovni salon Doma Kulture",
+    "country": "Serbia",
+    "countryCode": "RS",
+    "rounds": null,
+    "timeControl": "Rapid",
+    "timeControlRaw": "10 min + 5 sec",
+    "playersRegistered": 4,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": true,
+    "registrationUrl": "https://chess-results.com/tnr1465494.aspx?lan=1",
+    "websiteUrl": "https://chess-results.com/tnr1465494.aspx?lan=1",
+    "description": null,
+    "organizer": "SK \" PRVA PETOLETKA \" i porodica Dejana Bzenica .",
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
@@ -35340,7 +36120,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 3
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1464694",
@@ -35367,7 +36147,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1329846",
@@ -36069,7 +36849,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90' + 30'' para relogios digitais",
-    "playersRegistered": 23,
+    "playersRegistered": 25,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -36082,7 +36862,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1344739",
@@ -36345,7 +37125,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes + 30 seconds / per move",
-    "playersRegistered": 96,
+    "playersRegistered": 100,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -36358,7 +37138,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 35
+    "playersTrend": 39
   },
   {
     "id": "chess-results-1460812",
@@ -36520,7 +37300,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464769",
@@ -36547,7 +37327,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1465444",
@@ -37076,7 +37856,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 25
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1413083",
@@ -37630,7 +38410,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "30 Minutes + 30sec. Increment per move from move one",
-    "playersRegistered": 26,
+    "playersRegistered": 35,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -37643,7 +38423,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 9
   },
   {
     "id": "chess-results-1461229",
@@ -38197,7 +38977,7 @@
     "rounds": null,
     "timeControl": "Rapid",
     "timeControlRaw": null,
-    "playersRegistered": 11,
+    "playersRegistered": 15,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -40073,7 +40853,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 min + 30 seg",
-    "playersRegistered": 22,
+    "playersRegistered": 23,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -40086,7 +40866,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 6
+    "playersTrend": 7
   },
   {
     "id": "fide-484583",
@@ -41340,7 +42120,7 @@
   {
     "id": "chess-results-1449942",
     "slug": "campeonatos-provinciales-de-ajedrez-de-la-provinci-1449942",
-    "name": "CAMPEONATOS PROVINCIALES DE AJEDREZ DE LA PROVINCI",
+    "name": "CAMPEONATO ABIERTO DE AJEDREZ- DE LA PROVINCIA DE",
     "startDate": "2026-09-25",
     "endDate": "2026-09-27",
     "city": "Avenida Mar del Plata, C. 35 - Mar Azul, Prov de Bs. As.",
@@ -41349,7 +42129,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "60 Minutos mas 30 segundos de incremento desde la jugada inicial",
-    "playersRegistered": 0,
+    "playersRegistered": 6,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -41362,7 +42142,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 6
   },
   {
     "id": "chess-results-1462254",
@@ -42016,7 +42796,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1464709",
@@ -42043,7 +42823,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1465394",
@@ -42547,7 +43327,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1312677",
@@ -42798,7 +43578,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1385073",
@@ -43458,7 +44238,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1377378",
@@ -43642,7 +44422,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90' + 30'' para relogios digitais",
-    "playersRegistered": 29,
+    "playersRegistered": 30,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -43655,7 +44435,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1346751",
@@ -43912,7 +44692,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "1 hour & 30 minutes + 15 seconds increments from move 1",
-    "playersRegistered": 8,
+    "playersRegistered": 9,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -44620,7 +45400,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 4
+    "playersTrend": 3
   },
   {
     "id": "chess-results-1410149",
@@ -44674,7 +45454,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1410151",
@@ -44742,7 +45522,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes + 30 seconds increment starting from move 1",
-    "playersRegistered": 21,
+    "playersRegistered": 24,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -44755,7 +45535,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 4
   },
   {
     "id": "chess-results-1428440",
@@ -45093,7 +45873,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 minutes with an increment of 30 seconds per move starting as of move 1",
-    "playersRegistered": 155,
+    "playersRegistered": 156,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -45106,7 +45886,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 1
   },
   {
     "id": "chess-results-1040336",
@@ -46836,7 +47616,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 1
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1447774",
@@ -46863,7 +47643,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1439101",
@@ -47100,7 +47880,7 @@
   {
     "id": "chess-results-1465267",
     "slug": "viii-irt-abierto-internacional-mar-de-ajo-2026-1465267",
-    "name": "VIII IRT ABIERTO INTERNACIONAL MAR DE AJO - 2026",
+    "name": "VIII IRT ABIERTO INTERNACIONAL MAR DE AJO - 2026 -",
     "startDate": "2026-11-06",
     "endDate": "2026-11-08",
     "city": "Hosteria Mar de Ajo, Av. Costanera Norte N°205 - Prov. Bs. As.",
@@ -48068,7 +48848,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "fide-485419",
@@ -48837,7 +49617,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "fide-489852",
@@ -50920,7 +51700,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 2
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1447830",
@@ -51235,7 +52015,7 @@
     "rounds": null,
     "timeControl": "Classical",
     "timeControlRaw": "90 min + 30 seg OU 120 min K.O.",
-    "playersRegistered": 11,
+    "playersRegistered": 13,
     "prizePool": null,
     "currency": null,
     "ratingRequirement": null,
@@ -51248,7 +52028,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": 0
+    "playersTrend": 2
   },
   {
     "id": "chess-results-1426913",
@@ -52248,7 +53028,7 @@
     "source": "chess-results",
     "sections": null,
     "ageGroups": null,
-    "playersTrend": null
+    "playersTrend": 0
   },
   {
     "id": "chess-results-1457661",
