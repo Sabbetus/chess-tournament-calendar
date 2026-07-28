@@ -293,16 +293,6 @@ const eventSchema = {
         <div class="fact-value">{t.timeControlRaw}</div>
       </div>
     )}
-    {t.organizer && (
-      <div class="fact-card">
-        <div class="fact-label">{tr.fact_organizer}</div>
-        <div class="fact-value">
-          {t.organizerUrl
-            ? <a href={t.organizerUrl} target="_blank" rel="noopener">{t.organizer}</a>
-            : t.organizer}
-        </div>
-      </div>
-    )}
     {t.playersRegistered !== null && t.playersRegistered !== undefined && (
       <div class="fact-card">
         <div class="fact-label">{tr.fact_registered}</div>
