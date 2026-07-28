@@ -50,7 +50,7 @@ jobs:
         continue-on-error: true
         run: python scraper/scrape_chess_results.py
 
-      - name: Run FIDE ratings scraper (USA)
+      - name: Run FIDE ratings scraper (USA, Australia, Norway, Denmark)
         # Must run after the chess-results scraper: this step rewrites
         # tournaments.json by combining its own archive with whatever the
         # chess-results scraper just wrote there, so it always needs to run
