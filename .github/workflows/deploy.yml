@@ -155,12 +155,19 @@ jobs:
 
           COUNT=$(printf '%s\n' $URLS | grep -c .)
           echo "Submitting $COUNT URLs to IndexNow"
-          PAYLOAD=$(printf '%s\n' $URLS | jq -R . | jq -s '{
+          # Written to a file rather than a $PAYLOAD shell variable: passing a
+          # payload this size as a `curl -d "$PAYLOAD"` command-line argument
+          # blows past the shell's ARG_MAX once the URL count gets into the
+          # thousands (silently: it fails with "Argument list too long" but
+          # the `|| HTTP=000` fallback below turns that into an unremarkable
+          # warning line rather than a failed step, so it went unnoticed for
+          # a full deploy). --data-binary @file has no such limit.
+          printf '%s\n' $URLS | jq -R . | jq -s '{
             host: "chesstournamentcalendar.com",
             key: "d3a6913ec3c84c58bf5edd4a2542ce02",
             keyLocation: "https://chesstournamentcalendar.com/d3a6913ec3c84c58bf5edd4a2542ce02.txt",
             urlList: .
-          }')
+          }' > /tmp/indexnow_payload.json
 
           # --retry/--max-time ride out transient transport errors; the trailing
           # `|| HTTP=000` keeps a curl failure from tripping `set -e` and failing
@@ -169,7 +176,7 @@ jobs:
             --retry 3 --retry-delay 2 --retry-all-errors --max-time 60 \
             -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json; charset=utf-8" \
-            -d "$PAYLOAD") || HTTP="000"
+            --data-binary @/tmp/indexnow_payload.json) || HTTP="000"
           echo "IndexNow HTTP $HTTP"
           cat /tmp/indexnow.out 2>/dev/null || true
           case "$HTTP" in
