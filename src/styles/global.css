@@ -688,6 +688,14 @@ main {
   padding: 0.75rem 1rem;
 }
 
+/* Time control is the one fact whose value can run long ("90min/40moves+
+   30min/end+30sec increment per move starting from move 1"), so it gets the
+   full row width instead of being squeezed into one auto-fit column — on
+   mobile that was one narrow card wrapping across 4+ lines. */
+.fact-card-wide {
+  grid-column: 1 / -1;
+}
+
 .fact-label {
   font-size: 0.62rem;
   text-transform: uppercase;
