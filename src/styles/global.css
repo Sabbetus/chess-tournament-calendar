@@ -699,6 +699,11 @@ main {
 .fact-value {
   font-size: 0.92rem;
   color: var(--text);
+  /* Time control strings like "90min/40moves+30min/end+30sec" are one long
+     token with no spaces to wrap on, so on a narrow card (mobile, where the
+     grid gives this card much less width than on desktop) they overflow
+     past the card's border instead of wrapping. */
+  overflow-wrap: break-word;
 }
 
 .fact-dates { color: #5bbfcf; }
