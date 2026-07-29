@@ -674,9 +674,18 @@ main {
   text-decoration: underline;
 }
 
+/* Flexbox rather than CSS Grid's auto-fit: a grid's auto-fit column *count*
+   is fixed by the container's total width, shared across every row, and a
+   full-width item (fact-card-wide, "grid-column: 1/-1") counts as touching
+   every one of those columns — so its mere presence stopped auto-fit from
+   collapsing unused columns elsewhere, diluting the Dates/Duration cards in
+   a *different* row into much narrower slices than when no wide card was
+   present, which was actually what caused the date range to wrap in the
+   first place. Flexbox has no shared column tracks, so each row sizes
+   itself independently from what's actually in it. */
 .fact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
@@ -686,14 +695,15 @@ main {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.75rem 1rem;
+  flex: 1 1 160px;
 }
 
 /* Time control is the one fact whose value can run long ("90min/40moves+
    30min/end+30sec increment per move starting from move 1"), so it gets the
-   full row width instead of being squeezed into one auto-fit column — on
-   mobile that was one narrow card wrapping across 4+ lines. */
+   full row width instead of being squeezed into one narrow card — on mobile
+   that was one narrow card wrapping across 4+ lines. */
 .fact-card-wide {
-  grid-column: 1 / -1;
+  flex-basis: 100%;
 }
 
 .fact-label {

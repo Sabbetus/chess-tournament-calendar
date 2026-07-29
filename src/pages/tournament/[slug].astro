@@ -196,6 +196,14 @@ const tcClass = t.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical';
 const pageDesc = `${t.name}: ${dateRange}, ${t.city ? t.city + ', ' : ''}${t.country}. ${tcLabel} ${tr.meta_chess_tournament} ${tr.meta_tail}.`;
 const currentPath = `tournament/${t.slug}`;
 const regUrl = t.registrationUrl || t.websiteUrl || undefined;
+// Most time-control strings (chess-results' "Standard: 90 minutes with 30
+// second increment from move 1", short codes like "90' + 30''") wrap or fit
+// fine in a normal grid column. Only FIDE's slash/plus-separated style
+// ("90min/40moves+30min/end+30sec") has a single unbroken token long enough
+// to overflow a narrow column, so only that case needs the full-width card —
+// widening every card by default left a mostly-empty full-width box for the
+// common short case instead.
+const needsWideTimeControl = !!t.timeControlRaw && t.timeControlRaw.split(/\s+/).some((w: string) => w.length > 20);
 // A known organizer site is more useful to a player than FIDE's bare
 // tournament_information.phtml page, so it takes over the primary CTA slot
 // when we have one (FIDE-sourced tournaments only — regUrl still points at
@@ -309,7 +317,7 @@ const eventSchema = {
       </div>
     )}
     {t.timeControlRaw && (
-      <div class="fact-card fact-card-wide">
+      <div class:list={["fact-card", { "fact-card-wide": needsWideTimeControl }]}>
         <div class="fact-label">{tr.fact_time_control}</div>
         <div class="fact-value">{t.timeControlRaw}</div>
       </div>
