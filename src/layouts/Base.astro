@@ -67,32 +67,36 @@ const langLabels: Record<string, string> = {
     "url": "https://chesstournamentcalendar.com"
   })} />
 
-  <!-- Auto-redirect to preferred language (English pages only) -->
-  {lang === 'en' && (
-    <script define:vars={{ currentPath }}>
-      (function() {
-        var saved = localStorage.getItem('ctc-lang');
-        if (saved && saved !== 'en') {
-          var path = currentPath ? '/' + saved + '/' + currentPath : '/' + saved + '/';
-          window.location.replace(path);
-          return;
-        }
-        if (saved) return;
-        var map = { es:'es', pt:'pt', de:'de', cs:'cs', sk:'cs', fi:'fi' };
-        var langs = (navigator.languages || [navigator.language]);
-        for (var i = 0; i < langs.length; i++) {
-          var code = langs[i].split('-')[0].toLowerCase();
-          if (map[code]) {
-            localStorage.setItem('ctc-lang', map[code]);
-            var dest = currentPath ? '/' + map[code] + '/' + currentPath : '/' + map[code] + '/';
-            window.location.replace(dest);
-            return;
-          }
-        }
-        localStorage.setItem('ctc-lang', 'en');
-      })();
-    </script>
-  )}
+  <!-- Auto-redirect to preferred language, from any page. Runs everywhere
+       (not just English pages) because a visitor can land directly on a
+       mismatched-locale page — e.g. Google ranking and serving our Spanish
+       URL to a Finnish-browser visitor for a query neither chose the
+       language for. A saved preference (set here, or by clicking the
+       language switcher) always wins over the page they happened to land
+       on; only first-ever visits fall back to browser-language detection. -->
+  <script define:vars={{ currentPath, lang }}>
+    (function() {
+      function pathFor(target) {
+        return target === 'en'
+          ? (currentPath ? '/' + currentPath + '/' : '/')
+          : (currentPath ? '/' + target + '/' + currentPath + '/' : '/' + target + '/');
+      }
+      var saved = localStorage.getItem('ctc-lang');
+      if (saved) {
+        if (saved !== lang) window.location.replace(pathFor(saved));
+        return;
+      }
+      var map = { es:'es', pt:'pt', de:'de', cs:'cs', sk:'cs', fi:'fi' };
+      var langs = (navigator.languages || [navigator.language]);
+      var detected = 'en';
+      for (var i = 0; i < langs.length; i++) {
+        var code = langs[i].split('-')[0].toLowerCase();
+        if (map[code]) { detected = map[code]; break; }
+      }
+      localStorage.setItem('ctc-lang', detected);
+      if (detected !== lang) window.location.replace(pathFor(detected));
+    })();
+  </script>
 
   <!-- Google Analytics — immediate on desktop, deferred on mobile to avoid blocking render -->
   <script>
