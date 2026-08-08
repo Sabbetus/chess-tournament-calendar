@@ -123,7 +123,19 @@ const titleCountryName = group.displayName.length > maxNameLen
   ? group.displayName.slice(0, maxNameLen - 1).trimEnd() + '…'
   : group.displayName;
 const pageTitle = `${titlePrefix}${titleCountryName}${titleSuffix}`;
-const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ${t.footer_updated}`;
+// Meta descriptions this short (~95 chars with just the count) were flagged
+// by Bing as too thin — padding out with the soonest real tournament's date
+// adds genuine content instead of filler, and pushes length into the normal
+// 120-160 char range search engines expect.
+const soonestDate = [items[0]?.startDate, ...featuredForPage.map((f: any) => f.startDate)]
+  .filter(Boolean)
+  .sort()[0];
+const soonestFormatted = soonestDate
+  ? new Date(soonestDate + 'T00:00:00').toLocaleDateString(t.date_locale, { day: 'numeric', month: 'short', year: 'numeric' })
+  : null;
+const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ` +
+  (soonestFormatted ? `${t.meta_next_event} ${soonestFormatted}. ` : '') +
+  t.footer_updated;
 const currentPath = `country/${group.slug}`;
 
 const breadcrumbItems = [

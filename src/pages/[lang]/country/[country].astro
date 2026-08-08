@@ -127,7 +127,18 @@ const titleCountryName = group.displayName.length > maxNameLen
   ? group.displayName.slice(0, maxNameLen - 1).trimEnd() + '…'
   : group.displayName;
 const pageTitle = `${titlePrefix}${titleCountryName}${titleSuffix}`;
-const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ${t.footer_updated}`;
+// See the English route: padding the description with the soonest real
+// tournament's date fixes Bing flagging these as too short (~95 chars with
+// just the count) by adding genuine content instead of filler.
+const soonestDate = [items[0]?.startDate, ...featuredForPage.map((f: any) => f.startDate)]
+  .filter(Boolean)
+  .sort()[0];
+const soonestFormatted = soonestDate
+  ? new Date(soonestDate + 'T00:00:00').toLocaleDateString(t.date_locale, { day: 'numeric', month: 'short', year: 'numeric' })
+  : null;
+const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ` +
+  (soonestFormatted ? `${t.meta_next_event} ${soonestFormatted}. ` : '') +
+  t.footer_updated;
 const currentPath = `country/${group.slug}`;
 
 const breadcrumbItems = [
