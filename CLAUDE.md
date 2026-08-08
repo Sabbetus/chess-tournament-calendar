@@ -77,11 +77,11 @@ rather than the data-refresh time, so unchanged pages keep an old lastmod.
 
 ## Workflow
 
-- Develop on a branch; **never `git commit` or `git push` — to `main` or to
-  any feature/dev branch — without an explicit, genuine confirmation from the
-  user in that turn.** Finishing a fix/task is not itself permission to push.
-  Don't ask "should I push?" and then treat your own question as answered —
-  wait for the user's actual reply.
+- Develop on a branch; commits are fine to make freely. **`git push` — to
+  `main` or to any feature/dev branch — always needs an explicit, genuine
+  confirmation from the user in that turn.** Finishing a fix/task is not
+  itself permission to push. Don't ask "should I push?" and then treat your
+  own question as answered — wait for the user's actual reply.
 - `main` is production: pushing there triggers `deploy.yml` (build + GitHub
   Pages + IndexNow ping), roughly a 7-minute round trip.
 - The Stop hook's "uncommitted changes" / "unpushed commits" nag
