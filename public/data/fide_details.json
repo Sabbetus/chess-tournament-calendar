@@ -1168,13 +1168,6 @@
     "playersRegistered": 50,
     "timeControlRaw": "Standard: 110 minutes for game with 10 sec increment from move 1"
   },
-  "476883": {
-    "endDate": "2026-08-26",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
   "476884": {
     "endDate": "2026-09-23",
     "organizer": null,
@@ -5585,55 +5578,6 @@
     "playersRegistered": 120,
     "timeControlRaw": "Standard: 100 minutes for game with 30 seconds increment from move 1"
   },
-  "489701": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
-  "489702": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
-  "489703": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
-  "489704": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
-  "489705": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
-  "489706": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
-  "489707": {
-    "endDate": "2026-08-12",
-    "organizer": "Giannatos, Peter (USA)",
-    "organizerProfileId": "2041650",
-    "playersRegistered": 4,
-    "timeControlRaw": "Rapid: 20 minutes for game with 10 seconds increment from move 1"
-  },
   "489708": {
     "endDate": "2026-08-19",
     "organizer": "Giannatos, Peter (USA)",
@@ -8320,6 +8264,62 @@
     "organizer": null,
     "organizerProfileId": null,
     "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "493402": {
+    "endDate": "2026-08-21",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "493403": {
+    "endDate": "2026-08-28",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "493412": {
+    "endDate": "2026-11-08",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 45 mininutes for the game and 10 seconds increment from move 1"
+  },
+  "493413": {
+    "endDate": "2026-11-08",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 45 mininutes for the game and 10 seconds increment from move 1"
+  },
+  "493429": {
+    "endDate": "2026-10-17",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 40,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "493518": {
+    "endDate": "2026-10-16",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 40 Moves in 70 Min. Incr. 30 Sec. / 20 Moves in 15 Min. Incr. 30 Sec. / 5 Min. Incr. 25 Sec."
+  },
+  "493519": {
+    "endDate": "2026-11-06",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 40 Moves in 70 Min. Incr. 30 Sec. / 20 Moves in 15 Min. Incr. 30 Sec. / 5 Min. Incr. 25 Sec."
+  },
+  "493521": {
+    "endDate": "2026-11-20",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
     "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   }
 }
