@@ -474,7 +474,14 @@ def build_combined_output(fide_archive, existing_output):
 
     other_rows = [t for t in existing_output if t.get("source") != "fide-ratings"]
 
-    return sorted(fide_upcoming + other_rows, key=lambda t: t["startDate"])
+    # sorted() is stable, so same-date entries keep their relative order from
+    # this concatenation. chess-results entries go first so a same-day tie
+    # favors the tournament with an actual player count over a FIDE one
+    # (which never has one ahead of the event, see playersRegistered above) —
+    # otherwise every FIDE tournament on a given date would land ahead of
+    # every chess-results one purely by accident of list order, not because
+    # of anything meaningful about the tournaments themselves.
+    return sorted(other_rows + fide_upcoming, key=lambda t: t["startDate"])
 
 
 def write_output(combined):
