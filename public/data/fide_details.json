@@ -2792,13 +2792,6 @@
     "playersRegistered": 30,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
-  "484085": {
-    "endDate": "2026-08-16",
-    "organizer": "Sinanan, Joshua (USA)",
-    "organizerProfileId": "2027593",
-    "playersRegistered": 30,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
   "484086": {
     "endDate": "2026-11-09",
     "organizer": "Sinanan, Joshua (USA)",
@@ -2854,34 +2847,6 @@
     "organizerProfileId": "2005670",
     "playersRegistered": 50,
     "timeControlRaw": "Standard: 100 minutes for game with 30 seconds increment from move 1"
-  },
-  "484568": {
-    "endDate": "2026-08-16",
-    "organizer": "Sztaray, Judit (USA)",
-    "organizerProfileId": "30930189",
-    "playersRegistered": 40,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
-  "484569": {
-    "endDate": "2026-08-16",
-    "organizer": "Sztaray, Judit (USA)",
-    "organizerProfileId": "30930189",
-    "playersRegistered": 40,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
-  "484570": {
-    "endDate": "2026-08-16",
-    "organizer": "Sztaray, Judit (USA)",
-    "organizerProfileId": "30930189",
-    "playersRegistered": 40,
-    "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1"
-  },
-  "484571": {
-    "endDate": "2026-08-16",
-    "organizer": "Sztaray, Judit (USA)",
-    "organizerProfileId": "30930189",
-    "playersRegistered": 40,
-    "timeControlRaw": "Rapid: 15 minutes for game with 3 seconds increment from move 1"
   },
   "484573": {
     "endDate": "2026-08-25",
@@ -5368,13 +5333,6 @@
     "playersRegistered": 20,
     "timeControlRaw": "Standard: 75 minutes with 30 seconds increment from move 1"
   },
-  "489552": {
-    "endDate": "2026-08-16",
-    "organizer": "Xing, Qiang (Peter) (AUS)",
-    "organizerProfileId": "3271250",
-    "playersRegistered": 50,
-    "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1"
-  },
   "489589": {
     "endDate": "2026-08-30",
     "organizer": "Hiban, Josh (USA)",
@@ -7440,13 +7398,6 @@
     "playersRegistered": 20,
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
   },
-  "492260": {
-    "endDate": "2026-08-16",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 40,
-    "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1"
-  },
   "492261": {
     "endDate": "2026-09-18",
     "organizer": null,
@@ -8559,5 +8510,12 @@
     "organizerProfileId": null,
     "playersRegistered": 15,
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "493968": {
+    "endDate": "2026-09-24",
+    "organizer": "Jordan, Brandon Michael (USA)",
+    "organizerProfileId": "39904822",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1"
   }
 }
