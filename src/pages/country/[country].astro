@@ -3,6 +3,8 @@ import Base from '../../layouts/Base.astro';
 import TournamentListPage from '../../components/TournamentListPage.astro';
 import featuredData from '../../../data/featured.json';
 import tournamentsData from '../../../public/data/tournaments.json';
+import archiveData from '../../../public/data/archive.json';
+import fideArchiveData from '../../../public/data/fide_archive.json';
 import metaData from '../../../public/data/meta.json';
 import { getTranslations } from '../../i18n/index.ts';
 import { getContinent } from '../../lib/continents.ts';
@@ -11,7 +13,17 @@ import { slugifyLocation, CONTINENT_SLUGS } from '../../lib/locationSlug.ts';
 
 export function getStaticPaths() {
   const allItems = [...(tournamentsData as any[]), ...(featuredData as any[])];
-  const groups = getCountryGroups(allItems, 'en');
+  const liveGroups = getCountryGroups(allItems, 'en');
+  // A country with zero *current* tournaments would otherwise vanish from
+  // the build entirely -- 404ing a URL Google already indexed, then
+  // reappearing the next time that country has activity. That flapping is
+  // worse for search than a stable page with an empty state, so the archive
+  // (every country that's ever had a tournament, not just live ones) decides
+  // which pages exist; live data only decides what's shown on them.
+  const historicalItems = [...(archiveData as any[]), ...(fideArchiveData as any[])];
+  const historicalGroups = getCountryGroups(historicalItems, 'en');
+  const liveBySlug = new Map(liveGroups.map((g) => [g.slug, g]));
+  const groups = historicalGroups.map((hg) => liveBySlug.get(hg.slug) ?? { ...hg, items: [] });
   return groups.map((g) => ({ params: { country: g.slug }, props: { group: g } }));
 }
 

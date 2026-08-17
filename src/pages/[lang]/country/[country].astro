@@ -3,6 +3,8 @@ import Base from '../../../layouts/Base.astro';
 import TournamentListPage from '../../../components/TournamentListPage.astro';
 import featuredData from '../../../../data/featured.json';
 import tournamentsData from '../../../../public/data/tournaments.json';
+import archiveData from '../../../../public/data/archive.json';
+import fideArchiveData from '../../../../public/data/fide_archive.json';
 import metaData from '../../../../public/data/meta.json';
 import { SUPPORTED_LANGS, getTranslations, countryName } from '../../../i18n/index.ts';
 import { getContinent } from '../../../lib/continents.ts';
@@ -11,9 +13,17 @@ import { slugifyLocation, CONTINENT_SLUGS } from '../../../lib/locationSlug.ts';
 
 export function getStaticPaths() {
   const allItems = [...(tournamentsData as any[]), ...(featuredData as any[])];
+  // See the English route: a country's page persists once it's ever had a
+  // tournament (archive), rather than disappearing whenever it currently
+  // has zero -- avoiding a 404/200 flap that hurts more than a stable page
+  // with an empty state.
+  const historicalItems = [...(archiveData as any[]), ...(fideArchiveData as any[])];
   const langs = SUPPORTED_LANGS.filter((l) => l !== 'en');
   return langs.flatMap((lang) => {
-    const groups = getCountryGroups(allItems, lang);
+    const liveGroups = getCountryGroups(allItems, lang);
+    const historicalGroups = getCountryGroups(historicalItems, lang);
+    const liveBySlug = new Map(liveGroups.map((g) => [g.slug, g]));
+    const groups = historicalGroups.map((hg) => liveBySlug.get(hg.slug) ?? { ...hg, items: [] });
     return groups.map((g) => ({ params: { lang, country: g.slug }, props: { group: g, lang } }));
   });
 }
