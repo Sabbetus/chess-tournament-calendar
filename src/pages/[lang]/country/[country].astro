@@ -183,6 +183,31 @@ const breadcrumbSchema = {
     {t.location_tournaments_in} {group.displayName}
   </h1>
 
+  <button
+    id="favorite-toggle"
+    class="favorite-toggle"
+    data-slug={group.slug}
+    data-label-add={t.favorite_add}
+    data-label-remove={t.favorite_remove}
+    aria-pressed="false"
+  >
+    <span class="star-icon">☆</span><span class="favorite-label">{t.favorite_add}</span>
+  </button>
+
+  <script>
+    import { isFavorite, toggleFavorite } from '../../../scripts/favorites.ts';
+    const btn = document.getElementById('favorite-toggle') as HTMLButtonElement;
+    const slug = btn.dataset.slug!;
+    function render(fav: boolean) {
+      btn.setAttribute('aria-pressed', String(fav));
+      btn.classList.toggle('active', fav);
+      btn.querySelector('.star-icon')!.textContent = fav ? '★' : '☆';
+      btn.querySelector('.favorite-label')!.textContent = fav ? btn.dataset.labelRemove! : btn.dataset.labelAdd!;
+    }
+    render(isFavorite(slug));
+    btn.addEventListener('click', () => render(toggleFavorite(slug)));
+  </script>
+
   <TournamentListPage
     t={t}
     lang={lang}
