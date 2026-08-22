@@ -1,5 +1,6 @@
 import { CONTINENT_MAP } from '../lib/continents';
 import { CONTINENT_SLUGS } from '../lib/locationSlug';
+import { getFavorites, FAVORITES_CHANGED_EVENT } from './favorites';
 
 function getContinent(cc: string) {
   return (cc && CONTINENT_MAP[cc]) || 'XX';
@@ -51,7 +52,32 @@ export function initTournamentList(cfg: ListConfig) {
     });
   });
 
-  const fCountry = document.getElementById('f-country')!;
+  const fCountry = document.getElementById('f-country') as HTMLSelectElement;
+
+  // Native <select> options can't hold per-item click targets, so favoriting
+  // itself only happens from the country page's own star button -- here we
+  // just reflect that state: a "★ " marker on favorited options, floated
+  // above the rest (keeping each group's original relative order).
+  function refreshCountryDropdown() {
+    const favs = new Set(getFavorites());
+    const allOption = fCountry.querySelector('option[value=""]') as HTMLOptionElement | null;
+    const options = Array.from(fCountry.querySelectorAll('option[value]:not([value=""])')) as HTMLOptionElement[];
+    const selectedVal = fCountry.value;
+    for (const opt of options) {
+      if (opt.dataset.label === undefined) opt.dataset.label = opt.textContent || '';
+      const slug = countrySlugs[opt.value];
+      const isFav = !!slug && favs.has(slug);
+      opt.textContent = (isFav ? '★ ' : '') + opt.dataset.label;
+    }
+    const favored = options.filter((o) => favs.has(countrySlugs[o.value]));
+    const rest = options.filter((o) => !favs.has(countrySlugs[o.value]));
+    if (allOption) fCountry.appendChild(allOption);
+    for (const o of [...favored, ...rest]) fCountry.appendChild(o);
+    fCountry.value = selectedVal;
+  }
+  refreshCountryDropdown();
+  window.addEventListener(FAVORITES_CHANGED_EVENT, refreshCountryDropdown);
+
   const fMonth = document.getElementById('f-month')!;
   const fDurationEl = document.getElementById('f-duration');
   const fTcEl = document.getElementById('f-tc');

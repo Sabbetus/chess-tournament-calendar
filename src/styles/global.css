@@ -612,6 +612,24 @@ main {
 .location-heading:has(+ .section-label) { margin-bottom: 1.3rem; }
 .location-heading + .section-label { margin-top: 0; }
 .location-heading img { border-radius: 2px; }
+.favorite-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.favorite-toggle:hover { color: var(--text); border-color: var(--text-muted); }
+.favorite-toggle .star-icon { font-size: 1rem; line-height: 1; color: var(--text-muted); }
+.favorite-toggle.active { color: var(--accent); border-color: var(--accent); }
+.favorite-toggle.active .star-icon { color: var(--accent); }
 .country-chip-list {
   display: flex;
   flex-wrap: wrap;
