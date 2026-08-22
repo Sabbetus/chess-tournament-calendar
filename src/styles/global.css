@@ -630,10 +630,6 @@ main {
 }
 .favorite-toggle:hover { color: var(--text); border-color: var(--text-muted); }
 .favorite-toggle .star-icon { font-size: 1.25rem; line-height: 1; color: var(--text-muted); }
-.favorite-toggle.active {
-  color: var(--accent);
-  border-color: var(--accent);
-}
 .favorite-toggle.active .star-icon { color: var(--accent); }
 .country-chip-list {
   display: flex;
