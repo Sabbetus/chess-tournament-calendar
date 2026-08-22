@@ -180,18 +180,17 @@ const breadcrumbSchema = {
   <h1 class="location-heading">
     {group.countryCode && <img src={`/flags/${group.countryCode.toLowerCase()}.png`} alt="" width="28" height="21" />}
     {t.location_tournaments_in} {group.displayName}
+    <button
+      id="favorite-toggle"
+      class="favorite-toggle"
+      data-slug={group.slug}
+      data-label-add={t.favorite_add}
+      data-label-remove={t.favorite_remove}
+      aria-pressed="false"
+    >
+      <span class="star-icon">☆</span><span class="favorite-label">{t.favorite_add}</span>
+    </button>
   </h1>
-
-  <button
-    id="favorite-toggle"
-    class="favorite-toggle"
-    data-slug={group.slug}
-    data-label-add={t.favorite_add}
-    data-label-remove={t.favorite_remove}
-    aria-pressed="false"
-  >
-    <span class="star-icon">☆</span><span class="favorite-label">{t.favorite_add}</span>
-  </button>
 
   <script>
     import { isFavorite, toggleFavorite } from '../../scripts/favorites.ts';
