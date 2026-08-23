@@ -617,6 +617,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
+  margin-left: 0.35rem;
   padding: 0.3rem 0.7rem;
   font-size: 0.75rem;
   font-weight: 500;
@@ -938,6 +939,7 @@ footer p a:hover { color: var(--text); }
 
   .filters { flex-direction: column; }
   .filter-group { min-width: unset; }
+  .favorite-toggle { margin-left: 0; }
 
   .continent-tabs { margin-bottom: 0.75rem; }
 
