@@ -616,10 +616,9 @@ main {
 .favorite-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-left: 0.25rem;
-  padding: 0.45rem 0.9rem;
-  font-size: 0.85rem;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
   font-weight: 500;
   font-family: inherit;
   color: var(--text-muted);
@@ -629,7 +628,7 @@ main {
   cursor: pointer;
 }
 .favorite-toggle:hover { color: var(--text); border-color: var(--text-muted); }
-.favorite-toggle .star-icon { font-size: 1.25rem; line-height: 1; color: var(--text-muted); }
+.favorite-toggle .star-icon { font-size: 1.05rem; line-height: 1; color: var(--text-muted); }
 .favorite-toggle.active .star-icon { color: var(--accent); }
 .country-chip-list {
   display: flex;
