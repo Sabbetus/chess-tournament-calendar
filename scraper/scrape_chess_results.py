@@ -423,10 +423,23 @@ def scrape(archive):
                 else:
                     print(f"[WARN] Window returned only {len(batch)} rows, expected ~{expected} (attempt {attempt}/3); retrying…")
                 page.wait_for_timeout(2000)
-            if not batch or len(batch) < min_acceptable:
-                print(f"[ERROR] Window still implausibly low ({len(batch)} rows, expected ~{expected}) after 3 attempts — aborting to avoid writing a partial dataset.")
+            if not batch:
+                # A genuine 0-row result for a window that should have entries
+                # is the one case worth refusing outright -- publishing it would
+                # wipe every tournament in this window instead of just letting
+                # the missing ones accumulate misses like an ordinary search gap.
+                print(f"[ERROR] Window still returning 0 rows after 3 attempts — aborting to avoid wiping this window.")
                 browser.close()
                 sys.exit(1)
+            if len(batch) < min_acceptable:
+                # Below the floor but nonzero: publish it anyway. The archive's
+                # per-tournament miss-counting (MAX_CONSECUTIVE_MISSES) already
+                # exists precisely to absorb chess-results' own search
+                # inconsistency -- tournaments this window misses just pick up
+                # a miss and get retried next run, rather than the whole scrape
+                # being thrown away over one degraded window. A partial update
+                # beats no update.
+                print(f"[WARN] Window still low ({len(batch)} rows, expected ~{expected}) after 3 attempts — publishing anyway; missing tournaments will accumulate misses instead of being wiped.")
             for t in batch:
                 all_tournaments[t["id"]] = t
 
