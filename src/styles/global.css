@@ -693,9 +693,21 @@ main {
   text-decoration: underline;
 }
 
+/* Flexbox rather than CSS Grid's auto-fit: a grid's auto-fit column *count*
+   is fixed by the container's total width, shared across every row, and a
+   full-width item (fact-card-wide, "grid-column: 1/-1") counts as touching
+   every one of those columns — so its mere presence stopped auto-fit from
+   collapsing unused columns elsewhere, diluting the Dates/Duration cards in
+   a *different* row into much narrower slices than when no wide card was
+   present, which was actually what caused the date range to wrap in the
+   first place. Flexbox has no shared column tracks, so each row sizes
+   itself independently from what's actually in it. */
+/* Cards hug their own content (like the buttons in .tournament-actions
+   below) instead of stretching to fill the row — any leftover space in a
+   row sits on the page background, not padded out inside a box. */
 .fact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: 1.5rem;
 }
@@ -705,6 +717,34 @@ main {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.75rem 1rem;
+  /* No grow (stay content-sized); shrink allowed so a long value (FIDE's
+     "90min/40moves+30min/end+30sec…" strings) still wraps within the
+     viewport on mobile instead of overflowing it. */
+  flex: 0 1 auto;
+  max-width: 100%;
+}
+
+/* Dates, Duration and Rounds always carry short, bounded-length values, so
+   unlike Time Control they get a fixed width rather than sizing to their
+   own content — otherwise "10 days" and "365 days" would render as visibly
+   different-width boxes next to each other. Each fact gets its own width
+   (rather than one shared size) since Dates needs much more room than
+   Duration or Rounds ever will — forcing them to match would just move the
+   wasted-space problem from one box to another. */
+/* Dates has no fixed width here — the required width varies far more by
+   locale than Duration/Rounds ever do (pt-BR spells out "10 de ago. – 19 de
+   ago. de 2026" while fi-FI is just "10.8. – 19.8.2026"), so it's set
+   per-locale via an inline style instead — see DATE_BOX_WIDTH in the page
+   frontmatter. */
+.fact-card-duration {
+  /* Comfortably covers "999 päivää" (Finnish), the longest realistic unit
+     label at an implausibly generous 3-digit day count. */
+  flex: 0 0 120px;
+  width: 120px;
+}
+.fact-card-rounds {
+  flex: 0 0 100px;
+  width: 100px;
 }
 
 .fact-label {
@@ -718,6 +758,11 @@ main {
 .fact-value {
   font-size: 0.92rem;
   color: var(--text);
+  /* Time control strings like "90min/40moves+30min/end+30sec" are one long
+     token with no spaces to wrap on, so without this they overflow past the
+     card's border on mobile (where flex-shrink has narrowed the card)
+     instead of wrapping. */
+  overflow-wrap: break-word;
 }
 
 .fact-dates { color: #5bbfcf; }

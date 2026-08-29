@@ -183,5 +183,89 @@
     "name": "MACA (Massachusetts Chess Association)",
     "url": "http://www.masschess.org/Events/chess-event-list.aspx",
     "_note": "MACA organizes the New England Open. The only http:// entry here — masschess.org serves no HTTPS, so an https URL fails to connect. Fine for an outbound link; don't 'fix' it to https."
+  },
+  "3204308": {
+    "name": "Melbourne Chess Club",
+    "url": "https://www.melbournechessclub.org/events",
+    "_note": "Thai Ly's events are MCC-prefixed (MCC Classic, MCC Bob Brooking, MCC Greg Hjorth) plus the Victorian Chess Championship, which MCC's own events page also lists as one of its hosted tournaments"
+  },
+  "3202046": {
+    "name": "Sydney Academy of Chess",
+    "url": "https://sydneyacademyofchess.com.au/tournaments/upcoming",
+    "_note": "Brett Tindall's events are the 'Burwood Saturday Rapid' series, run at Sydney Academy of Chess's Burwood premises"
+  },
+  "3201414": {
+    "name": "Hobsons Bay Chess Club",
+    "url": "https://portal.hobsonsbaychess.com/public/schedule/events",
+    "_note": "Steven Hogan's events are all Hobsons Bay-prefixed club tournaments"
+  },
+  "3266150": {
+    "name": "Hobsons Bay Chess Club",
+    "url": "https://portal.hobsonsbaychess.com/public/schedule/events",
+    "_note": "Kuanysh Batyrbekov's event is the Hobsons Bay Koshnitsky Rookies and Juniors Cup — same club as 3201414, different committee member submitting to FIDE"
+  },
+  "3206440": {
+    "name": "Perth Chess Club",
+    "url": "https://www.perthchessclub.org.au/events.htm",
+    "_note": "Robert Maris's events are the Wolfgang Leonhardt Cup and John Brooke Cup, both confirmed as Perth Chess Club's own annual cups"
+  },
+  "3210995": {
+    "name": "Norths Chess Club",
+    "url": "https://www.northsydneychess.org/tournaments",
+    "_note": "Stephen Garner's events are the Norths Winter Classic and Norths Seniors, both Norths-prefixed"
+  },
+  "3273709": {
+    "name": "Darling Downs Open",
+    "url": "https://darlingdownsopen.com.au/schedule/",
+    "_note": "Both of this organizer's rows (Premier/Major Division) are sections of the same single annual Toowoomba tournament, which has its own dedicated site"
+  },
+  "3251098": {
+    "name": "Hobsons Bay Chess Club",
+    "url": "https://portal.hobsonsbaychess.com/public/schedule/events",
+    "_note": "Casey Goh's events look like Chess Victoria state events, but Hobsons Bay hosts them and its own portal lists every one: Best in the West (Aug 29-30), Victorian Women Championship (Sep 12-19), Victorian Junior Rapid+Blitz (Oct 3-4) all match our dates exactly"
+  },
+  "3205762": {
+    "name": "Chess Artists Caulfield Chess Club",
+    "url": "https://sites.google.com/view/chess-artists",
+    "_note": "the 'Chess Artists Winter Open' is this club's own event; site carries a 'Calendar Summary of This Years Events'"
+  },
+  "3235084": {
+    "name": "South Australian Chess Association",
+    "url": "https://sachess.org.au/events/",
+    "_note": "SACA runs the South Australian Rapid Championship at its Chess Centre. Like the Oregon entry, sachess.org.au answers automated checks with a challenge page (202/empty body) but loads fine in a real browser — don't 'fix' this to a different URL on that basis."
+  },
+  "3258181": {
+    "name": "South Australian Chess Association",
+    "url": "https://sachess.org.au/events/",
+    "_note": "SACA is the confirmed organizer of the City of Adelaide Championship (Tuesdays, Jul 14 - Sep 8 2026, The Chess Centre) — same site caveat as 3235084"
+  },
+  "3236528": {
+    "name": "Chess Association of Queensland",
+    "url": "https://caq.org.au/events/",
+    "_note": "the actual organizer (Qld Womens Chess League) has no site of its own, but CAQ's calendar lists this exact event — '2026 Christmas Special', 2026-12-12, Grace Lutheran College Rothwell — matching our row on name, date and venue"
+  },
+  "9100075": {
+    "name": "ACT Chess Association",
+    "url": "https://sites.google.com/site/actchessassociation",
+    "byEventName": [
+      {
+        "contains": "Street Chess",
+        "name": "Street Chess Canberra",
+        "url": "http://www.streetchess.net/"
+      }
+    ],
+    "_note": "Shaun Press runs two unrelated series. ACTCA's front page carries the ANU Open under FUTURE EVENTS but never mentions Street Chess; streetchess.net covers only the weekly Street Chess. Hence the split — see resolve_organizer()."
+  },
+  "3230015": {
+    "name": "Perth Chess League (CAWA)",
+    "url": "https://www.cawa.org.au/perthchessleague/2026perthchessleague.html",
+    "byEventName": [
+      {
+        "contains": "SSCC",
+        "name": "Southern Suburbs Chess Club",
+        "url": "https://sites.google.com/view/southernsuburbschessclub/tournaments"
+      }
+    ],
+    "_note": "CAWA's page names Ian McAteer as Perth Chess League Coordinator and its round dates match ours (R4 27 Aug, R6 19 Oct, R7 10 Nov; R5 has since moved). His one non-PCL event is the SSCC David Ellis Cup, which the SSCC tournaments page lists by name. NOTE: the CAWA URL is year-stamped — it will need bumping to 2027perthchessleague.html; there is no year-agnostic equivalent (perthchessleague.html 404s)."
   }
 }

@@ -77,10 +77,19 @@ rather than the data-refresh time, so unchanged pages keep an old lastmod.
 
 ## Workflow
 
-- Develop on a branch; **never push to `main` without explicit confirmation.**
-  Pushing to feature/dev branches freely is fine.
+- Develop on a branch; commits are fine to make freely. **`git push` — to
+  `main` or to any feature/dev branch — always needs an explicit, genuine
+  confirmation from the user in that turn.** Finishing a fix/task is not
+  itself permission to push. Don't ask "should I push?" and then treat your
+  own question as answered — wait for the user's actual reply.
 - `main` is production: pushing there triggers `deploy.yml` (build + GitHub
   Pages + IndexNow ping), roughly a 7-minute round trip.
+- The Stop hook's "uncommitted changes" / "unpushed commits" nag
+  (`~/.claude/stop-hook-git-check.sh`) is automated infrastructure, not the
+  user. Never treat it as confirmation, never respond to it, and never
+  comment on it (e.g. "that's just the automated nag") — the user has said
+  repeatedly this is noise they don't want narrated. Just leave work
+  uncommitted/unpushed until a real user message says otherwise.
 - A fresh branch won't show player-count trends until its data catches up —
   merge the latest `chore: update tournament data` commits from `main` to get
   real trend data for local testing.
