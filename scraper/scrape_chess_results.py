@@ -440,6 +440,20 @@ def scrape(archive):
                 # being thrown away over one degraded window. A partial update
                 # beats no update.
                 print(f"[WARN] Window still low ({len(batch)} rows, expected ~{expected}) after 3 attempts — publishing anyway; missing tournaments will accumulate misses instead of being wiped.")
+                # Diagnostic only (not used for any decision): if the shortfall
+                # is chess-results truncating a large date range rather than
+                # randomly omitting entries, the returned dates should cluster
+                # near win_from and thin out well before win_to. Scattered
+                # coverage across the full range would point at something else
+                # (e.g. per-tournament search-index flakiness) instead.
+                batch_dates = sorted(t["startDate"] for t in batch)
+                if batch_dates:
+                    span_days = (win_to - win_from).days or 1
+                    covered_days = (date.fromisoformat(batch_dates[-1]) - win_from).days
+                    print(
+                        f"[DEBUG] Returned dates span {batch_dates[0]} → {batch_dates[-1]} "
+                        f"({covered_days}/{span_days} days of the requested range covered)."
+                    )
             for t in batch:
                 all_tournaments[t["id"]] = t
 
