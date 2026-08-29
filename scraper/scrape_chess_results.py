@@ -306,16 +306,28 @@ def parse_rows(page, time_control="1"):
 
 
 def search_windows(today: date):
-    """Return four search windows as (date_from, date_to, time_control) tuples."""
+    """Return search windows as (date_from, date_to, time_control) tuples.
+
+    The months-2-12 range is split in two (rather than one single query) for
+    both time controls: chess-results' search appears to cap how many rows a
+    single query can return, sorted by when a tournament's own record was
+    last updated rather than by its date -- so a too-wide date range doesn't
+    fail by dropping tournaments from one end, it silently drops a scattered,
+    date-independent chunk of them regardless of range. A narrower range has
+    fewer tournaments competing for that same row budget, so each half comes
+    back more complete.
+    """
     one_month_out = today + timedelta(days=31)
     one_year_out = today + timedelta(days=365)
     far_from = one_month_out + timedelta(days=1)
-    return [
-        (today,      one_month_out, "1"),  # Standard, next month
-        (today,      one_month_out, "2"),  # Rapid, next month
-        (far_from,   one_year_out,  "1"),  # Standard, months 2-12
-        (far_from,   one_year_out,  "2"),  # Rapid, months 2-12
-    ]
+    far_midpoint = far_from + (one_year_out - far_from) // 2
+    far_mid_next = far_midpoint + timedelta(days=1)
+    windows = []
+    for tc in ("1", "2"):  # Standard, Rapid
+        windows.append((today,          one_month_out, tc))  # next month
+        windows.append((far_from,       far_midpoint,  tc))  # months 2-~7
+        windows.append((far_mid_next,   one_year_out,  tc))  # months ~7-12
+    return windows
 
 
 def remove_cookie_banner(page):
@@ -440,20 +452,6 @@ def scrape(archive):
                 # being thrown away over one degraded window. A partial update
                 # beats no update.
                 print(f"[WARN] Window still low ({len(batch)} rows, expected ~{expected}) after 3 attempts — publishing anyway; missing tournaments will accumulate misses instead of being wiped.")
-                # Diagnostic only (not used for any decision): if the shortfall
-                # is chess-results truncating a large date range rather than
-                # randomly omitting entries, the returned dates should cluster
-                # near win_from and thin out well before win_to. Scattered
-                # coverage across the full range would point at something else
-                # (e.g. per-tournament search-index flakiness) instead.
-                batch_dates = sorted(t["startDate"] for t in batch)
-                if batch_dates:
-                    span_days = (win_to - win_from).days or 1
-                    covered_days = (date.fromisoformat(batch_dates[-1]) - win_from).days
-                    print(
-                        f"[DEBUG] Returned dates span {batch_dates[0]} → {batch_dates[-1]} "
-                        f"({covered_days}/{span_days} days of the requested range covered)."
-                    )
             for t in batch:
                 all_tournaments[t["id"]] = t
 
