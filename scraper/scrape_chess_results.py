@@ -308,25 +308,39 @@ def parse_rows(page, time_control="1"):
 def search_windows(today: date):
     """Return search windows as (date_from, date_to, time_control) tuples.
 
-    The months-2-12 range is split in two (rather than one single query) for
-    both time controls: chess-results' search appears to cap how many rows a
-    single query can return, sorted by when a tournament's own record was
-    last updated rather than by its date -- so a too-wide date range doesn't
-    fail by dropping tournaments from one end, it silently drops a scattered,
-    date-independent chunk of them regardless of range. A narrower range has
-    fewer tournaments competing for that same row budget, so each half comes
-    back more complete.
+    Four consecutive, non-overlapping ranges per time control rather than one
+    "next month" + one "rest of the year":
+
+    1. Next 3 weeks -- the near-term Rapid search alone was already coming in
+       at ~1980 of chess-results' 2000-row page cap on an ordinary day,
+       leaving almost no headroom before it starts silently truncating the
+       tournaments users care about most (the soonest ones). A full month in
+       one query was cutting that margin too close.
+    2. The following 5 weeks -- keeps the "next 2 months" coverage a user
+       would expect, without recombining back into a single near-cap query.
+    3 & 4. The remaining ~10 months, split unevenly (a shorter, denser near
+       stretch and a longer, sparser tail) rather than an even midpoint --
+       tournaments are announced closer to their date, so the front of this
+       range carries most of the volume. chess-results' search also appears
+       to cap how many rows a single query can return, sorted by when a
+       tournament's own record was last updated rather than by its date -- so
+       a too-wide range doesn't fail by dropping tournaments from one end, it
+       silently drops a scattered, date-independent chunk regardless of
+       range. Matching the split to the real density keeps each piece's
+       count well clear of that cap instead of an arbitrary even split.
     """
-    one_month_out = today + timedelta(days=31)
-    one_year_out = today + timedelta(days=365)
-    far_from = one_month_out + timedelta(days=1)
-    far_midpoint = far_from + (one_year_out - far_from) // 2
-    far_mid_next = far_midpoint + timedelta(days=1)
+    bounds = [
+        today,
+        today + timedelta(days=21),   # + 3 weeks
+        today + timedelta(days=56),   # + 5 more weeks (~2 months out)
+        today + timedelta(days=120),  # + ~9 more weeks (~4 months out)
+        today + timedelta(days=365),  # + the rest of the year
+    ]
     windows = []
     for tc in ("1", "2"):  # Standard, Rapid
-        windows.append((today,          one_month_out, tc))  # next month
-        windows.append((far_from,       far_midpoint,  tc))  # months 2-~7
-        windows.append((far_mid_next,   one_year_out,  tc))  # months ~7-12
+        for lo, hi in zip(bounds, bounds[1:]):
+            date_from = lo if lo == today else lo + timedelta(days=1)
+            windows.append((date_from, hi, tc))
     return windows
 
 
