@@ -5120,7 +5120,7 @@
     "firstSeen": "2026-07-28",
     "lastSeen": "2026-08-29",
     "consecutiveMisses": 0,
-    "status": "upcoming"
+    "status": "concluded"
   },
   {
     "id": "fide-485413",
@@ -5152,7 +5152,7 @@
     "firstSeen": "2026-07-28",
     "lastSeen": "2026-08-29",
     "consecutiveMisses": 0,
-    "status": "upcoming"
+    "status": "concluded"
   },
   {
     "id": "fide-489842",
@@ -5184,7 +5184,7 @@
     "firstSeen": "2026-07-28",
     "lastSeen": "2026-08-29",
     "consecutiveMisses": 0,
-    "status": "upcoming"
+    "status": "concluded"
   },
   {
     "id": "fide-489841",
@@ -5216,7 +5216,7 @@
     "firstSeen": "2026-07-28",
     "lastSeen": "2026-08-29",
     "consecutiveMisses": 0,
-    "status": "upcoming"
+    "status": "concluded"
   },
   {
     "id": "fide-489840",
@@ -5248,7 +5248,7 @@
     "firstSeen": "2026-07-28",
     "lastSeen": "2026-08-29",
     "consecutiveMisses": 0,
-    "status": "upcoming"
+    "status": "concluded"
   },
   {
     "id": "fide-479102",
@@ -5278,7 +5278,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5310,7 +5310,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5342,7 +5342,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5374,7 +5374,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5406,7 +5406,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5438,7 +5438,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5470,71 +5470,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
-    "consecutiveMisses": 0,
-    "status": "upcoming"
-  },
-  {
-    "id": "fide-494636",
-    "slug": "2026-norths-purdy-major-round-1-fide-494636",
-    "name": "2026 Norths Purdy Major Round 1",
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-01",
-    "city": "Sydney",
-    "country": "Australia",
-    "countryCode": "AU",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Standard: 75 minutes with 30 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=494636",
-    "description": null,
-    "organizer": "Norths Chess Club",
-    "organizerRaw": "Garner, Stephen J (AUS)",
-    "organizerUrl": "https://www.northsydneychess.org/tournaments",
-    "organizerProfileId": "3210995",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
-    "consecutiveMisses": 0,
-    "status": "upcoming"
-  },
-  {
-    "id": "fide-494640",
-    "slug": "2026-norths-purdy-minor-round-1-fide-494640",
-    "name": "2026 Norths Purdy Minor Round 1",
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-01",
-    "city": "Sydney",
-    "country": "Australia",
-    "countryCode": "AU",
-    "rounds": null,
-    "timeControl": "Classical",
-    "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1",
-    "playersRegistered": null,
-    "prizePool": null,
-    "currency": null,
-    "ratingRequirement": null,
-    "open": true,
-    "registrationOpen": false,
-    "registrationUrl": null,
-    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=494640",
-    "description": null,
-    "organizer": "Norths Chess Club",
-    "organizerRaw": "Garner, Stephen J (AUS)",
-    "organizerUrl": "https://www.northsydneychess.org/tournaments",
-    "organizerProfileId": "3210995",
-    "source": "fide-ratings",
-    "sectionEventIds": null,
-    "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5566,7 +5502,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5606,7 +5542,7 @@
       "489728"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5638,7 +5574,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5670,7 +5606,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5702,7 +5638,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5734,7 +5670,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5766,7 +5702,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5798,7 +5734,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5830,7 +5766,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5862,7 +5798,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5894,7 +5830,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5926,7 +5862,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5958,7 +5894,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -5990,7 +5926,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6022,7 +5958,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6054,7 +5990,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6086,7 +6022,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6118,7 +6054,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6150,7 +6086,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6182,7 +6118,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6214,7 +6150,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6246,7 +6182,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6278,7 +6214,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6310,7 +6246,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6342,7 +6278,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6374,7 +6310,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6406,7 +6342,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6438,7 +6374,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6470,7 +6406,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6502,7 +6438,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6534,7 +6470,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6566,7 +6502,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6598,7 +6534,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6630,7 +6566,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6662,7 +6598,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6694,7 +6630,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6726,7 +6662,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6758,7 +6694,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6790,7 +6726,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6822,7 +6758,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6854,7 +6790,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6886,7 +6822,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6918,7 +6854,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6958,7 +6894,7 @@
       "489735"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -6990,7 +6926,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7022,7 +6958,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7054,7 +6990,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7086,7 +7022,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7118,7 +7054,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7150,7 +7086,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7182,7 +7118,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7214,7 +7150,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7246,7 +7182,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7278,7 +7214,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7310,7 +7246,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7342,7 +7278,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7374,7 +7310,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7406,7 +7342,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7446,7 +7382,7 @@
       "485282"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7491,7 +7427,7 @@
       "486152"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7523,7 +7459,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7555,7 +7491,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7587,7 +7523,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7619,7 +7555,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7651,7 +7587,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7683,7 +7619,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7715,7 +7651,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7747,7 +7683,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7779,7 +7715,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7811,7 +7747,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7843,7 +7779,71 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
+    "consecutiveMisses": 0,
+    "status": "upcoming"
+  },
+  {
+    "id": "fide-494636",
+    "slug": "2026-norths-purdy-major-round-1-fide-494636",
+    "name": "2026 Norths Purdy Major Round 1",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-01",
+    "city": "Sydney",
+    "country": "Australia",
+    "countryCode": "AU",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "Standard: 75 minutes with 30 seconds increment from move 1",
+    "playersRegistered": null,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": false,
+    "registrationUrl": null,
+    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=494636",
+    "description": null,
+    "organizer": "Norths Chess Club",
+    "organizerRaw": "Garner, Stephen J (AUS)",
+    "organizerUrl": "https://www.northsydneychess.org/tournaments",
+    "organizerProfileId": "3210995",
+    "source": "fide-ratings",
+    "sectionEventIds": null,
+    "firstSeen": "2026-08-22",
+    "lastSeen": "2026-08-30",
+    "consecutiveMisses": 0,
+    "status": "upcoming"
+  },
+  {
+    "id": "fide-494640",
+    "slug": "2026-norths-purdy-minor-round-1-fide-494640",
+    "name": "2026 Norths Purdy Minor Round 1",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-01",
+    "city": "Sydney",
+    "country": "Australia",
+    "countryCode": "AU",
+    "rounds": null,
+    "timeControl": "Classical",
+    "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1",
+    "playersRegistered": null,
+    "prizePool": null,
+    "currency": null,
+    "ratingRequirement": null,
+    "open": true,
+    "registrationOpen": false,
+    "registrationUrl": null,
+    "websiteUrl": "https://ratings.fide.com/tournament_information.phtml?event=494640",
+    "description": null,
+    "organizer": "Norths Chess Club",
+    "organizerRaw": "Garner, Stephen J (AUS)",
+    "organizerUrl": "https://www.northsydneychess.org/tournaments",
+    "organizerProfileId": "3210995",
+    "source": "fide-ratings",
+    "sectionEventIds": null,
+    "firstSeen": "2026-08-22",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7875,7 +7875,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7907,7 +7907,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7939,7 +7939,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -7971,7 +7971,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8011,7 +8011,7 @@
       "489742"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8043,7 +8043,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8075,7 +8075,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8107,7 +8107,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8139,7 +8139,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8171,7 +8171,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8203,7 +8203,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8235,7 +8235,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8267,7 +8267,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8299,7 +8299,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8331,7 +8331,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8363,7 +8363,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8395,7 +8395,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8427,7 +8427,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8459,7 +8459,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8491,7 +8491,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8523,7 +8523,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8555,7 +8555,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8587,7 +8587,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8619,7 +8619,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8651,7 +8651,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8683,7 +8683,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8715,7 +8715,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8747,7 +8747,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8779,7 +8779,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8811,7 +8811,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8843,7 +8843,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8875,7 +8875,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8907,7 +8907,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8939,7 +8939,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -8971,7 +8971,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9003,7 +9003,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9035,7 +9035,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9067,7 +9067,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9099,7 +9099,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9131,7 +9131,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9171,7 +9171,7 @@
       "489749"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9203,7 +9203,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9235,7 +9235,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9267,7 +9267,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9299,7 +9299,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9331,7 +9331,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9363,7 +9363,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9395,7 +9395,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9427,7 +9427,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9472,7 +9472,7 @@
       "482070"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9504,7 +9504,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9536,7 +9536,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9568,7 +9568,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9600,7 +9600,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9632,7 +9632,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9664,7 +9664,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9696,7 +9696,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9728,7 +9728,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9760,7 +9760,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9792,7 +9792,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9824,7 +9824,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9856,7 +9856,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9888,7 +9888,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9920,7 +9920,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9952,7 +9952,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -9984,7 +9984,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10016,7 +10016,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10048,7 +10048,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10080,7 +10080,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10112,7 +10112,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10144,7 +10144,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10176,7 +10176,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10208,7 +10208,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10240,7 +10240,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10272,7 +10272,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10304,7 +10304,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10344,7 +10344,7 @@
       "489756"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10376,7 +10376,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10408,7 +10408,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10440,7 +10440,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10472,7 +10472,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10504,7 +10504,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10536,7 +10536,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10568,7 +10568,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10600,7 +10600,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10632,7 +10632,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10664,7 +10664,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10696,7 +10696,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10728,7 +10728,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10760,7 +10760,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10792,7 +10792,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10824,7 +10824,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10856,7 +10856,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10888,7 +10888,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10920,7 +10920,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10952,7 +10952,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -10984,7 +10984,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11016,7 +11016,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11048,7 +11048,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11080,7 +11080,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11112,7 +11112,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11144,7 +11144,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11176,7 +11176,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11208,7 +11208,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11240,7 +11240,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11272,7 +11272,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11304,7 +11304,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11336,7 +11336,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11368,7 +11368,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11400,7 +11400,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11432,7 +11432,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11464,7 +11464,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11504,7 +11504,7 @@
       "489763"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11542,7 +11542,7 @@
       "485260"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11574,7 +11574,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11606,7 +11606,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11638,7 +11638,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11670,7 +11670,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11702,7 +11702,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11734,7 +11734,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11766,7 +11766,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11798,7 +11798,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11830,7 +11830,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11862,7 +11862,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11894,7 +11894,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11926,7 +11926,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11958,7 +11958,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -11990,7 +11990,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12043,7 +12043,7 @@
       "471618"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12082,7 +12082,7 @@
       "493662"
     ],
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12114,7 +12114,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12146,7 +12146,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12178,7 +12178,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12210,7 +12210,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12242,7 +12242,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12274,7 +12274,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12306,7 +12306,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12338,7 +12338,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-19",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12370,7 +12370,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-19",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12402,7 +12402,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12434,7 +12434,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12466,7 +12466,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12498,7 +12498,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12538,7 +12538,7 @@
       "489770"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12570,7 +12570,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12602,7 +12602,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12634,7 +12634,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12666,7 +12666,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12698,7 +12698,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12730,7 +12730,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12762,7 +12762,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12794,7 +12794,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12826,7 +12826,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12858,7 +12858,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12890,7 +12890,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12922,7 +12922,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12954,7 +12954,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -12986,7 +12986,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13018,7 +13018,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13050,7 +13050,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13082,7 +13082,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13114,7 +13114,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13146,7 +13146,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13178,7 +13178,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13210,7 +13210,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13248,7 +13248,7 @@
       "483163"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13288,7 +13288,7 @@
       "489777"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13326,7 +13326,7 @@
       "485265"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13358,7 +13358,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13390,7 +13390,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13422,7 +13422,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13454,7 +13454,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13486,7 +13486,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13518,7 +13518,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13550,7 +13550,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13582,7 +13582,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13614,7 +13614,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13646,7 +13646,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13678,7 +13678,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13719,7 +13719,7 @@
       "481390"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13751,7 +13751,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13783,7 +13783,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13815,7 +13815,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13847,7 +13847,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13879,7 +13879,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13911,7 +13911,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13943,7 +13943,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -13975,7 +13975,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14007,7 +14007,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14039,7 +14039,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14071,7 +14071,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14103,7 +14103,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14135,7 +14135,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14167,7 +14167,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14199,7 +14199,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14231,7 +14231,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14263,7 +14263,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14295,7 +14295,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14335,7 +14335,7 @@
       "489784"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14367,7 +14367,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14399,7 +14399,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14431,7 +14431,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14463,7 +14463,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14495,7 +14495,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-12",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14533,7 +14533,7 @@
       "493580"
     ],
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14565,7 +14565,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14597,7 +14597,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14629,7 +14629,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14661,7 +14661,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14693,7 +14693,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14725,7 +14725,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14757,7 +14757,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14797,7 +14797,7 @@
       "489791"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14829,7 +14829,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14861,7 +14861,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14893,7 +14893,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14925,7 +14925,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14957,7 +14957,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -14989,7 +14989,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15021,7 +15021,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15053,7 +15053,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15085,7 +15085,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15117,7 +15117,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15149,7 +15149,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15181,7 +15181,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15213,7 +15213,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15245,7 +15245,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15277,7 +15277,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15309,7 +15309,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-12",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15341,7 +15341,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-12",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15373,7 +15373,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15405,7 +15405,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15437,7 +15437,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15469,7 +15469,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15501,7 +15501,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15533,7 +15533,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15565,7 +15565,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15597,7 +15597,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15629,7 +15629,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15661,7 +15661,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15693,7 +15693,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15725,7 +15725,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15757,7 +15757,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15789,7 +15789,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15827,7 +15827,7 @@
       "486477"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15859,7 +15859,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15899,7 +15899,7 @@
       "489798"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15937,7 +15937,7 @@
       "485270"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -15969,7 +15969,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16001,7 +16001,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16033,7 +16033,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16065,7 +16065,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16097,7 +16097,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16129,7 +16129,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16161,7 +16161,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16193,7 +16193,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16225,7 +16225,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16257,7 +16257,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16289,7 +16289,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16321,7 +16321,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16353,7 +16353,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16393,7 +16393,7 @@
       "489805"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16425,7 +16425,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16457,7 +16457,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16489,7 +16489,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16521,7 +16521,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16553,7 +16553,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16585,7 +16585,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16617,7 +16617,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16649,7 +16649,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16681,7 +16681,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16713,7 +16713,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16745,7 +16745,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16777,7 +16777,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16809,7 +16809,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16841,7 +16841,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16873,7 +16873,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16905,7 +16905,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16937,7 +16937,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -16969,7 +16969,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17001,7 +17001,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17041,7 +17041,7 @@
       "489812"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17073,7 +17073,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17105,7 +17105,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17137,7 +17137,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17169,7 +17169,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17201,7 +17201,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17233,7 +17233,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17265,7 +17265,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17297,7 +17297,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17329,7 +17329,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17361,7 +17361,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17393,7 +17393,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17425,7 +17425,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17457,7 +17457,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17489,7 +17489,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17521,7 +17521,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17553,7 +17553,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17585,7 +17585,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17617,7 +17617,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17649,7 +17649,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17681,7 +17681,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17713,7 +17713,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17745,7 +17745,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17777,7 +17777,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-14",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17809,7 +17809,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17841,7 +17841,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17873,7 +17873,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17905,7 +17905,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17937,7 +17937,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -17969,7 +17969,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18001,7 +18001,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18041,7 +18041,7 @@
       "489819"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18079,7 +18079,7 @@
       "485275"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18111,7 +18111,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18143,7 +18143,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18175,7 +18175,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18207,7 +18207,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-11",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18239,7 +18239,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18279,7 +18279,7 @@
       "489826"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18311,7 +18311,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18343,7 +18343,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18381,7 +18381,7 @@
       "490853"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18413,7 +18413,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18445,7 +18445,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-24",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18477,7 +18477,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18509,7 +18509,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18541,7 +18541,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18573,7 +18573,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18605,7 +18605,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18637,7 +18637,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18669,7 +18669,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18701,7 +18701,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18733,7 +18733,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18773,7 +18773,7 @@
       "489833"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18805,7 +18805,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18837,7 +18837,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18869,7 +18869,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18901,7 +18901,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18933,7 +18933,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-02",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18965,7 +18965,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -18997,7 +18997,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19029,7 +19029,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-18",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19061,7 +19061,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19093,7 +19093,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19125,7 +19125,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19157,7 +19157,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19189,7 +19189,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19221,7 +19221,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19253,7 +19253,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19285,7 +19285,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19323,7 +19323,7 @@
       "482097"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19355,7 +19355,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-10",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19387,7 +19387,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19419,7 +19419,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19451,7 +19451,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-22",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19483,7 +19483,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19515,7 +19515,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19547,7 +19547,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19579,7 +19579,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19611,7 +19611,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19643,7 +19643,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19675,7 +19675,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19707,7 +19707,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19739,7 +19739,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19771,7 +19771,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19803,7 +19803,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19835,7 +19835,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19867,7 +19867,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19899,7 +19899,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19931,7 +19931,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19963,7 +19963,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -19995,7 +19995,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20027,7 +20027,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20059,7 +20059,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20091,7 +20091,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20123,7 +20123,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20155,7 +20155,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20187,7 +20187,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20219,7 +20219,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20251,7 +20251,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20283,7 +20283,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20315,7 +20315,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20347,7 +20347,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20379,7 +20379,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20411,7 +20411,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20443,7 +20443,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20475,7 +20475,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20507,7 +20507,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20539,7 +20539,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20585,7 +20585,7 @@
       "492072"
     ],
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20617,7 +20617,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20649,7 +20649,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-26",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20681,7 +20681,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20713,7 +20713,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20745,7 +20745,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20800,7 +20800,7 @@
       "486770"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20832,7 +20832,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20864,7 +20864,7 @@
     "source": "fide-ratings",
     "sectionEventIds": null,
     "firstSeen": "2026-08-05",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   },
@@ -20909,7 +20909,7 @@
       "482082"
     ],
     "firstSeen": "2026-07-28",
-    "lastSeen": "2026-08-29",
+    "lastSeen": "2026-08-30",
     "consecutiveMisses": 0,
     "status": "upcoming"
   }
