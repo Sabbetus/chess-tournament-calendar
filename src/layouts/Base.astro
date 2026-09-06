@@ -24,6 +24,8 @@ const ogImageURL = new URL('og-image.png', Astro.site);
 const langLabels: Record<string, string> = {
   en: 'EN', es: 'ES', pt: 'PT', de: 'DE', cs: 'CS', fi: 'FI',
 };
+
+const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M16 4.7c-2.4 0-4.3 1.94-4.3 4.3 0 1.36.64 2.57 1.63 3.36-1.02.5-1.8 1.1-1.8 1.94 0 .58.37 1.05.96 1.44-2.4 1.35-4.09 3.7-4.42 6.46l-.2 1.6h16.26l-.2-1.6c-.33-2.76-2.02-5.11-4.42-6.46.59-.39.96-.86.96-1.44 0-.84-.78-1.44-1.8-1.94.99-.79 1.63-2 1.63-3.36 0-2.36-1.9-4.3-4.3-4.3z"/><rect x="6" y="24.1" width="20" height="3" rx="1.5" fill="currentColor"/></svg>`;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -128,7 +130,7 @@ const langLabels: Record<string, string> = {
   <header>
     <div class="header-inner">
       <a href={lang === 'en' ? base : `${base}${lang}/`} class="logo">
-        <div class="logo-icon-box">♟</div>
+        <div class="logo-icon-box" set:html={pawnIconSvg} />
         {currentPath === ''
           ? <h1 class="logo-title">Chess Tournament Calendar</h1>
           : <span class="logo-title">Chess Tournament Calendar</span>}
@@ -153,6 +155,7 @@ const langLabels: Record<string, string> = {
   <footer>
     <div class="footer-inner">
       <a href={lang === 'en' ? `${base}contact` : `${base}${lang}/contact`} class="footer-contact">{t.footer_contact}</a>
+      <p class="footer-partners">{t.footer_partners} <a href="https://chessori.com" target="_blank" rel="noopener">Chessori</a> &amp; <a href="https://nordicchess.fi" target="_blank" rel="noopener">Nordic Chess Festival</a></p>
       <p>{t.footer_data_source} <a href="https://chess-results.com" target="_blank" rel="noopener">chess-results.com</a> {t.footer_data_source_and} <a href="https://ratings.fide.com" target="_blank" rel="noopener">ratings.fide.com</a>. {t.footer_updated}</p>
     </div>
   </footer>

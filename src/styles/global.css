@@ -110,8 +110,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  color: #5b8dee;
   flex-shrink: 0;
+}
+.logo-icon-box svg {
+  width: 24px;
+  height: 24px;
 }
 
 .logo-title {
@@ -933,7 +937,8 @@ footer p a:hover { color: var(--text); }
   .logo-sep,
   .logo-sub { display: none; }
   .logo-title { font-size: 1.1rem; }
-  .logo-icon-box { width: 30px; height: 30px; font-size: 16px; }
+  .logo-icon-box { width: 30px; height: 30px; }
+  .logo-icon-box svg { width: 20px; height: 20px; }
   .lang-switcher { gap: 0; }
   .lang-link { font-size: 0.65rem; padding: 0.15rem 0.28rem; }
 
