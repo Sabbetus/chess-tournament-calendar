@@ -1,0 +1,82 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getTranslations, SUPPORTED_LANGS } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGS.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+
+const CR = '<a href="https://chess-results.com" target="_blank" rel="noopener">chess-results.com</a>';
+const FIDE = '<a href="https://ratings.fide.com" target="_blank" rel="noopener">ratings.fide.com</a>';
+const contactHref = `/${lang}/contact`;
+
+const content: Record<string, {
+  title: string; lede: string; howTitle: string; howP1: string; howP2: string; whoTitle: string; whoP: string;
+}> = {
+  es: {
+    title: 'Acerca de Chess Tournament Calendar',
+    lede: 'Averiguar qué torneos de ajedrez se acercan, en cualquier parte del mundo y a cualquier nivel, suele significar revisar varias federaciones a mano. Este sitio lo reúne todo en un solo lugar.',
+    howTitle: 'Cómo funciona',
+    howP1: `Los listados de torneos se recopilan automáticamente de ${CR}, con datos de clasificación de ${FIDE}. El sitio se actualiza cada 6 horas. No organizamos ninguno de estos torneos nosotros mismos, ni gestionamos inscripciones o pagos; cada listado enlaza a la página de inscripción o al sitio web propio del torneo cuando existe. Un torneo permanece en la lista mientras siga apareciendo en los datos; una sola actualización fallida no lo eliminará del sitio, ya que hacen falta varios fallos consecutivos antes de asumir que ha concluido o se ha cancelado y retirarlo de la lista de próximos torneos. Un pequeño número de torneos se selecciona a mano y se destaca en su lugar, normalmente eventos asociados a los que queremos dar visibilidad extra.`,
+    howP2: `Este proceso a veces se equivoca: una fecha, una ubicación, un torneo que se ha cancelado sin que nos hayamos dado cuenta todavía. Si detectas un error, o organizas un torneo y quieres que corrijamos algo, usa el <a href="${contactHref}">formulario de contacto</a> y llegará directamente a una persona.`,
+    whoTitle: 'Quién está detrás',
+    whoP: `Chess Tournament Calendar funciona sin ánimo de lucro desde Finlandia. Puedes escribirnos en cualquier momento a través del <a href="${contactHref}">formulario de contacto</a>.`,
+  },
+  pt: {
+    title: 'Sobre o Chess Tournament Calendar',
+    lede: 'Descobrir quais torneios de xadrez estão por vir, em qualquer parte do mundo e em qualquer nível, normalmente significa verificar várias federações manualmente. Este site reúne tudo isso num só lugar.',
+    howTitle: 'Como funciona',
+    howP1: `As listagens de torneios são reunidas automaticamente do ${CR}, com dados de classificação do ${FIDE}. O site é atualizado a cada 6 horas. Não organizamos nenhum destes torneios nós mesmos, nem tratamos inscrições ou pagamentos; cada listagem tem um link para a própria página de inscrição ou site do torneio, quando existe. Um torneio permanece listado enquanto continuar a aparecer nos dados; uma única falha não o remove do site, pois são necessárias várias falhas consecutivas antes de assumirmos que terminou ou foi cancelado e o retirarmos da lista de próximos torneios. Um pequeno número de torneios é escolhido manualmente e destacado em vez disso, normalmente eventos parceiros aos quais queremos dar visibilidade extra.`,
+    howP2: `Este processo às vezes comete erros: uma data, um local, um torneio que foi cancelado sem que tenhamos percebido ainda. Se encontrar um erro, ou organiza um torneio e quer que algo seja corrigido, use o <a href="${contactHref}">formulário de contacto</a> e chegará diretamente a uma pessoa.`,
+    whoTitle: 'Quem administra isto',
+    whoP: `O Chess Tournament Calendar funciona sem fins lucrativos, a partir da Finlândia. Pode entrar em contacto connosco a qualquer momento através do <a href="${contactHref}">formulário de contacto</a>.`,
+  },
+  de: {
+    title: 'Über Chess Tournament Calendar',
+    lede: 'Herauszufinden, welche Schachturniere anstehen, egal wo auf der Welt und auf welchem Niveau, bedeutet normalerweise, mehrere Verbandsseiten von Hand zu durchsuchen. Diese Seite bringt das alles an einem Ort zusammen.',
+    howTitle: 'So funktioniert es',
+    howP1: `Die Turnierlisten werden automatisch von ${CR} zusammengestellt, mit Wertungsdaten von ${FIDE}. Die Seite wird alle 6 Stunden aktualisiert. Wir organisieren keines dieser Turniere selbst und wickeln auch keine Anmeldungen oder Zahlungen ab; jeder Eintrag verlinkt, sofern vorhanden, auf die eigene Anmeldeseite oder Website des Turniers. Ein Turnier bleibt gelistet, solange es in den Daten weiterhin auftaucht: Eine einzelne fehlgeschlagene Aktualisierung entfernt ein echtes Turnier nicht von der Seite, da es mehrere aufeinanderfolgende Fehlversuche braucht, bevor wir annehmen, dass es beendet oder abgesagt wurde, und es von der Liste kommender Turniere nehmen. Eine kleine Anzahl von Turnieren wird stattdessen von Hand ausgewählt und als Featured-Turnier angeheftet, meist Partnerveranstaltungen, denen wir zusätzliche Sichtbarkeit geben möchten.`,
+    howP2: `Bei diesem Prozess passieren manchmal Fehler: ein Datum, ein Ort, ein Turnier, das abgesagt wurde, ohne dass wir es bereits bemerkt haben. Wenn Ihnen ein Fehler auffällt oder Sie ein Turnier veranstalten und etwas korrigiert haben möchten, nutzen Sie das <a href="${contactHref}">Kontaktformular</a> — es erreicht direkt eine Person.`,
+    whoTitle: 'Wer steht dahinter',
+    whoP: `Chess Tournament Calendar wird gemeinnützig aus Finnland betrieben. Sie erreichen uns jederzeit über das <a href="${contactHref}">Kontaktformular</a>.`,
+  },
+  cs: {
+    title: 'O Chess Tournament Calendar',
+    lede: 'Zjistit, jaké šachové turnaje se blíží, kdekoli na světě a na jakékoli úrovni, obvykle znamená ručně procházet weby několika federací. Tento web to shromažďuje na jednom místě.',
+    howTitle: 'Jak to funguje',
+    howP1: `Seznamy turnajů jsou automaticky získávány z ${CR}, s ratingovými údaji z ${FIDE}. Web se aktualizuje každých 6 hodin. Žádný z těchto turnajů sami neorganizujeme a neřešíme přihlášky ani platby; každý záznam odkazuje na vlastní registrační stránku nebo web turnaje, pokud existuje. Turnaj zůstává v seznamu, dokud se objevuje v datech na pozadí: jediná neúspěšná aktualizace turnaj ze stránky neodstraní, protože je potřeba několik po sobě jdoucích selhání, než usoudíme, že skončil nebo byl zrušen, a vyřadíme jej ze seznamu nadcházejících turnajů. Malý počet turnajů je místo toho vybírán ručně a připnut jako doporučený, obvykle partnerské akce, kterým chceme dát větší viditelnost.`,
+    howP2: `Tento proces se občas splete: datum, místo, turnaj, který byl zrušen, aniž bychom si toho ještě všimli. Pokud najdete chybu, nebo pořádáte turnaj a chcete něco opravit, použijte <a href="${contactHref}">kontaktní formulář</a> — dostane se přímo k člověku.`,
+    whoTitle: 'Kdo to provozuje',
+    whoP: `Chess Tournament Calendar je provozován neziskově z Finska. Můžete nás kdykoli kontaktovat přes <a href="${contactHref}">kontaktní formulář</a>.`,
+  },
+  fi: {
+    title: 'Tietoa Chess Tournament Calendar -sivustosta',
+    lede: 'Sen selvittäminen, mitä shakkiturnauksia on tulossa, missä päin maailmaa tahansa ja millä tasolla tahansa, tarkoittaa yleensä useiden liittojen sivujen läpikäymistä käsin. Tämä sivusto kokoaa ne kaikki yhteen paikkaan.',
+    howTitle: 'Näin se toimii',
+    howP1: `Turnauslistaukset kerätään automaattisesti sivustolta ${CR}, ja ratingtiedot tulevat sivustolta ${FIDE}. Sivusto päivittyy 6 tunnin välein. Emme järjestä yhtäkään näistä turnauksista itse, emmekä käsittele ilmoittautumisia tai maksuja; jokainen listaus linkittää turnauksen omalle ilmoittautumissivulle tai verkkosivustolle, jos sellainen on olemassa. Turnaus pysyy listalla niin kauan kuin se näkyy taustalla olevassa datassa: yksittäinen epäonnistunut päivitys ei poista todellista turnausta sivustolta, sillä tarvitaan useita peräkkäisiä epäonnistumisia ennen kuin oletamme sen päättyneen tai peruuntuneen ja poistamme sen tulevien turnausten listalta. Pieni joukko turnauksia valitaan sen sijaan käsin ja nostetaan esille, yleensä yhteistyötapahtumia, joille haluamme antaa lisänäkyvyyttä.`,
+    howP2: `Tässä prosessissa tulee joskus virheitä: väärä päivämäärä, paikka, tai turnaus, joka on peruttu ilman että olemme vielä huomanneet sitä. Jos huomaat virheen, tai järjestät turnauksen ja haluat jotain korjattavaksi, käytä <a href="${contactHref}">yhteydenottolomaketta</a> — viesti tavoittaa suoraan oikean henkilön.`,
+    whoTitle: 'Kuka tätä ylläpitää',
+    whoP: `Chess Tournament Calendar toimii voittoa tavoittelemattomalta pohjalta Suomesta käsin. Voit ottaa yhteyttä milloin tahansa <a href="${contactHref}">yhteydenottolomakkeen</a> kautta.`,
+  },
+};
+
+const c = content[lang];
+---
+
+<Base title={`${t.site_title} — ${c.title}`} description={t.site_description} lang={lang} currentPath="about">
+  <h1 class="page-title">{c.title}</h1>
+
+  <div class="prose">
+    <p class="lede">{c.lede}</p>
+
+    <h2>{c.howTitle}</h2>
+    <p set:html={c.howP1} />
+    <p set:html={c.howP2} />
+
+    <h2>{c.whoTitle}</h2>
+    <p set:html={c.whoP} />
+  </div>
+</Base>

@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import PrivacyContent from '../../components/PrivacyContent.astro';
+import { getTranslations, SUPPORTED_LANGS } from '../../i18n/index.ts';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGS.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = getTranslations(lang);
+
+const englishOnlyNotice: Record<string, string> = {
+  es: 'Esta página solo está disponible en inglés.',
+  pt: 'Esta página só está disponível em inglês.',
+  de: 'Diese Seite ist nur auf Englisch verfügbar.',
+  cs: 'Tato stránka je dostupná pouze v angličtině.',
+  fi: 'Tämä sivu on saatavilla vain englanniksi.',
+};
+---
+
+<Base title={`${t.site_title} — Privacy Policy`} description="What Chess Tournament Calendar collects, who it goes to, and how to opt out. Plain English, no boilerplate." lang={lang} currentPath="privacy">
+  <p class="note">{englishOnlyNotice[lang]}</p>
+  <PrivacyContent contactHref={`/${lang}/contact`} />
+</Base>

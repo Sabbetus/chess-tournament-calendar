@@ -162,8 +162,8 @@ const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
     <div class="footer-inner">
       <div class="footer-links">
         <a href={lang === 'en' ? `${base}contact` : `${base}${lang}/contact`} class="footer-contact">{t.footer_contact}</a>
-        <a href={`${base}about`} class="footer-contact">About</a>
-        <a href={`${base}privacy`} class="footer-contact">Privacy</a>
+        <a href={lang === 'en' ? `${base}about` : `${base}${lang}/about`} class="footer-contact">{t.footer_about}</a>
+        <a href={lang === 'en' ? `${base}privacy` : `${base}${lang}/privacy`} class="footer-contact">{t.footer_privacy}</a>
       </div>
       <p class="footer-partners">{t.footer_partners} <a href="https://chessherald.com" target="_blank" rel="noopener">The Chess Herald</a> &amp; <a href="https://nordicchess.fi" target="_blank" rel="noopener">Nordic Chess Festival</a></p>
       <p>{t.footer_data_source} <a href="https://chess-results.com" target="_blank" rel="noopener">chess-results.com</a> {t.footer_data_source_and} <a href="https://ratings.fide.com" target="_blank" rel="noopener">ratings.fide.com</a>. {t.footer_updated}</p>

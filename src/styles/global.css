@@ -566,12 +566,14 @@ main {
   padding: 1px 5px;
   border-radius: 3px;
 }
-.policy .note {
+.policy .note, .note {
   padding: 0.75rem 1rem;
   border-left: 3px solid var(--accent);
   background: var(--bg-card);
   color: var(--text-muted);
   font-size: 0.88rem;
+  max-width: 680px;
+  margin: 0 0 1.25rem;
 }
 .optout {
   margin: 0 0 1.4em;
