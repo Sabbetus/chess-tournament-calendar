@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Chess Tournament Calendar — About" description="What this site is, where the data comes from, and how it works." lang="en" currentPath="about">
+  <h1 class="page-title">About Chess Tournament Calendar</h1>
+
+  <div class="prose">
+    <p class="lede">
+      Finding out what chess tournaments are coming up, anywhere in the world and at any level, usually means
+      checking several federation sites by hand. This site pulls that into one place.
+    </p>
+
+    <h2>Where the data comes from</h2>
+    <p>
+      Tournament listings are gathered automatically from <a href="https://chess-results.com" target="_blank" rel="noopener">chess-results.com</a>,
+      with rating data from <a href="https://ratings.fide.com" target="_blank" rel="noopener">ratings.fide.com</a>.
+      The site refreshes every 6 hours. We don't organize any of these tournaments ourselves, and we don't take
+      entries or payments. Every listing links out to the tournament's own registration page or website when one
+      exists.
+    </p>
+
+    <h2>What "upcoming" means</h2>
+    <p>
+      A tournament stays listed as long as it keeps showing up in the source data. A single missed or failed scrape
+      won't pull a real tournament off the site; it takes several consecutive misses before we assume it's concluded
+      or cancelled and drop it from the upcoming list.
+    </p>
+
+    <h2>Corrections</h2>
+    <p>
+      Automated scraping gets things wrong sometimes: a date, a location, a tournament that's been cancelled without
+      us catching it yet. If you spot an error, or you run a tournament and want something fixed, use the
+      <a href="/contact">contact form</a> and it'll reach a person directly.
+    </p>
+
+    <h2>Featured tournaments</h2>
+    <p>
+      Most listings on the site are scraped automatically. A small number are hand-picked and pinned as featured
+      instead, usually partner events we want to give extra visibility.
+    </p>
+
+    <h2>Who runs this</h2>
+    <p>
+      Chess Tournament Calendar is run on a non-profit basis from Finland. You can reach us any time through the
+      <a href="/contact">contact form</a>.
+    </p>
+  </div>
+</Base>

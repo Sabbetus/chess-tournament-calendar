@@ -532,6 +532,82 @@ main {
   margin-bottom: 0.5rem;
 }
 
+/* ── Policy / About pages ── */
+.policy-updated {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 1.25rem;
+}
+.policy, .prose {
+  max-width: 680px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+.policy h2, .prose h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  margin: 1.6em 0 0.5em;
+}
+.policy h3, .prose h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1.3em 0 0.4em;
+}
+.policy p, .prose p { margin: 0 0 1.1em; }
+.policy ul, .prose ul { margin: 0 0 1.1em; padding-left: 1.2em; }
+.policy li, .prose li { margin-bottom: 0.4em; }
+.policy code {
+  font-size: 0.85em;
+  background: var(--bg-card);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.policy .note {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+.optout {
+  margin: 0 0 1.4em;
+  padding: 0.9rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.optout-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.optout-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.optout-btn {
+  flex-shrink: 0;
+  padding: 0.4rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.optout-btn:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+.optout-status { margin: 0.75rem 0 0; font-size: 0.88rem; color: var(--text-muted); }
+.optout-caveat { margin: 0.5rem 0 0; font-size: 0.8rem; color: var(--text-dim); }
+
 .contact-form {
   max-width: 480px;
   margin-top: 1.5rem;
@@ -874,6 +950,11 @@ footer {
 footer p { font-size: 0.78rem; color: var(--text-dim); margin: 0; }
 footer p a { color: var(--text-muted); }
 footer p a:hover { color: var(--text); }
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
 .footer-contact {
   font-size: 0.78rem;
   color: var(--text-muted);

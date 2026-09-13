@@ -100,13 +100,19 @@ const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
     })();
   </script>
 
-  <!-- Google Analytics — immediate on desktop, deferred on mobile to avoid blocking render -->
+  <!-- Google Analytics — immediate on desktop, deferred on mobile to avoid
+       blocking render. Gated on the opt-out set from /privacy/: checked
+       before the script element is even created, so an opted-out visitor
+       never issues the request at all. -->
   <script>
     (function() {
       var loaded = false;
       function loadGA() {
         if (loaded) return;
         loaded = true;
+        try {
+          if (localStorage.getItem('ctc-analytics-optout') === '1') return;
+        } catch (e) {}
         var s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PME2NXTXQR';
         document.head.appendChild(s);
@@ -154,7 +160,11 @@ const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
   </main>
   <footer>
     <div class="footer-inner">
-      <a href={lang === 'en' ? `${base}contact` : `${base}${lang}/contact`} class="footer-contact">{t.footer_contact}</a>
+      <div class="footer-links">
+        <a href={lang === 'en' ? `${base}contact` : `${base}${lang}/contact`} class="footer-contact">{t.footer_contact}</a>
+        <a href={`${base}about`} class="footer-contact">About</a>
+        <a href={`${base}privacy`} class="footer-contact">Privacy</a>
+      </div>
       <p class="footer-partners">{t.footer_partners} <a href="https://chessherald.com" target="_blank" rel="noopener">The Chess Herald</a> &amp; <a href="https://nordicchess.fi" target="_blank" rel="noopener">Nordic Chess Festival</a></p>
       <p>{t.footer_data_source} <a href="https://chess-results.com" target="_blank" rel="noopener">chess-results.com</a> {t.footer_data_source_and} <a href="https://ratings.fide.com" target="_blank" rel="noopener">ratings.fide.com</a>. {t.footer_updated}</p>
     </div>
