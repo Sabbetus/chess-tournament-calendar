@@ -6,13 +6,6 @@
     "playersRegistered": 20,
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
   },
-  "454016": {
-    "endDate": "2026-10-15",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
   "454017": {
     "endDate": "2026-12-17",
     "organizer": null,
@@ -3282,13 +3275,6 @@
     "playersRegistered": 30,
     "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1"
   },
-  "492623": {
-    "endDate": "2026-11-12",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 40,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
   "492635": {
     "endDate": "2026-11-16",
     "organizer": null,
@@ -3791,13 +3777,6 @@
     "organizer": null,
     "organizerProfileId": null,
     "playersRegistered": 10,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
-  "494493": {
-    "endDate": "2026-10-29",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 40,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
   "494494": {
@@ -5970,33 +5949,12 @@
     "playersRegistered": 30,
     "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   },
-  "503776": {
-    "endDate": "2026-10-15",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 10,
-    "timeControlRaw": "Rapid: 10 minutes for game with 2 seconds increment from move 1"
-  },
-  "503777": {
-    "endDate": "2026-10-15",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 10,
-    "timeControlRaw": "Rapid: 10 minutes for game with 2 seconds increment from move 1"
-  },
   "503779": {
     "endDate": "2026-11-07",
     "organizer": null,
     "organizerProfileId": null,
     "playersRegistered": 10,
     "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
-  "503781": {
-    "endDate": "2026-10-15",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 10,
-    "timeControlRaw": "Blitz: 7 minutes for game with 2 seconds increment from move 1"
   },
   "503783": {
     "endDate": "2026-10-29",
@@ -6437,13 +6395,6 @@
     "organizer": null,
     "organizerProfileId": null,
     "playersRegistered": 15,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
-  "504989": {
-    "endDate": "2026-10-15",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
     "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   },
   "505037": {
@@ -7257,5 +7208,82 @@
     "organizerProfileId": "3251098",
     "playersRegistered": 40,
     "timeControlRaw": "Rapid: All Moves in 13 Min. Incr. 2 Sec. /     /"
+  },
+  "506272": {
+    "endDate": "2026-11-19",
+    "organizer": "Jordan, Brandon Michael (USA)",
+    "organizerProfileId": "39904822",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1"
+  },
+  "506377": {
+    "endDate": "2026-10-29",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "506378": {
+    "endDate": "2026-11-17",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 15,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "506379": {
+    "endDate": "2026-10-25",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "506380": {
+    "endDate": "2026-11-14",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 10,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "506381": {
+    "endDate": "2026-11-14",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "506382": {
+    "endDate": "2026-11-15",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 10,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "506383": {
+    "endDate": "2026-11-15",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 15,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "506384": {
+    "endDate": "2026-10-29",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "506385": {
+    "endDate": "2026-11-12",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "506386": {
+    "endDate": "2026-11-12",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
   }
 }
