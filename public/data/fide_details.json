@@ -3667,20 +3667,6 @@
     "playersRegistered": 50,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
-  "495970": {
-    "endDate": "2026-10-25",
-    "organizer": "Hanley, Joe (USA)",
-    "organizerProfileId": "2006847",
-    "playersRegistered": 6,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
-  "495971": {
-    "endDate": "2026-10-25",
-    "organizer": "Hanley, Joe (USA)",
-    "organizerProfileId": "2006847",
-    "playersRegistered": 6,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
   "495974": {
     "endDate": "2027-01-18",
     "organizer": "Espinosa, Keith (USA)",
@@ -4891,13 +4877,6 @@
     "organizerProfileId": "30986613",
     "playersRegistered": 30,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
-  "502769": {
-    "endDate": "2026-10-25",
-    "organizer": "Rust, Edward (AUS)",
-    "organizerProfileId": "3248860",
-    "playersRegistered": 40,
-    "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1"
   },
   "502795": {
     "endDate": "2026-11-19",
@@ -7321,13 +7300,6 @@
     "playersRegistered": 20,
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1"
   },
-  "507449": {
-    "endDate": "2026-10-25",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
-    "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1"
-  },
   "507906": {
     "endDate": "2026-11-22",
     "organizer": "Hatherill, Charles W (USA)",
@@ -7354,6 +7326,118 @@
     "organizer": "Lim, Yi Feng Zacharias (SGP)",
     "organizerProfileId": "5817293",
     "playersRegistered": 30,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "508012": {
+    "endDate": "2027-01-17",
+    "organizer": "Lorimor, Stephen D (USA)",
+    "organizerProfileId": "39957055",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: All Moves in 110 Min. Del. 10 Sec. /     /"
+  },
+  "508043": {
+    "endDate": "2026-12-28",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "508044": {
+    "endDate": "2026-12-28",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "508045": {
+    "endDate": "2026-12-26",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "508046": {
+    "endDate": "2026-11-07",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 35,
+    "timeControlRaw": "Rapid: 30 minutes for game"
+  },
+  "508047": {
+    "endDate": "2026-11-19",
+    "organizer": "Vigil, Eric (USA)",
+    "organizerProfileId": "30911702",
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "508048": {
+    "endDate": "2026-11-29",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 30 Moves in 90 Min. Incr. 30 Sec. /     / 30 Min. Incr. 30 Sec."
+  },
+  "508049": {
+    "endDate": "2026-11-29",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 30 Moves in 90 Min. Incr. 30 Sec. /     / 30 Min. Incr. 30 Sec."
+  },
+  "508050": {
+    "endDate": "2026-11-29",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 30 Moves in 90 Min. Incr. 30 Sec. /     / 30 Min. Incr. 30 Sec."
+  },
+  "508051": {
+    "endDate": "2026-11-29",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 30 Moves in 90 Min. Incr. 30 Sec. /     / 30 Min. Incr. 30 Sec."
+  },
+  "508052": {
+    "endDate": "2026-11-29",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Rapid: 12 minutes for game with 3 seconds increment from move 1"
+  },
+  "508053": {
+    "endDate": "2026-11-29",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "508054": {
+    "endDate": "2026-12-20",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "508055": {
+    "endDate": "2026-12-20",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "508056": {
+    "endDate": "2026-12-20",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "508057": {
+    "endDate": "2026-12-20",
+    "organizer": "Sinanan, Joshua (USA)",
+    "organizerProfileId": "2027593",
+    "playersRegistered": 50,
     "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   }
 }
