@@ -148,6 +148,17 @@ const soonestFormatted = soonestDate
 const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ` +
   (soonestFormatted ? `${t.meta_next_event} ${soonestFormatted}. ` : '') +
   t.footer_updated;
+// One plain line under the heading: the same counts the meta description
+// uses, split by time control. Omitted when the country has nothing upcoming.
+const pageItems = [...items, ...featuredForPage];
+const classicalCount = pageItems.filter((i: any) => i.timeControl !== 'Rapid').length;
+const rapidCount = pageItems.filter((i: any) => i.timeControl === 'Rapid').length;
+const summary = pageItems.length
+  ? `${t.location_desc_prefix} ${group.displayName}: ${pageItems.length} (${[
+      classicalCount ? `${t.filter_classical} ${classicalCount}` : '',
+      rapidCount ? `${t.filter_rapid} ${rapidCount}` : '',
+    ].filter(Boolean).join(', ')}).`
+  : '';
 const currentPath = `country/${group.slug}`;
 
 const breadcrumbItems = [
@@ -191,6 +202,7 @@ const breadcrumbSchema = {
       <span class="star-icon">☆</span><span class="favorite-label">{t.favorite_add}</span>
     </button>
   </h1>
+  {summary && <p class="country-summary">{summary}</p>}
 
   <script>
     import { isFavorite, toggleFavorite } from '../../scripts/favorites.ts';

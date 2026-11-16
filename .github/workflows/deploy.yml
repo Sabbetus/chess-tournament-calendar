@@ -38,8 +38,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Unit tests
+        run: |
+          npm test
+          python3 -m unittest discover tests
+
       - name: Build Astro site
         run: npm run build
+
+      # Fails the deploy rather than publishing a structurally broken site.
+      - name: Check build output
+        run: npm run check:build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
