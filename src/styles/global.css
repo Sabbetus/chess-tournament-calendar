@@ -234,12 +234,8 @@ main {
   border-bottom: 2px solid transparent;
   color: var(--text-muted);
   cursor: pointer;
-  /* These were <button>s, which render in the browser's control font rather
-     than the page font; keep that so turning them into links changes nothing
-     visually. The first line is the fallback for browsers that don't know the
-     -webkit-small-control keyword. */
-  font-family: Arial, sans-serif;
-  font: -webkit-small-control;
+  font-family: inherit;
+  line-height: normal;
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 500;
