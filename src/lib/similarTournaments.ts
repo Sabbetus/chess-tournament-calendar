@@ -1,3 +1,4 @@
+import { isDelisted } from './tournamentStatus.js';
 // "Similar tournaments" for a given tournament is purely a function of
 // archive data (id, status, name, country, countryCode, startDate, endDate)
 // -- nothing about it depends on locale. The en and [lang] tournament pages
@@ -76,7 +77,7 @@ export function getSimilarTournaments(t: any, all: any[]): any[] {
   const cached = cache.get(t.id);
   if (cached) return cached;
 
-  const upcoming = all.filter((x: any) => x.status === 'upcoming' && x.id !== t.id);
+  const upcoming = all.filter((x: any) => x.status === 'upcoming' && !isDelisted(x) && x.id !== t.id);
   const scored = upcoming
     .map((x: any) => ({ t: x, score: scoreSimilar(x, t) }))
     .filter(({ score }) => score >= 10)

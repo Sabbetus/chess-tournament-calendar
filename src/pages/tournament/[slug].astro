@@ -7,6 +7,7 @@ import featuredData from '../../../data/featured.json';
 import metaData from '../../../public/data/meta.json';
 import { retentionCutoff, isRetained } from '../../lib/retention.js';
 import { getTranslations } from '../../i18n/index.ts';
+import { isDelisted } from '../../lib/tournamentStatus.js';
 import { durationDays, formatDateRange, formatShortRange, formatDuration } from '../../lib/dates.ts';
 import { slugifyLocation, CONTINENT_SLUGS } from '../../lib/locationSlug.ts';
 import { getContinent } from '../../lib/continents.ts';
@@ -83,6 +84,9 @@ function playersTrend(tournament: any): number | null {
 const trend = rawTournament.sections ? (rawTournament.mergedTrend ?? null) : playersTrend(t);
 const mapQuery = encodeURIComponent(`${t.city}, ${t.country}`);
 const isConcluded = t.status === 'concluded';
+const delisted = isDelisted(t);
+// Neither kind of page should be indexed or described as a live event.
+const inactive = isConcluded || delisted;
 
 const gcalUrl = (() => {
   const fmt = (d: string) => d.replace(/-/g, '');
@@ -178,14 +182,18 @@ const eventSchema = {
 };
 ---
 
-<Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath} noindex={isConcluded}>
-  {!isConcluded && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
-  {!isConcluded && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+<Base title={pageTitle} description={pageDesc} lang={lang} currentPath={currentPath} noindex={inactive}>
+  {!inactive && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
+  {!inactive && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
   <nav class="breadcrumb">
     <a href={base}>{tr.back_to_calendar}</a>
     {t.countryCode && <>{' · '}<a href={`${base}country/${slugifyLocation(t.country)}/`}>{t.country}</a></>}
   </nav>
+
+  {delisted && (
+    <div class="concluded-notice">{tr.delisted_notice}</div>
+  )}
 
   {isConcluded && (
     <div class="concluded-notice">{tr.concluded_notice}</div>

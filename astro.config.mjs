@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
 import { retentionCutoff, isRetained } from './src/lib/retention.js';
+import { isDelisted } from './src/lib/tournamentStatus.js';
 
 // Concluded tournaments are noindex'd and excluded from the sitemap — they are
 // thin, stale pages (no results/standings) that would only dilute crawl budget.
@@ -9,6 +10,10 @@ const archive = JSON.parse(readFileSync(new URL('./public/data/archive.json', im
 const fideArchive = JSON.parse(readFileSync(new URL('./public/data/fide_archive.json', import.meta.url)));
 const concludedSlugs = new Set(
   [...archive, ...fideArchive].filter((t) => t.status === 'concluded').map((t) => t.slug)
+);
+// Same for tournaments their source no longer lists (see isDelisted).
+const delistedSlugs = new Set(
+  [...archive, ...fideArchive].filter(isDelisted).map((t) => t.slug)
 );
 
 // Sitemap lastmod: tournament pages use the tournament's own "first seen" date
@@ -94,7 +99,7 @@ export default defineConfig({
         const m = page.match(/\/tournament\/([^/]+)\/?$/);
         if (!m) return true;
         const slug = decodeURIComponent(m[1]);
-        return !concludedSlugs.has(slug) && !mergedSlugs.has(slug);
+        return !concludedSlugs.has(slug) && !delistedSlugs.has(slug) && !mergedSlugs.has(slug);
       },
       serialize: (item) => {
         const m = item.url.match(/\/tournament\/([^/]+)\/?$/);
