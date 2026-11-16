@@ -1,19 +1,28 @@
 # Chess Tournament Calendar
 
-> A calendar of classical and rapid chess tournaments from around the world. Tournament data is sourced from chess-results.com and updated automatically every 12 hours.
+> A calendar of classical and rapid chess tournaments from around the world. Tournament data comes from chess-results.com and ratings.fide.com and is refreshed automatically several times a day.
 
-This site lists upcoming, open-entry chess tournaments (both classical and rapid time controls), including dates, location, duration, number of players registered, and time control information.
+This site lists upcoming, open-entry chess tournaments (both classical and rapid time controls), including dates, location, duration, number of players registered, and time control information. It does not organize tournaments or take entries: every listing links to the tournament's own registration page or website.
 
 ## Pages
 
 - [Tournament Calendar](https://chesstournamentcalendar.com/): Full list of upcoming chess tournaments worldwide, filterable by country, month, duration, and time control (Classical / Rapid). Also available in [Spanish](https://chesstournamentcalendar.com/es/), [Portuguese](https://chesstournamentcalendar.com/pt/), [German](https://chesstournamentcalendar.com/de/), [Czech](https://chesstournamentcalendar.com/cs/), and [Finnish](https://chesstournamentcalendar.com/fi/).
-- [Continent pages](https://chesstournamentcalendar.com/continent/europe/): Tournaments filtered to one continent (e.g. Europe, Asia), each linking to its countries. Available for every continent with active tournaments.
+- [Continent pages](https://chesstournamentcalendar.com/continent/europe/): Tournaments filtered to one continent (e.g. Europe, Asia), each linking to its top countries. Available for every continent with active tournaments.
 - [Country pages](https://chesstournamentcalendar.com/country/finland/): Tournaments filtered to one country. Available for every country with active tournaments.
-- [Contact & Feedback](https://chesstournamentcalendar.com/contact): Send feedback, report issues, or enquire about tournament partnerships.
+- Tournament pages (`/tournament/<slug>/`): One page per tournament with dates, location, time control, registered players, a map, and calendar export. Pages for finished tournaments stay available for a couple of months but are not indexed.
+- [About](https://chesstournamentcalendar.com/about/): Where the data comes from and who runs the site. Also in the other languages.
+- [Contact & Feedback](https://chesstournamentcalendar.com/contact/): Send feedback, report issues, or enquire about tournament partnerships.
+- [Privacy Policy](https://chesstournamentcalendar.com/privacy/): What the site collects and how to opt out (English only).
 
 ## Data
 
-- [Tournament data (JSON)](https://chesstournamentcalendar.com/data/tournaments.json): Machine-readable list of all tournaments. Updated every 12 hours.
+- [Upcoming tournaments (JSON)](https://chesstournamentcalendar.com/data/tournaments.json): Machine-readable list of upcoming tournaments from both sources. Refreshed together with the site.
+- [All tournaments seen (JSON)](https://chesstournamentcalendar.com/data/archive-all.json): Every tournament the site has listed, including finished ones, from both sources. The `source` field is `chess-results` or `fide-ratings`, and `status` is `upcoming` or `concluded`.
+
+## Sources
+
+- chess-results.com: tournaments worldwide.
+- ratings.fide.com: FIDE-registered tournaments in the United States, Australia, Norway and Denmark, where chess-results.com has little coverage.
 
 ## Details
 
@@ -25,4 +34,4 @@ Each tournament entry includes:
 - Time control (Classical or Rapid)
 - Number of players currently registered (when available)
 
-The page embeds structured data (schema.org Event, JSON-LD) for each tournament listed.
+The pages embed structured data (schema.org Event, JSON-LD) for the tournaments they list.
