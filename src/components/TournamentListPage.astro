@@ -126,6 +126,11 @@ const listConfig = {
   ))}
 </div>
 
+<!-- Optional content that belongs under the tabs, before the list (a continent
+     page puts its country links here, so the tab bar sits at nearly the same
+     height as on the home page instead of being pushed down by it). -->
+<slot name="after-tabs" />
+
 <!-- Column headers -->
 <div class="tlist-header">
   <span class="th-name">{t.col_tournament}</span>

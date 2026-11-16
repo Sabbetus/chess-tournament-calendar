@@ -695,8 +695,6 @@ main {
    the heading's own margin-bottom (not the label's margin-top) is what
    actually governs the gap here -- shrink that specifically for this
    adjacency, leaving country pages (heading -> filter bar) untouched. */
-.location-heading:has(+ .section-label) { margin-bottom: 1.3rem; }
-.location-heading + .section-label { margin-top: 0; }
 .location-heading img { border-radius: 2px; }
 .favorite-toggle {
   display: inline-flex;
@@ -722,6 +720,9 @@ main {
   gap: 0.5rem;
   margin-bottom: 2rem;
 }
+.continent-countries { margin: 0.9rem 0 1.1rem; }
+.continent-countries .section-label { margin-top: 0; }
+.continent-countries .country-chip-list { margin-bottom: 0; }
 .country-chip {
   display: inline-flex;
   align-items: center;

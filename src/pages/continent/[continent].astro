@@ -147,15 +147,6 @@ const breadcrumbSchema = {
 
   <h1 class="location-heading">{t.continent_tournaments_in} {continentName}</h1>
 
-  <h2 class="section-label">{t.countries_in} {continentName}</h2>
-  <div class="country-chip-list">
-    {group.countries.slice(0, 5).map((c) => (
-      <a href={`/country/${c.slug}/`} class="country-chip">
-        {c.displayName} <span class="count">({c.count})</span>
-      </a>
-    ))}
-  </div>
-
   <TournamentListPage
     t={t}
     lang={lang}
@@ -178,5 +169,16 @@ const breadcrumbSchema = {
     lockedContinent={group.code}
     lockedLabel={continentName}
     activeContinentCode={group.code}
-  />
+  >
+    <div slot="after-tabs" class="continent-countries">
+      <h2 class="section-label">{t.countries_in} {continentName}</h2>
+      <div class="country-chip-list">
+        {group.countries.slice(0, 5).map((c) => (
+          <a href={`/country/${c.slug}/`} class="country-chip">
+            {c.displayName} <span class="count">({c.count})</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </TournamentListPage>
 </Base>
