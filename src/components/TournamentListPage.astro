@@ -61,6 +61,13 @@ const listConfig = {
 };
 ---
 
+<!-- Phones: the filter panel starts collapsed so the list stays visible, and the
+     panel ends with a live "Show results (N)" button. Hidden on desktop. -->
+<button type="button" class="filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters">
+  <span>{t.filters_label}</span>
+  <span class="ft-badge" id="ft-badge" hidden></span>
+  <span class="ft-chev" aria-hidden="true">▾</span>
+</button>
 <div class="filters" id="filters">
   <div class="filter-group">
     <label for="f-country">{t.filter_country}</label>
@@ -111,6 +118,7 @@ const listConfig = {
     </select>
   </div>
   <button class="filter-reset" id="filter-reset">{t.filter_reset}</button>
+  <button type="button" class="filters-apply" id="filters-apply" data-template={t.filters_show}>{t.filters_show.replace('{n}', String(totalCount))}</button>
 </div>
 
 <!-- Continent tabs: plain links, so they can be crawled and opened in a new

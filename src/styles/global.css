@@ -228,6 +228,14 @@ main {
   margin-bottom: 0.6rem;
 }
 .continent-tabs::-webkit-scrollbar { display: none; }
+.continent-tabs { position: relative; }
+/* Tabs that run off the screen fade out at that edge, so it is clear there is more. */
+.continent-tabs.fade-right { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 3rem), transparent); }
+.continent-tabs.fade-left { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 3rem), transparent); }
+.continent-tabs.fade-left.fade-right { -webkit-mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent); }
+
+/* Filter panel toggle and "Show results" button: phones only */
+.filters-toggle, .filters-apply { display: none; }
 
 .ctab {
   background: none;
@@ -1062,8 +1070,53 @@ footer p a:hover { color: var(--text); }
   .lang-switcher { gap: 0; }
   .lang-link { font-size: 0.65rem; padding: 0.15rem 0.28rem; }
 
-  .filters { flex-direction: column; }
+  .filters { flex-direction: column; display: none; margin-top: 0.5rem; }
+  .filters.open { display: flex; }
   .filter-group { min-width: unset; }
+  .filters-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .filters-toggle[aria-expanded="true"] { margin-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .filters.open { margin-top: 0; border-top: none; border-top-left-radius: 0; border-top-right-radius: 0; }
+  .ft-badge {
+    min-width: 1.3rem;
+    padding: 0.05rem 0.4rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.72rem;
+    text-align: center;
+  }
+  .ft-chev { margin-left: auto; color: var(--text-muted); transition: transform 0.15s; }
+  .filters-toggle[aria-expanded="true"] .ft-chev { transform: rotate(180deg); }
+  .filters-apply {
+    display: block;
+    position: sticky;
+    bottom: 0.6rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
   .favorite-toggle { margin-left: 0; }
 
   .continent-tabs { margin-bottom: 0.75rem; }

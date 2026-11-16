@@ -260,12 +260,60 @@ export function initTournamentList(cfg: ListConfig) {
     countEl.textContent = String(Math.min(renderedCount, filtered.length));
     totalEl.textContent = String(filtered.length);
     loadMoreBtn.style.display = renderedCount < filtered.length ? '' : 'none';
+    updateMobileFilterUi(filtered.length);
     noResults.style.display = filtered.length === 0 ? 'block' : 'none';
     if (filtered.length === 0 && noResultsSummary) {
       const summary = activeFiltersSummary();
       noResultsSummary.textContent = summary ? summary : defaultNoResultsText;
     }
   }
+
+  // ── Phone filter panel ──
+  // The toggle's badge counts the active filters; the apply button states how
+  // many tournaments the current filters leave, so every change is visible
+  // without scrolling past the panel.
+  const filtersEl = document.getElementById('filters')!;
+  const filtersToggle = document.getElementById('filters-toggle')!;
+  const filtersApply = document.getElementById('filters-apply')!;
+  const filtersBadge = document.getElementById('ft-badge')!;
+  function updateMobileFilterUi(count: number) {
+    const mSort = document.getElementById('m-sort') as HTMLSelectElement | null;
+    const active = [
+      (fMonth as HTMLSelectElement).value,
+      activeValue(fTcEl),
+      activeValue(fDurationEl),
+      (fSearch as HTMLInputElement).value.trim(),
+      mSort && mSort.value !== 'date-asc' ? mSort.value : '',
+    ].filter(Boolean).length;
+    filtersBadge.textContent = String(active);
+    filtersBadge.hidden = active === 0;
+    filtersApply.textContent = (filtersApply.dataset.template || '').replace('{n}', String(count));
+  }
+  function setFiltersOpen(open: boolean) {
+    filtersEl.classList.toggle('open', open);
+    filtersToggle.setAttribute('aria-expanded', String(open));
+  }
+  filtersToggle.addEventListener('click', () => setFiltersOpen(!filtersEl.classList.contains('open')));
+  filtersApply.addEventListener('click', () => {
+    setFiltersOpen(false);
+    const target = document.getElementById('continent-tabs');
+    if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 12, behavior: 'smooth' });
+  });
+
+  // ── Continent tabs: fade the edges that have more to scroll to ──
+  const tabsEl = document.getElementById('continent-tabs')!;
+  function updateTabsFade() {
+    const max = tabsEl.scrollWidth - tabsEl.clientWidth;
+    tabsEl.classList.toggle('fade-right', tabsEl.scrollLeft < max - 2);
+    tabsEl.classList.toggle('fade-left', tabsEl.scrollLeft > 2);
+  }
+  const activeTab = tabsEl.querySelector('.ctab.active') as HTMLElement | null;
+  if (activeTab) {
+    tabsEl.scrollLeft = activeTab.offsetLeft - (tabsEl.clientWidth - activeTab.offsetWidth) / 2;
+  }
+  tabsEl.addEventListener('scroll', updateTabsFade, { passive: true });
+  window.addEventListener('resize', updateTabsFade);
+  updateTabsFade();
 
   function arrowFor(key: string, dir: string) {
     if (key === 'players') return dir === 'desc' ? ' ↓' : ' ↑';
