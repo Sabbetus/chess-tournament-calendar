@@ -43,6 +43,9 @@ const featuredForPage = (featuredData as any[]).filter((f) =>
   f.country === group.englishName ||
   (group.continentCode === 'EU' && getContinent(f.countryCode) === 'EU')
 );
+// The featured tournament is shown on every European country page, but only counts
+// toward a country's totals when it is actually held there.
+const homeFeatured = featuredForPage.filter((f: any) => f.country === group.englishName);
 const items = group.items
   .filter((item: any) => item.source !== 'manual')
   .sort((a, b) => a.startDate.localeCompare(b.startDate));
@@ -140,18 +143,18 @@ const pageTitle = `${titlePrefix}${titleCountryName}${titleSuffix}`;
 // by Bing as too thin — padding out with the soonest real tournament's date
 // adds genuine content instead of filler, and pushes length into the normal
 // 120-160 char range search engines expect.
-const soonestDate = [items[0]?.startDate, ...featuredForPage.map((f: any) => f.startDate)]
+const soonestDate = [items[0]?.startDate, ...homeFeatured.map((f: any) => f.startDate)]
   .filter(Boolean)
   .sort()[0];
 const soonestFormatted = soonestDate
   ? new Date(soonestDate + 'T00:00:00').toLocaleDateString(t.date_locale, { day: 'numeric', month: 'short', year: 'numeric' })
   : null;
-const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ` +
+const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + homeFeatured.length} ${t.tournaments_unit_nom}. ` +
   (soonestFormatted ? `${t.meta_next_event} ${soonestFormatted}. ` : '') +
   t.footer_updated;
 // One plain sentence under the heading with the counts split by time control.
 // Empty (and omitted) when the country has nothing upcoming.
-const pageItems = [...items, ...featuredForPage];
+const pageItems = [...items, ...homeFeatured];
 const classicalCount = pageItems.filter((i: any) => i.timeControl !== 'Rapid').length;
 const rapidCount = pageItems.filter((i: any) => i.timeControl === 'Rapid').length;
 const summary = countrySummary(lang, group.displayName, classicalCount, rapidCount);
