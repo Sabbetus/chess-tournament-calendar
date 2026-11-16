@@ -38,24 +38,25 @@ ROOT = Path(__file__).parent.parent
 # terms given tournaments are listed weeks ahead.
 DEFAULT_MAX_STALE_DAYS = 2
 
-# TEMPORARY: ratings.fide.com refuses connections from GitHub-hosted runners
-# (ConnectTimeout on every scheduled attempt, while it answers instantly from
-# a residential IP), so FIDE data is refreshed by running the scraper
-# elsewhere and committing the result. A 2-day threshold would therefore fire
-# constantly and mean nothing. 7 days makes it a useful prompt instead: when
-# it trips, it is time to run a manual refresh.
+# ratings.fide.com is only intermittently reachable from GitHub-hosted runners:
+# in a sample of six scheduled runs in mid-November 2026, two fetched all four
+# countries and the other four hit a ConnectTimeout on every one. The FIDE
+# scraper runs in every scheduled scrape and a run that gets through updates the
+# archive, so the data stays fresh, but only about one run in three counts. A
+# 2-day threshold would therefore fire on an unlucky streak that still ends by
+# itself; 7 days only trips when FIDE has been unreachable for a long stretch.
 #
-# REVERT TO 2 once the FIDE scrape runs somewhere it can actually reach FIDE
-# (a self-hosted runner) — at that point a stale FIDE archive is a real fault
-# again, and a 7-day blind spot would be hiding it.
+# That is also a wide blind spot: if the success rate dropped much further, a
+# week of staleness would pass unnoticed. Tighten this if FIDE becomes
+# reachable more reliably (for example from a self-hosted runner).
 FIDE_MAX_STALE_DAYS = 7
 
 SOURCES = [
     ("chess-results", ROOT / "public" / "data" / "archive.json", DEFAULT_MAX_STALE_DAYS,
      "check the scrape run logs for [WARN] lines"),
     ("FIDE ratings", ROOT / "public" / "data" / "fide_archive.json", FIDE_MAX_STALE_DAYS,
-     "expected until FIDE scraping moves off GitHub-hosted runners — run the scraper "
-     "manually and commit the result"),
+     "FIDE often refuses GitHub runners; look for 'could not fetch the FIDE list' in the "
+     "scrape logs, and run the scraper manually and commit the result if it persists"),
 ]
 
 
