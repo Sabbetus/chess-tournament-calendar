@@ -85,7 +85,7 @@ const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
       }
       var saved = localStorage.getItem('ctc-lang');
       if (saved) {
-        if (saved !== lang) window.location.replace(pathFor(saved));
+        if (saved !== lang) window.location.replace(pathFor(saved) + location.search + location.hash);
         return;
       }
       var map = { es:'es', pt:'pt', de:'de', cs:'cs', sk:'cs', fi:'fi' };
@@ -99,7 +99,7 @@ const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
         if (map[code]) { detected = map[code]; break; }
       }
       localStorage.setItem('ctc-lang', detected);
-      if (detected !== lang) window.location.replace(pathFor(detected));
+      if (detected !== lang) window.location.replace(pathFor(detected) + location.search + location.hash);
     })();
   </script>
 

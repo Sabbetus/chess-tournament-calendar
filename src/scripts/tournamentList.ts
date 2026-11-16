@@ -227,6 +227,7 @@ export function initTournamentList(cfg: ListConfig) {
     renderedCount = 0;
     lastRenderedMonth = '';
     renderMore();
+    syncUrl();
   }
 
   function renderMore() {
@@ -346,6 +347,100 @@ export function initTournamentList(cfg: ListConfig) {
 
   if (cfg.renderOnLoad) whenReady(renderFromScratch);
 
+  // ── Filters in the URL, and position kept across Back ──
+  // The filter state lives in the query string (?month=12&tc=Rapid&dur=short&
+  // q=open&sort=players-desc), rewritten in place so it never adds history
+  // entries. A filtered view can therefore be shared, and survives Back and
+  // reload. How far down the list the visitor was (scroll position and how many
+  // rows were loaded) is saved when leaving the page and restored on Back.
+  const SORT_RE = /^(date|duration|players|tc)-(asc|desc)$/;
+
+  function setBtnGroup(groupEl: HTMLElement | null, value: string) {
+    const target = Array.from(groupEl?.querySelectorAll<HTMLElement>('.filter-btn') ?? [])
+      .find((b) => b.dataset.value === value);
+    if (!target) return false;
+    groupEl!.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+    target.classList.add('active');
+    return true;
+  }
+
+  function readStateFromUrl(): boolean {
+    const q = new URLSearchParams(location.search);
+    let any = false;
+    const month = q.get('month');
+    if (month && Array.from((fMonth as HTMLSelectElement).options).some((o) => o.value === month)) {
+      (fMonth as HTMLSelectElement).value = month;
+      any = true;
+    }
+    const tc = q.get('tc');
+    if (tc && setBtnGroup(fTcEl, tc)) any = true;
+    const dur = q.get('dur');
+    if (dur && setBtnGroup(fDurationEl, dur)) any = true;
+    const search = q.get('q');
+    if (search) {
+      (fSearch as HTMLInputElement).value = search;
+      any = true;
+    }
+    const sort = q.get('sort');
+    if (sort && SORT_RE.test(sort)) {
+      [sortKey, sortDir] = sort.split('-');
+      updateSortIcons();
+      if (mSort && Array.from(mSort.options).some((o) => o.value === sort)) mSort.value = sort;
+      any = true;
+    }
+    return any;
+  }
+
+  function syncUrl() {
+    const p = new URLSearchParams();
+    const month = (fMonth as HTMLSelectElement).value;
+    if (month) p.set('month', month);
+    const tc = activeValue(fTcEl);
+    if (tc) p.set('tc', tc);
+    const dur = activeValue(fDurationEl);
+    if (dur) p.set('dur', dur);
+    const q = (fSearch as HTMLInputElement).value.trim();
+    if (q) p.set('q', q);
+    if (!(sortKey === 'date' && sortDir === 'asc')) p.set('sort', `${sortKey}-${sortDir}`);
+    const qs = p.toString();
+    history.replaceState(history.state, '', location.pathname + (qs ? `?${qs}` : '') + location.hash);
+  }
+
+  function posKey() {
+    return 'ctc-list-pos:' + location.pathname + location.search;
+  }
+  window.addEventListener('pagehide', () => {
+    try {
+      sessionStorage.setItem(posKey(), JSON.stringify({ y: window.scrollY, n: renderedCount }));
+    } catch {
+      // storage unavailable -- Back just starts from the top
+    }
+  });
+
+  function readSavedPosition(): { y: number; n: number } | null {
+    try {
+      const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+      const saved = sessionStorage.getItem(posKey());
+      if (nav?.type === 'back_forward' && saved) return JSON.parse(saved);
+    } catch {
+      // ignore
+    }
+    return null;
+  }
+
+  const savedPosition = readSavedPosition();
+  const hasUrlState = readStateFromUrl();
+  if (savedPosition) history.scrollRestoration = 'manual';
+  if (hasUrlState || savedPosition) {
+    whenReady(() => {
+      renderFromScratch();
+      if (savedPosition) {
+        while (renderedCount < savedPosition.n && loadMoreBtn.style.display !== 'none') renderMore();
+        window.scrollTo(0, savedPosition.y);
+      }
+    });
+  }
+
   function loadData() {
     fetch(cfg.dataUrl)
       .then((r) => r.json())
@@ -365,9 +460,11 @@ export function initTournamentList(cfg: ListConfig) {
       .catch((err) => console.error('Failed to load tournament data', err));
   }
 
-  if (cfg.renderOnLoad) {
+  if (cfg.renderOnLoad || hasUrlState || savedPosition) {
     // Localized pages need this data immediately to re-render the SSR rows
-    // (which were rendered in the wrong language) as soon as possible.
+    // (which were rendered in the wrong language) as soon as possible. So does
+    // a page opened with filters in the URL, or returning via Back: the rows
+    // it should show come from this data, not from the server-rendered list.
     loadData();
   } else {
     // The English page's SSR rows are already final, so this feed is only
