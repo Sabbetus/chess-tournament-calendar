@@ -6,8 +6,9 @@ import { retentionCutoff, isRetained } from './src/lib/retention.js';
 // Concluded tournaments are noindex'd and excluded from the sitemap — they are
 // thin, stale pages (no results/standings) that would only dilute crawl budget.
 const archive = JSON.parse(readFileSync(new URL('./public/data/archive.json', import.meta.url)));
+const fideArchive = JSON.parse(readFileSync(new URL('./public/data/fide_archive.json', import.meta.url)));
 const concludedSlugs = new Set(
-  archive.filter((t) => t.status === 'concluded').map((t) => t.slug)
+  [...archive, ...fideArchive].filter((t) => t.status === 'concluded').map((t) => t.slug)
 );
 
 // Sitemap lastmod: tournament pages use the tournament's own "first seen" date
@@ -21,7 +22,6 @@ const lastmod = new Date(meta.lastUpdated).toISOString();
 // Slugs that still get a tournament page (see src/lib/retention.js). Redirects
 // are only kept when both ends exist, otherwise they would send visitors to a
 // page that is no longer built.
-const fideArchive = JSON.parse(readFileSync(new URL('./public/data/fide_archive.json', import.meta.url)));
 const cutoff = retentionCutoff(meta.lastUpdated);
 const retainedSlugs = new Set(
   [...archive, ...fideArchive]
