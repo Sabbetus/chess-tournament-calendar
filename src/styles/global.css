@@ -233,7 +233,7 @@ main {
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  color: var(--text-muted);
+  color: var(--text-soft);
   cursor: pointer;
   font-family: inherit;
   line-height: normal;
@@ -254,7 +254,7 @@ main {
   color: var(--text-dim);
   margin-left: 0.2rem;
 }
-.ctab.active .ctab-count { color: var(--accent); opacity: 0.7; }
+.ctab.active .ctab-count { color: var(--accent); opacity: 0.85; }
 
 /* ── Column headers ── */
 .tlist-header {
