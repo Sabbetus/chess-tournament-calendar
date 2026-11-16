@@ -1,4 +1,6 @@
 ---
+import { durationDays, formatDateRange, formatDuration } from '../lib/dates.ts';
+
 export interface Tournament {
   id: string;
   name: string;
@@ -30,28 +32,15 @@ export interface Props {
   countryLabel?: string;
   dateLocale?: string;
   daysLabel?: string;
+  dayLabel?: string;
   trendTooltip?: string;
 }
 
-const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country, dateLocale = 'en-GB', daysLabel = 'days', trendTooltip = '' } = Astro.props;
+const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country, dateLocale = 'en-GB', daysLabel = 'days', dayLabel = 'day', trendTooltip = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
-function formatDateRange(start: string, end: string) {
-  const s = new Date(start + 'T00:00:00');
-  const e = new Date(end + 'T00:00:00');
-  const sStr = s.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short' });
-  const eStr = e.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short', year: 'numeric' });
-  return `${sStr} – ${eStr}`;
-}
 
-function durationDays(start: string, end: string) {
-  const s = new Date(start + 'T00:00:00');
-  const e = new Date(end + 'T00:00:00');
-  return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-}
-
-
-const dateRange = formatDateRange(t.startDate, t.endDate);
+const dateRange = formatDateRange(t.startDate, t.endDate, dateLocale);
 const days = durationDays(t.startDate, t.endDate);
 // Some organizers put a full street address in the city field; only the
 // first comma-separated segment is meaningful as a "city" label. Matches
@@ -85,7 +74,7 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
       {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
       {city}, {countryLabel}
     </span>
-    <span class="trow-duration">{days} {daysLabel}</span>
+    <span class="trow-duration">{formatDuration(days, dayLabel, daysLabel)}</span>
     <span class="trow-players">
       <span class="players-count">{t.playersRegistered !== null ? t.playersRegistered : '—'}</span>
       {trend !== null && (
@@ -102,7 +91,7 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
       <span class="trow-location-city">{city}, </span><span class="trow-location-country">{countryLabel}</span>
     </span>
     <span class="trow-info">
-      <span>{days} {daysLabel}</span>
+      <span>{formatDuration(days, dayLabel, daysLabel)}</span>
       <span class={`tc-badge ${tcClass}`}>{tcLabel}</span>
       {t.playersRegistered !== null && (
         <span>

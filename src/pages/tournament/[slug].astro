@@ -7,6 +7,7 @@ import featuredData from '../../../data/featured.json';
 import metaData from '../../../public/data/meta.json';
 import { retentionCutoff, isRetained } from '../../lib/retention.js';
 import { getTranslations } from '../../i18n/index.ts';
+import { durationDays, formatDateRange, formatShortRange, formatDuration } from '../../lib/dates.ts';
 import { slugifyLocation, CONTINENT_SLUGS } from '../../lib/locationSlug.ts';
 import { getContinent } from '../../lib/continents.ts';
 import { getSimilarTournaments } from '../../lib/similarTournaments.ts';
@@ -47,24 +48,10 @@ const t = rawTournament.sections
 const lang = 'en';
 const tr = getTranslations(lang);
 
-function durationDays(start: string, end: string) {
-  const s = new Date(start + 'T00:00:00');
-  const e = new Date(end + 'T00:00:00');
-  return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-}
-
-function formatDateRange(start: string, end: string) {
-  const s = new Date(start + 'T00:00:00');
-  const e = new Date(end + 'T00:00:00');
-  const sStr = s.toLocaleDateString(tr.date_locale, { day: 'numeric', month: 'short' });
-  const eStr = e.toLocaleDateString(tr.date_locale, { day: 'numeric', month: 'short', year: 'numeric' });
-  return `${sStr} – ${eStr}`;
-}
-
 const similarList = getSimilarTournaments(t, all as any[]);
 
 const days = durationDays(t.startDate, t.endDate);
-const dateRange = formatDateRange(t.startDate, t.endDate);
+const dateRange = formatDateRange(t.startDate, t.endDate, tr.date_locale);
 const flagUrl = t.countryCode ? `/flags/${t.countryCode.toLowerCase()}.png` : null;
 // Widest date range actually rendered per locale (measured from real data,
 // plus a small margin), so the Dates fact-card can be a fixed width like
@@ -227,7 +214,7 @@ const eventSchema = {
     </div>
     <div class="fact-card fact-card-duration">
       <div class="fact-label">{tr.fact_duration}</div>
-      <div class="fact-value">{days} {tr.days}</div>
+      <div class="fact-value">{formatDuration(days, tr.day, tr.days)}</div>
     </div>
     {t.rounds && t.source === 'manual' && (
       <div class="fact-card fact-card-rounds">
@@ -290,9 +277,7 @@ const eventSchema = {
         {similarList.map((s: any) => {
           const sDays = durationDays(s.startDate, s.endDate);
           const sFlag = s.countryCode ? `/flags/${s.countryCode.toLowerCase()}.png` : null;
-          const sStart = new Date(s.startDate + 'T00:00:00');
-          const sEnd = new Date(s.endDate + 'T00:00:00');
-          const sDateStr = `${sStart.toLocaleDateString(tr.date_locale, { day: 'numeric', month: 'short' })} – ${sEnd.toLocaleDateString(tr.date_locale, { day: 'numeric', month: 'short' })}`;
+          const sDateStr = formatShortRange(s.startDate, s.endDate, tr.date_locale);
           const sTcLabel = s.timeControl === 'Rapid' ? tr.filter_rapid : tr.filter_classical;
           return (
             <li class="similar-row">
@@ -304,7 +289,7 @@ const eventSchema = {
                 <span class="similar-meta">
                   <span class="similar-badge-col"><span class={`tc-badge ${s.timeControl === 'Rapid' ? 'badge-rapid' : 'badge-classical'}`}>{sTcLabel}</span></span>
                   <span class="similar-dates">{sDateStr}</span>
-                  <span class="similar-duration">{sDays} {tr.days}</span>
+                  <span class="similar-duration">{formatDuration(sDays, tr.day, tr.days)}</span>
                 </span>
               </a>
             </li>
@@ -348,6 +333,11 @@ const eventSchema = {
 <script define:vars={{ tName: t.name, tStart: t.startDate, tEnd: t.endDate, tCity: t.city, tCountry: t.country }}>
   document.getElementById('ics-btn')?.addEventListener('click', () => {
     const fmt = (d) => d.replace(/-/g, '');
+    // DTEND for an all-day event is exclusive (the day after the last day), so
+    // using the inclusive end date would cut the final day off.
+    const last = new Date((tEnd < tStart ? tStart : tEnd) + 'T00:00:00Z');
+    last.setUTCDate(last.getUTCDate() + 1);
+    const endExclusive = last.toISOString().slice(0, 10);
     const now = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     const location = [tCity, tCountry].filter(Boolean).join(', ');
     const ics = [
@@ -358,7 +348,7 @@ const eventSchema = {
       `UID:${tStart}-${tEnd}-${Math.random().toString(36).slice(2)}@chesstournamentcalendar.com`,
       `DTSTAMP:${now}`,
       `DTSTART;VALUE=DATE:${fmt(tStart)}`,
-      `DTEND;VALUE=DATE:${fmt(tEnd)}`,
+      `DTEND;VALUE=DATE:${fmt(endExclusive)}`,
       `SUMMARY:${tName}`,
       `LOCATION:${location}`,
       'END:VEVENT',

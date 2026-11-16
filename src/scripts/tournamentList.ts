@@ -1,5 +1,6 @@
 import { CONTINENT_MAP } from '../lib/continents';
 import { getFavorites, FAVORITES_CHANGED_EVENT } from './favorites';
+import { durationDays, formatDateRange, formatDuration } from '../lib/dates';
 
 function getContinent(cc: string) {
   return (cc && CONTINENT_MAP[cc]) || 'XX';
@@ -10,6 +11,7 @@ interface ListConfig {
   pageSize: number;
   basePath: string;
   tDays: string;
+  tDay: string;
   tClassical: string;
   tRapid: string;
   tTrendTooltip: string;
@@ -32,7 +34,7 @@ interface ListConfig {
 
 export function initTournamentList(cfg: ListConfig) {
   const PAGE_SIZE = cfg.pageSize;
-  const { basePath, tDays, tClassical, tRapid, tTrendTooltip, tMonths, dateLocale, tCountries, countrySlugs, lockedCountry, lockedContinent, lockedLabel } = cfg;
+  const { basePath, tDays, tDay, tClassical, tRapid, tTrendTooltip, tMonths, dateLocale, tCountries, countrySlugs, lockedCountry, lockedContinent, lockedLabel } = cfg;
   const prefix = basePath ? `/${basePath}` : '';
 
   const list = document.getElementById('tournament-list')!;
@@ -128,27 +130,14 @@ export function initTournamentList(cfg: ListConfig) {
     return String(str ?? '').replace(/[&<>"']/g, (c) => (({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' } as any)[c]));
   }
 
-  function formatDateRange(start: string, end: string) {
-    const s = new Date(start + 'T00:00:00');
-    const e = new Date(end + 'T00:00:00');
-    const sStr = s.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short' });
-    const eStr = e.toLocaleDateString(dateLocale, { day: 'numeric', month: 'short', year: 'numeric' });
-    return `${sStr} – ${eStr}`;
-  }
-
-  function durationDays(start: string, end: string) {
-    const s = new Date(start + 'T00:00:00');
-    const e = new Date(end + 'T00:00:00');
-    return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-  }
-
   function flagUrl(t: any) {
     return t.countryCode ? `/flags/${t.countryCode.toLowerCase()}.png` : null;
   }
 
   function rowHTML(t: any) {
     const days = durationDays(t.startDate, t.endDate);
-    const dateRange = formatDateRange(t.startDate, t.endDate);
+    const dateRange = formatDateRange(t.startDate, t.endDate, dateLocale);
+    const duration = formatDuration(days, tDay, tDays);
     const detailUrl = t.slug ? `${prefix}/tournament/${t.slug}/` : null;
     const flag = flagUrl(t);
     const name = escapeHTML(t.name);
@@ -174,13 +163,13 @@ export function initTournamentList(cfg: ListConfig) {
         <span class="trow-tc">${badge}</span>
         <span class="trow-dates">${dateRange}</span>
         <span class="trow-location" data-tooltip="${city}, ${country}">${flagImg}${city}, ${country}</span>
-        <span class="trow-duration">${days} ${tDays}</span>
+        <span class="trow-duration">${duration}</span>
         <span class="trow-players">${playersText}${trendHTML}</span>
       </div>
       <div class="trow-meta">
         <span class="trow-dates">${dateRange}</span>
         <span class="trow-location">${flagImg}<span class="trow-location-city">${city}, </span><span class="trow-location-country">${country}</span></span>
-        <span class="trow-info"><span>${days} ${tDays}</span>${badge}${playersMeta}</span>
+        <span class="trow-info"><span>${duration}</span>${badge}${playersMeta}</span>
       </div>
     </li>`;
   }
