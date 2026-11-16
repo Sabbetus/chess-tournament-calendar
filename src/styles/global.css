@@ -22,6 +22,7 @@
   --text:          #e8eaf0;
   --text-muted:    #8a90a8;
   --text-dim:      #5a607a;
+  --text-soft:     #b4bacf;
   --green:         #4caf7d;
   --red:           #e0605a;
   --radius:        8px;
@@ -521,10 +522,10 @@ main {
 /* ── Count bar ── */
 .count-bar {
   font-size: 0.78rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
-.count-bar span { color: var(--text-muted); font-weight: 600; }
+.count-bar span { color: var(--text-soft); font-weight: 600; }
 
 /* ── Contact page ── */
 .page-title {
@@ -985,8 +986,8 @@ footer {
   gap: 1rem;
   flex-wrap: wrap;
 }
-footer p { font-size: 0.78rem; color: var(--text-dim); margin: 0; }
-footer p a { color: var(--text-muted); }
+footer p { font-size: 0.78rem; color: var(--text-muted); margin: 0; }
+footer p a { color: var(--text-soft); }
 footer p a:hover { color: var(--text); }
 .footer-links {
   display: flex;
