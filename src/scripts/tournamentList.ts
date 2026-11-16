@@ -384,7 +384,12 @@ export function initTournamentList(cfg: ListConfig) {
   function resetAllFilters() {
     // Country dropdown and continent tabs are navigation, not filters -- reset
     // only clears the removable in-place filters, never the current page's
-    // own country/continent scope.
+    // own country/continent scope. The sort order goes back to the default too,
+    // since on phones it is one of the settings in the panel.
+    sortKey = 'date';
+    sortDir = 'asc';
+    if (mSort) mSort.value = 'date-asc';
+    updateSortIcons();
     (fMonth as HTMLSelectElement).value = '';
     (fSearch as HTMLInputElement).value = '';
     [fDurationEl, fTcEl].forEach((groupEl) => {
