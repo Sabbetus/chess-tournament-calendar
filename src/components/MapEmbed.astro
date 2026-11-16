@@ -1,0 +1,38 @@
+---
+export interface Props {
+  query: string;
+  title: string;
+  showLabel: string;
+  noteLabel: string;
+  openLabel: string;
+}
+const { query, title, showLabel, noteLabel, openLabel } = Astro.props;
+const embedUrl = `https://maps.google.com/maps?q=${query}&output=embed&z=12`;
+const openUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+---
+
+<div class="map-wrapper" data-map-src={embedUrl} data-map-title={title}>
+  <div class="map-placeholder">
+    <svg class="map-pin" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <div class="map-actions">
+      <button type="button" class="btn-primary map-show">{showLabel}</button>
+      <a href={openUrl} target="_blank" rel="noopener" class="map-open">{openLabel} ↗</a>
+    </div>
+    <div class="map-note">{noteLabel}</div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.map-wrapper[data-map-src]').forEach((wrap) => {
+    wrap.querySelector('.map-show')?.addEventListener('click', () => {
+      const frame = document.createElement('iframe');
+      frame.title = wrap.dataset.mapTitle || '';
+      frame.src = wrap.dataset.mapSrc || '';
+      frame.width = '100%';
+      frame.height = '260';
+      frame.style.border = '0';
+      frame.referrerPolicy = 'no-referrer-when-downgrade';
+      wrap.replaceChildren(frame);
+    });
+  });
+</script>

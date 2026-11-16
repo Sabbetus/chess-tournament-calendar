@@ -1,8 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
+import MapEmbed from '../../components/MapEmbed.astro';
 import archiveData from '../../../public/data/archive.json';
 import fideArchiveData from '../../../public/data/fide_archive.json';
 import featuredData from '../../../data/featured.json';
+import metaData from '../../../public/data/meta.json';
+import { retentionCutoff, isRetained } from '../../lib/retention.js';
 import { getTranslations } from '../../i18n/index.ts';
 import { slugifyLocation, CONTINENT_SLUGS } from '../../lib/locationSlug.ts';
 import { getContinent } from '../../lib/continents.ts';
@@ -11,8 +14,12 @@ import { getSimilarTournaments } from '../../lib/similarTournaments.ts';
 export async function getStaticPaths() {
   // Entries absorbed into another (mergedInto) are served as redirects to it,
   // configured in astro.config.mjs — generating a page here too would collide.
+  // Tournaments past the retention window aren't built at all (see
+  // src/lib/retention.js); the same cutoff prunes their redirects in
+  // astro.config.mjs.
+  const cutoff = retentionCutoff(metaData.lastUpdated);
   const archive = [...(archiveData as any[]), ...(fideArchiveData as any[])]
-    .filter((t: any) => !t.mergedInto);
+    .filter((t: any) => !t.mergedInto && isRetained(t, cutoff));
   const featured = (featuredData as any[]).map((t: any) => ({ ...t, status: 'upcoming' }));
   const archiveIds = new Set(archive.map((t: any) => t.id));
   const all = [...archive, ...featured.filter((t: any) => !archiveIds.has(t.id))];
@@ -266,17 +273,13 @@ const eventSchema = {
   </div>
 
   <div class="section-label">{tr.section_location}</div>
-  <div class="map-wrapper">
-    <iframe
-      title={`Map of ${t.city || t.country}`}
-      src={`https://maps.google.com/maps?q=${mapQuery}&output=embed&z=12`}
-      width="100%"
-      height="260"
-      style="border:0;"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
+  <MapEmbed
+    query={mapQuery}
+    title={`Map of ${t.city || t.country}`}
+    showLabel={tr.map_show}
+    noteLabel={tr.map_note}
+    openLabel={tr.map_open}
+  />
 
   <div id="hover-tooltip"></div>
 

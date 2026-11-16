@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
+import { retentionCutoff, isRetained } from './src/lib/retention.js';
 
 // Concluded tournaments are noindex'd and excluded from the sitemap — they are
 // thin, stale pages (no results/standings) that would only dilute crawl budget.
@@ -16,6 +17,17 @@ const concludedSlugs = new Set(
 // time, which is the best signal we have for those.
 const meta = JSON.parse(readFileSync(new URL('./public/data/meta.json', import.meta.url)));
 const lastmod = new Date(meta.lastUpdated).toISOString();
+
+// Slugs that still get a tournament page (see src/lib/retention.js). Redirects
+// are only kept when both ends exist, otherwise they would send visitors to a
+// page that is no longer built.
+const fideArchive = JSON.parse(readFileSync(new URL('./public/data/fide_archive.json', import.meta.url)));
+const cutoff = retentionCutoff(meta.lastUpdated);
+const retainedSlugs = new Set(
+  [...archive, ...fideArchive]
+    .filter((t) => t.slug && isRetained(t, cutoff))
+    .map((t) => t.slug)
+);
 
 const firstSeenBySlug = new Map(
   archive
@@ -35,7 +47,7 @@ const mergedSlugs = new Set(
 );
 const mergeRedirects = Object.fromEntries(
   archive
-    .filter((t) => t.mergedInto && t.slug)
+    .filter((t) => t.mergedInto && t.slug && retainedSlugs.has(t.slug) && retainedSlugs.has(t.mergedInto))
     .flatMap((t) => [
       [`/tournament/${t.slug}`, `/tournament/${t.mergedInto}/`],
       ...LANGS.map((lang) => [
@@ -55,7 +67,9 @@ const slugRedirects = JSON.parse(
   readFileSync(new URL('./public/data/slug_redirects.json', import.meta.url))
 );
 const historicalRedirects = Object.fromEntries(
-  Object.entries(slugRedirects).flatMap(([oldSlug, newSlug]) => [
+  Object.entries(slugRedirects)
+    .filter(([, newSlug]) => retainedSlugs.has(newSlug))
+    .flatMap(([oldSlug, newSlug]) => [
     [`/tournament/${oldSlug}`, `/tournament/${newSlug}/`],
     ...LANGS.map((lang) => [
       `/${lang}/tournament/${oldSlug}`,

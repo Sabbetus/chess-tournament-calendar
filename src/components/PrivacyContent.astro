@@ -5,7 +5,7 @@ export interface Props {
 const { contactHref = '/contact' } = Astro.props;
 ---
 <h1 class="page-title">Privacy Policy</h1>
-<p class="policy-updated">Last updated 29 October 2026</p>
+<p class="policy-updated">Last updated 16 November 2026</p>
 
 <div class="policy">
   <p>
@@ -52,6 +52,15 @@ const { contactHref = '/contact' } = Astro.props;
   <p>
     The site is served by a web hosting provider, which receives and logs the usual server request data,
     including IP addresses, as part of serving the pages.
+  </p>
+
+  <h3>Maps</h3>
+  <p>
+    Tournament pages have a map. It isn't loaded until you press "Show map". When you do, your browser requests it
+    directly from an external map provider, which receives your IP address and the usual browser request data and
+    may set its own cookies, under its own privacy policy. If you never press the button, nothing is requested from
+    the map provider. The "Open in Maps" link is an ordinary link to the provider's site and sends nothing unless
+    you follow it.
   </p>
 
   <h3>The contact form</h3>
