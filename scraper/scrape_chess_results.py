@@ -179,6 +179,70 @@ def slugify(name, tnr_id):
     return f"{slug}-{tnr_num}"
 
 
+# The site lists over-the-board classical and rapid tournaments. chess-results
+# has its own Blitz category (which we never search), but the category is
+# whatever the organizer picked, so blitz and online events regularly turn up
+# filed under Standard or Rapid. The free-text time control and the location are
+# the only reliable signals left.
+_TC_WORD = r"(?:min\w*\.?|mn|perc\w*|m(?!\w))"
+_TC_QUOTE = r"(?:''|``|[\"'`’′″])"
+# Around a "+" any unit or quote mark counts: "15\" + 5'" and "3'+2\"" both
+# read base then increment, whichever way the organizer wrote the marks.
+_TC_PLUS = re.compile(rf"(\d{{1,3}})\s*(?:{_TC_WORD}|{_TC_QUOTE})?\s*\+\s*(\d{{1,3}})", re.I)
+# A lone number only counts as minutes when it is written with a word unit.
+_TC_BASE = re.compile(rf"(\d{{1,3}})\s*{_TC_WORD}", re.I)
+_TC_INC = re.compile(r"(\d{1,3})\s*(?:sec\w*|seg\w*|sek\w*|spm|mp(?!\w)|másodperc\w*|s(?!\w)|''|``|[\"'`’′″])", re.I)
+_RAPID_HINT = re.compile(r"rapid|classical|standard|schnell|rápid|rapide|semirapid", re.I)
+
+
+def time_control_totals(raw):
+    """Every time control in a free-text field as base minutes plus the
+    increment in seconds counted as minutes (FIDE's 60-move convention), e.g.
+    "15 min + 10 sec" -> 25 and "8 minutes with 3 seconds increment" -> 11."""
+    if not raw:
+        return []
+    totals, spans = [], []
+    for m in _TC_PLUS.finditer(raw):
+        totals.append(int(m.group(1)) + int(m.group(2)))
+        spans.append(m.span())
+    for m in _TC_BASE.finditer(raw):
+        if any(a <= m.start() < b for a, b in spans):
+            continue
+        inc = _TC_INC.search(raw[m.end():m.end() + 60])
+        totals.append(int(m.group(1)) + (int(inc.group(1)) if inc else 0))
+    return totals
+
+
+def is_blitz_only(name, raw_tc):
+    """True when every time control listed totals under 10 minutes (FIDE's
+    blitz definition). Events with a larger control alongside ("5+3 / 15+10")
+    are mixed events and stay, as do any whose own name claims rapid or
+    classical -- hiding a real tournament costs more than showing a borderline
+    one."""
+    totals = time_control_totals(raw_tc)
+    return bool(totals) and all(t < 10 for t in totals) and not _RAPID_HINT.search(name or "")
+
+
+_ONLINE_LOCATION = re.compile(
+    r"^\s*(online|on-line|zoom|lichess|chess\.com|tornelo|internet|virtual)\b"
+    r"|lichess\.org|chess\.com|tornelo\.com|zoom\.us", re.I)
+_ONLINE_NAME = re.compile(r"\b(online|on-line)\b", re.I)
+_ONLINE_REGISTRATION = re.compile(r"online\s*(registration|entry|entries|payment|booking|enrol)", re.I)
+
+
+def is_online_event(name, city):
+    """True when the location is an online venue, or the name says online and
+    there is no physical location (empty, or just a website). A name that only
+    mentions online registration, or an online event with a real venue
+    (hybrid), is kept."""
+    location = (city or "").strip()
+    if _ONLINE_LOCATION.search(location):
+        return True
+    if _ONLINE_NAME.search(name or "") and not _ONLINE_REGISTRATION.search(name or ""):
+        return not location or location.lower().startswith(("http://", "https://", "www."))
+    return False
+
+
 def parse_int(s):
     if not s:
         return None
@@ -196,6 +260,7 @@ def parse_rows(page, time_control="1"):
     today = date.today()
     tournaments = []
     seen_ids = set()
+    skipped_blitz = skipped_online = 0
 
     rows = page.query_selector_all("tr.CRg1, tr.CRg2")
     print(f"[INFO] Found {len(rows)} result rows.")
@@ -278,6 +343,12 @@ def parse_rows(page, time_control="1"):
         organizer = texts[8].strip() if len(texts) > 8 and texts[8].strip() else None
 
         raw_tc = texts[13] if len(texts) > 13 else None
+        if is_blitz_only(name, raw_tc):
+            skipped_blitz += 1
+            continue
+        if is_online_event(name, city):
+            skipped_online += 1
+            continue
         tournaments.append({
             "id": tid,
             "slug": slug,
@@ -303,6 +374,8 @@ def parse_rows(page, time_control="1"):
             "source": "chess-results",
         })
 
+    if skipped_blitz or skipped_online:
+        print(f"[INFO] Skipped {skipped_blitz} blitz-only and {skipped_online} online events.")
     tournaments.sort(key=lambda t: t["startDate"])
     return tournaments
 
