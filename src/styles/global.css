@@ -234,6 +234,9 @@ main {
 .continent-tabs.fade-left { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 3rem), transparent); }
 .continent-tabs.fade-left.fade-right { -webkit-mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(to right, transparent, #000 3rem, #000 calc(100% - 3rem), transparent); }
 
+/* Reset and (phones) Show results share a row; on desktop the wrapper is invisible. */
+.filters-actions { display: contents; }
+
 /* Filter panel toggle and "Show results" button: phones only */
 .filters-toggle, .filters-apply { display: none; }
 
@@ -1102,11 +1105,17 @@ footer p a:hover { color: var(--text); }
   }
   .ft-chev { margin-left: auto; color: var(--text-muted); transition: transform 0.15s; }
   .filters-toggle[aria-expanded="true"] .ft-chev { transform: rotate(180deg); }
-  .filters-apply {
-    display: block;
+  .filters-actions {
+    display: flex;
+    gap: 0.6rem;
     position: sticky;
     bottom: 0.6rem;
-    width: 100%;
+    margin-top: 0.4rem;
+  }
+  .filters-actions .filter-reset { flex: 0 0 auto; align-self: stretch; padding: 0 1rem; }
+  .filters-apply {
+    display: block;
+    flex: 1;
     padding: 0.75rem 1rem;
     background: var(--accent);
     border: none;
