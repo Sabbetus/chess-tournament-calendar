@@ -47,6 +47,8 @@ const days = durationDays(t.startDate, t.endDate);
 // the same trim applied to the client-fetched slim feed, so rows look
 // identical whether they were server-rendered or loaded client-side.
 const city = t.city ? t.city.split(',')[0].trim() : t.city;
+// Some tournaments have no city; joining only what exists avoids a leading ", India".
+const place = [city, countryLabel].filter(Boolean).join(', ');
 const detailUrl = t.slug ? `${base}tournament/${t.slug}/` : null;
 const link = detailUrl || t.registrationUrl || t.websiteUrl;
 const flagUrl = t.countryCode
@@ -70,9 +72,9 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
     </span>
     <span class="trow-tc"><span class={`tc-badge ${tcClass}`}>{tcLabel}</span></span>
     <span class="trow-dates">{dateRange}</span>
-    <span class="trow-location" data-tooltip={`${city}, ${countryLabel}`}>
+    <span class="trow-location" data-tooltip={place}>
       {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
-      {city}, {countryLabel}
+      {place}
     </span>
     <span class="trow-duration">{formatDuration(days, dayLabel, daysLabel)}</span>
     <span class="trow-players">
@@ -88,7 +90,7 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
     <span class="trow-dates">{dateRange}</span>
     <span class="trow-location">
       {flagUrl && <img src={flagUrl} alt="" width="14" height="11" loading="lazy" />}
-      <span class="trow-location-city">{city}, </span><span class="trow-location-country">{countryLabel}</span>
+      {city && <span class="trow-location-city">{city}, </span>}<span class="trow-location-country">{countryLabel}</span>
     </span>
     <span class="trow-info">
       <span>{formatDuration(days, dayLabel, daysLabel)}</span>

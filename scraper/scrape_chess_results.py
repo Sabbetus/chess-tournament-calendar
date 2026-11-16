@@ -51,6 +51,7 @@ MAX_DURATION_DAYS = 10
 
 # 3-letter FIDE codes to ISO 2-letter
 FIDE_TO_ISO = {
+    "ANG": "AO", "BER": "BM", "TOG": "TG", "YEM": "YE",
     "FIN": "FI", "SWE": "SE", "NOR": "NO", "DEN": "DK", "ISL": "IS",
     "GER": "DE", "FRA": "FR", "ESP": "ES", "ITA": "IT", "NED": "NL",
     "BEL": "BE", "AUT": "AT", "SUI": "CH", "POL": "PL", "CZE": "CZ",
@@ -83,6 +84,7 @@ FIDE_TO_ISO = {
 }
 
 FIDE_TO_NAME = {
+    "ANG": "Angola", "BER": "Bermuda", "TOG": "Togo", "YEM": "Yemen",
     "FIN": "Finland", "SWE": "Sweden", "NOR": "Norway", "DEN": "Denmark",
     "ISL": "Iceland", "GER": "Germany", "FRA": "France", "ESP": "Spain",
     "ITA": "Italy", "NED": "Netherlands", "BEL": "Belgium", "AUT": "Austria",

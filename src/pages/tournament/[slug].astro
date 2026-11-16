@@ -290,7 +290,7 @@ const eventSchema = {
           return (
             <li class="similar-row">
               <a href={`${base}tournament/${s.slug}/`} class="similar-link">
-                <span class="similar-location" data-tooltip={`${s.city}, ${s.country}`}>
+                <span class="similar-location" data-tooltip={[s.city, s.country].filter(Boolean).join(', ')}>
                   {sFlag && <img src={sFlag} alt="" width="16" height="12" loading="lazy" />}
                 </span>
                 <span class="similar-name">{s.name}</span>

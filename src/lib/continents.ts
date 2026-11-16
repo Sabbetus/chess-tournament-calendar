@@ -10,13 +10,13 @@ export const CONTINENT_MAP: Record<string, string> = {
   IN:'AS',CN:'AS',JP:'AS',KR:'AS',TH:'AS',VN:'AS',PH:'AS',ID:'AS',MY:'AS',SG:'AS',
   PK:'AS',BD:'AS',LK:'AS',NP:'AS',MN:'AS',UZ:'AS',KZ:'AS',KG:'AS',TM:'AS',
   AE:'AS',QA:'AS',KW:'AS',SA:'AS',IR:'AS',IQ:'AS',JO:'AS',LB:'AS',SY:'AS',IL:'AS',HK:'AS',
-  BH:'AS',PS:'AS',TW:'AS',
+  BH:'AS',PS:'AS',TW:'AS',YE:'AS',
   US:'NA',CA:'NA',MX:'NA',GT:'NA',CR:'NA',CU:'NA',DO:'NA',PA:'NA',PR:'NA',
-  AW:'NA',HN:'NA',NI:'NA',
+  AW:'NA',HN:'NA',NI:'NA',BM:'NA',
   BR:'SA',AR:'SA',CL:'SA',CO:'SA',PE:'SA',VE:'SA',UY:'SA',EC:'SA',PY:'SA',
   AU:'OC',NZ:'OC',
   ZA:'AF',EG:'AF',MA:'AF',TN:'AF',DZ:'AF',KE:'AF',BW:'AF',ZM:'AF',CI:'AF',CV:'AF',
-  ET:'AF',MU:'AF',NG:'AF',UG:'AF',
+  ET:'AF',MU:'AF',NG:'AF',UG:'AF',AO:'AF',TG:'AF',
 };
 
 export function getContinent(cc: string | null | undefined): string {

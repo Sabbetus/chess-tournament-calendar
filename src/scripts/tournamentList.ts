@@ -143,6 +143,9 @@ export function initTournamentList(cfg: ListConfig) {
     const name = escapeHTML(t.name);
     const city = escapeHTML(t.city);
     const country = escapeHTML(tCountries[t.country] || t.country);
+    // Some tournaments have no city; joining only what exists avoids a leading ", India".
+    const place = [city, country].filter(Boolean).join(', ');
+    const cityHTML = city ? `<span class="trow-location-city">${city}, </span>` : '';
     const nameInner = detailUrl ? `<a href="${detailUrl}">${name}</a>` : name;
     const flagImg = flag ? `<img src="${flag}" alt="" width="14" height="11" loading="lazy">` : '';
     const hasPlayers = t.playersRegistered !== null && t.playersRegistered !== undefined;
@@ -162,13 +165,13 @@ export function initTournamentList(cfg: ListConfig) {
         <span class="trow-name"><span class="trow-name-text">${nameInner}</span></span>
         <span class="trow-tc">${badge}</span>
         <span class="trow-dates">${dateRange}</span>
-        <span class="trow-location" data-tooltip="${city}, ${country}">${flagImg}${city}, ${country}</span>
+        <span class="trow-location" data-tooltip="${place}">${flagImg}${place}</span>
         <span class="trow-duration">${duration}</span>
         <span class="trow-players">${playersText}${trendHTML}</span>
       </div>
       <div class="trow-meta">
         <span class="trow-dates">${dateRange}</span>
-        <span class="trow-location">${flagImg}<span class="trow-location-city">${city}, </span><span class="trow-location-country">${country}</span></span>
+        <span class="trow-location">${flagImg}${cityHTML}<span class="trow-location-country">${country}</span></span>
         <span class="trow-info"><span>${duration}</span>${badge}${playersMeta}</span>
       </div>
     </li>`;
