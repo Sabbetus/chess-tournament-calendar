@@ -919,7 +919,7 @@ main {
     linear-gradient(90deg, var(--bg-card) 1px, transparent 1px) 0 0 / 36px 36px,
     var(--bg);
 }
-.map-pin { color: var(--accent); }
+.map-pin { color: var(--accent); margin-bottom: 1.1rem; }
 .map-actions {
   display: flex;
   align-items: center;
