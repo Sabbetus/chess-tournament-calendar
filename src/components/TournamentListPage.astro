@@ -1,5 +1,6 @@
 ---
 import TournamentCard from './TournamentCard.astro';
+import { CONTINENT_SLUGS } from '../lib/locationSlug.ts';
 
 export interface Props {
   t: Record<string, any>;
@@ -111,15 +112,16 @@ const listConfig = {
   <button class="filter-reset" id="filter-reset">{t.filter_reset}</button>
 </div>
 
-<!-- Continent tabs: navigation, not in-place filters -- always visible, and
+<!-- Continent tabs: plain links, so they can be crawled and opened in a new
+     tab. They are destinations, not in-place filters -- always visible, and
      highlight whichever continent the current page (home/country/continent)
      is scoped to. -->
 <div class="continent-tabs" id="continent-tabs">
-  <button class="ctab" class:list={[{ active: !activeContinentCode }]} data-continent="">{t.continent_all} <span class="ctab-count" id="ctab-count-all">{allCount}</span></button>
+  <a class="ctab" class:list={[{ active: !activeContinentCode }]} href={`${basePath ? `/${basePath}` : ''}/`}>{t.continent_all} <span class="ctab-count" id="ctab-count-all">{allCount}</span></a>
   {continentsSorted.map((c) => (
-    <button class="ctab" class:list={[{ active: c.code === activeContinentCode }]} data-continent={c.code}>
+    <a class="ctab" class:list={[{ active: c.code === activeContinentCode }]} href={`${basePath ? `/${basePath}` : ''}/continent/${CONTINENT_SLUGS[c.code]}/`}>
       {c.name} <span class="ctab-count" id={`ctab-count-${c.code}`}>{c.count}</span>
-    </button>
+    </a>
   ))}
 </div>
 

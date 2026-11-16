@@ -1,5 +1,4 @@
 import { CONTINENT_MAP } from '../lib/continents';
-import { CONTINENT_SLUGS } from '../lib/locationSlug';
 import { getFavorites, FAVORITES_CHANGED_EVENT } from './favorites';
 
 function getContinent(cc: string) {
@@ -43,14 +42,6 @@ export function initTournamentList(cfg: ListConfig) {
   const countEl = document.getElementById('visible-count')!;
   const totalEl = document.getElementById('total-count')!;
   const loadMoreBtn = document.getElementById('load-more') as HTMLButtonElement;
-
-  const continentTabsEl = document.getElementById('continent-tabs');
-  continentTabsEl?.querySelectorAll('.ctab').forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const code = (tab as HTMLElement).dataset.continent || '';
-      window.location.href = code ? `${prefix}/continent/${CONTINENT_SLUGS[code]}/` : `${prefix}/`;
-    });
-  });
 
   const fCountry = document.getElementById('f-country') as HTMLSelectElement;
 

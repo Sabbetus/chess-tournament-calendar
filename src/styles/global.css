@@ -234,6 +234,13 @@ main {
   border-bottom: 2px solid transparent;
   color: var(--text-muted);
   cursor: pointer;
+  /* These were <button>s, which render in the browser's control font rather
+     than the page font; keep that so turning them into links changes nothing
+     visually. The first line is the fallback for browsers that don't know the
+     -webkit-small-control keyword. */
+  font-family: Arial, sans-serif;
+  font: -webkit-small-control;
+  text-decoration: none;
   font-size: 0.82rem;
   font-weight: 500;
   padding: 0.55rem 1rem;
@@ -242,7 +249,7 @@ main {
   margin-bottom: -1px;
   flex-shrink: 0;
 }
-.ctab:hover { color: var(--text); }
+.ctab:hover { color: var(--text); text-decoration: none; }
 .ctab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
 
 .ctab-count {
