@@ -93,6 +93,9 @@ const pawnIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
       var detected = 'en';
       for (var i = 0; i < langs.length; i++) {
         var code = langs[i].split('-')[0].toLowerCase();
+        // The list is in the visitor's order of preference, so English ranked
+        // above a supported language means stay on English.
+        if (code === 'en') break;
         if (map[code]) { detected = map[code]; break; }
       }
       localStorage.setItem('ctc-lang', detected);
