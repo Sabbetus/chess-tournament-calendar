@@ -92,6 +92,12 @@ export default defineConfig({
   site: 'https://chesstournamentcalendar.com',
   base: '/',
   output: 'static',
+  // Astro 7 defaults to 'jsx', which drops whitespace between inline elements the way
+  // React does; the templates rely on the HTML behavior ("Sources: <a>x</a> and <a>y</a>").
+  compressHTML: true,
+  // Astro 5+ inlines small scripts into every page; with 60k tournament pages that
+  // adds ~100 MB to the published site, so keep them as shared cacheable files.
+  vite: { build: { assetsInlineLimit: 0 } },
   redirects: tournamentRedirects,
   integrations: [
     sitemap({
