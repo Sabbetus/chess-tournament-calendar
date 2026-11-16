@@ -38,3 +38,20 @@ test('isDelisted needs an upcoming tournament that missed enough scrapes', () =>
   assert.equal(isDelisted({ status: 'upcoming' }), false);
   assert.equal(isDelisted({ status: 'concluded', consecutiveMisses: 99 }), false);
 });
+
+import { countrySummary } from '../src/lib/countrySummary.ts';
+
+test('country summary reads as a sentence in every language', () => {
+  assert.equal(countrySummary('en', 'Finland', 4, 2), 'Finland has 6 upcoming chess tournaments: 4 classical and 2 rapid.');
+  assert.equal(countrySummary('en', 'Fiji', 0, 1), 'Fiji has 1 upcoming chess tournament, and it is rapid.');
+  assert.equal(countrySummary('en', 'Peru', 3, 0), 'Peru has 3 upcoming chess tournaments, all classical.');
+  assert.equal(countrySummary('fi', 'Suomi', 4, 2), 'Maassa Suomi on tulossa 6 shakkiturnausta: 4 klassista ja 2 nopeaa.');
+  assert.equal(countrySummary('fi', 'Suomi', 1, 1), 'Maassa Suomi on tulossa 2 shakkiturnausta: 1 klassinen ja 1 nopea.');
+  assert.equal(countrySummary('es', 'España', 1, 5), 'En España hay 6 torneos de ajedrez próximos: 1 clásico y 5 rápidos.');
+  assert.equal(countrySummary('de', 'Deutschland', 22, 4), 'In Deutschland stehen 26 Schachturniere an, davon 22 mit klassischer und 4 mit Schnellschach-Bedenkzeit.');
+  for (const l of ['en', 'es', 'pt', 'de', 'cs', 'fi']) {
+    assert.equal(countrySummary(l, 'X', 0, 0), '');
+    assert.match(countrySummary(l, 'X', 2, 0), /X/);
+    assert.match(countrySummary(l, 'X', 0, 1), /X/);
+  }
+});

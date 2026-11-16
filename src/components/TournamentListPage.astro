@@ -143,7 +143,7 @@ const listConfig = {
 
 <ul class="tournament-list" id="tournament-list">
   {featured.map((item: any) => (
-    <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} dayLabel={t.day} trendTooltip={t.players_trend_tooltip} />
+    <TournamentCard tournament={item} featured={true} classicalLabel={t.filter_classical} rapidLabel={t.filter_rapid} countryLabel={countryLocalizedMap[item.country]} dateLocale={t.date_locale} daysLabel={t.days} dayLabel={t.day} trendTooltip={t.players_trend_tooltip} featuredLabel={t.featured_label} />
   ))}
   {initialTournaments.length > 0
     ? (() => {

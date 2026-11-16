@@ -7,6 +7,7 @@ import archiveData from '../../../public/data/archive.json';
 import fideArchiveData from '../../../public/data/fide_archive.json';
 import metaData from '../../../public/data/meta.json';
 import { getTranslations } from '../../i18n/index.ts';
+import { countrySummary } from '../../lib/countrySummary.ts';
 import { getContinent } from '../../lib/continents.ts';
 import { getCountryGroups } from '../../lib/locationGroups.ts';
 import { slugifyLocation, CONTINENT_SLUGS } from '../../lib/locationSlug.ts';
@@ -148,17 +149,12 @@ const soonestFormatted = soonestDate
 const pageDesc = `${t.location_desc_prefix} ${group.displayName}: ${items.length + featuredForPage.length} ${t.tournaments_unit_nom}. ` +
   (soonestFormatted ? `${t.meta_next_event} ${soonestFormatted}. ` : '') +
   t.footer_updated;
-// One plain line under the heading: the same counts the meta description
-// uses, split by time control. Omitted when the country has nothing upcoming.
+// One plain sentence under the heading with the counts split by time control.
+// Empty (and omitted) when the country has nothing upcoming.
 const pageItems = [...items, ...featuredForPage];
 const classicalCount = pageItems.filter((i: any) => i.timeControl !== 'Rapid').length;
 const rapidCount = pageItems.filter((i: any) => i.timeControl === 'Rapid').length;
-const summary = pageItems.length
-  ? `${t.location_desc_prefix} ${group.displayName}: ${pageItems.length} (${[
-      classicalCount ? `${t.filter_classical} ${classicalCount}` : '',
-      rapidCount ? `${t.filter_rapid} ${rapidCount}` : '',
-    ].filter(Boolean).join(', ')}).`
-  : '';
+const summary = countrySummary(lang, group.displayName, classicalCount, rapidCount);
 const currentPath = `country/${group.slug}`;
 
 const breadcrumbItems = [

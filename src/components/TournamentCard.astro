@@ -34,9 +34,10 @@ export interface Props {
   daysLabel?: string;
   dayLabel?: string;
   trendTooltip?: string;
+  featuredLabel?: string;
 }
 
-const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country, dateLocale = 'en-GB', daysLabel = 'days', dayLabel = 'day', trendTooltip = '' } = Astro.props;
+const { tournament: t, featured = false, classicalLabel = 'Classical', rapidLabel = 'Rapid', countryLabel = t.country, dateLocale = 'en-GB', daysLabel = 'days', dayLabel = 'day', trendTooltip = '', featuredLabel = 'Featured tournament' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 
 
@@ -62,7 +63,7 @@ const trend = typeof t.playersTrend === 'number' && t.playersTrend !== 0 ? t.pla
 <li class={`trow${featured ? ' trow-featured' : ''}${t.description ? ' has-desc' : ''}`} data-country={t.country} data-open={t.open} data-start={t.startDate} data-duration={days} data-players={t.playersRegistered ?? -1}>
   <div class="trow-main">
     <span class="trow-name">
-      {featured && <span class="trow-star" title="Featured">★</span>}
+      {featured && <span class="trow-star" data-tooltip={featuredLabel}>★</span>}
       <span class="trow-name-text">
         {link
           ? <a href={link} {...(!detailUrl ? { target: "_blank", rel: "noopener" } : {})}>{t.name}</a>
