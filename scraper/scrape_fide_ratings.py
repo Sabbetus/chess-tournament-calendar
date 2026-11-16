@@ -273,6 +273,25 @@ def fetch_detail(event_id, country_code):
     }
 
 
+def detail_is_stale(cached, list_start, archived_start):
+    """True if a cached detail page should be fetched again.
+
+    Details are cached forever once fetched, so an organizer moving an event's
+    start date leaves the cached end date describing the old schedule (some
+    entries ended up ending weeks before they start). Rather than re-fetching
+    every event every run, only events whose start date moved since the fetch,
+    or whose cached range is impossible, are fetched again. "fetchedForStart"
+    records the start date a fetch was made against; entries cached before it
+    existed fall back to the archive's start date."""
+    fetched_for = cached.get("fetchedForStart")
+    if fetched_for is not None:
+        return fetched_for != list_start
+    end = cached.get("endDate")
+    if end and end < list_start:
+        return True
+    return archived_start is not None and archived_start != list_start
+
+
 def parse_rows(raw_rows):
     """Turn the raw list rows into tournament dicts, keeping only future
     start dates (this feed also includes recently-played tournaments waiting
@@ -359,6 +378,10 @@ def build_tournaments(rows, detail_cache, organizers, country):
         organizer_url = country["fixed_organizer_url"] or (organizer_info["url"] if organizer_info else None)
 
         end_date = detail.get("endDate") or canonical["startDate"]
+        if end_date < canonical["startDate"]:
+            # FIDE sometimes lists an end date before the start date; with no
+            # trustworthy end, show the event as a single day.
+            end_date = canonical["startDate"]
         try:
             span_days = (date.fromisoformat(end_date) - date.fromisoformat(canonical["startDate"])).days + 1
         except ValueError:
@@ -446,6 +469,8 @@ def merge_into_archive(scraped, archive, considered_isos):
 
     for t in by_id.values():
         t["status"] = "concluded" if t["startDate"] <= today else "upcoming"
+        if t.get("endDate") and t["endDate"] < t["startDate"]:
+            t["endDate"] = t["startDate"]
 
     return sorted(by_id.values(), key=lambda t: t["startDate"])
 
@@ -564,6 +589,7 @@ def main():
         }
 
     organizers = load_organizers()
+    archived_start = {t["id"].replace("fide-", ""): t["startDate"] for t in fide_archive}
 
     all_tournaments = []
     considered_isos = set()  # countries fetched successfully and above their floor this run
@@ -594,12 +620,20 @@ def main():
             )
             continue
 
-        new_event_ids = {r["eventId"] for r in rows} - set(detail_cache)
+        start_by_id = {r["eventId"]: r["startDate"] for r in rows}
+        new_event_ids = set(start_by_id) - set(detail_cache)
+        stale_event_ids = {
+            event_id for event_id, start in start_by_id.items()
+            if event_id in detail_cache
+            and detail_is_stale(detail_cache[event_id], start, archived_start.get(event_id))
+        }
         print(f"[INFO] {country['name']}: fetching detail pages for {len(new_event_ids)} newly-seen events "
+              f"and re-fetching {len(stale_event_ids)} whose start date moved "
               f"({len(detail_cache)} already cached).")
-        for event_id in new_event_ids:
+        for event_id in new_event_ids | stale_event_ids:
             detail = fetch_detail(event_id, country["code"])
             if detail:
+                detail["fetchedForStart"] = start_by_id[event_id]
                 detail_cache[event_id] = detail
 
         all_tournaments.extend(build_tournaments(rows, detail_cache, organizers, country))
