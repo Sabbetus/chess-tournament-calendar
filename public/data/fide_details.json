@@ -41,13 +41,6 @@
     "playersRegistered": 20,
     "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1"
   },
-  "458479": {
-    "endDate": "2026-11-17",
-    "organizer": "Ly, Thai (AUS)",
-    "organizerProfileId": "3204308",
-    "playersRegistered": 50,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
-  },
   "458480": {
     "endDate": "2026-12-08",
     "organizer": "Ly, Thai (AUS)",
@@ -539,11 +532,12 @@
     "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   },
   "481230": {
-    "endDate": "2026-10-03",
-    "organizer": "Goh, Casey (AUS)",
-    "organizerProfileId": "3251098",
-    "playersRegistered": null,
-    "timeControlRaw": "Rapid: All Moves in 13 Min. Incr. 2 Sec. /     /"
+    "endDate": "2026-12-20",
+    "fetchedForStart": "2026-12-12",
+    "organizer": "Sandler, Leonid (AUS)",
+    "organizerProfileId": "3201805",
+    "playersRegistered": 10,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
   "481238": {
     "endDate": "2026-11-28",
@@ -1903,13 +1897,6 @@
     "playersRegistered": 30,
     "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
   },
-  "493268": {
-    "endDate": "2026-11-16",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 6,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
   "493269": {
     "endDate": "2026-12-07",
     "organizer": null,
@@ -2070,13 +2057,6 @@
     "organizerProfileId": null,
     "playersRegistered": 15,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
-  "495143": {
-    "endDate": "2026-11-16",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 12,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   },
   "495341": {
     "endDate": "2026-11-30",
@@ -2751,11 +2731,12 @@
     "timeControlRaw": "Standard: 75 minutes with 30 seconds increment from move 1"
   },
   "500889": {
-    "endDate": "2026-10-05",
+    "endDate": "2026-11-22",
+    "fetchedForStart": "2026-11-22",
     "organizer": "Gletsos, William (AUS)",
     "organizerProfileId": "3220290",
-    "playersRegistered": null,
-    "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1"
+    "playersRegistered": 80,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   },
   "500957": {
     "endDate": "2026-11-25",
@@ -3275,13 +3256,6 @@
     "playersRegistered": 12,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
-  "504484": {
-    "endDate": "2026-12-15",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
   "504518": {
     "endDate": "2026-11-21",
     "organizer": "Karunagaran, Arvend (AUS)",
@@ -3450,20 +3424,6 @@
     "playersRegistered": 6,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
-  "505240": {
-    "endDate": "2026-12-07",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 8,
-    "timeControlRaw": "Standard: 40 Moves in 75 Min. Incr. 30 Sec. /     / 15 Min. Incr. 30 Sec."
-  },
-  "505241": {
-    "endDate": "2026-12-07",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 8,
-    "timeControlRaw": "Standard: 40 Moves in 75 Min. Incr. 30 Sec. /     / 15 Min. Incr. 30 Sec."
-  },
   "505242": {
     "endDate": "2027-01-25",
     "organizer": null,
@@ -3568,13 +3528,6 @@
     "organizerProfileId": "30986613",
     "playersRegistered": 30,
     "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
-  "505759": {
-    "endDate": "2026-11-17",
-    "organizer": "Chavez, Carlos Alberto (USA)",
-    "organizerProfileId": "30986613",
-    "playersRegistered": 50,
-    "timeControlRaw": "Rapid: All Moves in 25 Min. Del. 5 Sec. /     /"
   },
   "505760": {
     "endDate": "2026-11-27",
@@ -4606,7 +4559,8 @@
     "timeControlRaw": "Standard: 90 minutes for game with 30 seconds delay from move 1"
   },
   "508012": {
-    "endDate": "2027-01-17",
+    "endDate": "2027-01-24",
+    "fetchedForStart": "2027-01-23",
     "organizer": "Lorimor, Stephen D (USA)",
     "organizerProfileId": "39957055",
     "playersRegistered": 30,
@@ -4863,13 +4817,6 @@
     "organizerProfileId": null,
     "playersRegistered": 20,
     "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1"
-  },
-  "510009": {
-    "endDate": "2026-11-17",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
-    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   },
   "510104": {
     "endDate": "2026-12-16",
@@ -5214,13 +5161,6 @@
     "playersRegistered": 30,
     "timeControlRaw": "Rapid: 12 minutes for game with 10 seconds increment from move 1"
   },
-  "510917": {
-    "endDate": "2026-11-16",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 20,
-    "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1"
-  },
   "510918": {
     "endDate": "2026-11-19",
     "organizer": null,
@@ -5311,20 +5251,6 @@
     "organizerProfileId": "150101194",
     "playersRegistered": 4,
     "timeControlRaw": "Standard: All Moves in 60 Min. Del. 30 Sec. /     /"
-  },
-  "511221": {
-    "endDate": "2026-11-25",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 14,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
-  },
-  "511222": {
-    "endDate": "2026-11-25",
-    "organizer": null,
-    "organizerProfileId": null,
-    "playersRegistered": 14,
-    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
   },
   "511223": {
     "endDate": "2026-12-01",
@@ -5465,5 +5391,405 @@
     "organizerProfileId": null,
     "playersRegistered": 24,
     "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1"
+  },
+  "511718": {
+    "endDate": "2026-11-22",
+    "fetchedForStart": "2026-11-20",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 25,
+    "timeControlRaw": "Standard: 60 minutes with 30 seconds increment from move 1"
+  },
+  "511719": {
+    "endDate": "2026-11-22",
+    "fetchedForStart": "2026-11-20",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 25,
+    "timeControlRaw": "Rapid: 15 minutes for game with 5 seconds increment from move 1"
+  },
+  "511738": {
+    "endDate": "2026-11-22",
+    "fetchedForStart": "2026-11-20",
+    "organizer": "Gaston, David (USA)",
+    "organizerProfileId": "30924103",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511739": {
+    "endDate": "2026-11-22",
+    "fetchedForStart": "2026-11-20",
+    "organizer": "Gaston, David (USA)",
+    "organizerProfileId": "30924103",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511740": {
+    "endDate": "2026-12-05",
+    "fetchedForStart": "2026-12-05",
+    "organizer": "Vigil, Eric (USA)",
+    "organizerProfileId": "30911702",
+    "playersRegistered": 30,
+    "timeControlRaw": "Rapid: All Moves in 15 Min. Del. 2 Sec. /     /"
+  },
+  "511741": {
+    "endDate": "2026-11-29",
+    "fetchedForStart": "2026-11-27",
+    "organizer": "Blakeman, Cole (USA)",
+    "organizerProfileId": "30948525",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511742": {
+    "endDate": "2027-01-04",
+    "fetchedForStart": "2027-01-01",
+    "organizer": "Panner, Glenn (USA)",
+    "organizerProfileId": "2049767",
+    "playersRegistered": 400,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511743": {
+    "endDate": "2026-12-05",
+    "fetchedForStart": "2026-12-05",
+    "organizer": "Shafer, Daniel M (USA)",
+    "organizerProfileId": "39948382",
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: All Moves in 45 Min. Del. 5 Sec. /     /"
+  },
+  "511744": {
+    "endDate": "2026-12-13",
+    "fetchedForStart": "2026-12-11",
+    "organizer": "Hoffpauir, Mike (USA)",
+    "organizerProfileId": "2065657",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1"
+  },
+  "511745": {
+    "endDate": "2026-12-13",
+    "fetchedForStart": "2026-12-11",
+    "organizer": "Hoffpauir, Mike (USA)",
+    "organizerProfileId": "2065657",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1"
+  },
+  "511746": {
+    "endDate": "2027-01-10",
+    "fetchedForStart": "2027-01-08",
+    "organizer": "Hoffpauir, Mike (USA)",
+    "organizerProfileId": "2065657",
+    "playersRegistered": 70,
+    "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1"
+  },
+  "511747": {
+    "endDate": "2027-01-10",
+    "fetchedForStart": "2027-01-08",
+    "organizer": "Hoffpauir, Mike (USA)",
+    "organizerProfileId": "2065657",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90min/40moves+30min/end+30sec increment per move starting from move 1"
+  },
+  "511749": {
+    "endDate": "2027-01-17",
+    "fetchedForStart": "2027-01-15",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511750": {
+    "endDate": "2027-01-17",
+    "fetchedForStart": "2027-01-15",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511751": {
+    "endDate": "2027-01-17",
+    "fetchedForStart": "2027-01-15",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511752": {
+    "endDate": "2027-01-16",
+    "fetchedForStart": "2027-01-16",
+    "organizer": "Vaidya, Shilpa (USA)",
+    "organizerProfileId": "39921174",
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "511753": {
+    "endDate": "2026-11-29",
+    "fetchedForStart": "2026-11-27",
+    "organizer": "Zhou, Wei (USA)",
+    "organizerProfileId": "566032784",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511754": {
+    "endDate": "2026-11-29",
+    "fetchedForStart": "2026-11-27",
+    "organizer": "Zhou, Wei (USA)",
+    "organizerProfileId": "566032784",
+    "playersRegistered": 30,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511755": {
+    "endDate": "2026-11-28",
+    "fetchedForStart": "2026-11-28",
+    "organizer": "Zhou, Wei (USA)",
+    "organizerProfileId": "566032784",
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "511756": {
+    "endDate": "2026-11-28",
+    "fetchedForStart": "2026-11-28",
+    "organizer": "Zhou, Wei (USA)",
+    "organizerProfileId": "566032784",
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "511757": {
+    "endDate": "2026-11-29",
+    "fetchedForStart": "2026-11-27",
+    "organizer": "Azhar, Salman (USA)",
+    "organizerProfileId": "2054752",
+    "playersRegistered": 40,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511758": {
+    "endDate": "2026-11-29",
+    "fetchedForStart": "2026-11-27",
+    "organizer": "Azhar, Salman (USA)",
+    "organizerProfileId": "2054752",
+    "playersRegistered": 40,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511759": {
+    "endDate": "2026-11-29",
+    "fetchedForStart": "2026-11-27",
+    "organizer": "Azhar, Salman (USA)",
+    "organizerProfileId": "2054752",
+    "playersRegistered": 40,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511762": {
+    "endDate": "2027-01-18",
+    "fetchedForStart": "2027-01-16",
+    "organizer": "Oen, Grant (USA)",
+    "organizerProfileId": "2059487",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: 110 minutes for game with 10 sec increment from move 1"
+  },
+  "511763": {
+    "endDate": "2027-01-18",
+    "fetchedForStart": "2027-01-16",
+    "organizer": "Oen, Grant (USA)",
+    "organizerProfileId": "2059487",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: All Moves in 100 Min. Incr. 10 Sec. /     /"
+  },
+  "511764": {
+    "endDate": "2027-01-18",
+    "fetchedForStart": "2027-01-16",
+    "organizer": "Oen, Grant (USA)",
+    "organizerProfileId": "2059487",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: All Moves in 100 Min. Incr. 10 Sec. /     /"
+  },
+  "511765": {
+    "endDate": "2027-01-18",
+    "fetchedForStart": "2027-01-16",
+    "organizer": "Oen, Grant (USA)",
+    "organizerProfileId": "2059487",
+    "playersRegistered": 50,
+    "timeControlRaw": "Standard: All Moves in 100 Min. Incr. 10 Sec. /     /"
+  },
+  "511766": {
+    "endDate": "2027-01-17",
+    "fetchedForStart": "2027-01-17",
+    "organizer": "Oen, Grant (USA)",
+    "organizerProfileId": "2059487",
+    "playersRegistered": 75,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "511768": {
+    "endDate": "2027-01-17",
+    "fetchedForStart": "2027-01-17",
+    "organizer": "Oen, Grant (USA)",
+    "organizerProfileId": "2059487",
+    "playersRegistered": 75,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "511771": {
+    "endDate": "2027-01-10",
+    "fetchedForStart": "2027-01-06",
+    "organizer": "Wilson, Danial A (USA)",
+    "organizerProfileId": "2091941",
+    "playersRegistered": 10,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511772": {
+    "endDate": "2027-01-10",
+    "fetchedForStart": "2027-01-06",
+    "organizer": "Wilson, Danial A (USA)",
+    "organizerProfileId": "2091941",
+    "playersRegistered": 10,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511773": {
+    "endDate": "2027-01-10",
+    "fetchedForStart": "2027-01-06",
+    "organizer": "Wilson, Danial A (USA)",
+    "organizerProfileId": "2091941",
+    "playersRegistered": 10,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511774": {
+    "endDate": "2027-01-10",
+    "fetchedForStart": "2027-01-08",
+    "organizer": "Wilson, Danial A (USA)",
+    "organizerProfileId": "2091941",
+    "playersRegistered": 10,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511777": {
+    "endDate": "2027-02-15",
+    "fetchedForStart": "2027-01-25",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511778": {
+    "endDate": "2027-03-22",
+    "fetchedForStart": "2027-02-22",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511779": {
+    "endDate": "2027-04-19",
+    "fetchedForStart": "2027-03-29",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511781": {
+    "endDate": "2027-06-21",
+    "fetchedForStart": "2027-05-24",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511782": {
+    "endDate": "2027-07-19",
+    "fetchedForStart": "2027-06-28",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511783": {
+    "endDate": "2027-08-23",
+    "fetchedForStart": "2027-07-26",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511784": {
+    "endDate": "2027-09-20",
+    "fetchedForStart": "2027-08-30",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511785": {
+    "endDate": "2027-10-18",
+    "fetchedForStart": "2027-09-27",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511786": {
+    "endDate": "2027-11-22",
+    "fetchedForStart": "2027-10-25",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511787": {
+    "endDate": "2027-12-20",
+    "fetchedForStart": "2027-11-29",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511788": {
+    "endDate": "2027-01-18",
+    "fetchedForStart": "2026-12-28",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Standard: 90 minutes with 30 second increment from move 1"
+  },
+  "511789": {
+    "endDate": "2027-05-17",
+    "fetchedForStart": "2027-05-17",
+    "organizer": "Lundy III, George W (USA)",
+    "organizerProfileId": "2075369",
+    "playersRegistered": 20,
+    "timeControlRaw": "Rapid: 10 minutes for game with 5 seconds increment from move 1"
+  },
+  "511865": {
+    "endDate": "2026-12-07",
+    "fetchedForStart": "2026-11-23",
+    "organizer": "Pearce, Tim (AUS)",
+    "organizerProfileId": "3217833",
+    "playersRegistered": 30,
+    "timeControlRaw": "Rapid: 15 minutes for game with 10 seconds increment from move 1"
+  },
+  "511872": {
+    "endDate": "2026-11-26",
+    "fetchedForStart": "2026-11-26",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 40,
+    "timeControlRaw": "Rapid: 10 minutes for game with 10 seconds increment from move 1"
+  },
+  "511873": {
+    "endDate": "2026-12-10",
+    "fetchedForStart": "2026-12-03",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 30,
+    "timeControlRaw": "Rapid: 25 minutes for game with 5 seconds increment from move 1"
+  },
+  "511874": {
+    "endDate": "2026-12-02",
+    "fetchedForStart": "2026-12-02",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 40,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
+  },
+  "511875": {
+    "endDate": "2026-11-28",
+    "fetchedForStart": "2026-11-28",
+    "organizer": null,
+    "organizerProfileId": null,
+    "playersRegistered": 20,
+    "timeControlRaw": "Blitz: 3 minutes for game with 2 seconds increment from move 1"
   }
 }
